@@ -1,0 +1,127 @@
+import { useState } from 'react';
+import { useNavigate, Link } from 'react-router-dom';
+import { swords } from '../data/swords';
+import { events, getEventStatus } from '../data/events';
+import { swordEventLinks } from '../data/links';
+import { searchSwords } from '../utils/search';
+
+export default function S1_Top() {
+  const [query, setQuery] = useState('');
+  const navigate = useNavigate();
+  
+  const results = searchSwords(query);
+  
+  // Find ongoing swords
+  const ongoingLinks = swordEventLinks.filter(link => {
+    const ev = events.find(e => e.id === link.event_id);
+    return ev && getEventStatus(ev) === 'ongoing';
+  });
+  
+  const ongoingSwords = ongoingLinks.map(link => {
+    const sword = swords.find(s => s.id === link.sword_id);
+    const ev = events.find(e => e.id === link.event_id);
+    return { sword, ev };
+  }).filter(item => item.sword && item.ev);
+  
+  // Find upcoming/ongoing events
+  const upcomingEvents = events.filter(e => getEventStatus(e) === 'upcoming' || getEventStatus(e) === 'ongoing');
+
+  return (
+    <div className="flex flex-col gap-12 pt-4">
+      {/* Hero & Search */}
+      <section className="bg-gradient-to-br from-brand-text via-[#2a2725] to-brand-primary text-brand-bg -mt-8 -mx-4 sm:-mx-8 p-8 sm:p-16 pb-20 flex flex-col items-center justify-center text-center relative overflow-hidden shadow-inner">
+        {/* Abstract background effect */}
+        <div className="absolute inset-0 opacity-10 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-white via-transparent to-transparent"></div>
+        
+        <h1 className="font-serif text-3xl sm:text-5xl mb-10 relative z-10 font-bold tracking-widest drop-shadow-lg">推しの刀に、会いに行こう。</h1>
+        
+        <div className="relative w-full max-w-xl z-20">
+          <div className="flex items-center bg-brand-bg text-brand-text rounded-md px-4 py-3 shadow-[0_4px_20px_rgba(0,0,0,0.5)] border border-brand-gold/30 focus-within:border-brand-gold transition-colors">
+            <span className="text-xl mr-3 opacity-60">🔍</span>
+            <input 
+              type="text" 
+              placeholder="刀の名前・刀工の銘で検索（例：鬼切丸／安綱）"
+              className="flex-1 bg-transparent outline-none font-sans text-lg placeholder:text-brand-text/40"
+              value={query}
+              onChange={e => setQuery(e.target.value)}
+            />
+          </div>
+          
+          {query && results.length > 0 && (
+            <div className="absolute top-full left-0 w-full mt-2 bg-brand-bg text-brand-text rounded-md shadow-2xl overflow-hidden z-30 text-left border border-brand-primary/20 max-h-80 overflow-y-auto">
+              {results.slice(0, 8).map(sword => (
+                <div 
+                  key={sword.id} 
+                  className="px-5 py-4 hover:bg-brand-primary/10 cursor-pointer border-b border-black/5 last:border-0 transition-colors"
+                  onClick={() => navigate(`/sword/${sword.id}`)}
+                >
+                  <div className="font-serif font-bold text-lg">{sword.name}</div>
+                  <div className="text-sm opacity-70 mt-1">刀工: {sword.smith} ({sword.school})</div>
+                </div>
+              ))}
+            </div>
+          )}
+        </div>
+      </section>
+
+      {/* いま会える刀 */}
+      <section className="px-4 sm:px-0">
+        <h2 className="font-serif text-2xl font-bold mb-6 flex items-center gap-3 border-b border-brand-primary/20 pb-3">
+          <span className="text-brand-accent text-2xl drop-shadow">⚔</span> いま会える刀
+        </h2>
+        <div className="flex overflow-x-auto gap-5 pb-6 pt-2 px-2 -mx-2 snap-x hide-scrollbar">
+          {ongoingSwords.map(({ sword, ev }) => (
+            <Link to={`/sword/${sword!.id}`} key={sword!.id} className="min-w-[260px] w-[260px] bg-white rounded-sm shadow-[0_4px_10px_rgba(0,0,0,0.08)] overflow-hidden snap-start hover:-translate-y-1 hover:shadow-xl transition-all border border-brand-text/5 group">
+              <div className="h-44 bg-brand-text/5 relative overflow-hidden">
+                {sword!.image_source_url !== '不明' ? (
+                  <img src={`/src/assets/swords/${sword!.id}.jpg`} alt={sword!.name} className="w-full h-full object-cover opacity-90 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700" />
+                ) : (
+                  <div className="w-full h-full flex items-center justify-center text-6xl opacity-10 bg-gradient-to-br from-black/10 to-transparent">🗡️</div>
+                )}
+                <div className="absolute top-3 left-3 bg-status-ongoing text-white text-xs font-bold px-3 py-1.5 shadow-md">
+                  🟢 {ev!.venue}で展示中
+                </div>
+              </div>
+              <div className="p-5">
+                <h3 className="font-serif font-bold text-lg leading-tight mb-3 line-clamp-2">{sword!.name}</h3>
+                <p className="text-xs text-brand-text/70 line-clamp-1">{ev!.title}</p>
+                <p className="text-xs font-bold text-brand-primary mt-1">〜{ev!.end_date.replace(/-/g, '/')}</p>
+              </div>
+            </Link>
+          ))}
+        </div>
+      </section>
+
+      {/* 開催予定の展覧会 */}
+      <section className="px-4 sm:px-0">
+        <h2 className="font-serif text-2xl font-bold mb-6 flex items-center gap-3 border-b border-brand-primary/20 pb-3">
+          <span className="text-brand-primary text-2xl drop-shadow">📅</span> 開催予定の展覧会
+        </h2>
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 sm:gap-6">
+          {upcomingEvents.map(ev => {
+            const isPdf = ev.flyer_image_url?.endsWith('.pdf');
+            return (
+            <Link to={`/event/${ev.id}`} key={ev.id} className="group relative aspect-[1/1.4] bg-brand-text/5 rounded-sm shadow-md overflow-hidden border border-black/10 hover:shadow-lg transition-shadow">
+              {ev.flyer_image_url && !isPdf ? (
+                <img src={`/src/assets/flyers/${ev.id}.jpg`} alt={ev.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" onError={(e) => { e.currentTarget.style.display = 'none'; }} />
+              ) : (
+                <div className="w-full h-full flex flex-col items-center justify-center p-4 bg-brand-bg border-4 border-double border-brand-text/10">
+                   <div className="text-4xl opacity-20 mb-2">📜</div>
+                   <div className="text-center font-serif text-sm opacity-60">チラシ準備中</div>
+                </div>
+              )}
+              <div className={`absolute inset-0 flex flex-col justify-end p-4 bg-gradient-to-t from-brand-text/90 via-brand-text/40 to-transparent ${ev.flyer_image_url && !isPdf ? 'opacity-0 group-hover:opacity-100 transition-opacity duration-300' : ''}`}>
+                <h3 className="text-white font-bold text-sm leading-snug drop-shadow-md">{ev.title}</h3>
+                <p className="text-brand-gold text-xs mt-2 drop-shadow-md">{ev.venue}</p>
+              </div>
+            </Link>
+            );
+          })}
+        </div>
+      </section>
+      
+      {/* 隠しスタイル: スクロールバー非表示 */}
+      <style>{`.hide-scrollbar::-webkit-scrollbar { display: none; } .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }`}</style>
+    </div>
+  );
+}
