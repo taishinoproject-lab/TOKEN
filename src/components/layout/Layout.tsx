@@ -36,6 +36,7 @@ export default function Layout({ children }: { children: ReactNode }) {
     <div className="min-h-screen flex flex-col font-sans">
       <header className="bg-brand-primary text-brand-bg px-4 py-3 flex justify-between items-center shadow-md sticky top-0 z-50">
         <div className="flex items-center gap-2" onClick={() => navigate('/')} style={{cursor: 'pointer'}}>
+          <img src="/logo.jpg" alt="訪剣 Logo" className="w-8 h-8 rounded-md object-cover" />
           <span className="font-serif text-xl tracking-widest font-bold">訪剣 −TOKEN−</span>
         </div>
         <div className="flex gap-4 items-center">

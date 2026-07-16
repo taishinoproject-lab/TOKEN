@@ -100,7 +100,7 @@ export default function S2_Sword() {
               
               {ongoingEvent.flyer_image_url && !ongoingEvent.flyer_image_url.endsWith('.pdf') && (
                 <Link to={`/event/${ongoingEvent.id}`} className="block w-40 sm:w-48 shadow-lg hover:scale-105 transition-transform border border-white/20 rounded">
-                  <img src={`/src/assets/flyers/${ongoingEvent.id}.jpg`} alt="チラシ" className="w-full h-auto object-cover rounded" />
+                  <img src={ongoingEvent.flyer_image_url ?? undefined} alt="チラシ" className="w-full h-auto object-cover rounded" />
                 </Link>
               )}
               {ongoingEvent.flyer_image_url?.endsWith('.pdf') && (

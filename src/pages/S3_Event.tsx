@@ -42,7 +42,7 @@ export default function S3_Event() {
       <section className="bg-white p-5 rounded-sm shadow-md border border-brand-primary/10 flex flex-col md:flex-row gap-6">
         <div className="w-full md:w-2/5 max-w-sm mx-auto bg-brand-bg relative overflow-hidden rounded border border-black/5 shadow-inner">
           {ev.flyer_image_url && !ev.flyer_image_url.endsWith('.pdf') ? (
-            <img src={`/src/assets/flyers/${ev.id}.jpg`} alt={ev.title} className="w-full h-auto" />
+            <img src={ev.flyer_image_url ?? undefined} alt={ev.title} className="w-full h-auto" />
           ) : (
             <div className="w-full aspect-[1/1.4] flex flex-col items-center justify-center p-8 bg-brand-bg border-4 border-double border-brand-text/10">
               <div className="text-5xl opacity-20 mb-4">📜</div>
