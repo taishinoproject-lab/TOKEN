@@ -100,7 +100,7 @@ export default function S1_Top() {
             return (
             <Link to={`/event/${ev.id}`} key={ev.id} className="group relative aspect-[1/1.4] bg-brand-text/5 rounded-sm shadow-md overflow-hidden border border-black/10 hover:shadow-lg transition-shadow">
               {ev.flyer_image_url && !isPdf ? (
-                <img src={`/src/assets/flyers/${ev.id}.jpg`} alt={ev.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" onError={(e) => { e.currentTarget.style.display = 'none'; }} />
+                <img src={ev.flyer_image_url ?? undefined} alt={ev.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" onError={(e) => { e.currentTarget.style.display = 'none'; }} />
               ) : (
                 <div className="w-full h-full flex flex-col items-center justify-center p-4 bg-brand-bg border-4 border-double border-brand-text/10">
                    <div className="text-4xl opacity-20 mb-2">📜</div>
