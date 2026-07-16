@@ -4,6 +4,7 @@ import { swords } from '../data/swords';
 import { events, getEventStatus } from '../data/events';
 import { swordEventLinks } from '../data/links';
 import { useFollow } from '../hooks/useFollow';
+import ColbaseImage from '../components/ui/ColbaseImage';
 
 export default function S2_Sword() {
   const { id } = useParams<{ id: string }>();
@@ -44,13 +45,11 @@ export default function S2_Sword() {
       {/* Basic Info */}
       <section className="bg-white p-5 rounded-sm shadow-md border border-brand-primary/10 flex flex-col md:flex-row gap-6 relative">
         <div className="w-full md:w-1/3 aspect-square bg-brand-bg relative overflow-hidden rounded border border-black/5">
-          {sword.image_source_url !== '不明' ? (
-            <img src={`/src/assets/swords/${sword.id}.jpg`} alt={sword.name} className="w-full h-full object-cover" />
-          ) : (
-            <div className="w-full h-full flex items-center justify-center text-7xl opacity-10">🗡️</div>
-          )}
+          <ColbaseImage id={sword.id} keyword={sword.name} alt={sword.name} />
           <div className="absolute bottom-0 left-0 w-full bg-black/60 text-white/80 text-[10px] p-1 text-center">
-            {sword.image_source_url !== '不明' ? '画像出典：ColBase' : '画像提供：ー'}
+            {sword.image_source_url !== '不明'
+              ? `画像出典：${sword.image_source_url.includes('colbase.nich.go.jp') ? 'ColBase' : '真田宝物館'}`
+              : '画像提供：ー'}
           </div>
         </div>
         

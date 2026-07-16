@@ -4,6 +4,7 @@ import { swords } from '../data/swords';
 import { events, getEventStatus } from '../data/events';
 import { swordEventLinks } from '../data/links';
 import { searchSwords } from '../utils/search';
+import ColbaseImage from '../components/ui/ColbaseImage';
 
 export default function S1_Top() {
   const [query, setQuery] = useState('');
@@ -73,11 +74,7 @@ export default function S1_Top() {
           {ongoingSwords.map(({ sword, ev }) => (
             <Link to={`/sword/${sword!.id}`} key={sword!.id} className="min-w-[260px] w-[260px] bg-white rounded-sm shadow-[0_4px_10px_rgba(0,0,0,0.08)] overflow-hidden snap-start hover:-translate-y-1 hover:shadow-xl transition-all border border-brand-text/5 group">
               <div className="h-44 bg-brand-text/5 relative overflow-hidden">
-                {sword!.image_source_url !== '不明' ? (
-                  <img src={`/src/assets/swords/${sword!.id}.jpg`} alt={sword!.name} className="w-full h-full object-cover opacity-90 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700" />
-                ) : (
-                  <div className="w-full h-full flex items-center justify-center text-6xl opacity-10 bg-gradient-to-br from-black/10 to-transparent">🗡️</div>
-                )}
+                <ColbaseImage id={sword!.id} keyword={sword!.name} alt={sword!.name} className="opacity-90 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700" />
                 <div className="absolute top-3 left-3 bg-status-ongoing text-white text-xs font-bold px-3 py-1.5 shadow-md">
                   🟢 {ev!.venue}で展示中
                 </div>

@@ -4,6 +4,7 @@ import { useVisits } from '../hooks/useVisits';
 import { events } from '../data/events';
 import { venues } from '../data/venues';
 import { DEMO_TODAY, USER_INFO } from '../data/constants';
+import MapCanvas from '../components/ui/MapCanvas';
 
 export default function S4_Map() {
   const { visits, addVisit } = useVisits();
@@ -65,64 +66,67 @@ export default function S4_Map() {
 
       {/* Map */}
       <section className="bg-white p-2 rounded shadow-md border border-black/10 relative">
-        <div className="relative w-full aspect-[4/5] sm:aspect-[3/2] md:aspect-[2/1] bg-brand-bg overflow-hidden rounded shadow-inner">
-          <img src="/src/assets/map_bg.png" className="w-full h-full object-cover mix-blend-multiply opacity-80" alt="古地図" />
-          
-          {/* Want Pins (Light color) */}
-          {wantedEvents.map(ev => {
-            if (visitedEventIds.includes(ev.id)) return null; // Don't show want pin if visited
-            const coords = venues[ev.venue];
-            if (!coords) return null;
-            return (
-              <div 
-                key={`want-${ev.id}`}
-                className="absolute flex flex-col items-center cursor-pointer transition-transform hover:scale-110"
-                style={{ left: `${coords.x}%`, top: `${coords.y}%`, transform: 'translate(-50%, -100%)' }}
-                title={ev.title}
-              >
-                <div className="text-3xl drop-shadow opacity-50">📍</div>
-                <div className="bg-white/80 px-1 rounded text-[10px] font-bold text-brand-text/50 shadow mt-0.5 whitespace-nowrap">
-                  {ev.city}
-                </div>
-              </div>
-            );
-          })}
-
-          {/* Visited Pins (Accent color) */}
-          {visits.map(v => {
-            const ev = events.find(e => e.id === v.eventId);
-            if (!ev) return null;
-            const coords = venues[ev.venue];
-            if (!coords) return null;
-            const isActive = activePin === ev.id;
-            
-            return (
-              <div 
-                key={`visit-${v.id}`}
-                className={`absolute flex flex-col items-center cursor-pointer transition-all z-10 ${isActive ? 'z-20 scale-110' : 'hover:scale-110'}`}
-                style={{ left: `${coords.x}%`, top: `${coords.y}%`, transform: 'translate(-50%, -100%)' }}
-                onClick={() => setActivePin(isActive ? null : ev.id)}
-              >
-                <div className="text-4xl drop-shadow-md animate-bounce-once" style={{ color: 'var(--color-brand-accent)' }}>📍</div>
-                <div className="bg-brand-accent px-1.5 rounded-sm text-xs font-bold text-white shadow-md mt-0.5 whitespace-nowrap border border-white/50">
-                  {ev.city}
-                </div>
-                
-                {/* Popover Bubble */}
-                {isActive && (
-                  <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-48 sm:w-56 bg-white rounded shadow-xl border border-brand-primary/20 p-2 cursor-default" onClick={e => e.stopPropagation()}>
-                    <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 border-8 border-transparent border-t-white"></div>
-                    <img src={`/src/assets/visit_presets/preset_${v.photoIdx}.png`} alt="記録写真" className="w-full h-24 object-cover rounded mb-2" />
-                    <p className="text-xs text-brand-text/80 mb-2 line-clamp-3">{v.text}</p>
-                    <Link to={`/event/${ev.id}`} className="block text-center text-xs bg-brand-bg border border-brand-primary/20 text-brand-primary py-1 rounded hover:bg-brand-primary hover:text-white transition-colors">
-                      展覧会ページへ
-                    </Link>
+        <MapCanvas interactive className="w-full aspect-square sm:aspect-[3/2] md:aspect-[2/1] bg-brand-bg rounded shadow-inner">
+          {({ scale }) => (
+            <>
+              {/* Want Pins (Light color) */}
+              {wantedEvents.map(ev => {
+                if (visitedEventIds.includes(ev.id)) return null; // Don't show want pin if visited
+                const coords = venues[ev.venue];
+                if (!coords) return null;
+                return (
+                  <div key={`want-${ev.id}`} className="absolute" style={{ left: `${coords.x}%`, top: `${coords.y}%` }} title={ev.title}>
+                    <div
+                      className="flex flex-col items-center cursor-pointer transition-transform hover:scale-110"
+                      style={{ transform: `translate(-50%, -100%) scale(${1 / scale})`, transformOrigin: '50% 100%' }}
+                    >
+                      <div className="text-3xl drop-shadow opacity-50">📍</div>
+                      <div className="bg-white/80 px-1 rounded text-[10px] font-bold text-brand-text/50 shadow mt-0.5 whitespace-nowrap">
+                        {ev.city}
+                      </div>
+                    </div>
                   </div>
-                )}
-              </div>
-            );
-          })}
-        </div>
+                );
+              })}
+
+              {/* Visited Pins (Accent color) */}
+              {visits.map(v => {
+                const ev = events.find(e => e.id === v.eventId);
+                if (!ev) return null;
+                const coords = venues[ev.venue];
+                if (!coords) return null;
+                const isActive = activePin === ev.id;
+
+                return (
+                  <div key={`visit-${v.id}`} className={`absolute ${isActive ? 'z-20' : 'z-10'}`} style={{ left: `${coords.x}%`, top: `${coords.y}%` }}>
+                    <div
+                      className={`flex flex-col items-center cursor-pointer transition-transform ${isActive ? 'scale-110' : 'hover:scale-110'}`}
+                      style={{ transform: `translate(-50%, -100%) scale(${1 / scale})`, transformOrigin: '50% 100%' }}
+                      onClick={() => setActivePin(isActive ? null : ev.id)}
+                    >
+                      <div className="text-4xl drop-shadow-md animate-bounce-once">📍</div>
+                      <div className="bg-brand-accent px-1.5 rounded-sm text-xs font-bold text-white shadow-md mt-0.5 whitespace-nowrap border border-white/50">
+                        {ev.city}
+                      </div>
+
+                      {/* Popover Bubble */}
+                      {isActive && (
+                        <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-48 sm:w-56 bg-white rounded shadow-xl border border-brand-primary/20 p-2 cursor-default" onClick={e => e.stopPropagation()}>
+                          <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 border-8 border-transparent border-t-white"></div>
+                          <img src={`/src/assets/visit_presets/preset_${v.photoIdx}.png`} alt="記録写真" className="w-full h-24 object-cover rounded mb-2" />
+                          <p className="text-xs text-brand-text/80 mb-2 line-clamp-3">{v.text}</p>
+                          <Link to={`/event/${ev.id}`} className="block text-center text-xs bg-brand-bg border border-brand-primary/20 text-brand-primary py-1 rounded hover:bg-brand-primary hover:text-white transition-colors">
+                            展覧会ページへ
+                          </Link>
+                        </div>
+                      )}
+                    </div>
+                  </div>
+                );
+              })}
+            </>
+          )}
+        </MapCanvas>
       </section>
 
       {/* History List */}
