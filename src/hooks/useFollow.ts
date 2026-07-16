@@ -14,10 +14,14 @@ export const useFollow = (swordId: string) => {
       const newFollows = follows.filter((id: string) => id !== swordId);
       localStorage.setItem('token_follows', JSON.stringify(newFollows));
       setIsFollowing(false);
+      window.dispatchEvent(new Event('token-storage-change'));
+      window.dispatchEvent(new CustomEvent('token-toast', { detail: 'フォローを解除しました' }));
     } else {
       follows.push(swordId);
       localStorage.setItem('token_follows', JSON.stringify(follows));
       setIsFollowing(true);
+      window.dispatchEvent(new Event('token-storage-change'));
+      window.dispatchEvent(new CustomEvent('token-toast', { detail: '刀剣をフォローしました！' }));
     }
   };
 

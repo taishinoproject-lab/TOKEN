@@ -26,3 +26,20 @@ body {
 h1, h2, h3, h4, h5, h6, .font-serif {
   font-family: var(--font-serif);
 }
+
+@keyframes slide-up-toast {
+  0% { transform: translate(-50%, 100%); opacity: 0; }
+  100% { transform: translate(-50%, 0); opacity: 1; }
+}
+.animate-toast {
+  animation: slide-up-toast 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes pulse-once {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.4); }
+  100% { transform: scale(1); }
+}
+.animate-pulse-once {
+  animation: pulse-once 0.3s ease-out;
+}

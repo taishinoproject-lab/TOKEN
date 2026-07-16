@@ -14,10 +14,14 @@ export const useWantToGo = (eventId: string, initialCount: number) => {
       const newWants = wants.filter((id: string) => id !== eventId);
       localStorage.setItem('token_wants', JSON.stringify(newWants));
       setIsWanted(false);
+      window.dispatchEvent(new Event('token-storage-change'));
+      window.dispatchEvent(new CustomEvent('token-toast', { detail: '「行きたい」を取り消しました' }));
     } else {
       wants.push(eventId);
       localStorage.setItem('token_wants', JSON.stringify(wants));
       setIsWanted(true);
+      window.dispatchEvent(new Event('token-storage-change'));
+      window.dispatchEvent(new CustomEvent('token-toast', { detail: '展覧会を「行きたい」に登録しました！' }));
     }
   };
 

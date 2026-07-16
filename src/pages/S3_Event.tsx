@@ -4,6 +4,7 @@ import { events, getEventStatus } from '../data/events';
 import { swords } from '../data/swords';
 import { useWantToGo } from '../hooks/useWantToGo';
 import { venues } from '../data/venues';
+import MapCanvas from '../components/ui/MapCanvas';
 
 const dummyComments = [
   { id: 1, author: "刀剣ファンA", text: "刃文がとても美しかったです。単眼鏡必須です！", date: "2026/05/01" },
@@ -82,20 +83,18 @@ export default function S3_Event() {
         <h2 className="font-serif text-lg font-bold mb-4 flex items-center gap-2 border-b border-black/10 pb-2">
           <span>🗾</span> 開催地
         </h2>
-        <div className="relative w-full aspect-[2/1] sm:aspect-[3/1] bg-brand-bg rounded overflow-hidden shadow-inner border border-black/10">
-          <img src="/src/assets/map_bg.png" className="w-full h-full object-cover opacity-60 mix-blend-multiply" alt="Map" />
-          {venueCoords && (
-            <div 
-              className="absolute flex flex-col items-center"
-              style={{ left: `${venueCoords.x}%`, top: `${venueCoords.y}%`, transform: 'translate(-50%, -100%)' }}
-            >
-              <div className="text-4xl drop-shadow-md animate-bounce" style={{ color: 'var(--color-brand-accent)', textShadow: '0 2px 4px rgba(0,0,0,0.5)' }}>📍</div>
-              <div className="bg-brand-bg px-3 py-1 rounded text-sm font-bold border-2 border-brand-accent text-brand-text shadow-lg mt-1 whitespace-nowrap">
-                {ev.venue.split(' ')[0]}
+        <MapCanvas className="w-full max-w-md mx-auto aspect-square bg-brand-bg rounded shadow-inner border border-black/10" imgClassName="opacity-60 mix-blend-multiply">
+          {() => venueCoords && (
+            <div className="absolute" style={{ left: `${venueCoords.x}%`, top: `${venueCoords.y}%` }}>
+              <div className="flex flex-col items-center" style={{ transform: 'translate(-50%, -100%)' }}>
+                <div className="text-4xl drop-shadow-md animate-bounce" style={{ textShadow: '0 2px 4px rgba(0,0,0,0.5)' }}>📍</div>
+                <div className="bg-brand-bg px-3 py-1 rounded text-sm font-bold border-2 border-brand-accent text-brand-text shadow-lg mt-1 whitespace-nowrap">
+                  {ev.venue.split(' ')[0]}
+                </div>
               </div>
             </div>
           )}
-        </div>
+        </MapCanvas>
       </section>
 
       {/* Exhibit Swords */}
