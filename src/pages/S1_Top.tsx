@@ -18,12 +18,64 @@ export default function S1_Top() {
     return ev && getEventStatus(ev) === 'ongoing';
   });
   
-  const ongoingSwords = ongoingLinks.map(link => {
+  const rawOngoingSwords = ongoingLinks.map(link => {
     const sword = swords.find(s => s.id === link.sword_id);
     const ev = events.find(e => e.id === link.event_id);
     return { sword, ev };
-  }).filter(item => item.sword && item.ev);
+  }).filter(item => item.sword && item.ev) as { sword: typeof swords[0], ev: typeof events[0] }[];
+
+  // 1. Group by sword name/character to merge duplicates
+  const groupedSwordsMap = new Map<string, { swords: typeof swords[0][], evs: typeof events[0][] }>();
   
+  for (const item of rawOngoingSwords) {
+    let groupKey = item.sword.name;
+    // Normalize names to merge the same character/sword
+    if (groupKey.includes('鬼切丸')) groupKey = '鬼切丸';
+    else if (groupKey.includes('堀川国広') || groupKey.includes('信濃守国広造') || groupKey.includes('國廣')) groupKey = '堀川国広';
+    else if (groupKey.includes('水心子正秀')) groupKey = '水心子正秀';
+    else if (groupKey.includes('大包平')) groupKey = '大包平';
+    else if (groupKey.includes('三日月宗近')) groupKey = '三日月宗近';
+    else if (groupKey.includes('大典太')) groupKey = '大典太光世';
+
+    if (!groupedSwordsMap.has(groupKey)) {
+      groupedSwordsMap.set(groupKey, { swords: [], evs: [] });
+    }
+    groupedSwordsMap.get(groupKey)!.swords.push(item.sword);
+    
+    // Avoid duplicate events
+    if (!groupedSwordsMap.get(groupKey)!.evs.find(e => e.id === item.ev.id)) {
+      groupedSwordsMap.get(groupKey)!.evs.push(item.ev);
+    }
+  }
+
+  // 2. Select the best sword to represent the group
+  const ongoingSwords = Array.from(groupedSwordsMap.values()).map(group => {
+    // Prioritize high-resolution images (those with specific URLs or not '不明')
+    const bestSword = group.swords.sort((a, b) => {
+      const isGoodA = a.image_source_url && a.image_source_url !== '不明' && a.image_source_url !== '';
+      const isGoodB = b.image_source_url && b.image_source_url !== '不明' && b.image_source_url !== '';
+      if (isGoodA && !isGoodB) return -1;
+      if (!isGoodA && isGoodB) return 1;
+      return 0; // fallback
+    })[0];
+    
+    return { sword: bestSword, evs: group.evs };
+  });
+
+  // 3. Sort: Put prioritized swords first in strict order
+  const PRIORITY_KEYWORDS = ['鬼切丸', '堀川国広', '水心子正秀', '大包平', '三日月宗近'];
+  
+  const getPriorityIndex = (sword: typeof swords[0]) => {
+    const index = PRIORITY_KEYWORDS.findIndex(k => sword.name.includes(k) || sword.smith.includes(k));
+    return index !== -1 ? index : PRIORITY_KEYWORDS.length;
+  };
+
+  ongoingSwords.sort((a, b) => {
+    const priorityA = getPriorityIndex(a.sword);
+    const priorityB = getPriorityIndex(b.sword);
+    return priorityA - priorityB;
+  });
+
   // Find upcoming/ongoing events
   const upcomingEvents = events.filter(e => getEventStatus(e) === 'upcoming' || getEventStatus(e) === 'ongoing');
 
@@ -71,18 +123,18 @@ export default function S1_Top() {
           <span className="text-brand-accent text-2xl drop-shadow">⚔</span> いま会える刀
         </h2>
         <div className="flex overflow-x-auto gap-5 pb-6 pt-2 px-2 -mx-2 snap-x hide-scrollbar">
-          {ongoingSwords.map(({ sword, ev }) => (
-            <Link to={`/sword/${sword!.id}`} key={sword!.id} className="min-w-[260px] w-[260px] bg-white rounded-sm shadow-[0_4px_10px_rgba(0,0,0,0.08)] overflow-hidden snap-start hover:-translate-y-1 hover:shadow-xl transition-all border border-brand-text/5 group">
+          {ongoingSwords.map(({ sword, evs }) => (
+            <Link to={`/sword/${sword.id}`} key={sword.id} className="min-w-[260px] w-[260px] bg-white rounded-sm shadow-[0_4px_10px_rgba(0,0,0,0.08)] overflow-hidden snap-start hover:-translate-y-1 hover:shadow-xl transition-all border border-brand-text/5 group">
               <div className="h-44 bg-brand-text/5 relative overflow-hidden">
-                <ColbaseImage id={sword!.id} keyword={sword!.name} alt={sword!.name} className="opacity-90 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700" />
+                <ColbaseImage id={sword.id} keyword={sword.name} alt={sword.name} className="opacity-90 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700" />
                 <div className="absolute top-3 left-3 bg-status-ongoing text-white text-xs font-bold px-3 py-1.5 shadow-md">
-                  🟢 {ev!.venue}で展示中
+                  🟢 {evs.map(e => e.venue).join('・')}で展示中
                 </div>
               </div>
               <div className="p-5">
-                <h3 className="font-serif font-bold text-lg leading-tight mb-3 line-clamp-2">{sword!.name}</h3>
-                <p className="text-xs text-brand-text/70 line-clamp-1">{ev!.title}</p>
-                <p className="text-xs font-bold text-brand-primary mt-1">〜{ev!.end_date.replace(/-/g, '/')}</p>
+                <h3 className="font-serif font-bold text-lg leading-tight mb-3 line-clamp-2">{sword.name}</h3>
+                <p className="text-xs text-brand-text/70 line-clamp-1">{evs.map(e => e.title).join(' / ')}</p>
+                <p className="text-xs font-bold text-brand-primary mt-1">〜{evs[0].end_date.replace(/-/g, '/')}</p>
               </div>
             </Link>
           ))}

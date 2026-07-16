@@ -72,8 +72,8 @@ export const swords: Sword[] = [
     "provenance": "源氏重代の宝刀→新田義貞→斯波高経→最上家→北野天満宮",
     "story": "渡辺綱が一条戻橋で鬼の腕を切った伝説から鬼切。試し斬りで髭まで切れたため髭切とも。",
     "media_appearance": "刀剣乱舞",
-    "image_source_url": "不明",
-    "image_license": "不明",
+    "image_source_url": "https://kitanotenmangu.or.jp/story/%E5%8C%97%E9%87%8E%E5%A4%A9%E6%BA%80%E5%AE%AE%E3%81%A8%E5%AE%9D%E5%88%80/",
+    "image_license": "北野天満宮公式サイト掲載画像（1000x278が最大解像度、他所蔵館画像より低解像度）",
     "confidence": "事実"
   },
   {
@@ -110,8 +110,8 @@ export const swords: Sword[] = [
     "provenance": "日蓮→行方不明→杉原祥造が再発見→本興寺",
     "story": "日蓮が護身用に贈られ、柄に数珠を掛け破邪顕正の剣とした。天下五剣の一つ。",
     "media_appearance": "刀剣乱舞",
-    "image_source_url": "不明",
-    "image_license": "不明",
+    "image_source_url": "https://www.city.amagasaki.hyogo.jp/manabu/bunkazai_0/1028308/1028310/1028861.html",
+    "image_license": "尼崎市公式サイト掲載画像（642x411が最大解像度）",
     "confidence": "事実"
   },
   {
@@ -167,8 +167,8 @@ export const swords: Sword[] = [
     "provenance": "高倉健→遺族から坂城町へ寄贈→鉄の展示館",
     "story": "俳優・高倉健の愛蔵品。宮入行平一門との親交が縁で坂城町へ寄贈。",
     "media_appearance": "なし",
-    "image_source_url": "不明",
-    "image_license": "不明",
+    "image_source_url": "https://www.tetsu-museum.info/?s=%E9%AB%98%E5%80%89%E5%81%A5",
+    "image_license": "鉄の展示館公式サイト掲載画像（茎・銘部分のクローズアップのみ、全身像なし）",
     "confidence": "推定"
   },
   {
