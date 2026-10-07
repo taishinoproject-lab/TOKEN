@@ -1,0 +1,34 @@
+---
+import type { Source } from "../lib/schema";
+import { formatFullDate } from "../lib/date";
+
+interface Props {
+  sources: Source[];
+  verifiedAt?: string;
+  confidence?: "confirmed" | "unverified";
+}
+
+const { sources, verifiedAt, confidence } = Astro.props;
+---
+
+<section class="mt-8 border-t border-brand-text/20 pt-4 text-sm">
+  <h2 class="mb-2 text-base">出典</h2>
+  {confidence === "unverified" && <p class="mb-2 font-bold text-brand-accent">要確認：この情報は未確認です。</p>}
+  {verifiedAt && <p class="mb-2">最終確認日：{formatFullDate(verifiedAt)}</p>}
+  {
+    sources.length === 0 ? (
+      <p>出典は登録されていません。</p>
+    ) : (
+      <ul class="list-disc pl-5">
+        {sources.map((s) => (
+          <li>
+            <a href={s.url} class="underline" rel="noopener noreferrer" target="_blank">
+              {s.title ?? s.url}
+            </a>
+            （取得日：{formatFullDate(s.retrieved_at)}）
+          </li>
+        ))}
+      </ul>
+    )
+  }
+</section>

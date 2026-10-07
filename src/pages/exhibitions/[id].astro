@@ -1,0 +1,105 @@
+---
+import type { GetStaticPaths } from "astro";
+import { getCollection } from "astro:content";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Sources from "../../components/Sources.astro";
+import ExhibitionStatusLabel from "../../components/ExhibitionStatusLabel.tsx";
+import { swordDisplayName } from "../../lib/display-name";
+import { formatFullDate, todayJst } from "../../lib/date";
+
+export const getStaticPaths = (async () => {
+  const exhibitions = await getCollection("exhibitions");
+  return exhibitions.map((entry) => ({ params: { id: entry.id }, props: { exhibition: entry.data } }));
+}) satisfies GetStaticPaths;
+
+const { exhibition: ex } = Astro.props;
+const smiths = (await getCollection("smiths")).map((e) => e.data);
+const swords = (await getCollection("swords")).map((e) => e.data);
+const venues = (await getCollection("venues")).map((e) => e.data);
+const venue = venues.find((v) => v.id === ex.venue_id);
+
+const exhibits = ex.exhibits.map((exhibit) => {
+  const sword = swords.find((s) => s.id === exhibit.sword_id);
+  // 刀匠は、出品物に直接付いたものを優先し、なければ刀剣の帰属から取る
+  const smithIds = exhibit.smith_id ? [exhibit.smith_id] : (sword?.attributions.map((a) => a.smith_id) ?? []);
+  return {
+    exhibit,
+    sword,
+    swordName: sword ? swordDisplayName(sword, smiths).heading : undefined,
+    smiths: smithIds.map((id) => smiths.find((s) => s.id === id)).filter((s) => s !== undefined),
+  };
+});
+---
+
+<BaseLayout title={ex.title}>
+  <h1 class="text-2xl">{ex.title}</h1>
+  <p class="mb-4">
+    <ExhibitionStatusLabel client:load exhibition={ex} buildToday={todayJst()} />
+    {formatFullDate(ex.start_date)}〜{formatFullDate(ex.end_date)}
+  </p>
+  {ex.confidence === "unverified" && <p class="mb-4 font-bold text-brand-accent">要確認</p>}
+
+  <dl class="grid grid-cols-[auto_1fr] gap-x-4 gap-y-1">
+    <dt>会場</dt>
+    <dd>
+      {venue ? <a href={`/venues/${venue.id}`} class="underline">{venue.name}</a> : ex.venue_id}
+      {ex.room && `　${ex.room}`}
+    </dd>
+    {ex.admission && <><dt>観覧料</dt><dd>{ex.admission}</dd></>}
+  </dl>
+
+  <ul class="mt-4 list-disc pl-5">
+    <li><a href={ex.official_url} class="underline" rel="noopener noreferrer" target="_blank">公式ページ（外部サイト）</a></li>
+    {ex.flyer_url && <li><a href={ex.flyer_url} class="underline" rel="noopener noreferrer" target="_blank">チラシ（外部サイト）</a></li>}
+    {ex.list_url && <li><a href={ex.list_url} class="underline" rel="noopener noreferrer" target="_blank">出品目録（外部サイト）</a></li>}
+  </ul>
+
+  {
+    ex.periods.length > 0 && (
+      <section class="mt-6">
+        <h2 class="mb-2 text-lg">展示期間</h2>
+        <ul class="list-disc pl-5">
+          {ex.periods.map((p) => (
+            <li>{p.id}：{formatFullDate(p.start_date)}〜{formatFullDate(p.end_date)}</li>
+          ))}
+        </ul>
+      </section>
+    )
+  }
+
+  <section class="mt-6">
+    <h2 class="mb-2 text-lg">出品リスト</h2>
+    {
+      exhibits.length === 0 ? (
+        <p>出品リストは登録されていません。</p>
+      ) : (
+        <ul class="list-disc pl-5">
+          {exhibits.map(({ exhibit, sword, swordName, smiths: exhibitSmiths }) => (
+            <li>
+              {sword ? <a href={`/swords/${sword.id}`} class="underline">{swordName}</a> : exhibit.label}
+              {sword && <span class="text-sm">（{exhibit.label}）</span>}
+              {exhibitSmiths.length > 0 && (
+                <span>
+                  {" ／ "}
+                  {exhibitSmiths.map((s, i) => (
+                    <>
+                      {i > 0 && "・"}
+                      <a href={`/smiths/${s.id}`} class="underline">{s.name}</a>
+                    </>
+                  ))}
+                </span>
+              )}
+              <span class="text-sm">
+                {" ／ "}
+                {exhibit.period_ids && exhibit.period_ids.length > 0 ? exhibit.period_ids.join("・") : "全期間"}
+              </span>
+              {exhibit.note && <span class="text-sm">（{exhibit.note}）</span>}
+            </li>
+          ))}
+        </ul>
+      )
+    }
+  </section>
+
+  <Sources sources={ex.sources} verifiedAt={ex.verified_at} confidence={ex.confidence} />
+</BaseLayout>

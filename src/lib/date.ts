@@ -1,0 +1,41 @@
+// 日付は "YYYY-MM-DD"（日本時間の日付）の文字列で扱う。
+// この形式は文字列のまま大小比較できる。
+
+export type IsoDate = string;
+
+const jstFormatter = new Intl.DateTimeFormat("en-CA", {
+  timeZone: "Asia/Tokyo",
+  year: "numeric",
+  month: "2-digit",
+  day: "2-digit",
+});
+
+/** 日本時間での今日の日付。テストのために基準時刻を渡せる。 */
+export function todayJst(now: Date = new Date()): IsoDate {
+  return jstFormatter.format(now);
+}
+
+/** 日付に日数を足す（負の数も可）。 */
+export function addDays(date: IsoDate, days: number): IsoDate {
+  const d = new Date(`${date}T00:00:00Z`);
+  d.setUTCDate(d.getUTCDate() + days);
+  return d.toISOString().slice(0, 10);
+}
+
+/** a から b までの日数（b − a）。 */
+export function daysBetween(a: IsoDate, b: IsoDate): number {
+  const ms = Date.parse(`${b}T00:00:00Z`) - Date.parse(`${a}T00:00:00Z`);
+  return Math.round(ms / 86_400_000);
+}
+
+/** "2026-10-07" → "10/7" */
+export function formatMonthDay(date: IsoDate): string {
+  const [, m, d] = date.split("-");
+  return `${Number(m)}/${Number(d)}`;
+}
+
+/** "2026-10-07" → "2026年10月7日" */
+export function formatFullDate(date: IsoDate): string {
+  const [y, m, d] = date.split("-");
+  return `${y}年${Number(m)}月${Number(d)}日`;
+}

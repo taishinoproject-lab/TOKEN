@@ -1,0 +1,28 @@
+[
+  {
+    "_sample": true,
+    "id": "sample-museum-a",
+    "name": "見本刀剣館（サンプル）",
+    "short_name": "見本館",
+    "prefecture": "東京都",
+    "city": "千代田区",
+    "lat": 35.68,
+    "lng": 139.76,
+    "official_url": "https://example.com/sample-museum-a/",
+    "exhibitions_page_url": "https://example.com/sample-museum-a/exhibitions/",
+    "crawl": { "enabled": false, "notes": "動作確認用の架空の館" },
+    "verified_at": "2026-10-07"
+  },
+  {
+    "_sample": true,
+    "id": "sample-museum-b",
+    "name": "試験美術館（サンプル）",
+    "short_name": "試験館",
+    "prefecture": "京都府",
+    "city": "京都市",
+    "lat": 35.0,
+    "lng": 135.77,
+    "official_url": "https://example.com/sample-museum-b/",
+    "verified_at": "2026-10-07"
+  }
+]

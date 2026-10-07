@@ -1,0 +1,23 @@
+@import "tailwindcss";
+
+/* 色と書体は中間発表デモ（legacy/src/index.css）から引き継ぐ。デザインの本格的な作り込みは T-201 で行う。 */
+@theme {
+  --color-brand-bg: #F5F1E8;
+  --color-brand-text: #1F1D1B;
+  --color-brand-primary: #2B4162;
+  --color-brand-accent: #C73E3A;
+  --color-brand-gold: #B8963E;
+
+  --font-serif: "Shippori Mincho", "Hiragino Mincho ProN", "Yu Mincho", serif;
+  --font-sans: "Zen Kaku Gothic New", "Hiragino Sans", "Yu Gothic", sans-serif;
+}
+
+body {
+  background-color: var(--color-brand-bg);
+  color: var(--color-brand-text);
+  font-family: var(--font-sans);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-serif);
+}
