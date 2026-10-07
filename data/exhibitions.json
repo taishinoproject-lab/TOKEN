@@ -49,6 +49,12 @@
         "smith_id": "masamune"
       },
       {
+        "label": "重要文化財 刀 朱銘 義弘／本阿（花押）（名物 松井江）"
+      },
+      {
+        "label": "重要文化財 刀 無銘 郷義弘（名物 五月雨郷）"
+      },
+      {
         "label": "重要文化財 脇指 無銘 貞宗（名物 物吉貞宗）",
         "sword_id": "monoyoshi-sadamune",
         "smith_id": "sadamune"
@@ -75,7 +81,7 @@
         "label": "重要文化財 短刀 銘 国光"
       },
       {
-        "label": "指定なし 短刀 銘 行光（名物 不動行光）",
+        "label": "短刀 銘 行光（名物 不動行光）",
         "smith_id": "tosaburo-yukimitsu"
       },
       {
@@ -87,24 +93,147 @@
         "smith_id": "chogi"
       },
       {
-        "label": "指定なし 大笹穂槍 銘 藤原正真作（号 蜻蛉切）",
+        "label": "大笹穂槍 銘 藤原正真作（号 蜻蛉切）",
         "smith_id": "fujiwara-masazane"
       }
     ],
     "sources": [
       {
-        "url": "https://www.museum.or.jp/event/124599",
-        "title": "インターネットミュージアム 展覧会情報（会期 2026年9月5日〜10月18日）",
-        "retrieved_at": "2026-10-07"
+        "url": "https://sanobi.or.jp/exhibition/japaneseswords_2026/",
+        "title": "佐野美術館 「さのび と とくび 名刀のいろは」展覧会ページ",
+        "retrieved_at": "2026-10-07",
+        "quote": "さのび と とくび 名刀のいろは 佐野美術館創立60周年・三島市制85周年 記念 2026.09.05 Sat - 2026.10.18 Sun"
       },
       {
         "url": "https://sanobi.or.jp/exhibition/japaneseswords_2026/",
-        "title": "旧データ（src/data）に記載のURL。内容は今回未確認",
-        "retrieved_at": "2026-10-07"
+        "title": "佐野美術館 「さのび と とくび 名刀のいろは」展覧会ページ",
+        "retrieved_at": "2026-10-07",
+        "quote": "入館料 本展は美術館から退出されますと、再入場できません 一般・大学生1,600円"
+      },
+      {
+        "url": "https://sanobi.or.jp/exhibition/japaneseswords_2026/",
+        "title": "佐野美術館 「さのび と とくび 名刀のいろは」展覧会ページ",
+        "retrieved_at": "2026-10-07",
+        "quote": "国宝 太刀 銘 正恒 平安時代 徳川美術館蔵"
+      },
+      {
+        "url": "https://sanobi.or.jp/exhibition/japaneseswords_2026/",
+        "title": "佐野美術館 「さのび と とくび 名刀のいろは」展覧会ページ",
+        "retrieved_at": "2026-10-07",
+        "quote": "国宝 太刀 銘 一 鎌倉時代 個人蔵"
+      },
+      {
+        "url": "https://sanobi.or.jp/exhibition/japaneseswords_2026/",
+        "title": "佐野美術館 「さのび と とくび 名刀のいろは」展覧会ページ",
+        "retrieved_at": "2026-10-07",
+        "quote": "国宝 太刀 銘 長光 〈名物 津田遠江長光〉 鎌倉時代 徳川美術館蔵"
+      },
+      {
+        "url": "https://sanobi.or.jp/exhibition/japaneseswords_2026/",
+        "title": "佐野美術館 「さのび と とくび 名刀のいろは」展覧会ページ",
+        "retrieved_at": "2026-10-07",
+        "quote": "重要文化財 太刀 銘 来国光 鎌倉時代 徳川美術館蔵"
+      },
+      {
+        "url": "https://sanobi.or.jp/exhibition/japaneseswords_2026/",
+        "title": "佐野美術館 「さのび と とくび 名刀のいろは」展覧会ページ",
+        "retrieved_at": "2026-10-07",
+        "quote": "国宝 太刀 銘 来孫太郎作／（花押） 正応五年壬辰八月十三日 鎌倉時代 徳川美術館蔵"
+      },
+      {
+        "url": "https://sanobi.or.jp/exhibition/japaneseswords_2026/",
+        "title": "佐野美術館 「さのび と とくび 名刀のいろは」展覧会ページ",
+        "retrieved_at": "2026-10-07",
+        "quote": "重要文化財 刀 金象嵌銘 正宗磨上／本阿弥（花押） 〈名物 池田正宗〉 鎌倉時代 徳川美術館蔵"
+      },
+      {
+        "url": "https://sanobi.or.jp/exhibition/japaneseswords_2026/",
+        "title": "佐野美術館 「さのび と とくび 名刀のいろは」展覧会ページ",
+        "retrieved_at": "2026-10-07",
+        "quote": "重要文化財 刀 無銘 正宗 鎌倉時代 佐野美術館蔵"
+      },
+      {
+        "url": "https://sanobi.or.jp/exhibition/japaneseswords_2026/",
+        "title": "佐野美術館 「さのび と とくび 名刀のいろは」展覧会ページ",
+        "retrieved_at": "2026-10-07",
+        "quote": "重要文化財 短刀 銘 正宗 〈名物 不動正宗〉 鎌倉時代 徳川美術館蔵"
+      },
+      {
+        "url": "https://sanobi.or.jp/exhibition/japaneseswords_2026/",
+        "title": "佐野美術館 「さのび と とくび 名刀のいろは」展覧会ページ",
+        "retrieved_at": "2026-10-07",
+        "quote": "重要文化財 刀 朱銘 義弘／本阿（花押） 〈名物 松井江〉 鎌倉時代 佐野美術館蔵"
+      },
+      {
+        "url": "https://sanobi.or.jp/exhibition/japaneseswords_2026/",
+        "title": "佐野美術館 「さのび と とくび 名刀のいろは」展覧会ページ",
+        "retrieved_at": "2026-10-07",
+        "quote": "重要文化財 刀 無銘 郷義弘 〈名物 五月雨郷〉 鎌倉～南北朝時代 徳川美術館蔵"
+      },
+      {
+        "url": "https://sanobi.or.jp/exhibition/japaneseswords_2026/",
+        "title": "佐野美術館 「さのび と とくび 名刀のいろは」展覧会ページ",
+        "retrieved_at": "2026-10-07",
+        "quote": "重要文化財 脇指 無銘 貞宗 〈名物 物吉貞宗〉 南北朝時代 徳川美術館蔵"
+      },
+      {
+        "url": "https://sanobi.or.jp/exhibition/japaneseswords_2026/",
+        "title": "佐野美術館 「さのび と とくび 名刀のいろは」展覧会ページ",
+        "retrieved_at": "2026-10-07",
+        "quote": "重要文化財 太刀 銘 豊後国行平作 平安時代末期～鎌倉時代初期 佐野美術館蔵"
+      },
+      {
+        "url": "https://sanobi.or.jp/exhibition/japaneseswords_2026/",
+        "title": "佐野美術館 「さのび と とくび 名刀のいろは」展覧会ページ",
+        "retrieved_at": "2026-10-07",
+        "quote": "国宝 短刀 銘 吉光 〈名物 後藤藤四郎〉 鎌倉時代 徳川美術館蔵"
+      },
+      {
+        "url": "https://sanobi.or.jp/exhibition/japaneseswords_2026/",
+        "title": "佐野美術館 「さのび と とくび 名刀のいろは」展覧会ページ",
+        "retrieved_at": "2026-10-07",
+        "quote": "国宝 太刀 銘 光忠 鎌倉時代 徳川美術館蔵"
+      },
+      {
+        "url": "https://sanobi.or.jp/exhibition/japaneseswords_2026/",
+        "title": "佐野美術館 「さのび と とくび 名刀のいろは」展覧会ページ",
+        "retrieved_at": "2026-10-07",
+        "quote": "国宝 短刀 無銘 正宗 〈名物 庖丁正宗〉 鎌倉時代 徳川美術館蔵"
+      },
+      {
+        "url": "https://sanobi.or.jp/exhibition/japaneseswords_2026/",
+        "title": "佐野美術館 「さのび と とくび 名刀のいろは」展覧会ページ",
+        "retrieved_at": "2026-10-07",
+        "quote": "重要文化財 短刀 銘 国光 鎌倉時代 佐野美術館蔵"
+      },
+      {
+        "url": "https://sanobi.or.jp/exhibition/japaneseswords_2026/",
+        "title": "佐野美術館 「さのび と とくび 名刀のいろは」展覧会ページ",
+        "retrieved_at": "2026-10-07",
+        "quote": "短刀 銘 行光 〈名物 不動行光〉 鎌倉時代 個人蔵"
+      },
+      {
+        "url": "https://sanobi.or.jp/exhibition/japaneseswords_2026/",
+        "title": "佐野美術館 「さのび と とくび 名刀のいろは」展覧会ページ",
+        "retrieved_at": "2026-10-07",
+        "quote": "重要美術品 脇指 銘 相模国住人広光／康安二年十月日 〈号 火車切〉 南北朝時代 佐野美術館蔵"
+      },
+      {
+        "url": "https://sanobi.or.jp/exhibition/japaneseswords_2026/",
+        "title": "佐野美術館 「さのび と とくび 名刀のいろは」展覧会ページ",
+        "retrieved_at": "2026-10-07",
+        "quote": "重要文化財 刀 銘 本作長義 天正十八年庚刁五月三日ニ九州日向住国広銘打／長尾新五郎平朝臣顕長所持 天正十四年七月廿一日小田原参府之時従 屋形様被下置也 南北朝時代 徳川美術館蔵"
+      },
+      {
+        "url": "https://sanobi.or.jp/exhibition/japaneseswords_2026/",
+        "title": "佐野美術館 「さのび と とくび 名刀のいろは」展覧会ページ",
+        "retrieved_at": "2026-10-07",
+        "quote": "大笹穂槍 銘 藤原正真作 〈号 蜻蛉切〉 室町時代 個人蔵"
       }
     ],
     "verified_at": "2026-10-07",
-    "confidence": "unverified"
+    "confidence": "confirmed",
+    "list_url": "https://sanobi.or.jp/snwp/wp-content/uploads/2026/09/2026.09_iroha2026-list.pdf"
   },
   {
     "id": "2026-uesugi-keishoden-aki-no-yuhin",

@@ -62,18 +62,29 @@
     "prefecture": "静岡県",
     "city": "三島市",
     "address": "静岡県三島市中田町1-43",
-    "lat": 35.115,
-    "lng": 138.918,
+    "lat": 35.1149488,
+    "lng": 138.913314,
     "official_url": "https://sanobi.or.jp/",
     "sources": [
       {
-        "url": "https://www.museum.or.jp/museum/4391",
-        "title": "インターネットミュージアム 佐野美術館（住所）",
+        "url": "https://sanobi.or.jp/exhibition/?y=2026",
+        "title": "佐野美術館 2026年度の展覧会（ページ下部の住所）",
+        "retrieved_at": "2026-10-07",
+        "quote": "佐野美術館 〒411-0838 静岡県三島市中田町1-43"
+      },
+      {
+        "url": "https://sanobi.or.jp/guidance/",
+        "title": "佐野美術館 来館案内（アクセスの地図に埋め込まれた座標 35.1149488, 138.913314）",
         "retrieved_at": "2026-10-07"
       }
     ],
-    "confidence": "unverified",
-    "verified_at": "2026-10-07"
+    "confidence": "confirmed",
+    "verified_at": "2026-10-07",
+    "exhibitions_page_url": "https://sanobi.or.jp/exhibition/",
+    "crawl": {
+      "enabled": true,
+      "notes": "巡回先: 開催中の展覧会、予告、年間スケジュール（?y=年度）、刀剣展の展覧会ページ。出品目録PDFは文字を取り出せないため巡回しない"
+    }
   },
   {
     "id": "uesugi-keishoden",
