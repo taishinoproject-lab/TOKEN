@@ -216,28 +216,31 @@
     "start_date": "2026-10-24",
     "end_date": "2026-12-20",
     "official_url": "https://www.touken.or.jp/museum/exhibition/schedule.html",
-    "admission": "一般 1,000円",
+    "admission": "大人 1,500円",
     "periods": [],
     "exhibits": [
       {
-        "label": "新刀 虎徹",
-        "smith_id": "nagasone-kotetsu"
+        "label": "虎徹",
+        "smith_id": "nagasone-kotetsu",
+        "note": "出品目録は未公開。年間スケジュールの紹介文（虎徹と助広を中心とした特別展）による"
       },
       {
-        "label": "新刀 助広",
-        "note": "助広は同名で複数代いるため、刀匠へのリンクは付けていない"
+        "label": "助広",
+        "note": "出品目録は未公開。年間スケジュールの紹介文（虎徹と助広を中心とした特別展）による。助広は同名で複数代いるため、刀匠へのリンクは付けていない"
       }
     ],
     "sources": [
       {
-        "url": "https://www.touken.or.jp/museum/exhibition/exhibition.html",
-        "title": "刀剣博物館 展示案内（合同特別展「虎徹と助広」（仮称）2026年10月24日〜12月20日）",
-        "retrieved_at": "2026-10-07"
+        "url": "https://www.touken.or.jp/museum/exhibition/schedule.html",
+        "title": "刀剣博物館 年間スケジュール（2026年度）",
+        "retrieved_at": "2026-10-07",
+        "quote": "10月24日(土) ～ 12月20日(日) 新刀・東西の巨匠 虎徹と助広 ふくやま美術館との合同展として、新刀期の東西の名刀匠である虎徹と助広を中心とした特別展を開催します。"
       },
       {
-        "url": "https://www.touken.or.jp/museum/exhibition/schedule.html",
-        "title": "旧データ（src/data）に記載のURL。内容は今回未確認",
-        "retrieved_at": "2026-10-07"
+        "url": "https://www.touken.or.jp/museum/information/admission.html",
+        "title": "刀剣博物館 入館料金・開館情報",
+        "retrieved_at": "2026-10-07",
+        "quote": "特別展 入館料 10/24～12/20の期間 大人 1,500円（1,200円※）"
       }
     ],
     "verified_at": "2026-10-07",
@@ -624,19 +627,27 @@
     "venue_id": "touken-museum",
     "start_date": "2026-09-05",
     "end_date": "2026-10-12",
-    "official_url": "https://www.touken.or.jp/museum/exhibition/schedule.html",
-    "admission": "一般 1,000円",
+    "official_url": "https://www.touken.or.jp/museum/exhibition/exhibition.html",
+    "admission": "大人 1,000円",
     "periods": [],
     "exhibits": [],
     "sources": [
       {
+        "url": "https://www.touken.or.jp/museum/exhibition/exhibition.html",
+        "title": "刀剣博物館 開催中の展覧会",
+        "retrieved_at": "2026-10-07",
+        "quote": "鈴木嘉定コレクション寄贈品展 The Collection of SUZUKI Kajō's Donated Items 会期/period 2026年9月5日(土)～10月12日(月・祝) September 5-October 12 開館時間/hours 9:30 ～ 17:00(最終入館/last entry 16:30) 休館日/closed days 毎週月曜日(祝日の場合開館、翌火曜日休館) Mondays (if it is holiday, we're closed the next weekday) 入館料/Admission fee 大人(adults) 1,000円"
+      },
+      {
         "url": "https://www.touken.or.jp/museum/exhibition/schedule.html",
-        "title": "旧データ（src/data）に記載のURL。内容は今回未確認",
-        "retrieved_at": "2026-10-07"
+        "title": "刀剣博物館 年間スケジュール（2026年度）",
+        "retrieved_at": "2026-10-07",
+        "quote": "9月5日(土) ～ 10月12日(月・祝) 鈴木嘉定コレクション寄贈品展"
       }
     ],
     "verified_at": "2026-10-07",
-    "confidence": "unverified"
+    "confidence": "confirmed",
+    "list_url": "https://www.touken.or.jp/Portals/0/pdf/museum/%E7%9B%AE%E9%8C%B2_%E9%88%B4%E6%9C%A8%E5%98%89%E5%AE%9A%E5%AF%84%E8%B4%88%E5%93%81%E5%B1%95_2026%EF%BC%88%E6%97%A5%EF%BC%893.pdf"
   },
   {
     "id": "2027-touken-museum-juyo-shinshitei-72",
@@ -645,22 +656,44 @@
     "start_date": "2027-01-09",
     "end_date": "2027-03-07",
     "official_url": "https://www.touken.or.jp/museum/exhibition/schedule.html",
-    "admission": "一般 1,000円",
     "periods": [],
-    "exhibits": [
-      {
-        "label": "重要刀剣等新指定作品"
-      }
-    ],
+    "exhibits": [],
     "sources": [
       {
         "url": "https://www.touken.or.jp/museum/exhibition/schedule.html",
-        "title": "旧データ（src/data）に記載のURL。内容は今回未確認",
-        "retrieved_at": "2026-10-07"
+        "title": "刀剣博物館 年間スケジュール（2026年度）",
+        "retrieved_at": "2026-10-07",
+        "quote": "2027年1月9日(土) ～ 3月7日(日) 第72回重要刀剣等新指定展"
       }
     ],
     "verified_at": "2026-10-07",
-    "confidence": "unverified"
+    "confidence": "confirmed"
+  },
+  {
+    "id": "2027-touken-museum-kanzo-meihin",
+    "title": "刀剣博物館 館蔵名品展(仮)",
+    "venue_id": "touken-museum",
+    "start_date": "2027-03-20",
+    "end_date": "2027-05-23",
+    "official_url": "https://www.touken.or.jp/museum/exhibition/schedule.html",
+    "periods": [],
+    "exhibits": [],
+    "sources": [
+      {
+        "url": "https://www.touken.or.jp/museum/exhibition/schedule.html",
+        "title": "刀剣博物館 年間スケジュール（2026年度）",
+        "retrieved_at": "2026-10-07",
+        "quote": "3月20日(土) ～ 5月23日(日) 刀剣博物館 館蔵名品展(仮) 刀剣博物館の館蔵品を中心に、刀剣・刀装・刀装具その他工芸分野の枠を越えた様々な作品を展示します。"
+      },
+      {
+        "url": "https://www.touken.or.jp/museum/exhibition/schedule.html",
+        "title": "刀剣博物館 年間スケジュール（2026年度）",
+        "retrieved_at": "2026-10-07",
+        "quote": "2027年1月9日(土) ～ 3月7日(日) 第72回重要刀剣等新指定展"
+      }
+    ],
+    "verified_at": "2026-10-07",
+    "confidence": "confirmed"
   },
   {
     "id": "2027-fukuoka-city-museum-kuroda-meiho-4-3",
