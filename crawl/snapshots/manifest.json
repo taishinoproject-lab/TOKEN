@@ -46,6 +46,240 @@
       "sha256": "9fc5c130d174964c5c7e41cfbb1449d86dabab6e65ae9d3f81acf2af7cb54d60"
     },
     {
+      "venue_id": "chido-museum",
+      "url": "https://www.chido.jp/exhibition/",
+      "type": "html",
+      "file": "chido-museum/www.chido.jp_exhibition-e7e33bd1.txt",
+      "changed_at": "2026-10-07",
+      "fetched_at": "2026-10-07",
+      "sha256": "1ec71c676cd9e88d82f1ac8481e8d2a798582392b3a7135b71c7da4009da334f"
+    },
+    {
+      "venue_id": "fukuoka-city-museum",
+      "url": "https://museum.city.fukuoka.jp/exhibition/",
+      "type": "html",
+      "file": "fukuoka-city-museum/museum.city.fukuoka.jp_exhibition-dd49559a.txt",
+      "changed_at": "2026-10-07",
+      "fetched_at": "2026-10-07",
+      "sha256": "10dd526c6df426313e9d9978ddb4cf07c9190d5a4b997a8a3861ce482787883e"
+    },
+    {
+      "venue_id": "fukuoka-city-museum",
+      "url": "https://museum.city.fukuoka.jp/topics/kuroda.html",
+      "type": "html",
+      "file": "fukuoka-city-museum/museum.city.fukuoka.jp_topics_kuroda.html-c1a64ec2.txt",
+      "changed_at": "2026-10-07",
+      "fetched_at": "2026-10-07",
+      "sha256": "81a7b55146426e5b4d931c2b153a387fdc21d4e77aaf735cdf0995049dd26a12"
+    },
+    {
+      "venue_id": "fukuoka-city-museum",
+      "url": "https://museum.city.fukuoka.jp/topics/pdf/kuroda_list01.pdf",
+      "type": "pdf",
+      "file": "fukuoka-city-museum/museum.city.fukuoka.jp_topics_pdf_kuroda_list01.pdf-21674079.txt",
+      "changed_at": "2026-10-07",
+      "fetched_at": "2026-10-07",
+      "sha256": "d4fce5a972c1a4321106bf5e9203c67eae2ecca8efde57bcf3cbf67d03daa9a9"
+    },
+    {
+      "venue_id": "fukuoka-city-museum",
+      "url": "https://museum.city.fukuoka.jp/topics/pdf/kuroda_list02.pdf",
+      "type": "pdf",
+      "file": "fukuoka-city-museum/museum.city.fukuoka.jp_topics_pdf_kuroda_list02.pdf-5cab5ed7.txt",
+      "changed_at": "2026-10-07",
+      "fetched_at": "2026-10-07",
+      "sha256": "847d29a85c49cd8e2b075b964f16e47f0dbc6608837c2bea34aad58c32eec8df"
+    },
+    {
+      "venue_id": "fukuoka-city-museum",
+      "url": "https://museum.city.fukuoka.jp/topics/pdf/kuroda_list03.pdf",
+      "type": "pdf",
+      "file": "fukuoka-city-museum/museum.city.fukuoka.jp_topics_pdf_kuroda_list03.pdf-aa838116.txt",
+      "changed_at": "2026-10-07",
+      "fetched_at": "2026-10-07",
+      "sha256": "57bea0bd04cc7a1b282d13283f9c4b445a042d9b8cbc71f0443d3ded2f50748f"
+    },
+    {
+      "venue_id": "fukuoka-city-museum",
+      "url": "https://museum.city.fukuoka.jp/topics/pdf/kuroda_list04.pdf",
+      "type": "pdf",
+      "file": "fukuoka-city-museum/museum.city.fukuoka.jp_topics_pdf_kuroda_list04.pdf-d0982189.txt",
+      "changed_at": "2026-10-07",
+      "fetched_at": "2026-10-07",
+      "sha256": "36125f0f85c65a65e0dd7a625d01471e8f55605513998a01367c52f13126a6b5"
+    },
+    {
+      "venue_id": "fukuyama-museum-of-art",
+      "url": "https://www.city.fukuyama.hiroshima.jp/site/fukuyama-museum/201121.html",
+      "type": "html",
+      "file": "fukuyama-museum-of-art/www.city.fukuyama.hiroshima.jp_site_fukuyama_museum_201121.html-cda4f6f1.txt",
+      "changed_at": "2026-10-07",
+      "fetched_at": "2026-10-07",
+      "sha256": "98c335db1291f49c9d68cf88e8bfbc450a51ee1735b0be8f69dac23d4f39c6f8"
+    },
+    {
+      "venue_id": "fukuyama-museum-of-art",
+      "url": "https://www.city.fukuyama.hiroshima.jp/site/fukuyama-museum/253394.html",
+      "type": "html",
+      "file": "fukuyama-museum-of-art/www.city.fukuyama.hiroshima.jp_site_fukuyama_museum_253394.html-b1ab9909.txt",
+      "changed_at": "2026-10-07",
+      "fetched_at": "2026-10-07",
+      "sha256": "042dcf9380c89aea92a28b949e1e11e1bbd461805cb37794f8ee43beb14d9c08"
+    },
+    {
+      "venue_id": "fukuyama-museum-of-art",
+      "url": "https://www.city.fukuyama.hiroshima.jp/site/fukuyama-museum/319657.html",
+      "type": "html",
+      "file": "fukuyama-museum-of-art/www.city.fukuyama.hiroshima.jp_site_fukuyama_museum_319657.html-84d573a9.txt",
+      "changed_at": "2026-10-07",
+      "fetched_at": "2026-10-07",
+      "sha256": "a3deb74e4930ae281bbdbe8a5f37cab1c3373f91518a5eb627fb0b3b605f90d9"
+    },
+    {
+      "venue_id": "fukuyama-museum-of-art",
+      "url": "https://www.city.fukuyama.hiroshima.jp/site/fukuyama-museum/373411.html",
+      "type": "html",
+      "file": "fukuyama-museum-of-art/www.city.fukuyama.hiroshima.jp_site_fukuyama_museum_373411.html-b4cb3d76.txt",
+      "changed_at": "2026-10-07",
+      "fetched_at": "2026-10-07",
+      "sha256": "5d50875fd82e6f9a81c2477625a8cb8eb9add6cabc9445420bd416a91699176d"
+    },
+    {
+      "venue_id": "hayashibara-museum-of-art",
+      "url": "https://www.hayashibara-museumofart.jp/data/guide/",
+      "type": "html",
+      "file": "hayashibara-museum-of-art/www.hayashibara_museumofart.jp_data_guide-2496d889.txt",
+      "changed_at": "2026-10-07",
+      "fetched_at": "2026-10-07",
+      "sha256": "b1ee1e632f9ae1158b137a425516c5cec9aa67f3d4ec542f33589fa86015216e"
+    },
+    {
+      "venue_id": "hayashibara-museum-of-art",
+      "url": "https://www.hayashibara-museumofart.jp/list/exhibition/",
+      "type": "html",
+      "file": "hayashibara-museum-of-art/www.hayashibara_museumofart.jp_list_exhibition-f1d1cffb.txt",
+      "changed_at": "2026-10-07",
+      "fetched_at": "2026-10-07",
+      "sha256": "f9cdc2f747f65d3c866912891f563fc98bceca85935d75c64d10ee115e31dc3b"
+    },
+    {
+      "venue_id": "ishikawa-prefectural-museum-of-art",
+      "url": "https://www.ishibi.pref.ishikawa.jp/access/",
+      "type": "html",
+      "file": "ishikawa-prefectural-museum-of-art/www.ishibi.pref.ishikawa.jp_access-e1ef7d8e.txt",
+      "changed_at": "2026-10-07",
+      "fetched_at": "2026-10-07",
+      "sha256": "77f5fbde5a1cc1d35f411b9a776946619d5b941ee08ef7d4b4b93d6771c6e4ad"
+    },
+    {
+      "venue_id": "ishikawa-prefectural-museum-of-art",
+      "url": "https://www.ishibi.pref.ishikawa.jp/exhibition/",
+      "type": "html",
+      "file": "ishikawa-prefectural-museum-of-art/www.ishibi.pref.ishikawa.jp_exhibition-10daafaa.txt",
+      "changed_at": "2026-10-07",
+      "fetched_at": "2026-10-07",
+      "sha256": "397fe1b5aed7f9ae2c66c0925b94e5039c0008b3244c84497333ce4ca46e6146"
+    },
+    {
+      "venue_id": "kyoto-national-museum",
+      "url": "https://www.kyohaku.go.jp/jp/exhibitions/",
+      "type": "html",
+      "file": "kyoto-national-museum/www.kyohaku.go.jp_jp_exhibitions-0368d992.txt",
+      "changed_at": "2026-10-07",
+      "fetched_at": "2026-10-07",
+      "sha256": "7db51465ab3c8cb0c2acf95490afb0b71713488abdcd08280664649b9850ac16"
+    },
+    {
+      "venue_id": "kyoto-national-museum",
+      "url": "https://www.kyohaku.go.jp/jp/visit/access/",
+      "type": "html",
+      "file": "kyoto-national-museum/www.kyohaku.go.jp_jp_visit_access-2446b695.txt",
+      "changed_at": "2026-10-07",
+      "fetched_at": "2026-10-07",
+      "sha256": "2ab77add1909b459188e2a1a3677f753e5a9ab35e09ba20c2ee4844694d185f5"
+    },
+    {
+      "venue_id": "kyushu-national-museum",
+      "url": "https://www.kyuhaku.jp/exhibition/exhibition_schedule.html",
+      "type": "html",
+      "file": "kyushu-national-museum/www.kyuhaku.jp_exhibition_exhibition_schedule.html-27096797.txt",
+      "changed_at": "2026-10-07",
+      "fetched_at": "2026-10-07",
+      "sha256": "36abb47feacf96cd1cd5b66d551420e0688bd4f55d29221eb3bcb5e008bf519c"
+    },
+    {
+      "venue_id": "kyushu-national-museum",
+      "url": "https://www.kyuhaku.jp/visit/visit_top.html",
+      "type": "html",
+      "file": "kyushu-national-museum/www.kyuhaku.jp_visit_visit_top.html-62a2f21b.txt",
+      "changed_at": "2026-10-07",
+      "fetched_at": "2026-10-07",
+      "sha256": "8099db136156a7f917604f3b58361241656e29a012e8cec18547b7bab7280ca3"
+    },
+    {
+      "venue_id": "sano-art-museum",
+      "url": "https://sanobi.or.jp/exhibition/",
+      "type": "html",
+      "file": "sano-art-museum/sanobi.or.jp_exhibition-b5840521.txt",
+      "changed_at": "2026-10-07",
+      "fetched_at": "2026-10-07",
+      "sha256": "f8f585f5c4c2eb15ed9c9bd87a85e51db08ecff9a3e2f0762ebd4c65f67d6e93"
+    },
+    {
+      "venue_id": "sano-art-museum",
+      "url": "https://sanobi.or.jp/exhibition/?y=2026",
+      "type": "html",
+      "file": "sano-art-museum/sanobi.or.jp_exhibition_y_2026-248d9299.txt",
+      "changed_at": "2026-10-07",
+      "fetched_at": "2026-10-07",
+      "sha256": "9f87befa057e10bf1b2fe5e23d186b2c6e6c06c7d01989a52e7ed8434461caf0"
+    },
+    {
+      "venue_id": "sano-art-museum",
+      "url": "https://sanobi.or.jp/exhibition/japaneseswords_2026/",
+      "type": "html",
+      "file": "sano-art-museum/sanobi.or.jp_exhibition_japaneseswords_2026-dcbf52b2.txt",
+      "changed_at": "2026-10-07",
+      "fetched_at": "2026-10-07",
+      "sha256": "d8f12f8f4fafdf1c1d5f2900131f0e73593eda929fe4094d4fd3d2563f9c4fda"
+    },
+    {
+      "venue_id": "sano-art-museum",
+      "url": "https://sanobi.or.jp/exhibition/upcoming/",
+      "type": "html",
+      "file": "sano-art-museum/sanobi.or.jp_exhibition_upcoming-5f552abc.txt",
+      "changed_at": "2026-10-07",
+      "fetched_at": "2026-10-07",
+      "sha256": "752a4a866f14245333b15a9eb13f9f3bc9c2615adf60190b67992652013c7115"
+    },
+    {
+      "venue_id": "seikado-bunko-art-museum",
+      "url": "https://www.seikado.or.jp/exhibition/current_exhibition/",
+      "type": "html",
+      "file": "seikado-bunko-art-museum/www.seikado.or.jp_exhibition_current_exhibition-29033698.txt",
+      "changed_at": "2026-10-07",
+      "fetched_at": "2026-10-07",
+      "sha256": "a9ae779e8ca8b97daa7a7bd0a931026a54f2aa2aedf2864f482fe73e05e4e061"
+    },
+    {
+      "venue_id": "seikado-bunko-art-museum",
+      "url": "https://www.seikado.or.jp/exhibition/schedule/",
+      "type": "html",
+      "file": "seikado-bunko-art-museum/www.seikado.or.jp_exhibition_schedule-dba3c3a6.txt",
+      "changed_at": "2026-10-07",
+      "fetched_at": "2026-10-07",
+      "sha256": "1ec5bcc26d05fab2f1e87ef733b0263c13b7b14fa84bd272d54fc8ed76622475"
+    },
+    {
+      "venue_id": "seikado-bunko-art-museum",
+      "url": "https://www.seikado.or.jp/guide/access/",
+      "type": "html",
+      "file": "seikado-bunko-art-museum/www.seikado.or.jp_guide_access-2f82995d.txt",
+      "changed_at": "2026-10-07",
+      "fetched_at": "2026-10-07",
+      "sha256": "2c19fa710e57706126d1ee9162800ea2b965fcdfa85c6691c802b38f83cbbad4"
+    },
+    {
       "venue_id": "tnm",
       "url": "https://www.tnm.jp/data/schedule.json",
       "type": "json",
@@ -89,6 +323,87 @@
       "changed_at": "2026-10-07",
       "fetched_at": "2026-10-07",
       "sha256": "52858a0c5cdc34be82e95589089271c38ae64dfb5ca738ad43dceed2c48807e3"
+    },
+    {
+      "venue_id": "tokugawa-art-museum",
+      "url": "https://www.tokugawa-art-museum.jp/exhibitions/",
+      "type": "html",
+      "file": "tokugawa-art-museum/www.tokugawa_art_museum.jp_exhibitions-a1091097.txt",
+      "changed_at": "2026-10-07",
+      "fetched_at": "2026-10-07",
+      "sha256": "6a6973b1feca203b160a12ad60e3e1ee2014fb41b1b28e4170ae91cf8bbb4a70"
+    },
+    {
+      "venue_id": "tokugawa-art-museum",
+      "url": "https://www.tokugawa-art-museum.jp/news/%E3%81%A8%E3%81%8F%E3%81%B3%E3%81%A8%E3%81%95%E3%81%AE%E3%81%B3%E3%80%80%E6%9D%A5%E6%98%A5%E9%96%8B%E5%82%AC/",
+      "type": "html",
+      "file": "tokugawa-art-museum/www.tokugawa_art_museum.jp_news_E3_81_A8_E3_81_8F_E3_81_B3_E3_81_A8_E3_81_95_E3_-bcfa1e44.txt",
+      "changed_at": "2026-10-07",
+      "fetched_at": "2026-10-07",
+      "sha256": "1c2ea3ecbdc240623b72ab41a61bcdbac853932b8ac2b310f68d4c5a38f18e82"
+    },
+    {
+      "venue_id": "tokugawa-art-museum",
+      "url": "https://www.tokugawa-art-museum.jp/visitor-information/",
+      "type": "html",
+      "file": "tokugawa-art-museum/www.tokugawa_art_museum.jp_visitor_information-a3ff2cc0.txt",
+      "changed_at": "2026-10-07",
+      "fetched_at": "2026-10-07",
+      "sha256": "cb31c0d156d5d34772cc53d1509bd2f14f6184effd807e22112c449b316f7f8e"
+    },
+    {
+      "venue_id": "tokugawa-art-museum",
+      "url": "https://www.tokugawa-art-museum.jp/wp-content/uploads/2025/09/list_of_works_on_display.pdf",
+      "type": "pdf",
+      "file": "tokugawa-art-museum/www.tokugawa_art_museum.jp_wp_content_uploads_2025_09_list_of_works_on_display.p-155dd9b0.txt",
+      "changed_at": "2026-10-07",
+      "fetched_at": "2026-10-07",
+      "sha256": "4b05f360a0917d5e3894700b81e31d34fa6fff039ebd34fac98d936f1153ee4a"
+    },
+    {
+      "venue_id": "touken-museum",
+      "url": "https://www.touken.or.jp/access/",
+      "type": "html",
+      "file": "touken-museum/www.touken.or.jp_access-9d78902d.txt",
+      "changed_at": "2026-10-07",
+      "fetched_at": "2026-10-07",
+      "sha256": "e8a1c50ec06b35beac2bcecaf85fd3faa8050b3a42294482ba147d624f8d7fbf"
+    },
+    {
+      "venue_id": "touken-museum",
+      "url": "https://www.touken.or.jp/museum/exhibition/exhibition.html",
+      "type": "html",
+      "file": "touken-museum/www.touken.or.jp_museum_exhibition_exhibition.html-f594ea36.txt",
+      "changed_at": "2026-10-07",
+      "fetched_at": "2026-10-07",
+      "sha256": "a728d58f214c73cc97f56c478f220ff24bfb75925488b595388d7424b1008ffd"
+    },
+    {
+      "venue_id": "touken-museum",
+      "url": "https://www.touken.or.jp/museum/exhibition/schedule.html",
+      "type": "html",
+      "file": "touken-museum/www.touken.or.jp_museum_exhibition_schedule.html-af91ac8f.txt",
+      "changed_at": "2026-10-07",
+      "fetched_at": "2026-10-07",
+      "sha256": "81c623da4d3e1e3dc03184550c1ea6d61611723d995778b3cdb0f7b4c72f2bcc"
+    },
+    {
+      "venue_id": "touken-museum",
+      "url": "https://www.touken.or.jp/museum/exhibition/tabid290.html",
+      "type": "html",
+      "file": "touken-museum/www.touken.or.jp_museum_exhibition_tabid290.html-531e3983.txt",
+      "changed_at": "2026-10-07",
+      "fetched_at": "2026-10-07",
+      "sha256": "1f4d3f99294c4e9d462e0a74c249b54bb34a1e4d55c18d6bb7231625d99f540e"
+    },
+    {
+      "venue_id": "touken-museum",
+      "url": "https://www.touken.or.jp/museum/information/admission.html",
+      "type": "html",
+      "file": "touken-museum/www.touken.or.jp_museum_information_admission.html-2233dacb.txt",
+      "changed_at": "2026-10-07",
+      "fetched_at": "2026-10-07",
+      "sha256": "016ca9a6f30b74c2491cdc7331fef2cf4f51a44b10406780a69a9a5af79b12f0"
     }
   ]
 }
