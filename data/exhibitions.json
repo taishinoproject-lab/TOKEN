@@ -825,42 +825,358 @@
     "confidence": "confirmed"
   },
   {
+    "id": "2026-fukuoka-city-museum-kuroda-meiho-4-1",
+    "title": "企画展「黒田家の名宝 4」 第Ⅰ期",
+    "venue_id": "fukuoka-city-museum",
+    "room": "企画展示室",
+    "start_date": "2026-08-18",
+    "end_date": "2026-10-18",
+    "official_url": "https://museum.city.fukuoka.jp/topics/kuroda.html",
+    "list_url": "https://museum.city.fukuoka.jp/topics/pdf/kuroda_list01.pdf",
+    "admission": "一般 200円",
+    "periods": [],
+    "exhibits": [
+      {
+        "label": "重要文化財 刀 名物 安宅切"
+      },
+      {
+        "label": "県指定文化財 刀 名物 岩切海部"
+      },
+      {
+        "label": "大身鎗 名物 日本号",
+        "note": "通年展示"
+      }
+    ],
+    "sources": [
+      {
+        "url": "https://museum.city.fukuoka.jp/topics/kuroda.html",
+        "title": "福岡市博物館 黒田家名宝展示（展示予定 2026-2027）",
+        "retrieved_at": "2026-10-07",
+        "quote": "「黒田家名宝展示」展示予定（2026-2027）"
+      },
+      {
+        "url": "https://museum.city.fukuoka.jp/topics/kuroda.html",
+        "title": "福岡市博物館 黒田家名宝展示（展示予定 2026-2027）",
+        "retrieved_at": "2026-10-07",
+        "quote": "黒田家の名宝４ 第Ⅰ期 8月18日（火）～10月18日（日）"
+      },
+      {
+        "url": "https://museum.city.fukuoka.jp/topics/kuroda.html",
+        "title": "福岡市博物館 黒田家名宝展示（展示予定 2026-2027）",
+        "retrieved_at": "2026-10-07",
+        "quote": "■場所／福岡市博物館 企画展示室 ■観覧料（常設展・企画展共通）／一般200円・高大生150円・中学生以下無料"
+      },
+      {
+        "url": "https://museum.city.fukuoka.jp/topics/pdf/kuroda_list01.pdf",
+        "title": "福岡市博物館 企画展「黒田家の名宝 4」第Ⅰ期 出品リスト",
+        "retrieved_at": "2026-10-07",
+        "quote": "企画展「黒田家の名宝 4」 ⦿国宝 ◎重要文化財 〇重要美術品 □県指定文化財"
+      },
+      {
+        "url": "https://museum.city.fukuoka.jp/topics/pdf/kuroda_list01.pdf",
+        "title": "福岡市博物館 企画展「黒田家の名宝 4」第Ⅰ期 出品リスト",
+        "retrieved_at": "2026-10-07",
+        "quote": "第Ⅰ期展示 8 月 18 日(火)～10 月 18 日(日)"
+      },
+      {
+        "url": "https://museum.city.fukuoka.jp/topics/pdf/kuroda_list01.pdf",
+        "title": "福岡市博物館 企画展「黒田家の名宝 4」第Ⅰ期 出品リスト",
+        "retrieved_at": "2026-10-07",
+        "quote": "◎刀 名物 安宅切"
+      },
+      {
+        "url": "https://museum.city.fukuoka.jp/topics/pdf/kuroda_list01.pdf",
+        "title": "福岡市博物館 企画展「黒田家の名宝 4」第Ⅰ期 出品リスト",
+        "retrieved_at": "2026-10-07",
+        "quote": "□刀 名物 岩切海部［稲員英一郎資料（追加分）］"
+      },
+      {
+        "url": "https://museum.city.fukuoka.jp/topics/pdf/kuroda_list01.pdf",
+        "title": "福岡市博物館 企画展「黒田家の名宝 4」第Ⅰ期 出品リスト",
+        "retrieved_at": "2026-10-07",
+        "quote": "※ 【通年展示】大身鎗 名物 日本号"
+      }
+    ],
+    "verified_at": "2026-10-07",
+    "confidence": "confirmed"
+  },
+  {
+    "id": "2026-fukuoka-city-museum-kuroda-meiho-4-2",
+    "title": "企画展「黒田家の名宝 4」 第Ⅱ期",
+    "venue_id": "fukuoka-city-museum",
+    "room": "企画展示室",
+    "start_date": "2026-10-20",
+    "end_date": "2026-12-27",
+    "official_url": "https://museum.city.fukuoka.jp/topics/kuroda.html",
+    "list_url": "https://museum.city.fukuoka.jp/topics/pdf/kuroda_list02.pdf",
+    "admission": "一般 200円",
+    "periods": [],
+    "exhibits": [
+      {
+        "label": "重要美術品 刀 二字国俊",
+        "smith_id": "niji-kunitoshi"
+      },
+      {
+        "label": "刀 名物 城井兼光"
+      },
+      {
+        "label": "刀 和泉守兼定",
+        "note": "「和泉守兼定」は同名で代が異なる刀工がいるため、刀匠へのリンクは付けていない"
+      },
+      {
+        "label": "刀 行光",
+        "note": "出品リストに国・流派の記載がないため、刀匠へのリンクは付けていない"
+      },
+      {
+        "label": "大身鎗 名物 日本号",
+        "note": "通年展示"
+      }
+    ],
+    "sources": [
+      {
+        "url": "https://museum.city.fukuoka.jp/topics/kuroda.html",
+        "title": "福岡市博物館 黒田家名宝展示（展示予定 2026-2027）",
+        "retrieved_at": "2026-10-07",
+        "quote": "「黒田家名宝展示」展示予定（2026-2027）"
+      },
+      {
+        "url": "https://museum.city.fukuoka.jp/topics/kuroda.html",
+        "title": "福岡市博物館 黒田家名宝展示（展示予定 2026-2027）",
+        "retrieved_at": "2026-10-07",
+        "quote": "黒田家の名宝４ 第Ⅱ期 10月20日（火）～12月27日（日）"
+      },
+      {
+        "url": "https://museum.city.fukuoka.jp/topics/kuroda.html",
+        "title": "福岡市博物館 黒田家名宝展示（展示予定 2026-2027）",
+        "retrieved_at": "2026-10-07",
+        "quote": "■場所／福岡市博物館 企画展示室 ■観覧料（常設展・企画展共通）／一般200円・高大生150円・中学生以下無料"
+      },
+      {
+        "url": "https://museum.city.fukuoka.jp/topics/pdf/kuroda_list02.pdf",
+        "title": "福岡市博物館 企画展「黒田家の名宝 4」第Ⅱ期 出品リスト",
+        "retrieved_at": "2026-10-07",
+        "quote": "企画展「黒田家の名宝 4」 ⦿国宝 ◎重要文化財 〇重要美術品 □県指定文化財"
+      },
+      {
+        "url": "https://museum.city.fukuoka.jp/topics/pdf/kuroda_list02.pdf",
+        "title": "福岡市博物館 企画展「黒田家の名宝 4」第Ⅱ期 出品リスト",
+        "retrieved_at": "2026-10-07",
+        "quote": "第Ⅱ期展示 10 月 20 日(火)～12 月 27 日(日)"
+      },
+      {
+        "url": "https://museum.city.fukuoka.jp/topics/pdf/kuroda_list02.pdf",
+        "title": "福岡市博物館 企画展「黒田家の名宝 4」第Ⅱ期 出品リスト",
+        "retrieved_at": "2026-10-07",
+        "quote": "〇刀 二字国俊"
+      },
+      {
+        "url": "https://museum.city.fukuoka.jp/topics/pdf/kuroda_list02.pdf",
+        "title": "福岡市博物館 企画展「黒田家の名宝 4」第Ⅱ期 出品リスト",
+        "retrieved_at": "2026-10-07",
+        "quote": "刀 名物 城井兼光"
+      },
+      {
+        "url": "https://museum.city.fukuoka.jp/topics/pdf/kuroda_list02.pdf",
+        "title": "福岡市博物館 企画展「黒田家の名宝 4」第Ⅱ期 出品リスト",
+        "retrieved_at": "2026-10-07",
+        "quote": "刀 和泉守兼定"
+      },
+      {
+        "url": "https://museum.city.fukuoka.jp/topics/pdf/kuroda_list02.pdf",
+        "title": "福岡市博物館 企画展「黒田家の名宝 4」第Ⅱ期 出品リスト",
+        "retrieved_at": "2026-10-07",
+        "quote": "刀 和泉守兼定 刀 行光"
+      },
+      {
+        "url": "https://museum.city.fukuoka.jp/topics/pdf/kuroda_list02.pdf",
+        "title": "福岡市博物館 企画展「黒田家の名宝 4」第Ⅱ期 出品リスト",
+        "retrieved_at": "2026-10-07",
+        "quote": "※ 【通年展示】大身鎗 名物 日本号"
+      }
+    ],
+    "verified_at": "2026-10-07",
+    "confidence": "confirmed"
+  },
+  {
     "id": "2027-fukuoka-city-museum-kuroda-meiho-4-3",
-    "title": "企画展「黒田家の名宝 4」 第3期",
+    "title": "企画展「黒田家の名宝 4」 第Ⅲ期",
     "venue_id": "fukuoka-city-museum",
     "room": "企画展示室",
     "start_date": "2027-01-05",
     "end_date": "2027-02-28",
     "official_url": "https://museum.city.fukuoka.jp/topics/kuroda.html",
+    "list_url": "https://museum.city.fukuoka.jp/topics/pdf/kuroda_list03.pdf",
     "admission": "一般 200円",
     "periods": [],
     "exhibits": [
       {
-        "label": "国宝 刀 無銘（名物 圧切長谷部）",
+        "label": "国宝 刀 名物 圧切長谷部",
         "smith_id": "hasebe-kunishige"
       },
       {
-        "label": "国宝 太刀 無銘 一文字（名物 日光一文字）",
+        "label": "国宝 太刀 名物 日光一文字",
         "smith_id": "fukuoka-ichimonji"
       },
       {
-        "label": "刀剣 権藤鎮教"
+        "label": "薙刀 名物 権藤鎮教"
+      },
+      {
+        "label": "大身鎗 名物 日本号",
+        "note": "通年展示"
       }
     ],
     "sources": [
       {
-        "url": "https://www.city.fukuoka.lg.jp/shisei/kouhou-hodo/hodo-happyo/2026/documents/20260731_hakubutsukan8gatsustartnokikakuten.pdf",
-        "title": "福岡市 報道発表（「黒田家の名宝4」8月18日〜4月25日、4期に分けて展示）",
-        "retrieved_at": "2026-10-07"
+        "url": "https://museum.city.fukuoka.jp/topics/kuroda.html",
+        "title": "福岡市博物館 黒田家名宝展示（展示予定 2026-2027）",
+        "retrieved_at": "2026-10-07",
+        "quote": "「黒田家名宝展示」展示予定（2026-2027）"
       },
       {
         "url": "https://museum.city.fukuoka.jp/topics/kuroda.html",
-        "title": "旧データ（src/data）に記載のURL。内容は今回未確認",
-        "retrieved_at": "2026-10-07"
+        "title": "福岡市博物館 黒田家名宝展示（展示予定 2026-2027）",
+        "retrieved_at": "2026-10-07",
+        "quote": "黒田家の名宝４ 第Ⅲ期 1月5日（火）～2月28日（日）"
+      },
+      {
+        "url": "https://museum.city.fukuoka.jp/topics/kuroda.html",
+        "title": "福岡市博物館 黒田家名宝展示（展示予定 2026-2027）",
+        "retrieved_at": "2026-10-07",
+        "quote": "■場所／福岡市博物館 企画展示室 ■観覧料（常設展・企画展共通）／一般200円・高大生150円・中学生以下無料"
+      },
+      {
+        "url": "https://museum.city.fukuoka.jp/topics/pdf/kuroda_list03.pdf",
+        "title": "福岡市博物館 企画展「黒田家の名宝 4」第Ⅲ期 出品リスト",
+        "retrieved_at": "2026-10-07",
+        "quote": "企画展「黒田家の名宝 4」 ⦿国宝 ◎重要文化財 〇重要美術品 □県指定文化財"
+      },
+      {
+        "url": "https://museum.city.fukuoka.jp/topics/pdf/kuroda_list03.pdf",
+        "title": "福岡市博物館 企画展「黒田家の名宝 4」第Ⅲ期 出品リスト",
+        "retrieved_at": "2026-10-07",
+        "quote": "第Ⅲ期展示 1 月 5 日(火)～2 月 28 日(日)"
+      },
+      {
+        "url": "https://museum.city.fukuoka.jp/topics/pdf/kuroda_list03.pdf",
+        "title": "福岡市博物館 企画展「黒田家の名宝 4」第Ⅲ期 出品リスト",
+        "retrieved_at": "2026-10-07",
+        "quote": "⦿刀 名物 圧切長谷部"
+      },
+      {
+        "url": "https://museum.city.fukuoka.jp/topics/pdf/kuroda_list03.pdf",
+        "title": "福岡市博物館 企画展「黒田家の名宝 4」第Ⅲ期 出品リスト",
+        "retrieved_at": "2026-10-07",
+        "quote": "⦿太刀 名物 日光一文字"
+      },
+      {
+        "url": "https://museum.city.fukuoka.jp/topics/pdf/kuroda_list03.pdf",
+        "title": "福岡市博物館 企画展「黒田家の名宝 4」第Ⅲ期 出品リスト",
+        "retrieved_at": "2026-10-07",
+        "quote": "薙刀 名物 権藤鎮教"
+      },
+      {
+        "url": "https://museum.city.fukuoka.jp/topics/pdf/kuroda_list03.pdf",
+        "title": "福岡市博物館 企画展「黒田家の名宝 4」第Ⅲ期 出品リスト",
+        "retrieved_at": "2026-10-07",
+        "quote": "※ 【通年展示】大身鎗 名物 日本号"
       }
     ],
     "verified_at": "2026-10-07",
-    "confidence": "unverified"
+    "confidence": "confirmed"
+  },
+  {
+    "id": "2027-fukuoka-city-museum-kuroda-meiho-4-4",
+    "title": "企画展「黒田家の名宝 4」 第Ⅳ期",
+    "venue_id": "fukuoka-city-museum",
+    "room": "企画展示室",
+    "start_date": "2027-03-02",
+    "end_date": "2027-04-25",
+    "official_url": "https://museum.city.fukuoka.jp/topics/kuroda.html",
+    "list_url": "https://museum.city.fukuoka.jp/topics/pdf/kuroda_list04.pdf",
+    "admission": "一般 200円",
+    "periods": [],
+    "exhibits": [
+      {
+        "label": "脇差 名物 碇切"
+      },
+      {
+        "label": "太刀 銘 一 伝吉岡一文字"
+      },
+      {
+        "label": "刀 大仙兼元"
+      },
+      {
+        "label": "脇差 銘 備州長船成光"
+      },
+      {
+        "label": "大身鎗 名物 日本号",
+        "note": "通年展示"
+      }
+    ],
+    "sources": [
+      {
+        "url": "https://museum.city.fukuoka.jp/topics/kuroda.html",
+        "title": "福岡市博物館 黒田家名宝展示（展示予定 2026-2027）",
+        "retrieved_at": "2026-10-07",
+        "quote": "「黒田家名宝展示」展示予定（2026-2027）"
+      },
+      {
+        "url": "https://museum.city.fukuoka.jp/topics/kuroda.html",
+        "title": "福岡市博物館 黒田家名宝展示（展示予定 2026-2027）",
+        "retrieved_at": "2026-10-07",
+        "quote": "黒田家の名宝４ 第Ⅳ期 3月2日（火）～4月25日（日）"
+      },
+      {
+        "url": "https://museum.city.fukuoka.jp/topics/kuroda.html",
+        "title": "福岡市博物館 黒田家名宝展示（展示予定 2026-2027）",
+        "retrieved_at": "2026-10-07",
+        "quote": "■場所／福岡市博物館 企画展示室 ■観覧料（常設展・企画展共通）／一般200円・高大生150円・中学生以下無料"
+      },
+      {
+        "url": "https://museum.city.fukuoka.jp/topics/pdf/kuroda_list04.pdf",
+        "title": "福岡市博物館 企画展「黒田家の名宝 4」第Ⅳ期 出品リスト",
+        "retrieved_at": "2026-10-07",
+        "quote": "企画展「黒田家の名宝 4」 ⦿国宝 ◎重要文化財 〇重要美術品 □県指定文化財"
+      },
+      {
+        "url": "https://museum.city.fukuoka.jp/topics/pdf/kuroda_list04.pdf",
+        "title": "福岡市博物館 企画展「黒田家の名宝 4」第Ⅳ期 出品リスト",
+        "retrieved_at": "2026-10-07",
+        "quote": "第Ⅳ期展示 3 月 2 日(火)～4 月 25 日(日)"
+      },
+      {
+        "url": "https://museum.city.fukuoka.jp/topics/pdf/kuroda_list04.pdf",
+        "title": "福岡市博物館 企画展「黒田家の名宝 4」第Ⅳ期 出品リスト",
+        "retrieved_at": "2026-10-07",
+        "quote": "脇差 名物 碇切"
+      },
+      {
+        "url": "https://museum.city.fukuoka.jp/topics/pdf/kuroda_list04.pdf",
+        "title": "福岡市博物館 企画展「黒田家の名宝 4」第Ⅳ期 出品リスト",
+        "retrieved_at": "2026-10-07",
+        "quote": "太刀 銘 一 伝吉岡一文字"
+      },
+      {
+        "url": "https://museum.city.fukuoka.jp/topics/pdf/kuroda_list04.pdf",
+        "title": "福岡市博物館 企画展「黒田家の名宝 4」第Ⅳ期 出品リスト",
+        "retrieved_at": "2026-10-07",
+        "quote": "太刀 銘 一 伝吉岡一文字 刀 大仙兼元"
+      },
+      {
+        "url": "https://museum.city.fukuoka.jp/topics/pdf/kuroda_list04.pdf",
+        "title": "福岡市博物館 企画展「黒田家の名宝 4」第Ⅳ期 出品リスト",
+        "retrieved_at": "2026-10-07",
+        "quote": "脇差 銘 備州長船成光"
+      },
+      {
+        "url": "https://museum.city.fukuoka.jp/topics/pdf/kuroda_list04.pdf",
+        "title": "福岡市博物館 企画展「黒田家の名宝 4」第Ⅳ期 出品リスト",
+        "retrieved_at": "2026-10-07",
+        "quote": "※ 【通年展示】大身鎗 名物 日本号"
+      }
+    ],
+    "verified_at": "2026-10-07",
+    "confidence": "confirmed"
   },
   {
     "id": "2026-tokugawa-art-museum-tokimeku-hako",

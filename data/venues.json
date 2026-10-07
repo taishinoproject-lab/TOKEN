@@ -195,13 +195,24 @@
     "official_url": "https://museum.city.fukuoka.jp/",
     "sources": [
       {
+        "url": "https://museum.city.fukuoka.jp/exhibition/",
+        "title": "福岡市博物館 展示・体験学習室（ページ下部の住所）",
+        "retrieved_at": "2026-10-07",
+        "quote": "福岡市博物館 〒814-0001 福岡市早良区百道浜3丁目1-1"
+      },
+      {
         "url": "https://en.wikipedia.org/wiki/Fukuoka_City_Museum",
-        "title": "Wikipedia Fukuoka City Museum（住所・緯度経度）",
+        "title": "Wikipedia Fukuoka City Museum（緯度経度）",
         "retrieved_at": "2026-10-07"
       }
     ],
     "confidence": "confirmed",
-    "verified_at": "2026-10-07"
+    "verified_at": "2026-10-07",
+    "exhibitions_page_url": "https://museum.city.fukuoka.jp/exhibition/",
+    "crawl": {
+      "enabled": true,
+      "notes": "巡回先: 黒田家名宝展示のページ、各期の出品リスト（PDF 4件）、展示・体験学習室の案内。/pdf/ は robots.txt で禁止されているが、出品リストは /topics/pdf/ にあり対象外。年間スケジュールのPDFは画像のため巡回しない"
+    }
   },
   {
     "id": "tokugawa-art-museum",
