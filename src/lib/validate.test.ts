@@ -17,6 +17,8 @@ function validData() {
         lng: 139.7,
         official_url: "https://example.com/a",
         verified_at: today,
+        sources: [{ url: "https://example.com/a", retrieved_at: today }],
+        confidence: "confirmed",
       },
     ],
     smiths: [

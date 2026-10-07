@@ -135,6 +135,10 @@ export function validateData(raw: RawData, today: IsoDate): ValidationResult {
   const smithIds = idSet(smiths.rawItems);
   const swordIds = idSet(swords.rawItems);
 
+  for (const venue of venues.items) {
+    checkConfirmedSources("venues.json", venue, errors, warnings);
+  }
+
   for (const smith of smiths.items) {
     const at = { file: "smiths.json" as const, target: smith.id };
     for (const teacherId of smith.teacher_ids ?? []) {

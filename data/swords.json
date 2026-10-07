@@ -1,56 +1,1165 @@
 [
   {
-    "_sample": true,
-    "id": "sample-mihon-maru",
-    "go": "見本丸",
-    "go_reading": "みほんまる",
-    "aliases": ["試し丸"],
+    "id": "mikazuki-munechika",
+    "go": "三日月宗近",
+    "go_reading": "みかづきむねちか",
+    "aliases": [],
     "blade_type": "太刀",
-    "mei": "見本国光",
+    "mei": "三条",
     "mei_kind": "銘",
-    "attributions": [{ "smith_id": "sample-smith-a", "basis": "在銘" }],
-    "designation": "未指定",
-    "era": "架空時代",
-    "blade_length_cm": 70.1,
-    "sori_cm": 2.5,
-    "holder_venue_id": "sample-museum-a",
-    "holder_text": "見本刀剣館（サンプル）",
-    "story": "動作確認用の架空の刀です。",
+    "attributions": [
+      {
+        "smith_id": "sanjo-munechika",
+        "basis": "在銘"
+      }
+    ],
+    "designation": "国宝",
+    "era": "平安時代",
+    "blade_length_cm": 80,
+    "sori_cm": 2.7,
+    "holder_venue_id": "tnm",
+    "holder_text": "東京国立博物館",
+    "story": "刃文に三日月形の打ち除けが複数見えることに由来。天下五剣の一つ。",
+    "provenance": "高台院→徳川秀忠→徳川将軍家→東京国立博物館",
+    "official_image_url": "https://colbase.nich.go.jp/collection_items/tnm/F-20103-1?locale=ja",
     "sources": [
-      { "url": "https://example.com/sources/sword-a", "title": "サンプル出典", "retrieved_at": "2026-10-07" }
+      {
+        "url": "https://online.bunka.go.jp/heritages/search/title:三日月",
+        "title": "文化遺産オンライン 太刀〈銘三条（名物三日月宗近）〉",
+        "retrieved_at": "2026-10-07"
+      },
+      {
+        "url": "https://colbase.nich.go.jp/collection_items/tnm/F-20103-1?locale=ja",
+        "title": "旧データ（src/data）に記載のURL。内容は今回未確認",
+        "retrieved_at": "2026-10-07"
+      }
     ],
     "confidence": "confirmed"
   },
   {
-    "_sample": true,
-    "id": "sample-smith-b-katana-1",
+    "id": "dojigiri-yasutsuna",
+    "go": "童子切安綱",
+    "go_reading": "どうじぎりやすつな",
+    "aliases": [],
+    "blade_type": "太刀",
+    "mei": "安綱",
+    "mei_kind": "銘",
+    "attributions": [
+      {
+        "smith_id": "yasutsuna",
+        "basis": "在銘"
+      }
+    ],
+    "designation": "国宝",
+    "era": "平安時代",
+    "blade_length_cm": 80,
+    "sori_cm": 2.7,
+    "holder_venue_id": "tnm",
+    "holder_text": "東京国立博物館",
+    "story": "源頼光が大江山の酒呑童子を斬った伝説に由来。天下五剣の一つ。",
+    "provenance": "源頼光→足利将軍家→豊臣秀吉→徳川家康・秀忠→津山藩松平家→東京国立博物館",
+    "official_image_url": "https://colbase.nich.go.jp/collection_items/tnm/F-19931-1?locale=ja",
+    "sources": [
+      {
+        "url": "https://online.bunka.go.jp/db/heritages/detail/125697/3",
+        "title": "文化遺産オンライン 太刀〈銘安綱（名物童子切安綱）〉",
+        "retrieved_at": "2026-10-07"
+      },
+      {
+        "url": "https://colbase.nich.go.jp/collection_items/tnm/F-19931-1?locale=ja",
+        "title": "旧データ（src/data）に記載のURL。内容は今回未確認",
+        "retrieved_at": "2026-10-07"
+      }
+    ],
+    "confidence": "confirmed"
+  },
+  {
+    "id": "onikirimaru",
+    "go": "鬼切丸",
+    "go_reading": "おにきりまる",
+    "aliases": [
+      "髭切",
+      "鬼切"
+    ],
+    "blade_type": "太刀",
+    "mei": "安綱",
+    "mei_kind": "銘",
+    "attributions": [
+      {
+        "smith_id": "yasutsuna",
+        "basis": "伝"
+      }
+    ],
+    "designation": "重要文化財",
+    "era": "鎌倉時代",
+    "holder_venue_id": "kitano-tenmangu",
+    "holder_text": "北野天満宮",
+    "story": "渡辺綱が一条戻橋で鬼の腕を切った伝説から鬼切。試し斬りで髭まで切れたため髭切とも。",
+    "provenance": "源氏重代の宝刀→新田義貞→斯波高経→最上家→北野天満宮",
+    "official_image_url": "https://kitanotenmangu.or.jp/story/%E5%8C%97%E9%87%8E%E5%A4%A9%E6%BA%80%E5%AE%AE%E3%81%A8%E5%AE%9D%E5%88%80/",
+    "sources": [
+      {
+        "url": "https://intojapanwaraku.com/rock/craft-rock/2285/",
+        "title": "和樂web 髭切（鬼切丸）の記事",
+        "retrieved_at": "2026-10-07"
+      },
+      {
+        "url": "https://www.kyoto-wu.ac.jp/daigaku/kyojo/press-release/boogco0000007mq2-att/a1719904592585.pdf",
+        "title": "京都女子大学 プレスリリース（北野天満宮の鬼切丸 髭切）",
+        "retrieved_at": "2026-10-07"
+      },
+      {
+        "url": "https://kitanotenmangu.or.jp/story/%E5%8C%97%E9%87%8E%E5%A4%A9%E6%BA%80%E5%AE%AE%E3%81%A8%E5%AE%9D%E5%88%80/",
+        "title": "旧データ（src/data）に記載のURL。内容は今回未確認",
+        "retrieved_at": "2026-10-07"
+      }
+    ],
+    "confidence": "unverified"
+  },
+  {
+    "id": "okanehira",
+    "go": "大包平",
+    "go_reading": "おおかねひら",
+    "aliases": [],
+    "blade_type": "太刀",
+    "mei": "備前国包平作",
+    "mei_kind": "銘",
+    "attributions": [
+      {
+        "smith_id": "kanehira",
+        "basis": "在銘"
+      }
+    ],
+    "designation": "国宝",
+    "era": "平安時代",
+    "blade_length_cm": 89.2,
+    "holder_venue_id": "tnm",
+    "holder_text": "東京国立博物館",
+    "story": "長大な寸法と包平作中の最高傑作。童子切と並び東西の両横綱と称される。",
+    "provenance": "池田輝政→岡山藩池田家→東京国立博物館",
+    "official_image_url": "https://colbase.nich.go.jp/collection_items/tnm/F-133?locale=ja",
+    "sources": [
+      {
+        "url": "https://intojapanwaraku.com/craft/104143/",
+        "title": "和樂web 大包平の記事（刃長2尺9寸4分＝89.2cm）",
+        "retrieved_at": "2026-10-07"
+      },
+      {
+        "url": "https://colbase.nich.go.jp/collection_items/tnm/F-133?locale=ja",
+        "title": "旧データ（src/data）に記載のURL。内容は今回未確認",
+        "retrieved_at": "2026-10-07"
+      }
+    ],
+    "confidence": "confirmed"
+  },
+  {
+    "id": "juzumaru-tsunetsugu",
+    "go": "数珠丸恒次",
+    "go_reading": "じゅずまるつねつぐ",
+    "aliases": [
+      "数珠丸"
+    ],
+    "blade_type": "太刀",
+    "mei": "恒次",
+    "mei_kind": "銘",
+    "attributions": [
+      {
+        "smith_id": "aoe-tsunetsugu",
+        "basis": "在銘"
+      }
+    ],
+    "designation": "重要文化財",
+    "era": "鎌倉時代",
+    "blade_length_cm": 83.9,
+    "sori_cm": 3,
+    "holder_text": "本興寺",
+    "story": "日蓮が護身用に贈られ、柄に数珠を掛け破邪顕正の剣とした。天下五剣の一つ。",
+    "provenance": "日蓮→行方不明→杉原祥造が再発見→本興寺",
+    "official_image_url": "https://www.city.amagasaki.hyogo.jp/manabu/bunkazai_0/1028308/1028310/1028861.html",
+    "sources": [
+      {
+        "url": "https://pedia.3rd-in.co.jp/wiki/%E6%9C%AC%E8%88%88%E5%AF%BA%20%28%E5%B0%BC%E5%B4%8E%E5%B8%82%29",
+        "title": "本興寺（尼崎市）の解説（数珠丸を所蔵・重要文化財）",
+        "retrieved_at": "2026-10-07"
+      },
+      {
+        "url": "https://www.city.amagasaki.hyogo.jp/manabu/bunkazai_0/1028308/1028310/1028861.html",
+        "title": "旧データ（src/data）に記載のURL。内容は今回未確認",
+        "retrieved_at": "2026-10-07"
+      }
+    ],
+    "confidence": "unverified"
+  },
+  {
+    "id": "tsurumaru-kuninaga",
+    "go": "鶴丸国永",
+    "go_reading": "つるまるくになが",
+    "aliases": [
+      "鶴丸"
+    ],
+    "blade_type": "太刀",
+    "mei": "国永",
+    "mei_kind": "銘",
+    "attributions": [
+      {
+        "smith_id": "gojo-kuninaga",
+        "basis": "在銘"
+      }
+    ],
+    "designation": "御物",
+    "era": "平安時代",
+    "holder_text": "皇室（御物・宮内庁侍従職管理）",
+    "story": "細身で反り高く優美。古い拵えの鶴紋様など名の由来に諸説。",
+    "provenance": "織田信長→伊達家→明治天皇→宮内庁",
+    "sources": [
+      {
+        "url": "https://renote.net/articles/165025",
+        "title": "RENOTE 鶴丸国永の解説（御物・宮内庁侍従職が管理）",
+        "retrieved_at": "2026-10-07"
+      }
+    ],
+    "confidence": "confirmed"
+  },
+  {
+    "id": "aoe-otachi-1",
+    "go": null,
+    "go_reading": null,
+    "aliases": [
+      "青江の大太刀"
+    ],
+    "blade_type": "大太刀",
+    "mei": "備中国住人 延文六年二月日",
+    "mei_kind": "銘",
+    "attributions": [],
+    "designation": "重要文化財",
+    "era": "南北朝時代・延文6年(1361)",
+    "blade_length_cm": 103,
+    "holder_venue_id": "sanada-treasure-museum",
+    "holder_text": "真田宝物館",
+    "story": "長篠の戦いで真田信綱が振るったと伝わり、物打ちに大きな刃こぼれが残る。",
+    "provenance": "真田信綱→松代藩真田家→真田宝物館",
+    "sources": [
+      {
+        "url": "https://online.bunka.go.jp/db/heritages/search?page=2566",
+        "title": "文化遺産オンライン 検索結果（大太刀 銘備中国住… 延文六年二月日、長野県）",
+        "retrieved_at": "2026-10-07"
+      },
+      {
+        "url": "https://www.sanadahoumotsukan.com/goods.php",
+        "title": "旧データ（src/data）に記載のURL。内容は今回未確認",
+        "retrieved_at": "2026-10-07"
+      }
+    ],
+    "confidence": "unverified"
+  },
+  {
+    "id": "horikawa-kunihiro-wakizashi-1",
+    "go": null,
+    "go_reading": null,
+    "aliases": [],
+    "blade_type": "脇指",
+    "mei": "堀川国広",
+    "mei_kind": "銘",
+    "attributions": [
+      {
+        "smith_id": "horikawa-kunihiro",
+        "basis": "在銘"
+      }
+    ],
+    "designation": "未指定",
+    "era": "安土桃山時代",
+    "holder_venue_id": "sakaki-tetsu-no-tenjikan",
+    "holder_text": "坂城町 鉄の展示館",
+    "story": "俳優・高倉健の愛蔵品。宮入行平一門との親交が縁で坂城町へ寄贈。",
+    "provenance": "高倉健→遺族から坂城町へ寄贈→鉄の展示館",
+    "sources": [
+      {
+        "url": "https://www.tetsu-museum.info/?s=%E9%AB%98%E5%80%89%E5%81%A5",
+        "title": "旧データ（src/data）に記載のURL。内容は今回未確認",
+        "retrieved_at": "2026-10-07"
+      }
+    ],
+    "confidence": "unverified"
+  },
+  {
+    "id": "yamanbagiri-kunihiro",
+    "go": "山姥切国広",
+    "go_reading": "やまんばぎりくにひろ",
+    "aliases": [
+      "山姥切"
+    ],
+    "blade_type": "刀",
+    "mei": "九州日向住国広作 天正十八年庚刁弐月吉日平顕長",
+    "mei_kind": "銘",
+    "attributions": [
+      {
+        "smith_id": "horikawa-kunihiro",
+        "basis": "在銘"
+      }
+    ],
+    "designation": "重要文化財",
+    "era": "安土桃山時代・天正18年(1590)",
+    "blade_length_cm": 70.3,
+    "sori_cm": 2.8,
+    "holder_text": "公益財団法人足利市民文化財団",
+    "story": "長義の刀を国広に写させた作で、国広天正打の最高傑作。山姥退治の伝説を持つ。",
+    "provenance": "長尾顕長→井伊家→個人→足利市民文化財団",
+    "sources": [
+      {
+        "url": "https://online.bunka.go.jp/db/heritages/detail/184252",
+        "title": "文化遺産オンライン 刀〈銘九州日向住国広作／天正十八年庚（刁）弐月吉日平顕長（山姥切）〉",
+        "retrieved_at": "2026-10-07"
+      }
+    ],
+    "confidence": "confirmed"
+  },
+  {
+    "id": "daihannya-nagamitsu",
+    "go": "大般若長光",
+    "go_reading": "だいはんにゃながみつ",
+    "aliases": [],
+    "blade_type": "太刀",
+    "mei": "長光",
+    "mei_kind": "銘",
+    "attributions": [
+      {
+        "smith_id": "osafune-nagamitsu",
+        "basis": "在銘"
+      }
+    ],
+    "designation": "国宝",
+    "era": "鎌倉時代",
+    "holder_venue_id": "tnm",
+    "holder_text": "東京国立博物館",
+    "story": "代価が破格の600貫と極められ、全600巻の大般若経に掛けて命名された名物。",
+    "provenance": "足利義輝→三好長慶→織田信長→徳川家康→奥平信昌→東京国立博物館",
+    "official_image_url": "https://colbase.nich.go.jp/collection_items/tnm/F-19789?locale=ja",
+    "sources": [
+      {
+        "url": "https://online.bunka.go.jp/heritages/detail/585889",
+        "title": "文化遺産オンライン 太刀（号 大般若長光）",
+        "retrieved_at": "2026-10-07"
+      },
+      {
+        "url": "https://colbase.nich.go.jp/collection_items/tnm/F-19789?locale=ja",
+        "title": "旧データ（src/data）に記載のURL。内容は今回未確認",
+        "retrieved_at": "2026-10-07"
+      }
+    ],
+    "confidence": "confirmed"
+  },
+  {
+    "id": "ichigo-hitofuri",
+    "go": "一期一振",
+    "go_reading": "いちごひとふり",
+    "aliases": [],
+    "blade_type": "太刀",
+    "mei": "吉光",
+    "mei_kind": "額銘",
+    "attributions": [
+      {
+        "smith_id": "awataguchi-yoshimitsu",
+        "basis": "在銘"
+      }
+    ],
+    "designation": "御物",
+    "era": "鎌倉時代",
+    "blade_length_cm": 68.78,
+    "sori_cm": 2.58,
+    "holder_text": "皇室（御物・宮内庁侍従職管理）",
+    "story": "短刀の名手・吉光が生涯で唯一打った太刀。秀吉が磨上げ額銘とした。",
+    "provenance": "毛利家→豊臣秀吉→徳川将軍家→尾張徳川家→孝明天皇→宮内庁",
+    "sources": [],
+    "confidence": "unverified"
+  },
+  {
+    "id": "atsu-toshiro",
+    "go": "厚藤四郎",
+    "go_reading": "あつとうしろう",
+    "aliases": [],
+    "blade_type": "短刀",
+    "mei": "吉光",
+    "mei_kind": "銘",
+    "attributions": [
+      {
+        "smith_id": "awataguchi-yoshimitsu",
+        "basis": "在銘"
+      }
+    ],
+    "designation": "国宝",
+    "era": "鎌倉時代",
+    "holder_venue_id": "tnm",
+    "holder_text": "東京国立博物館",
+    "story": "寸法は短いが重ねが約1.2cmと異常に分厚い鎧通しの造りに由来。",
+    "provenance": "足利将軍家→豊臣秀吉→毛利秀元→徳川家綱→一橋家→東京国立博物館",
+    "official_image_url": "https://colbase.nich.go.jp/collection_items/tnm/F-19547?locale=ja",
+    "sources": [
+      {
+        "url": "https://intojapanwaraku.com/rock/craft-rock/124513/",
+        "title": "和樂web 藤四郎吉光の記事（厚藤四郎）",
+        "retrieved_at": "2026-10-07"
+      },
+      {
+        "url": "https://colbase.nich.go.jp/collection_items/tnm/F-19547?locale=ja",
+        "title": "旧データ（src/data）に記載のURL。内容は今回未確認",
+        "retrieved_at": "2026-10-07"
+      }
+    ],
+    "confidence": "unverified"
+  },
+  {
+    "id": "shinano-toshiro",
+    "go": "信濃藤四郎",
+    "go_reading": "しなのとうしろう",
+    "aliases": [],
+    "blade_type": "短刀",
+    "mei": "吉光",
+    "mei_kind": "銘",
+    "attributions": [
+      {
+        "smith_id": "awataguchi-yoshimitsu",
+        "basis": "在銘"
+      }
+    ],
+    "designation": "重要文化財",
+    "era": "鎌倉時代",
+    "blade_length_cm": 25,
+    "holder_venue_id": "chido-museum",
+    "holder_text": "致道博物館",
+    "story": "秘蔵の藤四郎。酒井家伝来の宝物。",
+    "provenance": "豊臣秀吉→永井尚政→酒井忠勝→酒井家→致道博物館",
+    "sources": [
+      {
+        "url": "https://online.bunka.go.jp/heritages/detail/22914",
+        "title": "文化遺産オンライン 短刀 銘 吉光 名物信濃藤四郎吉光 黒漆塗合口拵え",
+        "retrieved_at": "2026-10-07"
+      }
+    ],
+    "confidence": "unverified"
+  },
+  {
+    "id": "norishige-katana-1",
+    "go": null,
+    "go_reading": null,
+    "aliases": [],
+    "blade_type": "刀",
+    "mei": "則重 薫山（花押）",
+    "mei_kind": "金象嵌銘",
+    "attributions": [
+      {
+        "smith_id": "norishige",
+        "basis": "極め"
+      }
+    ],
+    "designation": "未指定",
+    "era": "鎌倉時代",
+    "holder_venue_id": "touken-museum",
+    "holder_text": "刀剣博物館",
+    "story": "第28回特別重要刀剣指定品。地景が激しく交じる独特の鍛え（松皮肌）が特徴。",
+    "provenance": "-",
+    "sources": [],
+    "confidence": "unverified"
+  },
+  {
+    "id": "horikawa-kunihiro-tachi-1",
+    "go": null,
+    "go_reading": null,
+    "aliases": [],
+    "blade_type": "太刀",
+    "mei": "信濃守国広造",
+    "mei_kind": "銘",
+    "attributions": [
+      {
+        "smith_id": "horikawa-kunihiro",
+        "basis": "在銘"
+      }
+    ],
+    "designation": "重要文化財",
+    "era": "安土桃山時代（慶長12年）",
+    "holder_venue_id": "kitano-tenmangu",
+    "holder_text": "北野天満宮",
+    "story": "豊臣秀頼による北野天満宮造営の際に奉納された品。国広晩年の傑作。",
+    "provenance": "豊臣秀頼→北野天満宮",
+    "sources": [],
+    "confidence": "unverified"
+  },
+  {
+    "id": "sukemori-tachi-1",
+    "go": null,
+    "go_reading": null,
+    "aliases": [],
+    "blade_type": "太刀",
+    "mei": "助守",
+    "mei_kind": "銘",
+    "attributions": [
+      {
+        "smith_id": "sukemori",
+        "basis": "在銘"
+      }
+    ],
+    "designation": "重要文化財",
+    "era": "鎌倉時代",
+    "holder_venue_id": "kitano-tenmangu",
+    "holder_text": "北野天満宮",
+    "story": "古調な姿と小乱れに小丁子が交じる刃文が特徴。加賀藩主が奉納した金置平目地鞘糸巻太刀拵が付属する。",
+    "provenance": "前田斉泰（加賀藩）→北野天満宮",
+    "sources": [],
+    "confidence": "unverified"
+  },
+  {
+    "id": "odenta",
+    "go": "大典太",
+    "go_reading": "おおでんた",
+    "aliases": [
+      "大典太光世"
+    ],
+    "blade_type": "太刀",
+    "mei": "光世作",
+    "mei_kind": "銘",
+    "attributions": [
+      {
+        "smith_id": "miike-mitsuyo",
+        "basis": "在銘"
+      }
+    ],
+    "designation": "国宝",
+    "era": "平安時代後期",
+    "blade_length_cm": 65.1,
+    "sori_cm": 2.7,
+    "holder_text": "公益財団法人前田育徳会",
+    "story": "天下五剣の一つ。病を治癒し鳥獣を恐れさせる強い霊力を持つとされる。加賀前田家の第一の重宝。",
+    "provenance": "足利将軍家→豊臣秀吉→前田利家→前田家",
+    "sources": [
+      {
+        "url": "https://intojapanwaraku.com/rock/art-rock/41608/",
+        "title": "和樂web 大典太光世の記事（刃長65.1cm、反り2.7cm）",
+        "retrieved_at": "2026-10-07"
+      }
+    ],
+    "confidence": "confirmed"
+  },
+  {
+    "id": "futasujihi-sadamune",
+    "go": "二筋樋貞宗",
+    "go_reading": "ふたすじひさだむね",
+    "aliases": [],
+    "blade_type": "刀",
+    "mei": "無銘",
+    "mei_kind": "無銘",
+    "attributions": [
+      {
+        "smith_id": "sadamune",
+        "basis": "極め"
+      }
+    ],
+    "designation": "重要文化財",
+    "era": "鎌倉時代末期〜南北朝時代",
+    "blade_length_cm": 70.4,
+    "sori_cm": 1.9,
+    "holder_text": "個人蔵",
+    "story": "刀身に二筋の樋があることに由来。豊臣秀吉が所蔵した太閤御物であり、大坂貞宗とも呼ばれる。",
+    "provenance": "豊臣秀吉→結城秀康→松平忠直→松平光長→松平宣富(津山藩)→個人蔵",
+    "sources": [],
+    "confidence": "unverified"
+  },
+  {
+    "id": "rai-kunitsugu-tachi-1",
+    "go": null,
+    "go_reading": null,
+    "aliases": [],
+    "blade_type": "太刀",
+    "mei": "来国次",
+    "mei_kind": "銘",
+    "attributions": [
+      {
+        "smith_id": "rai-kunitsugu",
+        "basis": "在銘"
+      }
+    ],
+    "designation": "未指定",
+    "era": "南北朝時代",
+    "blade_length_cm": 71.5,
+    "sori_cm": 2.6,
+    "holder_text": "公益財団法人刀剣ワールド財団",
+    "story": "現存する在銘作の多くが短刀や脇差である来国次において、極めて希少な在銘の太刀。",
+    "provenance": "不明",
+    "sources": [],
+    "confidence": "unverified"
+  },
+  {
+    "id": "shikkake-norinaga-katana-1",
+    "go": null,
+    "go_reading": null,
+    "aliases": [],
+    "blade_type": "刀",
+    "mei": "尻懸則長磨上之 本阿（花押）",
+    "mei_kind": "金象嵌銘",
+    "attributions": [
+      {
+        "smith_id": "shikkake-norinaga",
+        "basis": "極め"
+      }
+    ],
+    "designation": "未指定",
+    "era": "鎌倉時代末期",
+    "blade_length_cm": 69.8,
+    "sori_cm": 2,
+    "holder_venue_id": "touken-museum",
+    "holder_text": "刀剣博物館",
+    "story": "大和五派の一つ尻懸派の作。本阿弥光室による金象嵌銘が入った特別重要刀剣指定第1号の作。",
+    "provenance": "不明",
+    "sources": [
+      {
+        "url": "https://commons.wikimedia.org/wiki/File:%E5%88%80_%E5%B0%BB%E6%87%B8%E5%89%87%E9%95%B7,_Katana_forgrd_by_Shikkake_Norinaga.jpg",
+        "title": "旧データ（src/data）に記載のURL。内容は今回未確認",
+        "retrieved_at": "2026-10-07"
+      }
+    ],
+    "confidence": "unverified"
+  },
+  {
+    "id": "chogi-katana-1",
     "go": null,
     "go_reading": null,
     "aliases": [],
     "blade_type": "刀",
     "mei": "無銘",
     "mei_kind": "無銘",
-    "attributions": [{ "smith_id": "sample-smith-b", "basis": "伝" }],
-    "designation": "不明",
-    "holder_text": "個人蔵",
+    "attributions": [
+      {
+        "smith_id": "chogi",
+        "basis": "極め"
+      }
+    ],
+    "designation": "未指定",
+    "era": "南北朝時代",
+    "blade_length_cm": 69.8,
+    "sori_cm": 1.2,
+    "holder_text": "公益財団法人刀剣ワールド財団",
+    "story": "沸が強い大互の目乱れを焼き、備前刀でありながら相州伝の影響を強く受けた長義の特徴をよく示す豪壮な作。",
+    "provenance": "尾張徳川家家老竹腰家→刀剣ワールド財団",
     "sources": [],
     "confidence": "unverified"
   },
   {
-    "_sample": true,
-    "id": "sample-smith-a-tanto-1",
+    "id": "osafune-morimitsu-tachi-1",
+    "go": null,
+    "go_reading": null,
+    "aliases": [],
+    "blade_type": "太刀",
+    "mei": "備州長船盛光 応永十二年八月日",
+    "mei_kind": "銘",
+    "attributions": [
+      {
+        "smith_id": "osafune-morimitsu",
+        "basis": "在銘"
+      }
+    ],
+    "designation": "未指定",
+    "era": "室町時代初期（応永12年）",
+    "blade_length_cm": 71.8,
+    "holder_text": "不明",
+    "story": "室町初期に活躍した応永備前の双璧である盛光の作。応永12年の年紀が切られている。",
+    "provenance": "不明",
+    "sources": [
+      {
+        "url": "https://emuseum.nich.go.jp/detail?langId=ja&webView=&content_base_id=100501&content_part_id=0&content_pict_id=0",
+        "title": "旧データ（src/data）に記載のURL。内容は今回未確認",
+        "retrieved_at": "2026-10-07"
+      }
+    ],
+    "confidence": "unverified"
+  },
+  {
+    "id": "ryosai-tanto-1",
     "go": null,
     "go_reading": null,
     "aliases": [],
     "blade_type": "短刀",
-    "mei": "見本国光作",
+    "mei": "良西",
     "mei_kind": "銘",
-    "attributions": [{ "smith_id": "sample-smith-a", "basis": "在銘" }],
+    "attributions": [
+      {
+        "smith_id": "ryosai",
+        "basis": "在銘"
+      }
+    ],
     "designation": "未指定",
-    "holder_venue_id": "sample-museum-b",
-    "holder_text": "試験美術館（サンプル）",
+    "era": "鎌倉時代後期",
+    "blade_length_cm": 22,
+    "holder_text": "個人蔵（刀剣博物館寄託）",
+    "story": "左文字の源流となる筑前古典派の始祖・良西の唯一の在銘作。菊池槍に繋がる冠落造を示す。",
+    "provenance": "不明",
+    "sources": [],
+    "confidence": "unverified"
+  },
+  {
+    "id": "niji-kunitoshi-katana-1",
+    "go": null,
+    "go_reading": null,
+    "aliases": [],
+    "blade_type": "刀",
+    "mei": "無銘",
+    "mei_kind": "無銘",
+    "attributions": [
+      {
+        "smith_id": "niji-kunitoshi",
+        "basis": "極め"
+      }
+    ],
+    "designation": "未指定",
+    "era": "鎌倉時代中期",
+    "blade_length_cm": 63.8,
+    "sori_cm": 1.5,
+    "holder_text": "不明",
+    "story": "来派の祖・来国行の子あるいは弟とされる国俊の作。華やかな丁子に互の目が交じり匂口が明るく冴える。",
+    "provenance": "不明",
+    "sources": [],
+    "confidence": "unverified"
+  },
+  {
+    "id": "rai-kunitoshi-tanto-1",
+    "go": null,
+    "go_reading": null,
+    "aliases": [],
+    "blade_type": "短刀",
+    "mei": "来国俊 元応元年閏七月日",
+    "mei_kind": "銘",
+    "attributions": [
+      {
+        "smith_id": "rai-kunitoshi",
+        "basis": "在銘"
+      }
+    ],
+    "designation": "未指定",
+    "era": "鎌倉時代後期（元応元年）",
+    "blade_length_cm": 24.5,
+    "holder_venue_id": "kurokawa-institute",
+    "holder_text": "公益財団法人黒川古文化研究所",
+    "story": "細やかな地景と美しい鉄質を持つ短刀。赤銅地に亀甲紋の螺鈿が施された格調高い拵が付属する。",
+    "provenance": "不明",
+    "sources": [],
+    "confidence": "unverified"
+  },
+  {
+    "id": "nobufusa-tachi-1",
+    "go": null,
+    "go_reading": null,
+    "aliases": [],
+    "blade_type": "太刀",
+    "mei": "信房作",
+    "mei_kind": "銘",
+    "attributions": [
+      {
+        "smith_id": "nobufusa",
+        "basis": "在銘"
+      }
+    ],
+    "designation": "国宝",
+    "era": "平安時代後期",
+    "holder_venue_id": "chido-museum",
+    "holder_text": "致道博物館",
+    "story": "小牧・長久手の戦いの戦功により、徳川四天王の一人である酒井忠次が徳川家康から拝領した古備前の名刀。",
+    "provenance": "徳川家康→酒井忠次→庄内藩酒井家→致道博物館",
     "sources": [
-      { "url": "https://example.com/sources/sword-c", "retrieved_at": "2026-10-07" }
+      {
+        "url": "https://online.bunka.go.jp/heritages/search/page:6686",
+        "title": "文化遺産オンライン 検索結果（致道博物館 国宝 太刀 銘信房作）",
+        "retrieved_at": "2026-10-07"
+      }
+    ],
+    "confidence": "confirmed"
+  },
+  {
+    "id": "sanemitsu-tachi-1",
+    "go": null,
+    "go_reading": null,
+    "aliases": [],
+    "blade_type": "太刀",
+    "mei": "真光",
+    "mei_kind": "銘",
+    "attributions": [
+      {
+        "smith_id": "sanemitsu",
+        "basis": "在銘"
+      }
+    ],
+    "designation": "国宝",
+    "era": "鎌倉時代",
+    "blade_length_cm": 77.3,
+    "sori_cm": 2.9,
+    "holder_venue_id": "chido-museum",
+    "holder_text": "致道博物館",
+    "story": "長篠の戦いの戦功を賞して、織田信長が酒井忠次に黄金200両とともに下賜した太刀。当時の糸巻太刀拵も附として国宝指定されている。",
+    "provenance": "織田信長→酒井忠次→庄内藩酒井家→致道博物館",
+    "official_image_url": "https://online.bunka.go.jp/heritages/detail/192603",
+    "sources": [
+      {
+        "url": "https://online.bunka.go.jp/heritages/detail/94760",
+        "title": "文化遺産オンライン 太刀 銘 真光 附糸巻太刀拵（刃長77.3cm、反り2.9cm）",
+        "retrieved_at": "2026-10-07"
+      },
+      {
+        "url": "https://online.bunka.go.jp/heritages/detail/192603",
+        "title": "旧データ（src/data）に記載のURL。内容は今回未確認",
+        "retrieved_at": "2026-10-07"
+      }
+    ],
+    "confidence": "confirmed"
+  },
+  {
+    "id": "horikawa-kunihiro-wakizashi-2",
+    "go": null,
+    "go_reading": null,
+    "aliases": [],
+    "blade_type": "脇指",
+    "mei": "國廣",
+    "mei_kind": "銘",
+    "attributions": [
+      {
+        "smith_id": "horikawa-kunihiro",
+        "basis": "在銘"
+      }
+    ],
+    "designation": "未指定",
+    "era": "江戸時代初期（慶長14年）",
+    "blade_length_cm": 30.65,
+    "holder_text": "不明",
+    "story": "新刀の祖である堀川国広の作。ザングリとした独特の肌合に中直刃を焼き、晩年円熟期の代表作となる。",
+    "provenance": "不明",
+    "sources": [],
+    "confidence": "unverified"
+  },
+  {
+    "id": "suishinshi-masahide-tachi-1",
+    "go": null,
+    "go_reading": null,
+    "aliases": [],
+    "blade_type": "太刀",
+    "mei": "不明",
+    "attributions": [
+      {
+        "smith_id": "suishinshi-masahide",
+        "basis": "伝"
+      }
+    ],
+    "designation": "未指定",
+    "era": "江戸時代後期",
+    "blade_length_cm": 69.2,
+    "sori_cm": 1.8,
+    "holder_text": "不明",
+    "story": "刀剣復古論を提唱し新々刀の祖と呼ばれた水心子正秀の作。上田・小諸地域の刀工にも多大な影響を与えた。",
+    "provenance": "不明",
+    "sources": [],
+    "confidence": "unverified"
+  },
+  {
+    "id": "masatsune-tachi-1",
+    "go": null,
+    "go_reading": null,
+    "aliases": [],
+    "blade_type": "太刀",
+    "mei": "正恒",
+    "mei_kind": "銘",
+    "attributions": [
+      {
+        "smith_id": "ko-bizen-masatsune",
+        "basis": "在銘"
+      }
+    ],
+    "designation": "国宝",
+    "era": "平安時代",
+    "blade_length_cm": 71.8,
+    "sori_cm": 2.7,
+    "holder_venue_id": "tokugawa-art-museum",
+    "holder_text": "徳川美術館",
+    "story": "備前鍛冶の黎明期を代表する名工・正恒の作。8代将軍吉宗から尾張徳川家へ下賜された古雅な一振。",
+    "provenance": "徳川吉宗→徳川宗睦(尾張徳川家)→徳川美術館",
+    "sources": [
+      {
+        "url": "https://online.bunka.go.jp/heritages/detail/125634",
+        "title": "文化遺産オンライン 太刀〈銘正恒〉（徳川美術館。身長71.8cm、反り2.7cm）",
+        "retrieved_at": "2026-10-07"
+      }
+    ],
+    "confidence": "confirmed"
+  },
+  {
+    "id": "ichimonji-tachi-1",
+    "go": null,
+    "go_reading": null,
+    "aliases": [],
+    "blade_type": "太刀",
+    "mei": "一",
+    "mei_kind": "銘",
+    "attributions": [
+      {
+        "smith_id": "fukuoka-ichimonji",
+        "basis": "在銘"
+      }
+    ],
+    "designation": "国宝",
+    "era": "鎌倉時代",
+    "blade_length_cm": 70.9,
+    "sori_cm": 3,
+    "holder_text": "株式会社マキリ（佐野美術館寄託）",
+    "story": "長篠の戦いにおいて籠城の功を上げた奥平信昌に対し、織田信長が恩賞として与えた名刀。華やかな大丁子乱れが特徴。",
+    "provenance": "織田信長→奥平信昌→株式会社マキリ",
+    "official_image_url": "https://emuseum.nich.go.jp/detail?langId=ja&webView=&content_base_id=100465&content_part_id=0&content_pict_id=0",
+    "sources": [
+      {
+        "url": "https://emuseum.nich.go.jp/detail?langId=ja&webView=&content_base_id=100465&content_part_id=0&content_pict_id=0",
+        "title": "旧データ（src/data）に記載のURL。内容は今回未確認",
+        "retrieved_at": "2026-10-07"
+      }
+    ],
+    "confidence": "unverified"
+  },
+  {
+    "id": "tsuda-tomi-nagamitsu",
+    "go": "津田遠江長光",
+    "go_reading": "つだとおとうみながみつ",
+    "aliases": [],
+    "blade_type": "太刀",
+    "mei": "長光",
+    "mei_kind": "銘",
+    "attributions": [
+      {
+        "smith_id": "osafune-nagamitsu",
+        "basis": "在銘"
+      }
+    ],
+    "designation": "国宝",
+    "era": "鎌倉時代",
+    "blade_length_cm": 72.1,
+    "sori_cm": 2.3,
+    "holder_venue_id": "tokugawa-art-museum",
+    "holder_text": "徳川美術館",
+    "story": "織田信長の愛刀であったが、本能寺の変の際に明智光秀が安土城から奪い、家老の津田遠江守重久に与えたことに由来する。",
+    "provenance": "織田信長→明智光秀→津田重久→前田利長→徳川綱吉→徳川家宣→徳川吉通(尾張徳川家)",
+    "official_image_url": "https://online.bunka.go.jp/heritages/detail/188976",
+    "sources": [
+      {
+        "url": "https://online.bunka.go.jp/heritages/detail/188976",
+        "title": "旧データ（src/data）に記載のURL。内容は今回未確認",
+        "retrieved_at": "2026-10-07"
+      }
+    ],
+    "confidence": "unverified"
+  },
+  {
+    "id": "rai-kunimitsu-tachi-1",
+    "go": null,
+    "go_reading": null,
+    "aliases": [],
+    "blade_type": "太刀",
+    "mei": "来国光",
+    "mei_kind": "銘",
+    "attributions": [
+      {
+        "smith_id": "rai-kunimitsu",
+        "basis": "在銘"
+      }
+    ],
+    "designation": "重要文化財",
+    "era": "鎌倉時代",
+    "blade_length_cm": 72.1,
+    "sori_cm": 2.7,
+    "holder_venue_id": "tokugawa-art-museum",
+    "holder_text": "徳川美術館",
+    "story": "元和9年、3代将軍徳川家光が将軍宣下を受けて江戸へ戻る途次、名古屋城に立ち寄った際に尾張初代藩主の徳川義直へ下賜した太刀。",
+    "provenance": "徳川家光→徳川義直(尾張徳川家)→徳川美術館",
+    "official_image_url": "https://emuseum.nich.go.jp/detail?langId=ja&webView=&content_base_id=100177&content_part_id=0&content_pict_id=0",
+    "sources": [
+      {
+        "url": "https://emuseum.nich.go.jp/detail?langId=ja&webView=&content_base_id=100177&content_part_id=0&content_pict_id=0",
+        "title": "旧データ（src/data）に記載のURL。内容は今回未確認",
+        "retrieved_at": "2026-10-07"
+      }
+    ],
+    "confidence": "unverified"
+  },
+  {
+    "id": "rai-magotaro-tachi-1",
+    "go": null,
+    "go_reading": null,
+    "aliases": [],
+    "blade_type": "太刀",
+    "mei": "来孫太郎作／（花押）正応五□辰八月十三日以下不明",
+    "mei_kind": "銘",
+    "attributions": [
+      {
+        "smith_id": "rai-kunitoshi",
+        "basis": "伝"
+      }
+    ],
+    "designation": "国宝",
+    "era": "鎌倉時代（正応5年）",
+    "holder_venue_id": "tokugawa-art-museum",
+    "holder_text": "徳川美術館",
+    "story": "来国俊が孫太郎と称していた頃の作。年紀と花押がある極めて珍しい作例。",
+    "provenance": "徳川家康→徳川義直(尾張徳川家)→徳川美術館",
+    "sources": [
+      {
+        "url": "https://online.bunka.go.jp/heritages/detail/150021",
+        "title": "文化遺産オンライン 太刀〈銘来孫太郎作／（花押）正応五□辰八月十三日以下不明〉",
+        "retrieved_at": "2026-10-07"
+      }
+    ],
+    "confidence": "confirmed"
+  },
+  {
+    "id": "ikeda-masamune",
+    "go": "池田正宗",
+    "go_reading": "いけだまさむね",
+    "aliases": [],
+    "blade_type": "刀",
+    "mei": "正宗磨上／本阿弥（花押）",
+    "mei_kind": "金象嵌銘",
+    "attributions": [
+      {
+        "smith_id": "masamune",
+        "basis": "極め"
+      }
+    ],
+    "designation": "重要文化財",
+    "era": "鎌倉時代",
+    "holder_venue_id": "tokugawa-art-museum",
+    "holder_text": "徳川美術館",
+    "story": "池田輝政が所持していたことに由来。輝政の死後、遺物として徳川秀忠に献上された。",
+    "provenance": "池田輝政→徳川秀忠→徳川家光→徳川光友(尾張徳川家)→徳川美術館",
+    "sources": [
+      {
+        "url": "https://www.tokugawa-art-museum.jp/wp-content/uploads/2025/02/名刀正宗と相模伝_展示作品リスト.pdf",
+        "title": "徳川美術館「名刀正宗と相模伝」展示作品リスト",
+        "retrieved_at": "2026-10-07"
+      },
+      {
+        "url": "https://online.bunka.go.jp/heritages/search/artist:正宗",
+        "title": "文化遺産オンライン 検索結果（作者：正宗）",
+        "retrieved_at": "2026-10-07"
+      }
+    ],
+    "confidence": "confirmed"
+  },
+  {
+    "id": "fudo-masamune",
+    "go": "不動正宗",
+    "go_reading": "ふどうまさむね",
+    "aliases": [],
+    "blade_type": "短刀",
+    "mei": "正宗",
+    "mei_kind": "銘",
+    "attributions": [
+      {
+        "smith_id": "masamune",
+        "basis": "在銘"
+      }
+    ],
+    "designation": "重要文化財",
+    "era": "鎌倉時代末期",
+    "blade_length_cm": 25,
+    "holder_venue_id": "tokugawa-art-museum",
+    "holder_text": "徳川美術館",
+    "story": "差表に不動明王の彫物があることに由来。正宗の在銘作は極めて稀。",
+    "provenance": "豊臣秀次→豊臣秀吉→徳川家康→前田利家→豊臣秀頼→徳川家康→徳川義直(尾張徳川家)→徳川美術館",
+    "sources": [
+      {
+        "url": "https://www.tokugawa-art-museum.jp/wp-content/uploads/2025/02/名刀正宗と相模伝_展示作品リスト.pdf",
+        "title": "徳川美術館「名刀正宗と相模伝」展示作品リスト",
+        "retrieved_at": "2026-10-07"
+      }
+    ],
+    "confidence": "unverified"
+  },
+  {
+    "id": "monoyoshi-sadamune",
+    "go": "物吉貞宗",
+    "go_reading": "ものよしさだむね",
+    "aliases": [],
+    "blade_type": "脇指",
+    "mei": "無銘",
+    "mei_kind": "無銘",
+    "attributions": [
+      {
+        "smith_id": "sadamune",
+        "basis": "極め"
+      }
+    ],
+    "designation": "重要文化財",
+    "era": "鎌倉時代末期〜南北朝時代",
+    "blade_length_cm": 33,
+    "sori_cm": 0.6,
+    "holder_venue_id": "tokugawa-art-museum",
+    "holder_text": "徳川美術館",
+    "story": "徳川家康の愛刀。これを帯びて出陣すると必ず勝利したことから「物吉」と名付けられた。",
+    "provenance": "徳川家康→徳川義直(尾張徳川家)→徳川美術館",
+    "official_image_url": "https://online.bunka.go.jp/heritages/detail/213554",
+    "sources": [
+      {
+        "url": "https://online.bunka.go.jp/heritages/detail/213554",
+        "title": "旧データ（src/data）に記載のURL。内容は今回未確認",
+        "retrieved_at": "2026-10-07"
+      }
+    ],
+    "confidence": "unverified"
+  },
+  {
+    "id": "bungo-yukihira-tachi-1",
+    "go": null,
+    "go_reading": null,
+    "aliases": [],
+    "blade_type": "太刀",
+    "mei": "豊後国行平作",
+    "mei_kind": "銘",
+    "attributions": [
+      {
+        "smith_id": "bungo-yukihira",
+        "basis": "在銘"
+      }
+    ],
+    "designation": "重要文化財",
+    "era": "平安時代末期〜鎌倉時代初期",
+    "blade_length_cm": 80.2,
+    "sori_cm": 3,
+    "holder_venue_id": "tokugawa-art-museum",
+    "holder_text": "徳川美術館",
+    "story": "九州豊後国の名工・行平の作。茎に神仏の加護を求める梵字が彫られている。",
+    "provenance": "徳川家康→徳川義直(尾張徳川家)→徳川美術館",
+    "sources": [],
+    "confidence": "unverified"
+  },
+  {
+    "id": "goto-toshiro",
+    "go": "後藤藤四郎",
+    "go_reading": "ごとうとうしろう",
+    "aliases": [],
+    "blade_type": "短刀",
+    "mei": "吉光",
+    "mei_kind": "銘",
+    "attributions": [
+      {
+        "smith_id": "awataguchi-yoshimitsu",
+        "basis": "在銘"
+      }
+    ],
+    "designation": "国宝",
+    "era": "鎌倉時代中期",
+    "holder_venue_id": "tokugawa-art-museum",
+    "holder_text": "徳川美術館",
+    "story": "金座御金改役の後藤庄三郎が所持していたことに由来。吉光の作中で最も大振りな短刀。",
+    "provenance": "後藤庄三郎光次→徳川家光→徳川光友(尾張徳川家)→徳川美術館",
+    "sources": [
+      {
+        "url": "https://bijutsutecho.com/magazine/news/report/30897/pictures/1",
+        "title": "美術手帖 徳川美術館「時をかける名刀」レポート（国宝 短刀 銘吉光 名物後藤藤四郎）",
+        "retrieved_at": "2026-10-07"
+      },
+      {
+        "url": "https://intojapanwaraku.com/rock/craft-rock/124513/",
+        "title": "和樂web 藤四郎吉光の記事（後藤藤四郎）",
+        "retrieved_at": "2026-10-07"
+      }
     ],
     "confidence": "confirmed"
   }

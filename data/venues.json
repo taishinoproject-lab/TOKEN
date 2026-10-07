@@ -1,28 +1,474 @@
 [
   {
-    "_sample": true,
-    "id": "sample-museum-a",
-    "name": "見本刀剣館（サンプル）",
-    "short_name": "見本館",
+    "id": "tnm",
+    "name": "東京国立博物館",
+    "short_name": "東博",
     "prefecture": "東京都",
-    "city": "千代田区",
-    "lat": 35.68,
-    "lng": 139.76,
-    "official_url": "https://example.com/sample-museum-a/",
-    "exhibitions_page_url": "https://example.com/sample-museum-a/exhibitions/",
-    "crawl": { "enabled": false, "notes": "動作確認用の架空の館" },
+    "city": "台東区",
+    "address": "東京都台東区上野公園13-9",
+    "lat": 35.71799,
+    "lng": 139.77216,
+    "official_url": "https://www.tnm.jp/",
+    "sources": [
+      {
+        "url": "https://www.museum.or.jp/museum/2466",
+        "title": "インターネットミュージアム 東京国立博物館（住所）",
+        "retrieved_at": "2026-10-07"
+      },
+      {
+        "url": "https://latitude.to/map/jp/japan/cities/tanashicho/articles/10844/tokyo-national-museum",
+        "title": "latitude.to Tokyo National Museum（緯度経度）",
+        "retrieved_at": "2026-10-07"
+      }
+    ],
+    "confidence": "confirmed",
     "verified_at": "2026-10-07"
   },
   {
-    "_sample": true,
-    "id": "sample-museum-b",
-    "name": "試験美術館（サンプル）",
-    "short_name": "試験館",
+    "id": "touken-museum",
+    "name": "刀剣博物館",
+    "short_name": "刀剣博物館",
+    "prefecture": "東京都",
+    "city": "墨田区",
+    "address": "東京都墨田区横網1-12-9",
+    "lat": 35.698982,
+    "lng": 139.7936333,
+    "official_url": "https://www.touken.or.jp/museum/",
+    "exhibitions_page_url": "https://www.touken.or.jp/museum/exhibition/schedule.html",
+    "sources": [
+      {
+        "url": "https://www.museum.or.jp/museum/2500",
+        "title": "インターネットミュージアム 刀剣博物館（住所）",
+        "retrieved_at": "2026-10-07"
+      },
+      {
+        "url": "https://aroundus.com/p/8293401-japanese-sword-museum",
+        "title": "aroundus Japanese Sword Museum（緯度経度）",
+        "retrieved_at": "2026-10-07"
+      },
+      {
+        "url": "https://www.touken.or.jp/museum/exhibition/schedule.html",
+        "title": "旧データ（src/data）に記載のURL。内容は今回未確認",
+        "retrieved_at": "2026-10-07"
+      }
+    ],
+    "confidence": "confirmed",
+    "verified_at": "2026-10-07"
+  },
+  {
+    "id": "sano-art-museum",
+    "name": "佐野美術館",
+    "short_name": "佐野美術館",
+    "prefecture": "静岡県",
+    "city": "三島市",
+    "address": "静岡県三島市中田町1-43",
+    "lat": 35.115,
+    "lng": 138.918,
+    "official_url": "https://sanobi.or.jp/",
+    "sources": [
+      {
+        "url": "https://www.museum.or.jp/museum/4391",
+        "title": "インターネットミュージアム 佐野美術館（住所）",
+        "retrieved_at": "2026-10-07"
+      }
+    ],
+    "confidence": "unverified",
+    "verified_at": "2026-10-07"
+  },
+  {
+    "id": "uesugi-keishoden",
+    "name": "上杉神社 稽照殿",
+    "short_name": "稽照殿",
+    "prefecture": "山形県",
+    "city": "米沢市",
+    "address": "山形県米沢市丸の内1-4-13",
+    "lat": 37.9096167,
+    "lng": 140.1051444,
+    "official_url": "https://uesugi-keishoden.jp/",
+    "exhibitions_page_url": "https://uesugi-keishoden.jp/exhibition/",
+    "sources": [
+      {
+        "url": "https://rurubu.jp/andmore/spot/80004445",
+        "title": "るるぶ&more 上杉神社（住所）",
+        "retrieved_at": "2026-10-07"
+      },
+      {
+        "url": "https://en.wikipedia.org/wiki/Yonezawa_Castle",
+        "title": "Wikipedia Yonezawa Castle（米沢城跡の緯度経度。上杉神社は城跡に鎮座）",
+        "retrieved_at": "2026-10-07"
+      },
+      {
+        "url": "https://uesugi-keishoden.jp/exhibition/",
+        "title": "旧データ（src/data）に記載のURL。内容は今回未確認",
+        "retrieved_at": "2026-10-07"
+      }
+    ],
+    "confidence": "unverified",
+    "verified_at": "2026-10-07"
+  },
+  {
+    "id": "toyota-city-museum",
+    "name": "豊田市博物館",
+    "short_name": "豊田市博物館",
+    "prefecture": "愛知県",
+    "city": "豊田市",
+    "address": "愛知県豊田市小坂本町5-80",
+    "lat": 35.081648,
+    "lng": 137.151891,
+    "official_url": "https://hakubutsukan.city.toyota.aichi.jp/",
+    "sources": [
+      {
+        "url": "https://en.wikipedia.org/wiki/Toyota_City_Museum",
+        "title": "Wikipedia Toyota City Museum（住所・緯度経度）",
+        "retrieved_at": "2026-10-07"
+      }
+    ],
+    "confidence": "confirmed",
+    "verified_at": "2026-10-07"
+  },
+  {
+    "id": "okuizumo-tatara-token-kan",
+    "name": "奥出雲たたらと刀剣館",
+    "short_name": "たたらと刀剣館",
+    "prefecture": "島根県",
+    "city": "仁多郡奥出雲町",
+    "address": "島根県仁多郡奥出雲町横田1380-1",
+    "lat": 35.179,
+    "lng": 133.101,
+    "official_url": "https://www.touken-tatarafudoki.com/",
+    "sources": [
+      {
+        "url": "https://rurubu.jp/andmore/spot/80033504",
+        "title": "るるぶ&more 奥出雲たたらと刀剣館（住所）",
+        "retrieved_at": "2026-10-07"
+      }
+    ],
+    "confidence": "unverified",
+    "verified_at": "2026-10-07"
+  },
+  {
+    "id": "bizen-osafune-token-museum",
+    "name": "備前長船刀剣博物館",
+    "short_name": "備前長船刀剣博物館",
+    "prefecture": "岡山県",
+    "city": "瀬戸内市",
+    "address": "岡山県瀬戸内市長船町長船966",
+    "lat": 34.689,
+    "lng": 134.106,
+    "official_url": "https://www.city.setouchi.lg.jp/site/token/",
+    "exhibitions_page_url": "https://www.city.setouchi.lg.jp/site/token/111308.html",
+    "sources": [
+      {
+        "url": "https://www.museum.or.jp/museum/6243",
+        "title": "インターネットミュージアム 備前長船刀剣博物館（住所）",
+        "retrieved_at": "2026-10-07"
+      },
+      {
+        "url": "https://www.city.setouchi.lg.jp/site/token/111308.html",
+        "title": "旧データ（src/data）に記載のURL。内容は今回未確認",
+        "retrieved_at": "2026-10-07"
+      }
+    ],
+    "confidence": "unverified",
+    "verified_at": "2026-10-07"
+  },
+  {
+    "id": "fukuoka-city-museum",
+    "name": "福岡市博物館",
+    "short_name": "福岡市博物館",
+    "prefecture": "福岡県",
+    "city": "福岡市早良区",
+    "address": "福岡県福岡市早良区百道浜3-1-1",
+    "lat": 33.589768,
+    "lng": 130.353085,
+    "official_url": "https://museum.city.fukuoka.jp/",
+    "sources": [
+      {
+        "url": "https://en.wikipedia.org/wiki/Fukuoka_City_Museum",
+        "title": "Wikipedia Fukuoka City Museum（住所・緯度経度）",
+        "retrieved_at": "2026-10-07"
+      }
+    ],
+    "confidence": "confirmed",
+    "verified_at": "2026-10-07"
+  },
+  {
+    "id": "tokugawa-art-museum",
+    "name": "徳川美術館",
+    "short_name": "徳川美術館",
+    "prefecture": "愛知県",
+    "city": "名古屋市東区",
+    "address": "愛知県名古屋市東区徳川町1017",
+    "lat": 35.18369,
+    "lng": 136.9331,
+    "official_url": "https://www.tokugawa-art-museum.jp/",
+    "sources": [
+      {
+        "url": "https://www.museum.or.jp/museum/4758",
+        "title": "インターネットミュージアム 徳川美術館（住所）",
+        "retrieved_at": "2026-10-07"
+      },
+      {
+        "url": "https://aroundus.com/p/8292342-tokugawa-art-museum",
+        "title": "aroundus Tokugawa Art Museum（緯度経度）",
+        "retrieved_at": "2026-10-07"
+      }
+    ],
+    "confidence": "confirmed",
+    "verified_at": "2026-10-07"
+  },
+  {
+    "id": "sakaki-tetsu-no-tenjikan",
+    "name": "坂城町 鉄の展示館",
+    "short_name": "鉄の展示館",
+    "prefecture": "長野県",
+    "city": "埴科郡坂城町",
+    "address": "長野県埴科郡坂城町大字坂城6313-2",
+    "lat": 36.463,
+    "lng": 138.181,
+    "official_url": "https://www.tetsu-museum.info/",
+    "exhibitions_page_url": "https://www.tetsu-museum.info/event/",
+    "sources": [
+      {
+        "url": "https://tenki.jp/leisure/3/23/154/8328/",
+        "title": "tenki.jp 坂城町鉄の展示館（住所）",
+        "retrieved_at": "2026-10-07"
+      },
+      {
+        "url": "https://www.tetsu-museum.info/event/",
+        "title": "旧データ（src/data）に記載のURL。内容は今回未確認",
+        "retrieved_at": "2026-10-07"
+      }
+    ],
+    "confidence": "unverified",
+    "verified_at": "2026-10-07"
+  },
+  {
+    "id": "edo-tokyo-museum",
+    "name": "江戸東京博物館",
+    "short_name": "江戸博",
+    "prefecture": "東京都",
+    "city": "墨田区",
+    "address": "東京都墨田区横網1-4-1",
+    "lat": 35.696645,
+    "lng": 139.795667,
+    "official_url": "https://www.edo-tokyo-museum.or.jp/",
+    "sources": [
+      {
+        "url": "https://latitude.to/map/jp/japan/cities/yashio-shi/articles/30896/edo-tokyo-museum",
+        "title": "latitude.to Edo-Tokyo Museum（住所・緯度経度）",
+        "retrieved_at": "2026-10-07"
+      }
+    ],
+    "confidence": "confirmed",
+    "verified_at": "2026-10-07"
+  },
+  {
+    "id": "atsuta-jingu",
+    "name": "熱田神宮",
+    "short_name": "熱田神宮",
+    "prefecture": "愛知県",
+    "city": "名古屋市熱田区",
+    "address": "愛知県名古屋市熱田区神宮1-1-1",
+    "lat": 35.125579,
+    "lng": 136.909019,
+    "official_url": "https://www.atsutajingu.or.jp/",
+    "sources": [
+      {
+        "url": "https://en.wikipedia.org/wiki/Atsuta_Shrine",
+        "title": "Wikipedia Atsuta Shrine（住所・緯度経度 35°7'32.086\"N 136°54'32.468\"E）",
+        "retrieved_at": "2026-10-07"
+      }
+    ],
+    "confidence": "confirmed",
+    "verified_at": "2026-10-07"
+  },
+  {
+    "id": "ishikiri-tsurugiya-jinja",
+    "name": "石切劔箭神社",
+    "short_name": "石切神社",
+    "prefecture": "大阪府",
+    "city": "東大阪市",
+    "address": "大阪府東大阪市東石切町1-1-1",
+    "lat": 34.68219,
+    "lng": 135.64625,
+    "official_url": "https://www.ishikiri.or.jp/",
+    "sources": [
+      {
+        "url": "https://aroundus.com/p/11757121-ishikiri-tsurugiya-shrine",
+        "title": "aroundus Ishikiri Tsurugiya Shrine（住所・緯度経度）",
+        "retrieved_at": "2026-10-07"
+      }
+    ],
+    "confidence": "confirmed",
+    "verified_at": "2026-10-07"
+  },
+  {
+    "id": "hoshi-to-mori-no-uta-museum",
+    "name": "星と森の詩美術館",
+    "short_name": "星と森の詩美術館",
+    "prefecture": "新潟県",
+    "city": "十日町市",
+    "address": "新潟県十日町市稲葉1099-1",
+    "lat": 37.105,
+    "lng": 138.745,
+    "official_url": "https://www.museum.or.jp/museum/3066",
+    "sources": [
+      {
+        "url": "https://www.museum.or.jp/museum/3066",
+        "title": "インターネットミュージアム 星と森の詩美術館（住所）",
+        "retrieved_at": "2026-10-07"
+      }
+    ],
+    "confidence": "unverified",
+    "verified_at": "2026-10-07"
+  },
+  {
+    "id": "tsuruga-city-museum",
+    "name": "敦賀市立博物館",
+    "short_name": "敦賀市立博物館",
+    "prefecture": "福井県",
+    "city": "敦賀市",
+    "address": "福井県敦賀市相生町7-8",
+    "lat": 35.66,
+    "lng": 136.072,
+    "official_url": "https://www.museum.or.jp/museum/3443",
+    "sources": [
+      {
+        "url": "https://www.museum.or.jp/museum/3443",
+        "title": "インターネットミュージアム 敦賀市立博物館（住所）",
+        "retrieved_at": "2026-10-07"
+      }
+    ],
+    "confidence": "unverified",
+    "verified_at": "2026-10-07"
+  },
+  {
+    "id": "fukuyama-museum-of-art",
+    "name": "ふくやま美術館",
+    "short_name": "ふくやま美術館",
+    "prefecture": "広島県",
+    "city": "福山市",
+    "address": "広島県福山市西町2-4-3",
+    "lat": 34.49,
+    "lng": 133.358,
+    "official_url": "https://www.city.fukuyama.hiroshima.jp/site/fukuyama-museum/",
+    "sources": [
+      {
+        "url": "https://tokyoartbeat.com/en/venues/-/fukuyama-museum-of-art",
+        "title": "Tokyo Art Beat Fukuyama Museum of Art（住所）",
+        "retrieved_at": "2026-10-07"
+      }
+    ],
+    "confidence": "unverified",
+    "verified_at": "2026-10-07"
+  },
+  {
+    "id": "fukuyama-castle-museum",
+    "name": "福山城博物館",
+    "short_name": "福山城博物館",
+    "prefecture": "広島県",
+    "city": "福山市",
+    "lat": 34.4934,
+    "lng": 133.3614,
+    "official_url": "https://fukuyamajo.jp/",
+    "sources": [
+      {
+        "url": "https://fukuyamajo.jp/en/en_miru/",
+        "title": "福山城 公式サイト（英語）",
+        "retrieved_at": "2026-10-07"
+      }
+    ],
+    "confidence": "unverified",
+    "verified_at": "2026-10-07"
+  },
+  {
+    "id": "sanada-treasure-museum",
+    "name": "真田宝物館",
+    "short_name": "真田宝物館",
+    "prefecture": "長野県",
+    "city": "長野市",
+    "address": "長野県長野市松代町松代4-1",
+    "lat": 36.563,
+    "lng": 138.196,
+    "official_url": "https://www.sanadahoumotsukan.com/",
+    "sources": [
+      {
+        "url": "https://www.mapple.net/article/59072/",
+        "title": "まっぷる 真田宝物館（住所）",
+        "retrieved_at": "2026-10-07"
+      },
+      {
+        "url": "https://en.wikipedia.org/wiki/Matsushiro_Castle",
+        "title": "Wikipedia Matsushiro Castle（近接する松代城跡の緯度経度 36.566, 138.196。宝物館自体の値ではない）",
+        "retrieved_at": "2026-10-07"
+      }
+    ],
+    "confidence": "unverified",
+    "verified_at": "2026-10-07"
+  },
+  {
+    "id": "kitano-tenmangu",
+    "name": "北野天満宮",
+    "short_name": "北野天満宮",
     "prefecture": "京都府",
-    "city": "京都市",
-    "lat": 35.0,
-    "lng": 135.77,
-    "official_url": "https://example.com/sample-museum-b/",
+    "city": "京都市上京区",
+    "lat": 35.03111,
+    "lng": 135.73528,
+    "official_url": "https://kitanotenmangu.or.jp/",
+    "sources": [
+      {
+        "url": "https://en.wikipedia.org/wiki/Kitano_Tenmang%C5%AB",
+        "title": "Wikipedia Kitano Tenmangū（緯度経度）",
+        "retrieved_at": "2026-10-07"
+      }
+    ],
+    "confidence": "confirmed",
+    "verified_at": "2026-10-07"
+  },
+  {
+    "id": "chido-museum",
+    "name": "致道博物館",
+    "short_name": "致道博物館",
+    "prefecture": "山形県",
+    "city": "鶴岡市",
+    "address": "山形県鶴岡市家中新町10-18",
+    "lat": 38.728347,
+    "lng": 139.821278,
+    "official_url": "https://www.chido.jp/",
+    "sources": [
+      {
+        "url": "https://www.museum.or.jp/museum/1074",
+        "title": "インターネットミュージアム 致道博物館（住所）",
+        "retrieved_at": "2026-10-07"
+      },
+      {
+        "url": "https://en.wikipedia.org/wiki/Chid%C5%8D_Museum",
+        "title": "Wikipedia Chidō Museum（緯度経度）",
+        "retrieved_at": "2026-10-07"
+      }
+    ],
+    "confidence": "confirmed",
+    "verified_at": "2026-10-07"
+  },
+  {
+    "id": "kurokawa-institute",
+    "name": "黒川古文化研究所",
+    "short_name": "黒川古文化研究所",
+    "prefecture": "兵庫県",
+    "city": "西宮市",
+    "address": "兵庫県西宮市苦楽園三番町14-50",
+    "lat": 34.761,
+    "lng": 135.325,
+    "official_url": "https://www.kurokawa-institute.or.jp/",
+    "sources": [
+      {
+        "url": "https://www.nishi.or.jp/access/shisetsu/bunkashisetsu/facility12_46.html",
+        "title": "西宮市 黒川古文化研究所（住所）",
+        "retrieved_at": "2026-10-07"
+      }
+    ],
+    "confidence": "unverified",
     "verified_at": "2026-10-07"
   }
 ]

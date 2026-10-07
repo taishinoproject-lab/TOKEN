@@ -50,6 +50,8 @@ export const venueSchema = z.strictObject({
     })
     .optional(),
   verified_at: isoDateSchema,
+  sources: z.array(sourceSchema),
+  confidence: confidenceSchema,
   ...sampleFlag,
 });
 

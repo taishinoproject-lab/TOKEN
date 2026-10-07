@@ -73,6 +73,8 @@ interface Venue {
     notes?: string;             // 「出品目録はPDF」「JavaScriptで描画」など、館ごとの注意点
   };
   verified_at: ISODate;
+  sources: Source[];            // 住所・緯度経度などの出典
+  confidence: Confidence;
 }
 ```
 
