@@ -1,0 +1,366 @@
+<!doctype html>
+<!--
+  訪剣 −TOKEN−  デザイン案C「現代的で親しみやすい」  静的な見本（T-201 / D-015）
+
+  ねらい: 明るい配色と大きな文字。「あと何日」を前面に出し、初めての人にも入りやすく、
+  SNS で共有したくなる見た目にする。和の要素は、号の表示に明朝体を一点だけ使う程度に控える。画像は使わない。
+
+  配色（CSS 変数）
+    --bg       #FFFAF3  地（やわらかい生成り）
+    --card     #FFFFFF  カード
+    --ink      #222033  本文
+    --sub      #57536B  補足の文字
+    --line     #ECE4D8  区切り線
+    --primary  #3341C7  主ボタン・リンク（藍に近い青）
+    --primary-soft #E9EBFF
+    --coral    #FF6B4A  装飾の差し色（文字には使わない）
+    --sun      #FFD84D  装飾の差し色・バッジの地（上に載せる文字は --ink）
+    --green    #12704A  いま会えます（文字）
+    --mint     #DDF4E8  いま会えます（地）
+    --warn     #B42318  要確認（文字）
+    --warn-bg  #FFEDEA  要確認（地）
+
+  書体（Google Fonts）
+    Zen Maru Gothic   … 見出し・数字（丸ゴシックで親しみやすく）
+    Zen Kaku Gothic New … 本文
+    Shippori Mincho   … 号の表示のみ（和の要素を一点だけ）
+
+  データ: data/*.json の実データ（三日月宗近・厚藤四郎・後藤藤四郎・池田正宗、展覧会4件）。
+  表示日は 2026-10-07（日本時間）を想定した静的な見本。実装時は今日の日付で判定する（data-model.md §9）。
+-->
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>案C 現代的で親しみやすい｜訪剣 −TOKEN− デザイン見本</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@500;700;900&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=Shippori+Mincho:wght@700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#FFFAF3; --card:#FFFFFF; --ink:#222033; --sub:#57536B; --line:#ECE4D8;
+    --primary:#3341C7; --primary-soft:#E9EBFF; --coral:#FF6B4A; --sun:#FFD84D;
+    --green:#12704A; --mint:#DDF4E8; --warn:#B42318; --warn-bg:#FFEDEA;
+    --maru:"Zen Maru Gothic","Hiragino Maru Gothic ProN","Hiragino Sans",sans-serif;
+    --gothic:"Zen Kaku Gothic New","Hiragino Sans","Yu Gothic",sans-serif;
+    --mincho:"Shippori Mincho","Hiragino Mincho ProN","Yu Mincho",serif;
+    --r:20px;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0}
+  body{background:var(--bg);color:var(--ink);font-family:var(--gothic);font-size:16px;line-height:1.7;-webkit-text-size-adjust:100%}
+  a{color:var(--primary)}
+  .wrap{max-width:1100px;margin:0 auto;padding:0 16px}
+  @media(min-width:768px){.wrap{padding:0 32px}}
+
+  .specimen-label{font-size:12px;background:var(--ink);color:#fff;padding:8px 16px;letter-spacing:.04em}
+  .specimen-label b{margin-right:.6em}
+  .screen{border-bottom:12px solid var(--ink)}
+
+  /* ヘッダー */
+  .hdr .wrap{display:flex;align-items:center;justify-content:space-between;height:64px}
+  .logo{display:flex;align-items:center;gap:8px;text-decoration:none;color:var(--ink);font-family:var(--maru);font-weight:900;font-size:22px;white-space:nowrap}
+  .logo i{display:inline-block;width:12px;height:12px;border-radius:50%;background:var(--coral);box-shadow:8px 0 0 var(--sun)}
+  .logo small{font-size:12px;font-weight:700;color:var(--sub);margin-left:10px;letter-spacing:.1em}
+  .nav{display:none;gap:6px}
+  .nav a{font-family:var(--maru);font-weight:700;font-size:14px;color:var(--ink);text-decoration:none;padding:8px 16px;border-radius:999px}
+  .nav a:hover{background:var(--primary-soft)}
+  .menu{font-family:var(--maru);font-weight:700;font-size:13px;border:0;background:var(--card);border-radius:999px;padding:8px 14px;box-shadow:0 1px 0 var(--line)}
+  @media(min-width:768px){.nav{display:flex}.menu{display:none}}
+
+  /* 導入 */
+  .hero{padding:24px 0 36px;position:relative;overflow:hidden}
+  .hero::before{content:"";position:absolute;right:-80px;top:-60px;width:260px;height:260px;border-radius:50%;background:var(--sun);opacity:.55}
+  .hero::after{content:"";position:absolute;right:120px;top:120px;width:90px;height:90px;border-radius:50%;background:var(--coral);opacity:.25}
+  .hero .wrap{position:relative;z-index:1}
+  .hero h1{font-family:var(--maru);font-weight:900;font-size:36px;line-height:1.3;margin:0 0 8px;letter-spacing:.01em}
+  .hero h1 em{font-style:normal;background:linear-gradient(transparent 62%,var(--sun) 62%)}
+  .hero p{margin:0 0 20px;color:var(--sub);font-size:15px}
+  @media(min-width:768px){.hero{padding:56px 0 64px}.hero h1{font-size:56px}.hero::before{width:420px;height:420px;right:-60px}}
+  .search{display:flex;align-items:center;background:var(--card);border-radius:999px;padding:6px;box-shadow:0 6px 24px rgba(51,65,199,.12);max-width:640px}
+  .search input{flex:1;min-width:0;border:0;background:none;font:inherit;font-size:16px;padding:10px 14px}
+  .search button{border:0;background:var(--primary);color:#fff;font-family:var(--maru);font-weight:700;font-size:15px;border-radius:999px;padding:12px 20px;white-space:nowrap}
+  .chips{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0 0;padding:0;list-style:none}
+  .chips a{display:inline-block;background:var(--card);border:1px solid var(--line);border-radius:999px;padding:4px 12px;font-size:14px;color:var(--ink);text-decoration:none}
+
+  /* 節の見出し */
+  .sec{padding:12px 0 36px}
+  .sec-h{display:flex;align-items:baseline;justify-content:space-between;gap:8px;margin:0 0 14px}
+  .sec-h h2{font-family:var(--maru);font-weight:900;font-size:24px;margin:0}
+  .sec-h a{font-family:var(--maru);font-weight:700;font-size:14px;white-space:nowrap}
+
+  .badge{display:inline-block;font-family:var(--maru);font-weight:700;font-size:12px;border-radius:999px;padding:2px 10px;line-height:1.6;white-space:nowrap}
+  .b-check{background:var(--warn-bg);color:var(--warn)}
+  .b-now{background:var(--mint);color:var(--green)}
+  .b-kokuho{background:var(--ink);color:#fff}
+  .b-ju{background:var(--card);color:var(--ink);box-shadow:inset 0 0 0 1.5px var(--ink)}
+  .b-basis{background:var(--primary-soft);color:var(--primary)}
+
+  /* いま会える刀：スマホでは横スクロールのカード */
+  .cards{display:grid;grid-auto-flow:column;grid-auto-columns:78%;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;padding:4px 16px 12px;margin:0 -16px;scrollbar-width:none}
+  .cards::-webkit-scrollbar{display:none}
+  @media(min-width:768px){.cards{grid-auto-flow:row;grid-template-columns:repeat(4,1fr);grid-auto-columns:auto;overflow:visible;margin:0;padding:4px 0 12px}}
+  .card{scroll-snap-align:start;background:var(--card);border-radius:var(--r);padding:18px;text-decoration:none;color:var(--ink);display:flex;flex-direction:column;gap:8px;box-shadow:0 2px 0 var(--line);position:relative;overflow:hidden;min-width:0}
+  .card .count{display:flex;align-items:baseline;gap:4px;font-family:var(--maru);font-weight:900;color:var(--green)}
+  .card .count b{font-size:34px;line-height:1}
+  .card .count span{font-size:13px}
+  .card .go{font-family:var(--mincho);font-weight:800;font-size:28px;line-height:1.3}
+  .card .sub{font-size:13px;color:var(--sub)}
+  .card .where{font-size:13px;border-top:1px dashed var(--line);padding-top:10px;margin-top:auto}
+  .card .where b{display:block;font-size:14px}
+  .card .tags{display:flex;flex-wrap:wrap;gap:6px}
+  .card::after{content:"";position:absolute;right:-24px;top:-24px;width:72px;height:72px;border-radius:50%;background:var(--sun);opacity:.5}
+  .card:nth-child(2)::after{background:var(--coral);opacity:.25}
+  .card:nth-child(3)::after{background:var(--primary);opacity:.15}
+  .card:nth-child(4)::after{background:var(--green);opacity:.15}
+
+  /* 会期終了が近い展覧会 */
+  .ending{display:grid;gap:10px;margin:0;padding:0;list-style:none}
+  @media(min-width:768px){.ending{grid-template-columns:1fr 1fr}}
+  .ending li{display:flex;gap:14px;align-items:center;background:var(--card);border-radius:var(--r);padding:14px 16px;box-shadow:0 2px 0 var(--line)}
+  .ending .left{flex:none;width:64px;height:64px;border-radius:18px;background:var(--sun);display:flex;flex-direction:column;align-items:center;justify-content:center;font-family:var(--maru);line-height:1.1}
+  .ending .left small{font-size:11px;font-weight:700}
+  .ending .left b{font-size:26px;font-weight:900}
+  .ending .left.hot{background:var(--coral)}
+  .ending .t{font-family:var(--maru);font-weight:700;font-size:16px;line-height:1.45}
+  .ending .v{font-size:13px;color:var(--sub)}
+
+  .ftr{font-size:13px;color:var(--sub);padding:24px 0 36px}
+
+  /* 刀剣詳細 */
+  .crumb{font-size:13px;color:var(--sub);margin:4px 0 12px}
+  .d-grid{display:grid;gap:16px;padding-bottom:40px}
+  @media(min-width:960px){.d-grid{grid-template-columns:1.25fr 1fr;gap:24px;align-items:start}}
+  .title-card{background:var(--card);border-radius:24px;padding:24px 20px;position:relative;overflow:hidden}
+  .title-card::before{content:"";position:absolute;left:-40px;bottom:-60px;width:180px;height:180px;border-radius:50%;background:var(--primary-soft)}
+  .title-card>*{position:relative}
+  .title-card .yomi{font-size:13px;color:var(--sub);letter-spacing:.12em}
+  .title-card h1{font-family:var(--mincho);font-weight:800;font-size:44px;line-height:1.2;margin:2px 0 4px}
+  .title-card .sub{font-size:17px;font-weight:500}
+  .title-card .tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:14px}
+  @media(min-width:768px){.title-card{padding:36px 36px}.title-card h1{font-size:64px}}
+
+  .status{background:var(--mint);border-radius:24px;padding:20px}
+  .status .lbl{font-family:var(--maru);font-weight:900;font-size:26px;color:var(--green);margin:0;line-height:1.3}
+  .status .big{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;margin:4px 0 10px;font-family:var(--maru)}
+  .status .big b{font-size:44px;font-weight:900;line-height:1;color:var(--ink)}
+  .status .big span{font-weight:700;font-size:15px}
+  .status .where{background:var(--card);border-radius:16px;padding:12px 14px;font-size:14px}
+  .status .where b{display:block;font-size:16px}
+  .status .check{display:flex;gap:8px;align-items:flex-start;margin:12px 0 0;font-size:13px;background:var(--warn-bg);border-radius:12px;padding:10px 12px}
+
+  .actions{display:grid;gap:10px}
+  .btn{display:flex;align-items:center;justify-content:center;gap:8px;min-height:54px;border-radius:999px;font-family:var(--maru);font-weight:700;font-size:16px;text-decoration:none;padding:10px 20px;text-align:center;line-height:1.35}
+  .btn.primary{background:var(--primary);color:#fff;box-shadow:0 4px 0 #1F2A8F}
+  .btn.ghost{background:var(--card);color:var(--primary);box-shadow:inset 0 0 0 2px var(--primary)}
+  .btn.share{background:var(--sun);color:var(--ink)}
+  .btn small{font-family:var(--gothic);font-weight:500;font-size:12px;display:block}
+  .btn .ic{display:inline-grid;place-items:center;width:26px;height:26px;border-radius:8px;background:rgba(255,255,255,.2);font-size:13px;flex:none}
+
+  .tiles{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+  .tile{background:var(--card);border-radius:16px;padding:12px 14px;min-width:0}
+  .tile small{display:block;font-size:12px;color:var(--sub);font-family:var(--maru);font-weight:700}
+  .tile b{font-size:17px;font-weight:700;overflow-wrap:anywhere}
+  .tile.wide{grid-column:span 2}
+  .tile .legend{display:block;font-size:12px;color:var(--sub);margin-top:4px}
+
+  .story{background:var(--card);border-radius:24px;padding:20px}
+  .story h2{font-family:var(--maru);font-weight:900;font-size:18px;margin:0 0 4px}
+  .story p{margin:0 0 14px;font-size:15px}
+  .story p:last-child{margin:0}
+
+  .states{background:var(--card);border-radius:24px;padding:16px 20px;font-size:13px}
+  .states p{margin:0 0 8px;color:var(--sub)}
+  .states .row{display:flex;flex-wrap:wrap;gap:6px}
+  .states .s2{background:var(--primary-soft);color:var(--primary)}
+  .states .s3{background:#FFF4CC;color:#6B4E00}
+  .states .s4{background:#F1EEF6;color:var(--sub)}
+
+  .sources{font-size:13px;color:var(--sub);background:var(--card);border-radius:24px;padding:16px 20px}
+  .sources h2{font-family:var(--maru);font-weight:900;font-size:16px;color:var(--ink);margin:0 0 6px}
+  .sources ul{margin:0;padding-left:1.2em}
+  .sources li{margin:0 0 6px;overflow-wrap:anywhere}
+  .sources .checked{margin:8px 0 0;color:var(--ink);font-weight:700}
+
+  .col{display:grid;gap:16px;min-width:0}
+
+  /* シェア画像（1200×630） */
+  .ogp-sec{padding:28px 0 44px}
+  .ogp-sec p{font-size:13px;color:var(--sub);margin:0 0 12px}
+  .ogp{width:100%;max-width:1200px;aspect-ratio:1200/630;container-type:inline-size;margin:0 auto}
+  .ogp-in{position:relative;width:100%;height:100%;background:var(--primary);overflow:hidden;padding:4.4cqw;display:grid;grid-template-columns:1fr;font-family:var(--maru);border-radius:0}
+  .ogp-in::before{content:"";position:absolute;right:-8cqw;top:-12cqw;width:40cqw;height:40cqw;border-radius:50%;background:var(--sun)}
+  .ogp-in::after{content:"";position:absolute;right:20cqw;bottom:-10cqw;width:20cqw;height:20cqw;border-radius:50%;background:var(--coral);opacity:.9}
+  .ogp-card{position:relative;z-index:1;background:var(--card);border-radius:3cqw;padding:4cqw 4.4cqw;display:flex;flex-direction:column;justify-content:space-between;width:72cqw}
+  .ogp-badge{align-self:flex-start;background:var(--mint);color:var(--green);font-weight:900;font-size:2.4cqw;border-radius:99cqw;padding:.5cqw 2cqw}
+  .ogp-go{font-family:var(--mincho);font-weight:800;font-size:9cqw;line-height:1.1;margin:1.4cqw 0 .6cqw;white-space:nowrap}
+  .ogp-sub{font-size:2.4cqw;font-weight:700;color:var(--sub)}
+  .ogp-foot{display:flex;justify-content:space-between;align-items:flex-end;border-top:.25cqw dashed var(--line);padding-top:1.6cqw;font-size:2.1cqw;font-weight:700}
+  .ogp-foot b{font-size:3.2cqw;font-weight:900;color:var(--green)}
+  .ogp-brand{position:absolute;z-index:1;right:4.4cqw;bottom:4.2cqw;color:#fff;font-weight:900;font-size:3cqw;text-align:right;line-height:1.3}
+  .ogp-brand small{display:block;font-size:1.6cqw;font-weight:700;opacity:.95}
+</style>
+</head>
+<body>
+
+<!-- ============ 1. トップ ============ -->
+<div class="specimen-label"><b>案C 現代的で親しみやすい</b>① トップ（2026年10月7日を表示日とした見本）</div>
+<section class="screen">
+  <header class="hdr"><div class="wrap">
+    <a class="logo" href="#"><i></i>訪剣<small>TOKEN</small></a>
+    <nav class="nav"><a href="#">刀をさがす</a><a href="#">展覧会</a><a href="#">地図・訪剣帖</a></nav>
+    <button class="menu" type="button">メニュー</button>
+  </div></header>
+
+  <div class="hero"><div class="wrap">
+    <h1>推しの刀、<br><em>いまどこ？</em></h1>
+    <p>どこで、いつまで会えるかがすぐわかる。</p>
+    <form class="search" role="search" onsubmit="return false">
+      <input type="search" aria-label="刀をさがす" placeholder="刀の名前・刀匠名でさがす">
+      <button type="submit">さがす</button>
+    </form>
+    <ul class="chips"><li><a href="#">三日月宗近</a></li><li><a href="#">吉光</a></li><li><a href="#">正宗</a></li><li><a href="#">東京で見られる刀</a></li></ul>
+  </div></div>
+
+  <div class="sec"><div class="wrap">
+    <div class="sec-h"><h2>いま会える刀</h2><a href="#">すべて見る →</a></div>
+    <div class="cards">
+      <a class="card" href="#">
+        <div class="count"><span>あと</span><b>18</b><span>日（10/25まで）</span></div>
+        <div class="go">三日月宗近</div>
+        <div class="sub">太刀　銘 三条</div>
+        <div class="tags"><span class="badge b-kokuho">国宝</span><span class="badge b-basis">在銘 三条宗近</span><span class="badge b-check">要確認</span></div>
+        <div class="where"><b>東京国立博物館</b>本館13室</div>
+      </a>
+      <a class="card" href="#">
+        <div class="count"><span>あと</span><b>18</b><span>日（10/25まで）</span></div>
+        <div class="go">厚藤四郎</div>
+        <div class="sub">短刀　銘 吉光</div>
+        <div class="tags"><span class="badge b-kokuho">国宝</span><span class="badge b-basis">在銘 吉光</span><span class="badge b-check">要確認</span></div>
+        <div class="where"><b>東京国立博物館</b>本館13室</div>
+      </a>
+      <a class="card" href="#">
+        <div class="count"><span>あと</span><b>11</b><span>日（10/18まで）</span></div>
+        <div class="go">後藤藤四郎</div>
+        <div class="sub">短刀　銘 吉光</div>
+        <div class="tags"><span class="badge b-kokuho">国宝</span><span class="badge b-basis">在銘 吉光</span><span class="badge b-check">要確認</span></div>
+        <div class="where"><b>佐野美術館</b>名刀のいろは</div>
+      </a>
+      <a class="card" href="#">
+        <div class="count"><span>あと</span><b>11</b><span>日（10/18まで）</span></div>
+        <div class="go">池田正宗</div>
+        <div class="sub">刀　金象嵌銘 正宗磨上／本阿弥（花押）</div>
+        <div class="tags"><span class="badge b-ju">重要文化財</span><span class="badge b-basis">極め 正宗</span><span class="badge b-check">要確認</span></div>
+        <div class="where"><b>佐野美術館</b>名刀のいろは</div>
+      </a>
+    </div>
+  </div></div>
+
+  <div class="sec"><div class="wrap">
+    <div class="sec-h"><h2>もうすぐ終わる展覧会</h2><a href="#">一覧 →</a></div>
+    <ul class="ending">
+      <li><div class="left hot"><small>あと</small><b>5</b><small>日</small></div>
+        <div><div class="t">鈴木嘉定コレクション寄贈品展 <span class="badge b-check">要確認</span></div><div class="v">刀剣博物館（東京都墨田区）・10/12（月）まで</div></div></li>
+      <li><div class="left"><small>あと</small><b>11</b><small>日</small></div>
+        <div><div class="t">さのび と とくび 名刀のいろは <span class="badge b-check">要確認</span></div><div class="v">佐野美術館（静岡県三島市）・10/18（日）まで</div></div></li>
+      <li><div class="left"><small>あと</small><b>18</b><small>日</small></div>
+        <div><div class="t">総合文化展 本館13室 刀剣 <span class="badge b-check">要確認</span></div><div class="v">東京国立博物館（東京都台東区）・10/25（日）まで</div></div></li>
+      <li><div class="left"><small>あと</small><b>19</b><small>日</small></div>
+        <div><div class="t">西海道と南海道 <span class="badge b-check">要確認</span></div><div class="v">熱田神宮 剣の宝庫 草薙館（愛知県名古屋市熱田区）・10/26（月）まで</div></div></li>
+    </ul>
+  </div></div>
+
+  <footer class="ftr"><div class="wrap">訪剣 −TOKEN−　お出かけ前に、各館の公式サイトで最新情報をご確認ください。</div></footer>
+</section>
+
+<!-- ============ 2. 刀剣詳細 ============ -->
+<div class="specimen-label"><b>案C 現代的で親しみやすい</b>② 刀剣詳細 /swords/mikazuki-munechika</div>
+<section class="screen">
+  <header class="hdr"><div class="wrap">
+    <a class="logo" href="#"><i></i>訪剣<small>TOKEN</small></a>
+    <nav class="nav"><a href="#">刀をさがす</a><a href="#">展覧会</a><a href="#">地図・訪剣帖</a></nav>
+    <button class="menu" type="button">メニュー</button>
+  </div></header>
+
+  <div class="wrap">
+    <p class="crumb"><a href="#">トップ</a> › <a href="#">三条宗近</a> › 三日月宗近</p>
+    <div class="d-grid">
+      <div class="col">
+        <div class="title-card">
+          <div class="yomi">みかづきむねちか</div>
+          <h1>三日月宗近</h1>
+          <div class="sub">太刀　銘 三条</div>
+          <div class="tags"><span class="badge b-kokuho">国宝</span><span class="badge b-basis">在銘</span><span class="badge b-ju">平安時代</span></div>
+        </div>
+
+        <div class="status">
+          <p class="lbl">いま会えます！</p>
+          <div class="big"><b>あと18日</b><span>10月25日（日）まで</span></div>
+          <div class="where"><b>東京国立博物館　本館13室</b>総合文化展 本館13室 刀剣（2026/8/4〜10/25）・一般 1,000円<br><a href="#">展覧会のページへ →</a></div>
+          <div class="check"><span class="badge b-check">要確認</span><span>この展示情報は、公式サイトでの確認がまだ済んでいません。お出かけ前に<a href="#">公式サイト</a>をご確認ください。</span></div>
+        </div>
+
+        <div class="actions">
+          <a class="btn primary" href="#"><span>カレンダーに追加<small>この刀の展示予定を自動で受け取る（.ics 購読）</small></span></a>
+          <a class="btn ghost" href="#"><span>刀の写真を公式ページで見る ↗<small>ColBase（国立文化財機構）</small></span></a>
+          <a class="btn share" href="#">この刀をシェアする</a>
+        </div>
+      </div>
+
+      <div class="col">
+        <div class="tiles">
+          <div class="tile wide"><small>刀匠</small><b><a href="#">三条宗近</a></b> <span class="badge b-basis">在銘</span><span class="legend">在銘＝本人の銘がある／極め＝無銘だが鑑定で帰属／伝＝そう伝えられる</span></div>
+          <div class="tile"><small>号</small><b>三日月宗近</b></div>
+          <div class="tile"><small>銘</small><b>三条</b></div>
+          <div class="tile"><small>種別</small><b>太刀</b></div>
+          <div class="tile"><small>指定</small><b>国宝</b></div>
+          <div class="tile"><small>刃長</small><b>80cm</b></div>
+          <div class="tile"><small>反り</small><b>2.7cm</b></div>
+          <div class="tile wide"><small>所蔵</small><b><a href="#">東京国立博物館</a></b></div>
+        </div>
+
+        <div class="story">
+          <h2>名前の由来</h2>
+          <p>刃文に三日月形の打ち除けが複数見えることに由来。天下五剣の一つ。</p>
+          <h2>たどってきた持ち主</h2>
+          <p>高台院 → 徳川秀忠 → 徳川将軍家 → 東京国立博物館</p>
+        </div>
+
+        <div class="states">
+          <p>展示状態の表示（4種類の見本。この刀の情報ではありません）</p>
+          <div class="row"><span class="badge b-now">いま会えます</span><span class="badge s2">○/○から展示</span><span class="badge s3">開催予定</span><span class="badge s4">所蔵先：○○</span></div>
+        </div>
+
+        <div class="sources">
+          <h2>出典</h2>
+          <ul>
+            <li><a href="#">文化遺産オンライン 太刀〈銘三条（名物三日月宗近）〉</a>（取得 2026-10-07）</li>
+            <li><a href="#">ColBase</a>（取得 2026-10-07）<span class="badge b-check">要確認</span> 旧データに記載のURL。内容は未確認</li>
+            <li>展示情報：<a href="#">東京国立博物館 公式サイト</a>（取得 2026-10-07）<span class="badge b-check">要確認</span></li>
+          </ul>
+          <p class="checked">最終確認日：2026年10月7日</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 3. シェア画像 ============ -->
+<div class="specimen-label"><b>案C 現代的で親しみやすい</b>③ シェア用画像（1200×630、文字だけで組む）</div>
+<section class="ogp-sec"><div class="wrap" style="max-width:1264px">
+  <p>実寸 1200×630 の見本です。画面の幅に合わせて縮小して表示しています。</p>
+  <div class="ogp" id="ogp"><div class="ogp-in">
+    <div class="ogp-card">
+      <div>
+        <span class="ogp-badge">いま会えます</span>
+        <div class="ogp-go">三日月宗近</div>
+        <div class="ogp-sub">太刀　銘 三条 ・ 三条宗近 ・ 国宝</div>
+      </div>
+      <div class="ogp-foot"><span>東京国立博物館 本館13室</span><b>10/25まで</b></div>
+    </div>
+    <div class="ogp-brand">訪剣<small>TOKEN</small><small>推しの刀、いまどこ？</small></div>
+  </div></div>
+</div></section>
+
+</body>
+</html>
