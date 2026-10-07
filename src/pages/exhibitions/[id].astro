@@ -4,8 +4,10 @@ import { getCollection } from "astro:content";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import Sources from "../../components/Sources.astro";
 import ExhibitionStatusLabel from "../../components/ExhibitionStatusLabel.tsx";
+import VenueMap from "../../components/map/VenueMap.tsx";
 import { swordDisplayName } from "../../lib/display-name";
 import { formatFullDate, todayJst } from "../../lib/date";
+import { toMapVenue } from "../../lib/map-data";
 
 export const getStaticPaths = (async () => {
   const exhibitions = await getCollection("exhibitions");
@@ -47,6 +49,16 @@ const exhibits = ex.exhibits.map((exhibit) => {
     </dd>
     {ex.admission && <><dt>観覧料</dt><dd>{ex.admission}</dd></>}
   </dl>
+
+  {
+    venue && (
+      <div class="mt-4">
+        <VenueMap client:only="react" venue={toMapVenue(venue)}>
+          <p slot="fallback" class="text-sm">地図を読み込んでいます…</p>
+        </VenueMap>
+      </div>
+    )
+  }
 
   <ul class="mt-4 list-disc pl-5">
     <li><a href={ex.official_url} class="underline" rel="noopener noreferrer" target="_blank">公式ページ（外部サイト）</a></li>

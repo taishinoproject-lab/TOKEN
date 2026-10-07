@@ -1,0 +1,21 @@
+---
+import { getCollection } from "astro:content";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import ExhibitionMap from "../components/map/ExhibitionMap.tsx";
+import { todayJst } from "../lib/date";
+import { toMapData } from "../lib/map-data";
+
+const venues = (await getCollection("venues")).map((e) => e.data);
+const exhibitions = (await getCollection("exhibitions")).map((e) => e.data);
+const buildToday = todayJst();
+// 地図に必要な項目だけを埋め込む。開催中・開催予定の判定は、ブラウザで今日の日付を使ってやり直す。
+const mapData = toMapData(venues, exhibitions, buildToday);
+---
+
+<BaseLayout title="地図">
+  <h1 class="mb-2 text-2xl">地図</h1>
+  <p class="mb-4">開催中・開催予定の展覧会がある館です。ピンを押すと、館名と展覧会が表示されます。</p>
+  <ExhibitionMap client:only="react" data={mapData} buildToday={buildToday}>
+    <p slot="fallback">地図を読み込んでいます…</p>
+  </ExhibitionMap>
+</BaseLayout>
