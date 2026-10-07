@@ -367,18 +367,24 @@
     "prefecture": "広島県",
     "city": "福山市",
     "address": "広島県福山市西町2-4-3",
-    "lat": 34.49,
-    "lng": 133.358,
+    "lat": 34.49095769443698,
+    "lng": 133.35648992627918,
     "official_url": "https://www.city.fukuyama.hiroshima.jp/site/fukuyama-museum/",
     "sources": [
       {
-        "url": "https://tokyoartbeat.com/en/venues/-/fukuyama-museum-of-art",
-        "title": "Tokyo Art Beat Fukuyama Museum of Art（住所）",
-        "retrieved_at": "2026-10-07"
+        "url": "https://www.city.fukuyama.hiroshima.jp/site/fukuyama-museum/253394.html",
+        "title": "ふくやま美術館 アクセス（住所。地図に埋め込まれた座標 34.49095769443698, 133.35648992627918）",
+        "retrieved_at": "2026-10-07",
+        "quote": "〒720-0067 広島県福山市西町二丁目４番３号 ＪＲ福山駅北口から西へ約400m"
       }
     ],
-    "confidence": "unverified",
-    "verified_at": "2026-10-07"
+    "confidence": "confirmed",
+    "verified_at": "2026-10-07",
+    "exhibitions_page_url": "https://www.city.fukuyama.hiroshima.jp/site/fukuyama-museum/319657.html",
+    "crawl": {
+      "enabled": true,
+      "notes": "福山市の公式サイト内。巡回先: 特別展、所蔵品展、小松安弘コレクション展示情報、アクセス。刀剣（小松安弘コレクション）は所蔵品展の中で展示されることが多い"
+    }
   },
   {
     "id": "fukuyama-castle-museum",

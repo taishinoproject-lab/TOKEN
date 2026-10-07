@@ -1426,22 +1426,40 @@
     "venue_id": "fukuyama-museum-of-art",
     "start_date": "2027-01-24",
     "end_date": "2027-03-22",
-    "official_url": "https://www.city.fukuyama.hiroshima.jp/site/fukuyama-museum/",
-    "admission": "一般 1,500円",
-    "periods": [],
-    "exhibits": [
+    "official_url": "https://www.city.fukuyama.hiroshima.jp/site/fukuyama-museum/319657.html",
+    "periods": [
       {
-        "label": "新刀 虎徹",
-        "smith_id": "nagasone-kotetsu"
+        "id": "前期",
+        "start_date": "2027-01-24",
+        "end_date": "2027-02-21"
       },
       {
-        "label": "新刀 助広",
-        "note": "助広は同名で複数代いるため、刀匠へのリンクは付けていない"
+        "id": "後期",
+        "start_date": "2027-02-23",
+        "end_date": "2027-03-22"
       }
     ],
-    "sources": [],
+    "exhibits": [
+      {
+        "label": "虎徹",
+        "smith_id": "nagasone-kotetsu",
+        "note": "出品目録は未公開。展覧会名（新刀・東西の巨匠 虎徹と助広）による"
+      },
+      {
+        "label": "助広",
+        "note": "出品目録は未公開。展覧会名（新刀・東西の巨匠 虎徹と助広）による。助広は同名で複数代いるため、刀匠へのリンクは付けていない"
+      }
+    ],
+    "sources": [
+      {
+        "url": "https://www.city.fukuyama.hiroshima.jp/site/fukuyama-museum/319657.html",
+        "title": "ふくやま美術館 特別展（2026年度）",
+        "retrieved_at": "2026-10-07",
+        "quote": "【新刀・東西の巨匠 虎徹と助広】 2027年1月24日（日）～3月22日（月・休） 前期：2月21日（日）まで、後期：2月23日（火・祝）から"
+      }
+    ],
     "verified_at": "2026-10-07",
-    "confidence": "unverified"
+    "confidence": "confirmed"
   },
   {
     "id": "2026-fukuyama-castle-museum-token-monogatari",
