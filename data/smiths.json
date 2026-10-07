@@ -1,0 +1,28 @@
+[
+  {
+    "_sample": true,
+    "id": "sample-smith-a",
+    "name": "見本国光",
+    "reading": "みほんくにみつ",
+    "aliases": ["見本國光"],
+    "school": "見本派",
+    "province": "見本国",
+    "era": "架空時代",
+    "description": "動作確認用の架空の刀匠です。",
+    "sources": [
+      { "url": "https://example.com/sources/smith-a", "title": "サンプル出典", "retrieved_at": "2026-10-07" }
+    ],
+    "confidence": "confirmed"
+  },
+  {
+    "_sample": true,
+    "id": "sample-smith-b",
+    "name": "試作正光",
+    "reading": "しさくまさみつ",
+    "aliases": [],
+    "teacher_ids": ["sample-smith-a"],
+    "description": "動作確認用の架空の刀匠です（未確認データの例）。",
+    "sources": [],
+    "confidence": "unverified"
+  }
+]

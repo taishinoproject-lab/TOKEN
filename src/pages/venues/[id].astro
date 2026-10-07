@@ -1,0 +1,61 @@
+---
+import type { GetStaticPaths } from "astro";
+import { getCollection } from "astro:content";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import ExhibitionStatusLabel from "../../components/ExhibitionStatusLabel.tsx";
+import { formatFullDate, todayJst } from "../../lib/date";
+
+export const getStaticPaths = (async () => {
+  const venues = await getCollection("venues");
+  return venues.map((entry) => ({ params: { id: entry.id }, props: { venue: entry.data } }));
+}) satisfies GetStaticPaths;
+
+const { venue } = Astro.props;
+const exhibitions = (await getCollection("exhibitions"))
+  .map((e) => e.data)
+  .filter((ex) => ex.venue_id === venue.id)
+  .sort((a, b) => (a.start_date < b.start_date ? -1 : a.start_date > b.start_date ? 1 : 0));
+const buildToday = todayJst();
+---
+
+<BaseLayout title={venue.name}>
+  <h1 class="mb-4 text-2xl">{venue.name}</h1>
+
+  <dl class="grid grid-cols-[auto_1fr] gap-x-4 gap-y-1">
+    <dt>所在地</dt>
+    <dd>{venue.prefecture}{venue.city}{venue.address ?? ""}</dd>
+    <dt>緯度・経度</dt>
+    <dd>{venue.lat}, {venue.lng}</dd>
+  </dl>
+
+  <ul class="mt-4 list-disc pl-5">
+    <li><a href={venue.official_url} class="underline" rel="noopener noreferrer" target="_blank">公式サイト（外部サイト）</a></li>
+    {
+      venue.exhibitions_page_url && (
+        <li>
+          <a href={venue.exhibitions_page_url} class="underline" rel="noopener noreferrer" target="_blank">展覧会情報（外部サイト）</a>
+        </li>
+      )
+    }
+  </ul>
+
+  <section class="mt-6">
+    <h2 class="mb-2 text-lg">この館の展覧会</h2>
+    {
+      exhibitions.length === 0 ? (
+        <p>登録されている展覧会はありません。</p>
+      ) : (
+        <ul class="list-disc pl-5">
+          {exhibitions.map((ex) => (
+            <li>
+              <ExhibitionStatusLabel client:load exhibition={ex} buildToday={buildToday} />
+              <a href={`/exhibitions/${ex.id}`} class="underline">{ex.title}</a>（{ex.start_date}〜{ex.end_date}）
+            </li>
+          ))}
+        </ul>
+      )
+    }
+  </section>
+
+  <p class="mt-8 text-sm">最終確認日：{formatFullDate(venue.verified_at)}</p>
+</BaseLayout>

@@ -1,0 +1,46 @@
+[
+  {
+    "_sample": true,
+    "id": "2026-sample-museum-a-meito",
+    "title": "見本名刀展（サンプル）",
+    "venue_id": "sample-museum-a",
+    "room": "第1展示室",
+    "start_date": "2026-09-01",
+    "end_date": "2026-12-20",
+    "official_url": "https://example.com/sample-museum-a/exhibitions/meito",
+    "list_url": "https://example.com/sample-museum-a/exhibitions/meito/list.pdf",
+    "admission": "一般 1,000円（架空）",
+    "periods": [
+      { "id": "前期", "start_date": "2026-09-01", "end_date": "2026-10-31" },
+      { "id": "後期", "start_date": "2026-11-01", "end_date": "2026-12-20" }
+    ],
+    "exhibits": [
+      { "label": "太刀 銘 見本国光（号 見本丸）", "sword_id": "sample-mihon-maru", "period_ids": ["前期"] },
+      { "label": "短刀 銘 見本国光作", "sword_id": "sample-smith-a-tanto-1", "period_ids": ["後期"] },
+      { "label": "刀 無銘 伝試作正光", "smith_id": "sample-smith-b" },
+      { "label": "刀装具（サンプル）", "note": "刀剣・刀匠にリンクしない出品の例" }
+    ],
+    "sources": [
+      { "url": "https://example.com/sample-museum-a/exhibitions/meito", "title": "サンプル出典", "retrieved_at": "2026-10-07" }
+    ],
+    "verified_at": "2026-10-07",
+    "confidence": "confirmed"
+  },
+  {
+    "_sample": true,
+    "id": "2027-sample-museum-b-tokubetsu",
+    "title": "試験特別展（サンプル）",
+    "venue_id": "sample-museum-b",
+    "start_date": "2027-01-10",
+    "end_date": "2027-03-01",
+    "official_url": "https://example.com/sample-museum-b/exhibitions/tokubetsu",
+    "periods": [],
+    "exhibits": [
+      { "label": "太刀 銘 見本国光（号 見本丸）", "sword_id": "sample-mihon-maru" },
+      { "label": "刀 無銘 伝試作正光", "sword_id": "sample-smith-b-katana-1" }
+    ],
+    "sources": [],
+    "verified_at": "2026-10-07",
+    "confidence": "unverified"
+  }
+]

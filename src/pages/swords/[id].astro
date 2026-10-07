@@ -1,0 +1,122 @@
+---
+import type { GetStaticPaths } from "astro";
+import { getCollection } from "astro:content";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Sources from "../../components/Sources.astro";
+import SwordStatus from "../../components/SwordStatus.tsx";
+import { attributedSmithName, swordDisplayName } from "../../lib/display-name";
+import { todayJst } from "../../lib/date";
+
+export const getStaticPaths = (async () => {
+  const swords = await getCollection("swords");
+  return swords.map((entry) => ({ params: { id: entry.id }, props: { sword: entry.data } }));
+}) satisfies GetStaticPaths;
+
+const { sword } = Astro.props;
+const smiths = (await getCollection("smiths")).map((e) => e.data);
+const venues = (await getCollection("venues")).map((e) => e.data);
+const exhibitions = (await getCollection("exhibitions"))
+  .map((e) => e.data)
+  .filter((ex) => ex.exhibits.some((exhibit) => exhibit.sword_id === sword.id));
+
+// ブラウザでの再判定に使う項目だけを渡す
+const statusInputs = exhibitions.map((ex) => ({
+  id: ex.id,
+  title: ex.title,
+  start_date: ex.start_date,
+  end_date: ex.end_date,
+  status: ex.status,
+  periods: ex.periods,
+  exhibits: ex.exhibits
+    .filter((exhibit) => exhibit.sword_id === sword.id)
+    .map((exhibit) => ({ sword_id: exhibit.sword_id, period_ids: exhibit.period_ids })),
+}));
+
+const name = swordDisplayName(sword, smiths);
+const holderVenue = venues.find((v) => v.id === sword.holder_venue_id);
+const attributions = sword.attributions.map((a) => ({
+  ...a,
+  smith: smiths.find((s) => s.id === a.smith_id),
+}));
+---
+
+<BaseLayout title={name.heading}>
+  <h1 class="text-2xl">{name.heading}</h1>
+  {name.subtitle && <p class="mb-4">{name.subtitle}</p>}
+  {sword.confidence === "unverified" && <p class="mb-4 font-bold text-brand-accent">要確認</p>}
+
+  <section class="mb-6">
+    <h2 class="mb-2 text-lg">展示状況</h2>
+    <SwordStatus
+      client:load
+      swordId={sword.id}
+      holderText={sword.holder_text}
+      exhibitions={statusInputs}
+      buildToday={todayJst()}
+    />
+  </section>
+
+  <dl class="grid grid-cols-[auto_1fr] gap-x-4 gap-y-1">
+    {sword.go_reading && <><dt>読み</dt><dd>{sword.go_reading}</dd></>}
+    {sword.aliases.length > 0 && <><dt>別名</dt><dd>{sword.aliases.join("、")}</dd></>}
+    <dt>種別</dt><dd>{sword.blade_type}</dd>
+    <dt>銘</dt><dd>{sword.mei_kind && sword.mei_kind !== sword.mei ? `${sword.mei_kind} ` : ""}{sword.mei}</dd>
+    <dt>刀匠</dt>
+    <dd>
+      {
+        attributions.length === 0
+          ? "不明"
+          : attributions.map((a, i) => (
+              <>
+                {i > 0 && "・"}
+                {a.smith ? (
+                  <a href={`/smiths/${a.smith.id}`} class="underline">
+                    {attributedSmithName(a.smith.name, a.basis)}
+                  </a>
+                ) : (
+                  a.smith_id
+                )}
+                <span class="text-sm">（{a.basis}）</span>
+              </>
+            ))
+      }
+    </dd>
+    <dt>指定</dt><dd>{sword.designation}</dd>
+    {sword.era && <><dt>時代</dt><dd>{sword.era}</dd></>}
+    {sword.blade_length_cm !== undefined && <><dt>刃長</dt><dd>{sword.blade_length_cm} cm</dd></>}
+    {sword.sori_cm !== undefined && <><dt>反り</dt><dd>{sword.sori_cm} cm</dd></>}
+    <dt>所蔵</dt>
+    <dd>
+      {holderVenue ? <a href={`/venues/${holderVenue.id}`} class="underline">{sword.holder_text}</a> : sword.holder_text}
+    </dd>
+  </dl>
+
+  {sword.story && <section class="mt-6"><h2 class="mb-2 text-lg">号の由来</h2><p>{sword.story}</p></section>}
+  {sword.provenance && <section class="mt-6"><h2 class="mb-2 text-lg">伝来</h2><p>{sword.provenance}</p></section>}
+  {
+    sword.official_image_url && (
+      <p class="mt-6">
+        <a href={sword.official_image_url} class="underline" rel="noopener noreferrer" target="_blank">
+          公式の画像ページを見る（外部サイト）
+        </a>
+      </p>
+    )
+  }
+
+  {
+    exhibitions.length > 0 && (
+      <section class="mt-6">
+        <h2 class="mb-2 text-lg">出品される展覧会</h2>
+        <ul class="list-disc pl-5">
+          {exhibitions.map((ex) => (
+            <li>
+              <a href={`/exhibitions/${ex.id}`} class="underline">{ex.title}</a>（{ex.start_date}〜{ex.end_date}）
+            </li>
+          ))}
+        </ul>
+      </section>
+    )
+  }
+
+  <Sources sources={sword.sources} confidence={sword.confidence} />
+</BaseLayout>

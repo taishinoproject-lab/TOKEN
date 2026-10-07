@@ -1,0 +1,83 @@
+---
+import { getCollection } from "astro:content";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import ExhibitionStatusLabel from "../components/ExhibitionStatusLabel.tsx";
+import { swordDisplayName } from "../lib/display-name";
+import { todayJst } from "../lib/date";
+
+const swords = (await getCollection("swords")).map((e) => e.data);
+const smiths = (await getCollection("smiths")).map((e) => e.data);
+const exhibitions = (await getCollection("exhibitions")).map((e) => e.data);
+const venues = (await getCollection("venues")).map((e) => e.data);
+const buildToday = todayJst();
+---
+
+<BaseLayout>
+  <h1 class="mb-6 text-2xl">訪剣 −TOKEN−</h1>
+  <p class="mb-8">推しの刀が、いま・どこで・いつまで見られるか。</p>
+
+  <section class="mb-8">
+    <h2 class="mb-2 text-xl">刀剣</h2>
+    <ul class="list-disc pl-5">
+      {
+        swords.map((sword) => {
+          const name = swordDisplayName(sword, smiths);
+          return (
+            <li>
+              <a href={`/swords/${sword.id}`} class="underline">
+                {name.heading}
+              </a>
+              {name.subtitle && <span class="text-sm">（{name.subtitle}）</span>}
+            </li>
+          );
+        })
+      }
+    </ul>
+  </section>
+
+  <section class="mb-8">
+    <h2 class="mb-2 text-xl">刀匠</h2>
+    <ul class="list-disc pl-5">
+      {
+        smiths.map((smith) => (
+          <li>
+            <a href={`/smiths/${smith.id}`} class="underline">
+              {smith.name}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </section>
+
+  <section class="mb-8">
+    <h2 class="mb-2 text-xl">展覧会</h2>
+    <ul class="list-disc pl-5">
+      {
+        exhibitions.map((ex) => (
+          <li>
+            <ExhibitionStatusLabel client:load exhibition={ex} buildToday={buildToday} />
+            <a href={`/exhibitions/${ex.id}`} class="underline">
+              {ex.title}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </section>
+
+  <section class="mb-8">
+    <h2 class="mb-2 text-xl">館</h2>
+    <ul class="list-disc pl-5">
+      {
+        venues.map((venue) => (
+          <li>
+            <a href={`/venues/${venue.id}`} class="underline">
+              {venue.name}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </section>
+</BaseLayout>

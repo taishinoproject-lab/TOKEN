@@ -1,0 +1,57 @@
+[
+  {
+    "_sample": true,
+    "id": "sample-mihon-maru",
+    "go": "見本丸",
+    "go_reading": "みほんまる",
+    "aliases": ["試し丸"],
+    "blade_type": "太刀",
+    "mei": "見本国光",
+    "mei_kind": "銘",
+    "attributions": [{ "smith_id": "sample-smith-a", "basis": "在銘" }],
+    "designation": "未指定",
+    "era": "架空時代",
+    "blade_length_cm": 70.1,
+    "sori_cm": 2.5,
+    "holder_venue_id": "sample-museum-a",
+    "holder_text": "見本刀剣館（サンプル）",
+    "story": "動作確認用の架空の刀です。",
+    "sources": [
+      { "url": "https://example.com/sources/sword-a", "title": "サンプル出典", "retrieved_at": "2026-10-07" }
+    ],
+    "confidence": "confirmed"
+  },
+  {
+    "_sample": true,
+    "id": "sample-smith-b-katana-1",
+    "go": null,
+    "go_reading": null,
+    "aliases": [],
+    "blade_type": "刀",
+    "mei": "無銘",
+    "mei_kind": "無銘",
+    "attributions": [{ "smith_id": "sample-smith-b", "basis": "伝" }],
+    "designation": "不明",
+    "holder_text": "個人蔵",
+    "sources": [],
+    "confidence": "unverified"
+  },
+  {
+    "_sample": true,
+    "id": "sample-smith-a-tanto-1",
+    "go": null,
+    "go_reading": null,
+    "aliases": [],
+    "blade_type": "短刀",
+    "mei": "見本国光作",
+    "mei_kind": "銘",
+    "attributions": [{ "smith_id": "sample-smith-a", "basis": "在銘" }],
+    "designation": "未指定",
+    "holder_venue_id": "sample-museum-b",
+    "holder_text": "試験美術館（サンプル）",
+    "sources": [
+      { "url": "https://example.com/sources/sword-c", "retrieved_at": "2026-10-07" }
+    ],
+    "confidence": "confirmed"
+  }
+]
