@@ -35,6 +35,10 @@ export function createBaseMap(element: HTMLElement): L.Map {
     // ページのスクロール中に地図が拡大縮小されないよう、マウスホイールでの拡大縮小は使わない（＋−ボタンとダブルクリックで操作する）。
     scrollWheelZoom: false,
   });
+  // Leaflet の名前の表記は残し、既定で付く国旗の図柄だけを外す（D-014）。
+  map.attributionControl.setPrefix(
+    '<a href="https://leafletjs.com" target="_blank" rel="noopener noreferrer">Leaflet</a>',
+  );
   L.tileLayer(GSI_PALE_URL, {
     attribution: GSI_ATTRIBUTION,
     minZoom: 5,

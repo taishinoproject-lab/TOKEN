@@ -134,11 +134,12 @@ describe("searchIndex（data-model.md §10.3 の例）", () => {
     expect(noGo?.level).toBe(MatchLevel.Exact);
   });
 
-  it("髭切：別名が一致した刀（鬼切丸）を表示する", () => {
+  it("髭切：別名が完全一致した刀（鬼切丸）を強調表示する", () => {
     const r = searchIndex(index, "髭切");
-    expect(ids(r.swords)).toEqual(["fx-onikirimaru"]);
-    expect(r.swords[0].level).toBe(MatchLevel.Exact);
-    expect(r.swords[0].sword.heading).toBe("鬼切丸");
+    expect(r.featured?.sword.id).toBe("fx-onikirimaru");
+    expect(r.featured?.level).toBe(MatchLevel.Exact);
+    expect(r.featured?.sword.heading).toBe("鬼切丸");
+    expect(r.swords).toEqual([]);
   });
 });
 

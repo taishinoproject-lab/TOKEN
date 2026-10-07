@@ -22,7 +22,7 @@ export interface SwordIndexEntry {
   heading: string;
   subtitle: string;
   attributions: { smith_id: string; smith_name: string | null; basis: AttributionBasis }[];
-  /** 号の照合用（go、go_reading を正規化したもの）。号の完全一致の判定に使う */
+  /** 号・別名の照合用（go、go_reading、aliases を正規化したもの）。強調表示する完全一致の判定に使う（D-013） */
   goKeys: string[];
   /** その他の照合用（aliases、mei、組み立てた表示名を正規化したもの） */
   keys: string[];
@@ -97,7 +97,7 @@ export function buildSearchIndex(swords: readonly SwordForIndex[], smiths: reado
           smith_name: smithById.get(a.smith_id)?.name ?? null,
           basis: a.basis,
         })),
-        goKeys: uniqueNonEmpty([sw.go, sw.go_reading]),
+        goKeys: uniqueNonEmpty([sw.go, sw.go_reading, ...sw.aliases]),
         keys: uniqueNonEmpty([...sw.aliases, sw.mei, name.heading, bladeAndMei(sw)]),
         sortKey: normalizeForSearch(sw.go_reading ?? name.heading),
       };
@@ -127,7 +127,7 @@ const compareStrings = (a: string, b: string): number => (a < b ? -1 : a > b ? 1
  * - 順位は 完全一致 ＞ 前方一致 ＞ 部分一致。
  * - 刀匠に一致したときは、その刀匠に帰属する刀剣も、刀匠と同じ順位で結果に入れる。
  *   同じ順位の中では、一致した刀匠に帰属する刀剣を先に、在銘 ＞ 極め ＞ 伝 の順に並べる。
- * - 号の完全一致で刀剣が1件だけのときは、その刀を featured にする。
+ * - 号または別名の完全一致で刀剣が1件だけのときは、その刀を featured にする（D-013）。
  */
 export function searchIndex(index: SearchIndex, rawQuery: string): SearchResult {
   const query = normalizeForSearch(rawQuery);
