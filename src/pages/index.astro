@@ -2,6 +2,7 @@
 import { getCollection } from "astro:content";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import ExhibitionStatusLabel from "../components/ExhibitionStatusLabel.tsx";
+import Search from "../components/Search.tsx";
 import { swordDisplayName } from "../lib/display-name";
 import { todayJst } from "../lib/date";
 
@@ -15,6 +16,11 @@ const buildToday = todayJst();
 <BaseLayout>
   <h1 class="mb-6 text-2xl">訪剣 −TOKEN−</h1>
   <p class="mb-8">推しの刀が、いま・どこで・いつまで見られるか。</p>
+
+  <section class="mb-8">
+    <h2 class="mb-2 text-xl">検索</h2>
+    <Search client:load />
+  </section>
 
   <section class="mb-8">
     <h2 class="mb-2 text-xl">刀剣</h2>
