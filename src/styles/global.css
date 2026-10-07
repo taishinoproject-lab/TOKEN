@@ -474,7 +474,14 @@
     font-size: 11px;
     color: var(--color-usuzumi);
   }
-  .ex-list .date[data-soon] b {
+  .ex-list .date .remaining {
+    display: block;
+    margin-top: 2px;
+    font-weight: 700;
+    color: var(--color-sumi);
+  }
+  .ex-list .date[data-soon] b,
+  .ex-list .date[data-soon] .remaining {
     color: var(--color-shu);
   }
   .ex-list .t {

@@ -73,3 +73,12 @@ export function endingSoon(
     .sort((a, b) => (a.end < b.end ? -1 : a.end > b.end ? 1 : 0))
     .slice(0, options.limit);
 }
+
+/**
+ * 終了日までの残り日数の表示（D-020）。0日は「本日まで」、1日は「明日まで」、それ以外は「あと○日」。
+ */
+export function remainingDaysLabel(daysLeft: number): string {
+  if (daysLeft <= 0) return "本日まで";
+  if (daysLeft === 1) return "明日まで";
+  return `あと${daysLeft}日`;
+}

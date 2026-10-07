@@ -1,10 +1,10 @@
 // トップの「会期終了が近い展覧会」（T-207）。案Bの .ex-list の形式（docs/design/system.md §4.2）。
-// 「あと○日」の表示は未決定のため出さない（system.md §5）。
+// 終了日までの残り日数を「本日まで／明日まで／あと○日」で添える（D-020）。
 // ビルド時の日付で描画したあと、ブラウザで今日の日付（日本時間）を使って判定し直す。
 import { useEffect, useState } from "react";
 import { todayJst } from "../lib/date";
 import type { Confidence, Exhibition } from "../lib/schema";
-import { ENDING_SOON_DEFAULTS, endingSoon } from "../lib/top-page";
+import { ENDING_SOON_DEFAULTS, endingSoon, remainingDaysLabel } from "../lib/top-page";
 import ExList, { type ExListItem } from "./ui/ExList";
 
 export interface EndingExhibition extends Pick<Exhibition, "id" | "start_date" | "end_date" | "status"> {
@@ -29,6 +29,7 @@ export function EndingSoonView({ exhibitions, today }: { exhibitions: EndingExhi
         key: ex.id,
         end: item.end,
         emphasis: item.emphasis,
+        remaining: remainingDaysLabel(item.daysLeft),
         title: ex.title,
         href: `/exhibitions/${ex.id}`,
         venue: ex.venueText,

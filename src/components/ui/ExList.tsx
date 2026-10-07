@@ -7,6 +7,8 @@ export interface ExListItem {
   key: string;
   end: string;
   emphasis?: boolean;
+  /** 残り日数の表示（「あと○日」など。D-020）。省略時は出さない */
+  remaining?: string;
   title: string;
   href: string;
   /** 会場（館名と所在地など） */
@@ -22,6 +24,7 @@ export default function ExList({ items }: { items: ExListItem[] }) {
           <div className="date" data-soon={item.emphasis ? "" : undefined}>
             <b>{formatDotDate(item.end)}</b>
             <small>（{weekdayJa(item.end)}）まで</small>
+            {item.remaining && <small className="remaining">{item.remaining}</small>}
           </div>
           <div className="t">
             <a href={item.href}>{item.title}</a> {item.unverified && <UnverifiedBadge />}

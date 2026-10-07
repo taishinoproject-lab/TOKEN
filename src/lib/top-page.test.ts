@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { endingSoon, nowOnDisplay } from "./top-page";
+import { endingSoon, nowOnDisplay, remainingDaysLabel } from "./top-page";
 
 const exhibitions = [
   {
@@ -78,5 +78,14 @@ describe("endingSoon", () => {
 
   it("中止の展覧会は出さない", () => {
     expect(endingSoon([{ ...exhibitions[1], status: "cancelled" as const }], "2026-10-07")).toEqual([]);
+  });
+});
+
+describe("remainingDaysLabel（D-020）", () => {
+  it("0日は「本日まで」、1日は「明日まで」、それ以外は「あと○日」", () => {
+    expect(remainingDaysLabel(0)).toBe("本日まで");
+    expect(remainingDaysLabel(1)).toBe("明日まで");
+    expect(remainingDaysLabel(5)).toBe("あと5日");
+    expect(remainingDaysLabel(30)).toBe("あと30日");
   });
 });
