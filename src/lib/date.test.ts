@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { addDays, daysBetween, formatFullDate, formatMonthDay, todayJst } from "./date";
+import { addDays, daysBetween, formatDateRange, formatFullDate, formatMonthDay, todayJst } from "./date";
 
 describe("todayJst", () => {
   it("UTC で前日の15時以降は、日本時間では翌日になる", () => {
@@ -27,5 +27,16 @@ describe("日付の計算と表示", () => {
   it("表示用の書式", () => {
     expect(formatMonthDay("2026-01-05")).toBe("1/5");
     expect(formatFullDate("2026-01-05")).toBe("2026年1月5日");
+  });
+});
+
+describe("formatDateRange", () => {
+  it("終了日があれば「開始〜終了」", () => {
+    expect(formatDateRange("2026-10-01", "2026-11-30")).toBe("2026年10月1日〜2026年11月30日");
+    expect(formatDateRange("2026-10-01", "2026-11-30", (d) => d)).toBe("2026-10-01〜2026-11-30");
+  });
+
+  it("終了日が未定（null）なら「会期未定（公式サイトで確認）」と出し、9999 などは出さない", () => {
+    expect(formatDateRange("2026-07-02", null)).toBe("2026年7月2日〜 会期未定（公式サイトで確認）");
   });
 });

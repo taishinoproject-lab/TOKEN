@@ -5,8 +5,8 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 import Sources from "../../components/Sources.astro";
 import ExhibitionStatusLabel from "../../components/ExhibitionStatusLabel.tsx";
 import VenueMap from "../../components/map/VenueMap.tsx";
-import { swordDisplayName } from "../../lib/display-name";
-import { formatFullDate, todayJst } from "../../lib/date";
+import { smithDisplayName, swordDisplayName } from "../../lib/display-name";
+import { formatDateRange, formatFullDate, todayJst } from "../../lib/date";
 import { toMapVenue } from "../../lib/map-data";
 
 export const getStaticPaths = (async () => {
@@ -37,7 +37,7 @@ const exhibits = ex.exhibits.map((exhibit) => {
   <h1 class="text-2xl">{ex.title}</h1>
   <p class="mb-4">
     <ExhibitionStatusLabel client:load exhibition={ex} buildToday={todayJst()} />
-    {formatFullDate(ex.start_date)}〜{formatFullDate(ex.end_date)}
+    {formatDateRange(ex.start_date, ex.end_date)}
   </p>
   {ex.confidence === "unverified" && <p class="mb-4 font-bold text-brand-accent">要確認</p>}
 
@@ -96,7 +96,7 @@ const exhibits = ex.exhibits.map((exhibit) => {
                   {exhibitSmiths.map((s, i) => (
                     <>
                       {i > 0 && "・"}
-                      <a href={`/smiths/${s.id}`} class="underline">{s.name}</a>
+                      <a href={`/smiths/${s.id}`} class="underline">{smithDisplayName(s)}</a>
                     </>
                   ))}
                 </span>

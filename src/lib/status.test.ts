@@ -126,3 +126,56 @@ describe("swordStatus（data-model.md §9）", () => {
     expect(swordStatusText({ kind: "none" }, "東京国立博物館")).toBe("所蔵：東京国立博物館");
   });
 });
+
+describe("終了日が未定の展覧会（D-012）", () => {
+  const openTen = {
+    id: "2026-z-open",
+    start_date: "2026-07-02",
+    end_date: null,
+    periods: [{ id: "第1期", start_date: "2026-07-02", end_date: "2026-09-30" }],
+    exhibits: [{ sword_id: "open-all" }, { sword_id: "open-first", period_ids: ["第1期"] }],
+  };
+
+  it("開始前は開催予定、開始後はいつまでも開催中（終了にはならない）", () => {
+    expect(exhibitionStatus(openTen, "2026-07-01")).toBe("upcoming");
+    expect(exhibitionStatus(openTen, "2026-07-02")).toBe("ongoing");
+    expect(exhibitionStatus(openTen, "2099-01-01")).toBe("ongoing");
+    expect(exhibitionStatus({ ...openTen, status: "cancelled" }, "2026-10-07")).toBe("cancelled");
+  });
+
+  it("period_ids がなければ、終了日が未定の期間になる", () => {
+    expect(exhibitDisplayRanges(openTen, {})).toEqual([{ start: "2026-07-02", end: null }]);
+    expect(exhibitDisplayRanges(openTen, { period_ids: ["第1期"] })).toEqual([{ start: "2026-07-02", end: "2026-09-30" }]);
+  });
+
+  it("終了日が未定の期間は、後に続く期間を吸収する", () => {
+    expect(
+      mergeRanges([
+        { start: "2026-12-01", end: "2026-12-31" },
+        { start: "2026-10-01", end: null },
+        { start: "2026-09-01", end: "2026-10-05" },
+      ]),
+    ).toEqual([{ start: "2026-09-01", end: null }]);
+  });
+
+  it("全期間に出る刀は「いま会えます（会期未定）」、期間を終えた刀は none", () => {
+    expect(swordStatus("open-all", [openTen], "2026-10-07")).toEqual({
+      kind: "on_display",
+      exhibitionId: "2026-z-open",
+      until: null,
+    });
+    expect(swordStatus("open-first", [openTen], "2026-10-07")).toEqual({ kind: "none" });
+  });
+
+  it("終了日が未定の展示は、終了日のある展示より遅く終わるものとして選ぶ", () => {
+    const other = { ...meitoTen, exhibits: [{ sword_id: "open-all" }] };
+    expect(swordStatus("open-all", [other, openTen], "2026-10-07")).toMatchObject({ exhibitionId: "2026-z-open", until: null });
+    expect(swordStatus("open-all", [openTen, other], "2026-10-07")).toMatchObject({ exhibitionId: "2026-z-open", until: null });
+  });
+
+  it("表示用の文は「会期未定（公式サイトで確認）」", () => {
+    expect(swordStatusText({ kind: "on_display", exhibitionId: "x", until: null }, "")).toBe(
+      "いま会えます・会期未定（公式サイトで確認）",
+    );
+  });
+});

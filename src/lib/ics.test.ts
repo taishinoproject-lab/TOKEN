@@ -151,6 +151,38 @@ describe("swordCalendarEvents", () => {
   });
 });
 
+describe("終了日が未定の展覧会（D-012）", () => {
+  const openEnded = {
+    ...exhibition,
+    id: "2026-fx-museum-open",
+    start_date: "2026-07-02",
+    end_date: null,
+    periods: [{ id: "第1期", start_date: "2026-07-02", end_date: "2026-08-31" }],
+    exhibits: [{ sword_id: "fx-sword" }, { sword_id: "fx-other", period_ids: ["第1期"] }],
+  };
+
+  it("全期間に出る刀は、開始日だけの終日の予定（展示開始・会期未定）にする", () => {
+    const events = swordCalendarEvents(input({ exhibitions: [openEnded] }));
+    expect(events).toHaveLength(1);
+    expect(events[0]).toMatchObject({ start: "2026-07-02", end: "2026-07-02", summary: "架空丸 展示開始・会期未定（架空館）" });
+    expect(events[0].description).toContain("会期：2026年7月2日〜 会期未定（公式サイトで確認）");
+    expect(events[0].description).toContain("この刀の展示：2026年7月2日〜 会期未定（公式サイトで確認）");
+    expect(events[0].description).toContain("終了日が未定のため");
+
+    const ics = unfold(buildSwordIcs(input({ exhibitions: [openEnded] })));
+    expect(ics).toContain("DTSTART;VALUE=DATE:20260702");
+    expect(ics).toContain("DTEND;VALUE=DATE:20260703");
+    expect(ics.join("\n")).not.toContain("9999");
+  });
+
+  it("終了日のある展示期間の刀は、ふだんどおりその期間の予定にする", () => {
+    const events = swordCalendarEvents(input({ sword: { id: "fx-other", heading: "別の刀" }, exhibitions: [openEnded] }));
+    expect(events.map((e) => [e.start, e.end, e.summary])).toEqual([["2026-07-02", "2026-08-31", "別の刀 展示（架空館）"]]);
+    expect(events[0].description).toContain("会期：2026年7月2日〜 会期未定（公式サイトで確認）");
+    expect(events[0].description).toContain("この刀の展示：2026年7月2日〜2026年8月31日（第1期）");
+  });
+});
+
 describe("buildSwordIcs", () => {
   it("RFC 5545 の形式（CRLF、75オクテットの折り返し、必須の項目）で出力する", () => {
     const ics = buildSwordIcs(input({ swordPageUrl: "https://example.com/swords/fx-sword" }));

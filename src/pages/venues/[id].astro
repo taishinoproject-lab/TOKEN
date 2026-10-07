@@ -4,7 +4,7 @@ import { getCollection } from "astro:content";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import ExhibitionStatusLabel from "../../components/ExhibitionStatusLabel.tsx";
 import VenueMap from "../../components/map/VenueMap.tsx";
-import { formatFullDate, todayJst } from "../../lib/date";
+import { formatDateRange, formatFullDate, todayJst } from "../../lib/date";
 import { toMapVenue } from "../../lib/map-data";
 
 export const getStaticPaths = (async () => {
@@ -57,7 +57,7 @@ const buildToday = todayJst();
           {exhibitions.map((ex) => (
             <li>
               <ExhibitionStatusLabel client:load exhibition={ex} buildToday={buildToday} />
-              <a href={`/exhibitions/${ex.id}`} class="underline">{ex.title}</a>（{ex.start_date}〜{ex.end_date}）
+              <a href={`/exhibitions/${ex.id}`} class="underline">{ex.title}</a>（{formatDateRange(ex.start_date, ex.end_date, (d) => d)}）
             </li>
           ))}
         </ul>

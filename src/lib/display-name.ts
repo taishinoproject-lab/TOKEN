@@ -9,7 +9,12 @@ export interface SwordDisplayName {
 }
 
 type SwordNameFields = Pick<Sword, "go" | "blade_type" | "mei" | "mei_kind" | "attributions">;
-type SmithNameFields = Pick<Smith, "id" | "name">;
+type SmithNameFields = Pick<Smith, "id" | "name" | "kind">;
+
+/** 刀匠の表示名。流派単位の登録（kind: "school"、D-012）は「福岡一文字派（流派）」のように示す。 */
+export function smithDisplayName(smith: Pick<Smith, "name" | "kind">): string {
+  return smith.kind === "school" ? `${smith.name}（流派）` : smith.name;
+}
 
 /** 「太刀 銘 三条」「刀 無銘」のような、種別＋銘の文字列。 */
 export function bladeAndMei(sword: Pick<Sword, "blade_type" | "mei" | "mei_kind">): string {
@@ -39,7 +44,7 @@ export function smithNames(sword: Pick<Sword, "attributions">, smiths: readonly 
   return sword.attributions
     .map((a) => {
       const smith = byId.get(a.smith_id);
-      return smith ? attributedSmithName(smith.name, a.basis) : null;
+      return smith ? attributedSmithName(smithDisplayName(smith), a.basis) : null;
     })
     .filter((n): n is string => n !== null)
     .join("・");

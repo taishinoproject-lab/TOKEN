@@ -420,8 +420,9 @@
   },
   {
     "id": "fukuoka-ichimonji",
-    "name": "一文字",
-    "reading": "いちもんじ",
+    "kind": "school",
+    "name": "福岡一文字派",
+    "reading": "ふくおかいちもんじは",
     "aliases": [
       "福岡一文字"
     ],

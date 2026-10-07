@@ -1,6 +1,7 @@
 // 検索窓（data-model.md §10）。ビルド時に生成した /search-index.json を読み込み、ブラウザ側で検索する。
 // 見た目は仮（デザインは T-201 で行う）。
 import { useDeferredValue, useEffect, useId, useState } from "react";
+import { smithDisplayName } from "../lib/display-name";
 import {
   SEARCH_INDEX_VERSION,
   attributionLabels,
@@ -30,11 +31,12 @@ function SwordItem({ hit, featured = false }: { hit: SwordHit; featured?: boolea
 
 function SmithItem({ hit }: { hit: SmithHit }) {
   const { smith } = hit;
-  const extra = [smith.generation, smith.school].filter(Boolean).join("・");
+  // 流派単位の登録では、流派名は名前と重なるので出さない
+  const extra = [smith.generation, smith.school !== smith.name ? smith.school : undefined].filter(Boolean).join("・");
   return (
     <li className="py-1">
       <a href={`/smiths/${smith.id}`} className="underline">
-        {smith.name}
+        {smithDisplayName(smith)}
       </a>
       <span className="text-sm">
         （{smith.reading}

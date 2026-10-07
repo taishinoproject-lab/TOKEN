@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { bladeAndMei, swordDisplayName } from "./display-name";
+import { bladeAndMei, smithDisplayName, swordDisplayName } from "./display-name";
 import type { Sword } from "./schema";
 
 const smiths = [
@@ -71,5 +71,21 @@ describe("swordDisplayName（data-model.md §6.1）", () => {
 describe("bladeAndMei", () => {
   it("mei_kind がなければ、種別と銘だけを並べる", () => {
     expect(bladeAndMei({ blade_type: "短刀", mei: "吉光" })).toBe("短刀 吉光");
+  });
+});
+
+describe("smithDisplayName（D-012）", () => {
+  it("流派単位の登録には「（流派）」を付け、個人はそのまま", () => {
+    expect(smithDisplayName({ name: "架空一文字派", kind: "school" })).toBe("架空一文字派（流派）");
+    expect(smithDisplayName({ name: "信房", kind: "person" })).toBe("信房");
+    expect(smithDisplayName({ name: "信房" })).toBe("信房");
+  });
+
+  it("号がない刀の副題でも、流派であることが分かる", () => {
+    const name = swordDisplayName(
+      { ...base, mei: "一", mei_kind: "銘", attributions: [{ smith_id: "fx-school", basis: "在銘" }] },
+      [{ id: "fx-school", name: "架空一文字派", kind: "school" }],
+    );
+    expect(name).toEqual({ heading: "太刀 銘 一", subtitle: "架空一文字派（流派）" });
   });
 });

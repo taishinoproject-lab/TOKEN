@@ -5,8 +5,8 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 import Sources from "../../components/Sources.astro";
 import CalendarLinks from "../../components/CalendarLinks.astro";
 import SwordStatus from "../../components/SwordStatus.tsx";
-import { attributedSmithName, swordDisplayName } from "../../lib/display-name";
-import { todayJst } from "../../lib/date";
+import { attributedSmithName, smithDisplayName, swordDisplayName } from "../../lib/display-name";
+import { formatDateRange, todayJst } from "../../lib/date";
 
 export const getStaticPaths = (async () => {
   const swords = await getCollection("swords");
@@ -72,7 +72,7 @@ const attributions = sword.attributions.map((a) => ({
                 {i > 0 && "・"}
                 {a.smith ? (
                   <a href={`/smiths/${a.smith.id}`} class="underline">
-                    {attributedSmithName(a.smith.name, a.basis)}
+                    {attributedSmithName(smithDisplayName(a.smith), a.basis)}
                   </a>
                 ) : (
                   a.smith_id
@@ -83,6 +83,7 @@ const attributions = sword.attributions.map((a) => ({
       }
     </dd>
     <dt>指定</dt><dd>{sword.designation}</dd>
+    {sword.nbthk_rank && <><dt>認定</dt><dd>{sword.nbthk_rank}<span class="text-sm">（日本美術刀剣保存協会）</span></dd></>}
     {sword.era && <><dt>時代</dt><dd>{sword.era}</dd></>}
     {sword.blade_length_cm !== undefined && <><dt>刃長</dt><dd>{sword.blade_length_cm} cm</dd></>}
     {sword.sori_cm !== undefined && <><dt>反り</dt><dd>{sword.sori_cm} cm</dd></>}
@@ -111,7 +112,7 @@ const attributions = sword.attributions.map((a) => ({
         <ul class="list-disc pl-5">
           {exhibitions.map((ex) => (
             <li>
-              <a href={`/exhibitions/${ex.id}`} class="underline">{ex.title}</a>（{ex.start_date}〜{ex.end_date}）
+              <a href={`/exhibitions/${ex.id}`} class="underline">{ex.title}</a>（{formatDateRange(ex.start_date, ex.end_date, (d) => d)}）
             </li>
           ))}
         </ul>

@@ -746,7 +746,7 @@
     "title": "企画展「松代城 花の丸―真田家の御殿―」",
     "venue_id": "sanada-treasure-museum",
     "start_date": "2026-07-02",
-    "end_date": "9999-12-31",
+    "end_date": null,
     "official_url": "https://www.sanadahoumotsukan.com/",
     "admission": "一般 600円",
     "periods": [],

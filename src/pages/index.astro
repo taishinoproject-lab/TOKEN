@@ -3,7 +3,7 @@ import { getCollection } from "astro:content";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import ExhibitionStatusLabel from "../components/ExhibitionStatusLabel.tsx";
 import Search from "../components/Search.tsx";
-import { swordDisplayName } from "../lib/display-name";
+import { smithDisplayName, swordDisplayName } from "../lib/display-name";
 import { todayJst } from "../lib/date";
 
 const swords = (await getCollection("swords")).map((e) => e.data);
@@ -48,7 +48,7 @@ const buildToday = todayJst();
         smiths.map((smith) => (
           <li>
             <a href={`/smiths/${smith.id}`} class="underline">
-              {smith.name}
+              {smithDisplayName(smith)}
             </a>
           </li>
         ))

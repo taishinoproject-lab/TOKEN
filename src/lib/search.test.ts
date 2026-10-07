@@ -4,7 +4,7 @@ import { describe, expect, it } from "vitest";
 import type { Smith, Sword } from "./schema";
 import { MatchLevel, attributionLabels, buildSearchIndex, searchIndex } from "./search";
 
-type SmithFixture = Pick<Smith, "id" | "name" | "reading" | "aliases" | "generation" | "school">;
+type SmithFixture = Pick<Smith, "id" | "kind" | "name" | "reading" | "aliases" | "generation" | "school">;
 type SwordFixture = Pick<
   Sword,
   "id" | "go" | "go_reading" | "aliases" | "blade_type" | "mei" | "mei_kind" | "attributions"
@@ -208,5 +208,23 @@ describe("searchIndex（表記ゆれと順位）", () => {
   it("インデックスは JSON にしても同じ結果になる", () => {
     const roundTrip = JSON.parse(JSON.stringify(index));
     expect(searchIndex(roundTrip, "正宗")).toEqual(searchIndex(index, "正宗"));
+  });
+});
+
+describe("流派単位の刀匠（D-012）", () => {
+  const schoolIndex = buildSearchIndex(
+    [sword("fx-ichi", { mei: "一", attributions: [{ smith_id: "fx-ichimonji", basis: "在銘" }] })],
+    [smith("fx-ichimonji", "架空一文字派", "かくういちもんじは", { kind: "school", school: "架空一文字派" }), ...smiths],
+  );
+
+  it("インデックスに kind: \"school\" を入れ、個人には入れない", () => {
+    expect(schoolIndex.smiths.find((s) => s.id === "fx-ichimonji")?.kind).toBe("school");
+    expect(schoolIndex.smiths.find((s) => s.id === "fx-masamune")).not.toHaveProperty("kind");
+  });
+
+  it("刀剣の結果の刀匠名に「（流派）」を付ける", () => {
+    const result = searchIndex(schoolIndex, "架空一文字");
+    expect(result.smiths.map((h) => h.smith.id)).toEqual(["fx-ichimonji"]);
+    expect(result.swords.map((h) => attributionLabels(h.sword))).toEqual([["架空一文字派（流派）（在銘）"]]);
   });
 });

@@ -39,6 +39,14 @@ export const ID_PATTERN = /^[a-z0-9-]+$/;
 /** 開催中・開催予定の展覧会で、最終確認日がこの日数より古いと警告する。 */
 export const VERIFIED_AT_MAX_AGE_DAYS = 14;
 
+/**
+ * 終了日の代用の値（"9999-12-31" など）とみなす年。この年以降の日付はエラーにする（D-012）。
+ * 終了日が分からないときは end_date を null にする。
+ */
+export const PLACEHOLDER_YEAR_MIN = 9000;
+
+const isPlaceholderDate = (date: string): boolean => Number(date.slice(0, 4)) >= PLACEHOLDER_YEAR_MIN;
+
 /** 出品リストのうち、sword_id も smith_id もない行の割合がこの値を超えると警告する。 */
 export const UNLINKED_EXHIBIT_RATIO_THRESHOLD = 0.5;
 
@@ -160,8 +168,27 @@ export function validateData(raw: RawData, today: IsoDate): ValidationResult {
     const at = { file: "exhibitions.json" as const, target: ex.id };
     checkRef(venueIds, ex.venue_id, at, "venue_id の館", errors);
 
-    if (ex.start_date > ex.end_date) {
+    if (ex.end_date !== null && ex.start_date > ex.end_date) {
       errors.push({ ...at, message: `会期の開始日（${ex.start_date}）が終了日（${ex.end_date}）より後です` });
+    }
+    const datesToCheck: [label: string, date: string | null][] = [
+      ["会期の開始日", ex.start_date],
+      ["会期の終了日", ex.end_date],
+      ...ex.periods.flatMap((p): [string, string][] => [
+        [`展示期間「${p.id}」の開始日`, p.start_date],
+        [`展示期間「${p.id}」の終了日`, p.end_date],
+      ]),
+    ];
+    for (const [label, date] of datesToCheck) {
+      if (date !== null && isPlaceholderDate(date)) {
+        errors.push({
+          ...at,
+          message: `${label}（${date}）は代用の値と思われます。終了日が分からない場合は、会期の end_date を null にしてください`,
+        });
+      }
+    }
+    if (ex.end_date === null) {
+      warnings.push({ ...at, message: "会期の終了日が未定です（end_date: null）。公式サイトで確認してください" });
     }
 
     const periodIds = new Set<string>();
@@ -173,10 +200,10 @@ export function validateData(raw: RawData, today: IsoDate): ValidationResult {
       if (p.start_date > p.end_date) {
         errors.push({ ...at, message: `展示期間「${p.id}」の開始日（${p.start_date}）が終了日（${p.end_date}）より後です` });
       }
-      if (p.start_date < ex.start_date || p.end_date > ex.end_date) {
+      if (p.start_date < ex.start_date || (ex.end_date !== null && p.end_date > ex.end_date)) {
         errors.push({
           ...at,
-          message: `展示期間「${p.id}」（${p.start_date}〜${p.end_date}）が会期（${ex.start_date}〜${ex.end_date}）の外にはみ出しています`,
+          message: `展示期間「${p.id}」（${p.start_date}〜${p.end_date}）が会期（${ex.start_date}〜${ex.end_date ?? "終了日未定"}）の外にはみ出しています`,
         });
       }
     }

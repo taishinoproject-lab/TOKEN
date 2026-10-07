@@ -1,14 +1,16 @@
 // 検索（data-model.md §10）。
 // ビルド時に buildSearchIndex で検索用のインデックス（JSON）を作り、ブラウザ側で searchIndex を呼んで検索する。
 // インデックスには、正規化済みの照合用の文字列（keys）と、結果の表示に必要な項目だけを入れる。
-import { bladeAndMei, swordDisplayName } from "./display-name";
+import { bladeAndMei, smithDisplayName, swordDisplayName } from "./display-name";
 import { normalizeForSearch } from "./normalize";
 import type { AttributionBasis, Smith, Sword } from "./schema";
 
-export const SEARCH_INDEX_VERSION = 1;
+export const SEARCH_INDEX_VERSION = 2;
 
 export interface SmithIndexEntry {
   id: string;
+  /** 流派単位の登録（D-012）。個人なら省略 */
+  kind?: "school";
   name: string;
   reading: string;
   generation?: string;
@@ -21,6 +23,7 @@ export interface SwordIndexEntry {
   id: string;
   heading: string;
   subtitle: string;
+  /** smith_name は表示用の名前（流派なら「（流派）」付き） */
   attributions: { smith_id: string; smith_name: string | null; basis: AttributionBasis }[];
   /** 号・別名の照合用（go、go_reading、aliases を正規化したもの）。強調表示する完全一致の判定に使う（D-013） */
   goKeys: string[];
@@ -71,15 +74,16 @@ const uniqueNonEmpty = (values: readonly (string | null | undefined)[]): string[
   ...new Set(values.filter((v): v is string => Boolean(v)).map(normalizeForSearch).filter((v) => v.length > 0)),
 ];
 
-type SmithForIndex = Pick<Smith, "id" | "name" | "reading" | "aliases" | "generation" | "school">;
+type SmithForIndex = Pick<Smith, "id" | "kind" | "name" | "reading" | "aliases" | "generation" | "school">;
 type SwordForIndex = Pick<Sword, "id" | "go" | "go_reading" | "aliases" | "blade_type" | "mei" | "mei_kind" | "attributions">;
 
 export function buildSearchIndex(swords: readonly SwordForIndex[], smiths: readonly SmithForIndex[]): SearchIndex {
-  const smithById = new Map(smiths.map((s) => [s.id, s]));
+  const smithNameById = new Map(smiths.map((s) => [s.id, smithDisplayName(s)]));
   return {
     version: SEARCH_INDEX_VERSION,
     smiths: smiths.map((s) => ({
       id: s.id,
+      ...(s.kind === "school" ? { kind: "school" as const } : {}),
       name: s.name,
       reading: s.reading,
       ...(s.generation ? { generation: s.generation } : {}),
@@ -94,7 +98,7 @@ export function buildSearchIndex(swords: readonly SwordForIndex[], smiths: reado
         subtitle: name.subtitle,
         attributions: sw.attributions.map((a) => ({
           smith_id: a.smith_id,
-          smith_name: smithById.get(a.smith_id)?.name ?? null,
+          smith_name: smithNameById.get(a.smith_id) ?? null,
           basis: a.basis,
         })),
         goKeys: uniqueNonEmpty([sw.go, sw.go_reading, ...sw.aliases]),

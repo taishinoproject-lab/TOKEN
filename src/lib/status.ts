@@ -1,6 +1,6 @@
 // 状態の判定（data-model.md §9）。今日の日付（日本時間）を引数で受け取る。
 // ビルド時とブラウザ側の両方で同じ関数を使う。
-import { addDays, formatMonthDay, type IsoDate } from "./date";
+import { addDays, formatMonthDay, OPEN_END_LABEL, type IsoDate } from "./date";
 import type { Exhibit, Exhibition } from "./schema";
 
 export type ExhibitionStatus = "upcoming" | "ongoing" | "ended" | "cancelled" | "postponed";
@@ -12,13 +12,23 @@ type ExhibitionForStatus = Pick<Exhibition, "id" | "start_date" | "end_date" | "
 
 export interface DateRange {
   start: IsoDate;
-  end: IsoDate;
+  /** 最終日（この日を含む）。null は終了日が未定（D-012） */
+  end: IsoDate | null;
 }
 
+/** 終了日を比べる。null（未定）はどの日付よりも後として扱う。 */
+export function compareEndDates(a: IsoDate | null, b: IsoDate | null): number {
+  if (a === b) return 0;
+  if (a === null) return 1;
+  if (b === null) return -1;
+  return a < b ? -1 : 1;
+}
+
+/** 終了日が未定の展覧会は、開始日を過ぎたら開催中として扱う（終了の判定ができないため）。 */
 export function exhibitionStatus(exhibition: ExhibitionDates, today: IsoDate): ExhibitionStatus {
   if (exhibition.status) return exhibition.status;
   if (today < exhibition.start_date) return "upcoming";
-  if (today > exhibition.end_date) return "ended";
+  if (exhibition.end_date !== null && today > exhibition.end_date) return "ended";
   return "ongoing";
 }
 
@@ -36,8 +46,8 @@ export function mergeRanges(ranges: readonly DateRange[]): DateRange[] {
   const merged: DateRange[] = [];
   for (const r of sorted) {
     const last = merged.at(-1);
-    if (last && r.start <= addDays(last.end, 1)) {
-      if (r.end > last.end) last.end = r.end;
+    if (last && (last.end === null || r.start <= addDays(last.end, 1))) {
+      if (compareEndDates(r.end, last.end) > 0) last.end = r.end;
     } else {
       merged.push({ ...r });
     }
@@ -64,8 +74,8 @@ export function exhibitDisplayRanges(
 }
 
 export type SwordStatus =
-  /** 1. 今日、展示されている */
-  | { kind: "on_display"; exhibitionId: string; until: IsoDate }
+  /** 1. 今日、展示されている。until が null なら終了日は未定 */
+  | { kind: "on_display"; exhibitionId: string; until: IsoDate | null }
   /** 2. 展覧会は開催中だが、この刀の展示はこれから */
   | { kind: "coming_in_ongoing"; exhibitionId: string; from: IsoDate }
   /** 3. 開催予定の展覧会に出品される */
@@ -75,7 +85,7 @@ export type SwordStatus =
 
 /**
  * 刀剣ページでの状態（§9 の判定順）。
- * 同じ順位の候補が複数あるときは、1 は終了日が遅いもの、2・3 は開始日が早いものを選ぶ。
+ * 同じ順位の候補が複数あるときは、1 は終了日が遅いもの（未定は最も遅いとみなす）、2・3 は開始日が早いものを選ぶ。
  */
 export function swordStatus(
   swordId: string,
@@ -94,8 +104,8 @@ export function swordStatus(
       ex.exhibits.filter((e) => e.sword_id === swordId).flatMap((e) => exhibitDisplayRanges(ex, e)),
     );
     for (const r of ranges) {
-      if (r.start <= today && today <= r.end) {
-        if (!onDisplay || r.end > onDisplay.until) {
+      if (r.start <= today && (r.end === null || today <= r.end)) {
+        if (!onDisplay || compareEndDates(r.end, onDisplay.until) > 0) {
           onDisplay = { kind: "on_display", exhibitionId: ex.id, until: r.end };
         }
       } else if (r.start > today) {
@@ -117,7 +127,9 @@ export function swordStatus(
 export function swordStatusText(status: SwordStatus, holderText: string): string {
   switch (status.kind) {
     case "on_display":
-      return `いま会えます（${formatMonthDay(status.until)}まで）`;
+      return status.until === null
+        ? `いま会えます・${OPEN_END_LABEL}`
+        : `いま会えます（${formatMonthDay(status.until)}まで）`;
     case "coming_in_ongoing":
       return `${formatMonthDay(status.from)}から展示`;
     case "upcoming_exhibition":

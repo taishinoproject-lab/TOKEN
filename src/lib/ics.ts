@@ -1,6 +1,7 @@
 // 刀剣ごとのカレンダー（.ics）の生成（RFC 5545、decisions.md D-008）。
 // 展示期間を終日の予定として出力する。刀ごとの展示期間（period_ids）を反映する。
-import { addDays, formatFullDate, type IsoDate } from "./date";
+// 終了日が未定（D-012）の展示は、開始日だけの終日の予定（「展示開始」）として出力する。
+import { addDays, formatDateRange, type IsoDate } from "./date";
 import type { Exhibit, Exhibition, Venue } from "./schema";
 import { exhibitDisplayRanges, mergeRanges } from "./status";
 
@@ -138,12 +139,12 @@ export interface SwordCalendarInput {
 function periodLabel(
   exhibition: ExhibitionForIcs,
   exhibits: readonly Pick<Exhibit, "period_ids">[],
-  range: { start: IsoDate; end: IsoDate },
+  range: { start: IsoDate; end: IsoDate | null },
 ): string | null {
   if (exhibits.some((e) => !e.period_ids || e.period_ids.length === 0)) return null;
   const ids = new Set(exhibits.flatMap((e) => e.period_ids ?? []));
   const names = exhibition.periods
-    .filter((p) => ids.has(p.id) && range.start <= p.start_date && p.end_date <= range.end)
+    .filter((p) => ids.has(p.id) && range.start <= p.start_date && (range.end === null || p.end_date <= range.end))
     .map((p) => p.id);
   return names.length > 0 ? names.join("・") : null;
 }
@@ -151,6 +152,7 @@ function periodLabel(
 /**
  * 刀剣1振りのカレンダーの予定を作る。
  * - 展覧会ごとに、その刀の展示期間（period_ids を反映し、隣り合う期間はつなげる）を1件の終日の予定にする。
+ * - 終了日が未定の展示は、開始日だけの終日の予定にする（終わりの分からない予定を、カレンダー上で長く伸ばさないため）。
  * - 中止・延期の展覧会は含めない。
  * - UID は「刀剣ID・展覧会ID・連番」から決まる。
  */
@@ -168,11 +170,13 @@ export function swordCalendarEvents(input: SwordCalendarInput): IcsEvent[] {
     const venue = venueById.get(ex.venue_id);
     ranges.forEach((range, i) => {
       const label = periodLabel(ex, exhibits, range);
+      const openEnded = range.end === null;
       const description = [
         `展覧会：${ex.title}`,
         venue ? `会場：${venue.name}${ex.room ? `（${ex.room}）` : ""}` : null,
-        `会期：${formatFullDate(ex.start_date)}〜${formatFullDate(ex.end_date)}`,
-        `この刀の展示：${formatFullDate(range.start)}〜${formatFullDate(range.end)}${label ? `（${label}）` : ""}`,
+        `会期：${formatDateRange(ex.start_date, ex.end_date)}`,
+        `この刀の展示：${formatDateRange(range.start, range.end)}${label ? `（${label}）` : ""}`,
+        openEnded ? "終了日が未定のため、この予定は展示の開始日だけを示しています。" : null,
         `公式サイト：${ex.official_url}`,
         input.swordPageUrl ? `刀剣のページ：${input.swordPageUrl}` : null,
         ex.confidence === "unverified" ? "この展示情報は要確認です。" : null,
@@ -183,8 +187,8 @@ export function swordCalendarEvents(input: SwordCalendarInput): IcsEvent[] {
       events.push({
         uid: `${uidPart(input.sword.id)}.${uidPart(ex.id)}.${i + 1}@${UID_DOMAIN}`,
         start: range.start,
-        end: range.end,
-        summary: `${input.sword.heading} 展示（${venue?.short_name ?? ex.title}）`,
+        end: range.end ?? range.start,
+        summary: `${input.sword.heading} ${openEnded ? "展示開始・会期未定" : "展示"}（${venue?.short_name ?? ex.title}）`,
         description,
         location: venue ? [venue.name, venue.address].filter(Boolean).join(" ") : undefined,
         url: ex.official_url,

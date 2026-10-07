@@ -2,7 +2,7 @@
 // ビルド時に埋め込んだデータを、ブラウザで今日の日付（日本時間）を使って判定し直す。
 import { useEffect, useMemo, useRef, useState } from "react";
 import L from "leaflet";
-import { formatFullDate, todayJst, type IsoDate } from "../../lib/date";
+import { formatDateRange, todayJst, type IsoDate } from "../../lib/date";
 import { mapPins, type MapData, type MapPin } from "../../lib/map-data";
 import { exhibitionStatusLabel } from "../../lib/status";
 import { createBaseMap, el, isTouchFirst, JAPAN_CENTER, JAPAN_ZOOM, pinIcon } from "./leaflet-setup";
@@ -12,8 +12,7 @@ interface Props {
   buildToday: IsoDate;
 }
 
-const period = (ex: { start_date: IsoDate; end_date: IsoDate }) =>
-  `${formatFullDate(ex.start_date)}〜${formatFullDate(ex.end_date)}`;
+const period = (ex: { start_date: IsoDate; end_date: IsoDate | null }) => formatDateRange(ex.start_date, ex.end_date);
 
 function popupContent(pin: MapPin): HTMLElement {
   return el(

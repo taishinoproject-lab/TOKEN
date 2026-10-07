@@ -88,7 +88,8 @@ interface Venue {
 ```ts
 interface Smith {
   id: string;                   // 例: "masamune", "awataguchi-yoshimitsu", "horikawa-kunihiro"
-  name: string;                 // 代表的な表記: "正宗"
+  kind?: "person" | "school";   // 個人か流派か（D-012）。省略時は "person"（個人）
+  name: string;                 // 代表的な表記: "正宗"。流派なら流派名: "福岡一文字派"
   reading: string;              // "まさむね"
   aliases: string[];            // 別表記・通称: ["岡崎正宗", "相州正宗", "五郎入道正宗"]
   generation?: string;          // 同名の刀匠の代: "初代", "二代" など
@@ -104,6 +105,8 @@ interface Smith {
 
 - **同名の別人は、IDで区別する。** 「兼定」や「国広」のように、同じ名前で代や人物が異なる例がある。名前の一致で同一人物とみなしてはいけない。
 - 同一人物かどうか、学説が分かれる場合（例：「二字国俊」と「来国俊」）は、**統合せずに別の件として登録する**。関係は `description` に、出典を付けて書く。
+- **流派単位の登録（D-012）。** 銘や極めから流派までは分かるが、刀工個人を特定できない作は、`kind: "school"` の刀匠として流派を登録し、その作の帰属先にしてよい（例：`fukuoka-ichimonji`「福岡一文字派」）。個人を特定できる場合は、個人の刀匠として登録する。
+- 流派の登録は、刀匠ページ・検索結果・刀剣の刀匠欄で「福岡一文字派（流派）」のように表示し、個人の刀匠と区別できるようにする。
 
 ---
 
@@ -113,6 +116,9 @@ interface Smith {
 type BladeType = "太刀" | "刀" | "脇指" | "短刀" | "大太刀" | "薙刀" | "槍" | "剣" | "その他";
 
 type Designation = "国宝" | "重要文化財" | "重要美術品" | "御物" | "未指定" | "不明";
+
+// 日本美術刀剣保存協会の認定（D-012）。国の指定（Designation）とは別の制度なので、別の項目で持つ
+type NbthkRank = "特別重要刀剣" | "重要刀剣" | "特別保存刀剣" | "保存刀剣";
 
 type AttributionBasis =
   | "在銘"                      // 本人の銘がある
@@ -131,7 +137,8 @@ interface Sword {
     smith_id: string;
     basis: AttributionBasis;
   }[];
-  designation: Designation;
+  designation: Designation;     // 国の指定。日本美術刀剣保存協会の認定はここに入れない
+  nbthk_rank?: NbthkRank;       // 日本美術刀剣保存協会の認定（任意）。刀剣ページに表示する
   era?: string;
   blade_length_cm?: number;     // 刃長
   sori_cm?: number;             // 反り
@@ -176,7 +183,7 @@ interface Exhibition {
   venue_id: string;
   room?: string;                // "本館13室", "平成館"
   start_date: ISODate;
-  end_date: ISODate;
+  end_date: ISODate | null;     // 終了日が分からなければ null（D-012）。"9999-12-31" などの代用の値は使わない
   status?: "cancelled" | "postponed";  // 中止・延期。通常は省略し、日付から判定する
   official_url: string;         // 必須。展覧会の公式ページ
   flyer_url?: string;           // チラシのPDFやページへのリンク（画像は埋め込まない）
@@ -204,6 +211,7 @@ interface Exhibit {
 
 - **刀ごとの展示期間を必ず持つ。** 「展覧会は開催中だが、目当ての刀は前期で展示を終えている」状態を正しく表示するため。
 - `exhibits[].sword_id` も `smith_id` もない出品物（例：「新作日本刀」「刀装具」）は、`label` だけで表示する。
+- **会期未定（D-012）。** 終了日が分からない展覧会は `end_date: null` にする（項目の省略は不可。未定であることを明示する）。表示は「（開始日）〜 会期未定（公式サイトで確認）」とする。
 - 現行データにある「行きたい」数の初期値（`want_count_seed`）とダミーコメントは廃止する（decisions.md D-008）。
 
 ---
@@ -222,11 +230,14 @@ interface Exhibit {
 
 - 判定には**実際の今日の日付（日本時間）**を使う。デモ用の固定日付 `DEMO_TODAY` は廃止する。
 - 静的サイトはビルドした時点のHTMLのまま配信されるため、ページを開いたときにブラウザ側でも判定し直す。日付が変わったのに表示が古いまま、という状態を防ぐ。
+- 終了日が未定（`end_date: null`）の展覧会は、開始日より前なら「開催予定」、開始日以降は「開催中」とする（終了の判定ができないため、自動では「終了」にならない）。終わったことが分かったら、データの `end_date` を入れる。
 - 刀剣ページでの判定順:
   1. その刀が、今日展示されている期間に該当する → 「いま会えます」（終了日を表示）
   2. 展覧会は開催中だが、その刀の展示期間はこれから → 「○/○から展示」
   3. 開催予定の展覧会に出品される → 「開催予定」
   4. どれでもない → 所蔵先を表示
+- 1 で、その刀の展示の終了日が未定なら「いま会えます・会期未定（公式サイトで確認）」と表示する。
+- カレンダー（`/swords/{id}.ics`）では、終了日が未定の展示を、開始日だけの終日の予定（「展示開始・会期未定」）として出力する。終わりの分からない予定を、カレンダー上で長く伸ばさないため。説明欄に、終了日が未定であることを書く。
 
 ---
 
@@ -237,7 +248,7 @@ interface Exhibit {
 | 対象 | 項目 |
 |---|---|
 | 刀剣 | `go`、`go_reading`、`aliases`、`mei`、組み立てた表示名 |
-| 刀匠 | `name`、`reading`、`aliases`、`school` |
+| 刀匠 | `name`、`reading`、`aliases`、`school`（流派単位の登録も、刀匠として検索される） |
 
 ### 10.2 表記ゆれの吸収（正規化）
 
@@ -284,12 +295,14 @@ interface Exhibit {
 
 - IDの重複、IDの書式違反（英小文字・数字・ハイフン以外）
 - 存在しないIDへの参照（`venue_id`、`smith_id`、`sword_id`、`period_ids`、`teacher_ids`）
-- `start_date` が `end_date` より後になっている。展示期間が会期の外にはみ出している
+- `start_date` が `end_date` より後になっている。展示期間が会期の外にはみ出している（`end_date` が null のときは、開始日側だけを確認する）
+- 会期・展示期間に、9000年以降の日付（`9999-12-31` などの代用の値）が入っている（D-012）
 - 館に `lat` / `lng` がない。展覧会に `official_url` がない
 - `confidence: "confirmed"` なのに `sources` が空になっている
 
 警告（ビルドは通すが一覧で表示する）:
 
-- 開催中・開催予定の展覧会で、`verified_at` が14日より古い
+- 開催中・開催予定の展覧会で、`verified_at` が14日より古い（終了日が未定の展覧会も、開始日以降は開催中として対象になる）
+- 会期の終了日が未定（`end_date: null`）の展覧会
 - 出品リストのうち、`sword_id` も `smith_id` もない行の割合が高い展覧会
 - `confidence: "unverified"` のデータ

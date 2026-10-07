@@ -20,7 +20,7 @@ const exhibition = (
   id: string,
   venueId: string,
   start: string,
-  end: string,
+  end: string | null,
   status?: Exhibition["status"],
 ): Exhibition => ({
   id,
@@ -126,5 +126,31 @@ describe("mapPins", () => {
       buildToday,
     );
     expect(pins).toEqual([]);
+  });
+});
+
+describe("終了日が未定の展覧会（D-012）", () => {
+  const openVenues = [venue("e"), venue("f")];
+  const openExhibitions = [exhibition("e-open", "e", "2026-07-02", null), exhibition("f-open-next", "f", "2026-12-01", null)];
+
+  it("ビルド時点で開始済みなら開催中として埋め込み、end_date は null のまま渡す", () => {
+    const data = toMapData(openVenues, openExhibitions, buildToday);
+    expect(data.exhibitions.map((ex) => [ex.id, ex.end_date])).toEqual([
+      ["e-open", null],
+      ["f-open-next", null],
+    ]);
+    expect(data.venues.map((v) => v.id)).toEqual(["e", "f"]);
+  });
+
+  it("いつまでも終了にならず、開始前は開催予定のピンになる", () => {
+    const data = toMapData(openVenues, openExhibitions, buildToday);
+    expect(mapPins(data, buildToday).map((p) => [p.venue.id, p.status])).toEqual([
+      ["e", "ongoing"],
+      ["f", "upcoming"],
+    ]);
+    expect(mapPins(data, "2030-01-01").map((p) => [p.venue.id, p.status])).toEqual([
+      ["e", "ongoing"],
+      ["f", "ongoing"],
+    ]);
   });
 });

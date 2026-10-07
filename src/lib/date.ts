@@ -39,3 +39,18 @@ export function formatFullDate(date: IsoDate): string {
   const [y, m, d] = date.split("-");
   return `${y}年${Number(m)}月${Number(d)}日`;
 }
+
+/** 終了日が分からない会期の表示（D-012）。 */
+export const OPEN_END_LABEL = "会期未定（公式サイトで確認）";
+
+/**
+ * 期間の表示。終了日が null（未定）なら「開始日〜 会期未定（公式サイトで確認）」にする。
+ * 日付の書式は format で変えられる（既定は「2026年10月7日」）。
+ */
+export function formatDateRange(
+  start: IsoDate,
+  end: IsoDate | null,
+  format: (date: IsoDate) => string = formatFullDate,
+): string {
+  return end === null ? `${format(start)}〜 ${OPEN_END_LABEL}` : `${format(start)}〜${format(end)}`;
+}

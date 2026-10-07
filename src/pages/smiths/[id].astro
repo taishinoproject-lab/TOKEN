@@ -3,7 +3,8 @@ import type { GetStaticPaths } from "astro";
 import { getCollection } from "astro:content";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import Sources from "../../components/Sources.astro";
-import { swordDisplayName } from "../../lib/display-name";
+import { smithDisplayName, swordDisplayName } from "../../lib/display-name";
+import { formatDateRange } from "../../lib/date";
 
 export const getStaticPaths = (async () => {
   const smiths = await getCollection("smiths");
@@ -27,15 +28,20 @@ const relatedExhibitions = exhibitions.filter((ex) =>
 const teachers = (smith.teacher_ids ?? []).map((id) => smiths.find((s) => s.id === id)).filter((s) => s !== undefined);
 ---
 
-<BaseLayout title={smith.name}>
-  <h1 class="text-2xl">{smith.name}</h1>
+<BaseLayout title={smithDisplayName(smith)}>
+  <h1 class="text-2xl">{smithDisplayName(smith)}</h1>
   <p class="mb-4">{smith.reading}</p>
+  {
+    smith.kind === "school" && (
+      <p class="mb-4 text-sm">個人ではなく、流派として登録しています。刀工個人を特定できない作は、この流派に帰属させています。</p>
+    )
+  }
   {smith.confidence === "unverified" && <p class="mb-4 font-bold text-brand-accent">要確認</p>}
 
   <dl class="grid grid-cols-[auto_1fr] gap-x-4 gap-y-1">
     {smith.aliases.length > 0 && <><dt>別表記</dt><dd>{smith.aliases.join("、")}</dd></>}
     {smith.generation && <><dt>代</dt><dd>{smith.generation}</dd></>}
-    {smith.school && <><dt>流派</dt><dd>{smith.school}</dd></>}
+    {smith.school && smith.school !== smith.name && <><dt>流派</dt><dd>{smith.school}</dd></>}
     {smith.province && <><dt>国</dt><dd>{smith.province}</dd></>}
     {smith.era && <><dt>時代</dt><dd>{smith.era}</dd></>}
     {
@@ -46,7 +52,7 @@ const teachers = (smith.teacher_ids ?? []).map((id) => smiths.find((s) => s.id =
             {teachers.map((t, i) => (
               <>
                 {i > 0 && "・"}
-                <a href={`/smiths/${t.id}`} class="underline">{t.name}</a>
+                <a href={`/smiths/${t.id}`} class="underline">{smithDisplayName(t)}</a>
               </>
             ))}
           </dd>
@@ -58,7 +64,7 @@ const teachers = (smith.teacher_ids ?? []).map((id) => smiths.find((s) => s.id =
   {smith.description && <p class="mt-4">{smith.description}</p>}
 
   <section class="mt-6">
-    <h2 class="mb-2 text-lg">この刀匠の刀剣</h2>
+    <h2 class="mb-2 text-lg">{smith.kind === "school" ? "この流派の刀剣" : "この刀匠の刀剣"}</h2>
     {
       attributed.length === 0 ? (
         <p>登録されている刀剣はありません。</p>
@@ -78,11 +84,11 @@ const teachers = (smith.teacher_ids ?? []).map((id) => smiths.find((s) => s.id =
   {
     relatedExhibitions.length > 0 && (
       <section class="mt-6">
-        <h2 class="mb-2 text-lg">この刀匠の作が出品される展覧会</h2>
+        <h2 class="mb-2 text-lg">{smith.kind === "school" ? "この流派の作が出品される展覧会" : "この刀匠の作が出品される展覧会"}</h2>
         <ul class="list-disc pl-5">
           {relatedExhibitions.map((ex) => (
             <li>
-              <a href={`/exhibitions/${ex.id}`} class="underline">{ex.title}</a>（{ex.start_date}〜{ex.end_date}）
+              <a href={`/exhibitions/${ex.id}`} class="underline">{ex.title}</a>（{formatDateRange(ex.start_date, ex.end_date, (d) => d)}）
             </li>
           ))}
         </ul>

@@ -189,6 +189,78 @@ describe("validateData（data-model.md §12）", () => {
     });
   });
 
+  describe("終了日が未定の展覧会（D-012）", () => {
+    const openEnded = (d: Data) => Object.assign(d.exhibitions[0], { end_date: null });
+
+    it("end_date: null は受け付け、日付の逆転・はみ出しの判定をしない。未定であることを警告する", () => {
+      const { errors, warnings } = run((d) => {
+        openEnded(d);
+        d.exhibitions[0].periods[1].end_date = "2027-06-30";
+      });
+      expect(errors).toEqual([]);
+      expect(warnings).toEqual([
+        {
+          file: "exhibitions.json",
+          target: "2026-museum-a-ten",
+          message: "会期の終了日が未定です（end_date: null）。公式サイトで確認してください",
+        },
+      ]);
+    });
+
+    it("展示期間が会期の開始日より前なら、終了日が未定でもエラー", () => {
+      const { errors } = run((d) => {
+        openEnded(d);
+        d.exhibitions[0].periods[0].start_date = "2026-08-01";
+      });
+      expect(messages(errors)).toContain(
+        "展示期間「前期」（2026-08-01〜2026-10-31）が会期（2026-09-01〜終了日未定）の外にはみ出しています",
+      );
+    });
+
+    it("開催中なら、終了日が未定でも verified_at の古さを警告する", () => {
+      const { warnings } = run((d) => {
+        openEnded(d);
+        d.exhibitions[0].verified_at = "2026-09-01";
+      });
+      expect(messages(warnings)).toContain("開催中・開催予定の展覧会ですが、最終確認日（2026-09-01）が14日より前です");
+    });
+
+    it("end_date の省略はエラー（未定なら null と明示する）", () => {
+      const { errors } = run((d) => {
+        delete (d.exhibitions[0] as Partial<Data["exhibitions"][0]>).end_date;
+      });
+      expect(errors).toHaveLength(1);
+      expect(errors[0].message).toMatch(/^end_date: /);
+    });
+
+    it("9999-12-31 のような代用の値はエラー", () => {
+      const { errors } = run((d) => {
+        d.exhibitions[0].end_date = "9999-12-31";
+      });
+      expect(messages(errors)).toEqual([
+        "会期の終了日（9999-12-31）は代用の値と思われます。終了日が分からない場合は、会期の end_date を null にしてください",
+      ]);
+    });
+  });
+
+  describe("刀剣の認定・流派単位の刀匠（D-012）", () => {
+    it("nbthk_rank は4つの値だけを受け付ける", () => {
+      expect(run((d) => Object.assign(d.swords[0], { nbthk_rank: "特別重要刀剣" })).errors).toEqual([]);
+      expect(run((d) => Object.assign(d.swords[0], { nbthk_rank: "保存刀剣" })).errors).toEqual([]);
+      const { errors } = run((d) => Object.assign(d.swords[0], { nbthk_rank: "国宝" }));
+      expect(errors).toHaveLength(1);
+      expect(errors[0].message).toMatch(/^nbthk_rank: /);
+    });
+
+    it("刀匠の kind は person か school", () => {
+      expect(run((d) => Object.assign(d.smiths[0], { kind: "school" })).errors).toEqual([]);
+      expect(run((d) => Object.assign(d.smiths[0], { kind: "person" })).errors).toEqual([]);
+      const { errors } = run((d) => Object.assign(d.smiths[0], { kind: "group" }));
+      expect(errors).toHaveLength(1);
+      expect(errors[0].message).toMatch(/^kind: /);
+    });
+  });
+
   describe("警告", () => {
     it("開催中・開催予定の展覧会で verified_at が14日より古い", () => {
       expect(run((d) => (d.exhibitions[0].verified_at = "2026-09-23")).warnings).toEqual([]);

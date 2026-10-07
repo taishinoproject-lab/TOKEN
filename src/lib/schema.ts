@@ -55,8 +55,12 @@ export const venueSchema = z.strictObject({
   ...sampleFlag,
 });
 
+// 刀匠の登録の単位（D-012）。個人を特定できない作の帰属先として、流派単位の登録を認める。省略時は個人。
+export const smithKindSchema = z.enum(["person", "school"]);
+
 export const smithSchema = z.strictObject({
   id: idSchema,
+  kind: smithKindSchema.optional(),
   name: z.string().min(1),
   reading: z.string().min(1),
   aliases: z.array(z.string()),
@@ -85,6 +89,9 @@ export const bladeTypeSchema = z.enum([
 
 export const designationSchema = z.enum(["国宝", "重要文化財", "重要美術品", "御物", "未指定", "不明"]);
 
+// 日本美術刀剣保存協会の認定（D-012）。国の指定（designation）とは別に持つ。
+export const nbthkRankSchema = z.enum(["特別重要刀剣", "重要刀剣", "特別保存刀剣", "保存刀剣"]);
+
 export const attributionBasisSchema = z.enum(["在銘", "極め", "伝"]);
 
 export const swordSchema = z.strictObject({
@@ -102,6 +109,7 @@ export const swordSchema = z.strictObject({
     }),
   ),
   designation: designationSchema,
+  nbthk_rank: nbthkRankSchema.optional(),
   era: z.string().optional(),
   blade_length_cm: z.number().positive().optional(),
   sori_cm: z.number().nonnegative().optional(),
@@ -135,7 +143,8 @@ export const exhibitionSchema = z.strictObject({
   venue_id: z.string(),
   room: z.string().optional(),
   start_date: isoDateSchema,
-  end_date: isoDateSchema,
+  // 終了日が分からない展示は null（D-012）。"9999-12-31" のような代用の値は使わない
+  end_date: isoDateSchema.nullable(),
   status: z.enum(["cancelled", "postponed"]).optional(),
   official_url: httpUrl,
   flyer_url: httpUrl.optional(),
@@ -152,8 +161,10 @@ export const exhibitionSchema = z.strictObject({
 export type Source = z.infer<typeof sourceSchema>;
 export type Confidence = z.infer<typeof confidenceSchema>;
 export type Venue = z.infer<typeof venueSchema>;
+export type SmithKind = z.infer<typeof smithKindSchema>;
 export type Smith = z.infer<typeof smithSchema>;
 export type BladeType = z.infer<typeof bladeTypeSchema>;
+export type NbthkRank = z.infer<typeof nbthkRankSchema>;
 export type AttributionBasis = z.infer<typeof attributionBasisSchema>;
 export type Sword = z.infer<typeof swordSchema>;
 export type Period = z.infer<typeof periodSchema>;
