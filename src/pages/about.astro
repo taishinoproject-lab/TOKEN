@@ -1,0 +1,111 @@
+---
+// このサイトについて（T-402）。目的、情報の集め方、免責、出典、使用している書体とライセンス。
+import BaseLayout from "../layouts/BaseLayout.astro";
+import "../styles/doc.css";
+
+const fonts = [
+  {
+    name: "Shippori Mincho（しっぽり明朝）",
+    use: "見出し・本文",
+    copyright: "Copyright 2021 The Shippori Mincho Project Authors",
+    project: "https://github.com/fontdasu/ShipporiMincho",
+  },
+  {
+    name: "Zen Kaku Gothic New",
+    use: "日付・数字・注記など",
+    copyright: "Copyright 2022 The Zen Kaku Gothic Project Authors",
+    project: "https://github.com/googlefonts/zen-kakugothic",
+  },
+  {
+    name: "Yuji Syuku（佑字 肅）",
+    use: "号の筆文字",
+    copyright: "Copyright 2021 The Yuji Project Authors",
+    project: "https://github.com/Kinutafontfactory/Yuji",
+  },
+];
+---
+
+<BaseLayout
+  title="このサイトについて"
+  description="訪剣 −TOKEN− の目的、情報の集め方、免責事項、出典、使用している書体について。"
+>
+  <article class="doc">
+    <h1>このサイトについて</h1>
+    <p class="lead">
+      訪剣 −TOKEN− は、日本刀を見に行きたい人のために、「推しの刀が、いま・どこで・いつまで見られるか」をまとめるサイトです。号・銘・刀匠の名前から刀を探し、その刀が展示される展覧会と会期を確認できます。
+    </p>
+
+    <h2>情報の集め方</h2>
+    <ul>
+      <li>展覧会の会期や出品される刀は、各館の公式サイトの情報をもとに入力しています。</li>
+      <li>各館の公式サイトは、週1回を目安に確認し、変更があれば反映するようにしています。</li>
+      <li>情報ごとに、出典（もとにしたページへのリンク）と、最終確認日を表示しています。</li>
+      <li>出典で確認しきれていない情報には「要確認」と表示しています。</li>
+      <li>
+        刀の写真は掲載していません。写真を見たい場合は、各ページの「公式の画像ページを見る」から、所蔵館などの公式ページをご覧ください。SNS
+        などで共有したときに表示される画像は、刀の名前を文字で組んで自動で作っています。
+      </li>
+    </ul>
+
+    <h2>ご利用にあたって（免責事項）</h2>
+    <div class="warn" role="note">
+      <p>
+        <strong>掲載している情報が正確であることは保証できません。お出かけの前に、必ず各館の公式サイトで最新の情報をご確認ください。</strong>
+      </p>
+    </div>
+    <p>
+      展示替え、会期の変更、臨時の休館などにより、実際の展示が掲載内容と異なる場合があります。このサイトの情報を利用したことによって生じた損害について、運営者は責任を負いかねます。
+    </p>
+
+    <h2>出典</h2>
+    <p>このサイトは、主に次の情報をもとに作っています。各ページには、個別の出典へのリンクを表示しています。</p>
+    <ul>
+      <li>
+        地図：<a href="https://maps.gsi.go.jp/development/ichiran.html" rel="noopener noreferrer" target="_blank"
+          >国土地理院（地理院タイル・淡色地図）</a
+        >
+      </li>
+      <li>展覧会の会期・出品：各館の公式サイト</li>
+      <li>
+        刀剣の指定・所蔵などの確認：<a href="https://online.bunka.go.jp/" rel="noopener noreferrer" target="_blank"
+          >文化遺産オンライン（文化庁）</a
+        >、<a href="https://colbase.nich.go.jp/" rel="noopener noreferrer" target="_blank"
+          >ColBase（国立文化財機構所蔵品統合検索システム）</a
+        >
+      </li>
+    </ul>
+    <p class="small">地図の表示には、Leaflet（BSD 2-Clause License）を使っています。</p>
+
+    <h2>使用している書体</h2>
+    <p>
+      次の書体を、Google Fonts を通じて使っています。いずれも
+      <a href="https://openfontlicense.org/" rel="noopener noreferrer" target="_blank">SIL Open Font License 1.1</a>
+      のもとで公開されています。
+    </p>
+    <table>
+      <tbody>
+        {
+          fonts.map((f) => (
+            <tr>
+              <th scope="row">{f.use}</th>
+              <td>
+                {f.name}
+                <br />
+                <span class="small">
+                  {f.copyright}（
+                  <a href={f.project} rel="noopener noreferrer" target="_blank">
+                    配布元
+                  </a>
+                  ）
+                </span>
+              </td>
+            </tr>
+          ))
+        }
+      </tbody>
+    </table>
+
+    <h2>個人情報の扱い</h2>
+    <p>ログインの機能はありません。訪剣帖の記録などの扱いは、<a href="/privacy">プライバシー</a>のページをご覧ください。</p>
+  </article>
+</BaseLayout>

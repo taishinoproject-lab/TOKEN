@@ -16,7 +16,8 @@ Cloudflare Pages の **Git 連携**（GitHub のリポジトリを Cloudflare �
 |---|---|
 | `.node-version` | ビルドに使う Node.js のバージョン（`22.16.0`）。Cloudflare Pages はこのファイルを読む |
 | `public/_headers` | 応答ヘッダーの設定。ビルドで `dist/_headers` にコピーされる。`/swords/*.ics` を `text/calendar; charset=utf-8` で配信する、プレビューの URL を検索結果に出さない、など |
-| `astro.config.mjs` | 環境変数 `SITE_URL` を公開先の URL として使う（カレンダー購読のリンクと `.ics` の中の絶対 URL になる） |
+| `astro.config.mjs` | 環境変数 `SITE_URL` を公開先の URL として使う（カレンダー購読のリンク、`.ics` の中、OGP の `og:url`・`og:image` の絶対 URL になる） |
+| `src/lib/og/fonts.ts` | シェア用画像（OGP、T-208）の書体を、ビルド時に Google Fonts（`fonts.googleapis.com`、`fonts.gstatic.com`）から必要な文字だけ取得する。**ビルドする環境から、この2つに通信できる必要がある**。取得した書体は `node_modules/.cache/token-og-fonts/` に保存される |
 
 ビルドの設定値（3. で入力する）:
 
