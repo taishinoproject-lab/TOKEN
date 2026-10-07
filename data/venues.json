@@ -204,9 +204,10 @@
     "official_url": "https://www.tokugawa-art-museum.jp/",
     "sources": [
       {
-        "url": "https://www.museum.or.jp/museum/4758",
-        "title": "インターネットミュージアム 徳川美術館（住所）",
-        "retrieved_at": "2026-10-07"
+        "url": "https://www.tokugawa-art-museum.jp/visitor-information/",
+        "title": "徳川美術館 来館のご案内（住所）",
+        "retrieved_at": "2026-10-07",
+        "quote": "交通アクセス 徳川美術館 〒 461-0023 名古屋市東区徳川町 1017"
       },
       {
         "url": "https://aroundus.com/p/8292342-tokugawa-art-museum",
@@ -215,7 +216,12 @@
       }
     ],
     "confidence": "confirmed",
-    "verified_at": "2026-10-07"
+    "verified_at": "2026-10-07",
+    "exhibitions_page_url": "https://www.tokugawa-art-museum.jp/exhibitions/",
+    "crawl": {
+      "enabled": true,
+      "notes": "巡回先: 展覧会一覧、名品コレクション展示の展示作品リスト（PDF。展示室1「武家のシンボル －武具・刀剣－」）、「名刀のいろは」のお知らせ、来館のご案内"
+    }
   },
   {
     "id": "sakaki-tetsu-no-tenjikan",

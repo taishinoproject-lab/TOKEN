@@ -739,15 +739,115 @@
     "venue_id": "tokugawa-art-museum",
     "start_date": "2026-10-08",
     "end_date": "2026-11-15",
-    "official_url": "https://www.tokugawa-art-museum.jp/",
+    "official_url": "https://www.tokugawa-art-museum.jp/exhibitions/tokimekuhako/",
     "admission": "一般 2,000円",
     "periods": [],
     "exhibits": [],
     "sources": [
       {
-        "url": "https://www.museum.or.jp/event/125812",
-        "title": "インターネットミュージアム 特別展 ときめく箱（2026年10月8日〜11月15日、一般2,000円）",
-        "retrieved_at": "2026-10-07"
+        "url": "https://www.tokugawa-art-museum.jp/exhibitions/",
+        "title": "徳川美術館 展覧会",
+        "retrieved_at": "2026-10-07",
+        "quote": "これからの展覧会 特別展 ときめく箱 2026.10.08 (木)2026.11.15 (日)"
+      },
+      {
+        "url": "https://www.tokugawa-art-museum.jp/visitor-information/",
+        "title": "徳川美術館 来館のご案内（入館料）",
+        "retrieved_at": "2026-10-07",
+        "quote": "徳川美術館・ 蓬左文庫入館料 Admission Fees 個人 一般 2,000 円"
+      }
+    ],
+    "verified_at": "2026-10-07",
+    "confidence": "confirmed"
+  },
+  {
+    "id": "2026-tokugawa-art-museum-meihin-buke-no-symbol",
+    "title": "名品コレクション展示「武家のシンボル －武具･刀剣－」",
+    "venue_id": "tokugawa-art-museum",
+    "room": "名品コレクション展示室 展示室１",
+    "start_date": "2026-09-15",
+    "end_date": "2026-12-13",
+    "official_url": "https://www.tokugawa-art-museum.jp/exhibitions/",
+    "list_url": "https://www.tokugawa-art-museum.jp/wp-content/uploads/2025/09/list_of_works_on_display.pdf",
+    "periods": [],
+    "exhibits": [
+      {
+        "label": "重要美術品 太刀 銘 近村",
+        "note": "目録の記号「〇」（重要美術品）による"
+      },
+      {
+        "label": "重要文化財 刀 無銘 助真",
+        "note": "目録の記号「◎」（重要文化財）による"
+      },
+      {
+        "label": "脇指 額銘 月山利安"
+      },
+      {
+        "label": "短刀 無銘 保昌貞吉"
+      }
+    ],
+    "sources": [
+      {
+        "url": "https://www.tokugawa-art-museum.jp/wp-content/uploads/2025/09/list_of_works_on_display.pdf",
+        "title": "徳川美術館 名品コレクション展示 展示作品リスト（2026年9月15日〜12月13日）",
+        "retrieved_at": "2026-10-07",
+        "quote": "【展示室１】 武家のシンボル － 武具･刀剣 －"
+      },
+      {
+        "url": "https://www.tokugawa-art-museum.jp/wp-content/uploads/2025/09/list_of_works_on_display.pdf",
+        "title": "徳川美術館 名品コレクション展示 展示作品リスト（2026年9月15日〜12月13日）",
+        "retrieved_at": "2026-10-07",
+        "quote": "名品コレクション展示室 令和８年(2026) ９月１５日(火)～１２月１３日(日)"
+      },
+      {
+        "url": "https://www.tokugawa-art-museum.jp/wp-content/uploads/2025/09/list_of_works_on_display.pdf",
+        "title": "徳川美術館 名品コレクション展示 展示作品リスト（2026年9月15日〜12月13日）",
+        "retrieved_at": "2026-10-07",
+        "quote": "凡例：⦿は国宝、◎は重要文化財、〇は重要美術品を示します。"
+      },
+      {
+        "url": "https://www.tokugawa-art-museum.jp/wp-content/uploads/2025/09/list_of_works_on_display.pdf",
+        "title": "徳川美術館 名品コレクション展示 展示作品リスト（2026年9月15日〜12月13日）",
+        "retrieved_at": "2026-10-07",
+        "quote": "14 〇 太刀 銘 近村 徳川家正(徳川宗家17代)氏寄贈 平安 12"
+      },
+      {
+        "url": "https://www.tokugawa-art-museum.jp/wp-content/uploads/2025/09/list_of_works_on_display.pdf",
+        "title": "徳川美術館 名品コレクション展示 展示作品リスト（2026年9月15日〜12月13日）",
+        "retrieved_at": "2026-10-07",
+        "quote": "15 ◎ 刀 無銘 助真 徳川慶勝(尾張家14代)･茂徳(同家15代)所持 鎌倉 13"
+      },
+      {
+        "url": "https://www.tokugawa-art-museum.jp/wp-content/uploads/2025/09/list_of_works_on_display.pdf",
+        "title": "徳川美術館 名品コレクション展示 展示作品リスト（2026年9月15日〜12月13日）",
+        "retrieved_at": "2026-10-07",
+        "quote": "16 脇指 額銘 月山利安 室町 15"
+      },
+      {
+        "url": "https://www.tokugawa-art-museum.jp/wp-content/uploads/2025/09/list_of_works_on_display.pdf",
+        "title": "徳川美術館 名品コレクション展示 展示作品リスト（2026年9月15日〜12月13日）",
+        "retrieved_at": "2026-10-07",
+        "quote": "17 短刀 無銘 保昌貞吉 鎌倉 13-14"
+      }
+    ],
+    "verified_at": "2026-10-07",
+    "confidence": "confirmed"
+  },
+  {
+    "id": "2027-tokugawa-art-museum-meito-no-iroha",
+    "title": "とくび と さのび 名刀のいろは",
+    "venue_id": "tokugawa-art-museum",
+    "start_date": "2027-04-17",
+    "end_date": "2027-06-13",
+    "official_url": "https://www.tokugawa-art-museum.jp/news/%E3%81%A8%E3%81%8F%E3%81%B3%E3%81%A8%E3%81%95%E3%81%AE%E3%81%B3%E3%80%80%E6%9D%A5%E6%98%A5%E9%96%8B%E5%82%AC/",
+    "periods": [],
+    "exhibits": [],
+    "sources": [
+      {
+        "url": "https://www.tokugawa-art-museum.jp/news/%E3%81%A8%E3%81%8F%E3%81%B3%E3%81%A8%E3%81%95%E3%81%AE%E3%81%B3%E3%80%80%E6%9D%A5%E6%98%A5%E9%96%8B%E5%82%AC/",
+        "title": "徳川美術館 お知らせ「とくび と さのび 名刀のいろは」 徳川美術館にて来春開催",
+        "retrieved_at": "2026-10-07",
+        "quote": "展覧会「とくび と さのび 名刀のいろは」について、徳川美術館の開催日程のご案内です。 会期：令和9年（2027） 4月17日（土）～6月13日（日）"
       }
     ],
     "verified_at": "2026-10-07",
