@@ -1,0 +1,626 @@
+[
+  {
+    "id": "sanjo-munechika",
+    "name": "三条宗近",
+    "reading": "さんじょうむねちか",
+    "aliases": [
+      "宗近"
+    ],
+    "school": "三条派",
+    "province": "山城国",
+    "era": "平安時代",
+    "sources": [],
+    "confidence": "unverified"
+  },
+  {
+    "id": "yasutsuna",
+    "name": "安綱",
+    "reading": "やすつな",
+    "aliases": [
+      "伯耆安綱"
+    ],
+    "school": "古伯耆",
+    "province": "伯耆国",
+    "era": "平安時代",
+    "sources": [
+      {
+        "url": "https://online.bunka.go.jp/db/heritages/detail/125697/3",
+        "title": "文化遺産オンライン 太刀〈銘安綱（名物童子切安綱）〉",
+        "retrieved_at": "2026-10-07"
+      },
+      {
+        "url": "https://intojapanwaraku.com/rock/craft-rock/2285/",
+        "title": "和樂web 髭切（鬼切丸）の記事",
+        "retrieved_at": "2026-10-07"
+      }
+    ],
+    "confidence": "confirmed"
+  },
+  {
+    "id": "kanehira",
+    "name": "包平",
+    "reading": "かねひら",
+    "aliases": [
+      "備前国包平"
+    ],
+    "school": "古備前派",
+    "province": "備前国",
+    "era": "平安時代",
+    "sources": [
+      {
+        "url": "https://intojapanwaraku.com/craft/104143/",
+        "title": "和樂web 大包平の記事",
+        "retrieved_at": "2026-10-07"
+      }
+    ],
+    "confidence": "unverified"
+  },
+  {
+    "id": "aoe-tsunetsugu",
+    "name": "恒次",
+    "reading": "つねつぐ",
+    "aliases": [
+      "青江恒次"
+    ],
+    "school": "青江派",
+    "province": "備中国",
+    "description": "同名の刀工が複数いる（古青江など）。数珠丸恒次の作者としての恒次。人物の特定は要確認。",
+    "sources": [],
+    "confidence": "unverified"
+  },
+  {
+    "id": "gojo-kuninaga",
+    "name": "国永",
+    "reading": "くになが",
+    "aliases": [
+      "五条国永"
+    ],
+    "school": "五条派",
+    "province": "山城国",
+    "era": "平安時代",
+    "sources": [],
+    "confidence": "unverified"
+  },
+  {
+    "id": "horikawa-kunihiro",
+    "name": "国広",
+    "reading": "くにひろ",
+    "aliases": [
+      "堀川国広",
+      "信濃守国広",
+      "國廣",
+      "九州日向住国広"
+    ],
+    "school": "堀川派",
+    "province": "山城国",
+    "era": "安土桃山時代〜江戸時代初期",
+    "description": "日向国の出身で、のち京都の堀川に住した。天正18年（1590年）頃に「信濃守」を受領したとされ、慶長年間には「信濃守国広作」と銘を切った作がある（出典: nihonto.com）。「國廣」は「国広」の旧字体表記。",
+    "sources": [
+      {
+        "url": "https://nihonto.com/horikawa-kunihiro/",
+        "title": "nihonto.com HORIKAWA KUNIHIRO 堀川国広",
+        "retrieved_at": "2026-10-07"
+      },
+      {
+        "url": "https://online.bunka.go.jp/db/heritages/detail/184252",
+        "title": "文化遺産オンライン 刀〈銘九州日向住国広作／天正十八年…（山姥切）〉",
+        "retrieved_at": "2026-10-07"
+      }
+    ],
+    "confidence": "confirmed"
+  },
+  {
+    "id": "osafune-mitsutada",
+    "name": "光忠",
+    "reading": "みつただ",
+    "aliases": [
+      "長船光忠"
+    ],
+    "school": "長船派",
+    "province": "備前国",
+    "era": "鎌倉時代",
+    "description": "長船派の祖とされる刀工。長光の父（出典: コトバンク「長船長光」）。",
+    "sources": [
+      {
+        "url": "https://kotobank.jp/word/%E9%95%B7%E8%88%B9%E9%95%B7%E5%85%89-40208",
+        "title": "コトバンク 長船長光",
+        "retrieved_at": "2026-10-07"
+      }
+    ],
+    "confidence": "unverified"
+  },
+  {
+    "id": "osafune-nagamitsu",
+    "name": "長光",
+    "reading": "ながみつ",
+    "aliases": [
+      "長船長光"
+    ],
+    "school": "長船派",
+    "province": "備前国",
+    "era": "鎌倉時代",
+    "description": "長船光忠の子。大般若長光などの作がある。初代（順慶長光）と二代（左近将監長光）の2代がいたとする説と、1人とする説がある（出典: コトバンク）。このデータでは「長光」銘の作をこの1件にまとめ、代の区別はしていない。",
+    "teacher_ids": [
+      "osafune-mitsutada"
+    ],
+    "sources": [
+      {
+        "url": "https://kotobank.jp/word/%E9%95%B7%E8%88%B9%E9%95%B7%E5%85%89-40208",
+        "title": "コトバンク 長船長光",
+        "retrieved_at": "2026-10-07"
+      },
+      {
+        "url": "https://online.bunka.go.jp/heritages/detail/585889",
+        "title": "文化遺産オンライン 太刀（号 大般若長光）",
+        "retrieved_at": "2026-10-07"
+      }
+    ],
+    "confidence": "confirmed"
+  },
+  {
+    "id": "awataguchi-yoshimitsu",
+    "name": "吉光",
+    "reading": "よしみつ",
+    "aliases": [
+      "粟田口吉光",
+      "藤四郎吉光",
+      "粟田口藤四郎吉光"
+    ],
+    "school": "粟田口派",
+    "province": "山城国",
+    "era": "鎌倉時代",
+    "description": "鎌倉時代中〜後期の山城国粟田口の刀工で、短刀の名手として知られる。厚藤四郎・後藤藤四郎はともにこの吉光の作（出典: 和樂web）。",
+    "sources": [
+      {
+        "url": "https://intojapanwaraku.com/rock/craft-rock/124513/",
+        "title": "和樂web 藤四郎吉光の記事",
+        "retrieved_at": "2026-10-07"
+      }
+    ],
+    "confidence": "confirmed"
+  },
+  {
+    "id": "norishige",
+    "name": "則重",
+    "reading": "のりしげ",
+    "aliases": [],
+    "province": "越中国",
+    "era": "鎌倉時代",
+    "sources": [],
+    "confidence": "unverified"
+  },
+  {
+    "id": "sukemori",
+    "name": "助守",
+    "reading": "すけもり",
+    "aliases": [],
+    "school": "古備前派",
+    "province": "備前国",
+    "sources": [],
+    "confidence": "unverified"
+  },
+  {
+    "id": "miike-mitsuyo",
+    "name": "光世",
+    "reading": "みつよ",
+    "aliases": [
+      "三池典太光世",
+      "典太光世",
+      "三池光世"
+    ],
+    "school": "三池派",
+    "province": "筑後国",
+    "era": "平安時代後期",
+    "description": "筑後国三池（現在の福岡県大牟田市）の刀工。現存作は少なく、大典太が代表作とされる（出典: 和樂web）。",
+    "sources": [
+      {
+        "url": "https://intojapanwaraku.com/rock/art-rock/41608/",
+        "title": "和樂web 大典太光世の記事",
+        "retrieved_at": "2026-10-07"
+      }
+    ],
+    "confidence": "confirmed"
+  },
+  {
+    "id": "masamune",
+    "name": "正宗",
+    "reading": "まさむね",
+    "aliases": [
+      "岡崎正宗",
+      "相州正宗",
+      "五郎入道正宗"
+    ],
+    "school": "相州伝",
+    "province": "相模国",
+    "era": "鎌倉時代後期",
+    "sources": [],
+    "confidence": "unverified"
+  },
+  {
+    "id": "sadamune",
+    "name": "貞宗",
+    "reading": "さだむね",
+    "aliases": [
+      "相州貞宗"
+    ],
+    "school": "相州伝",
+    "province": "相模国",
+    "era": "鎌倉時代末期〜南北朝時代",
+    "sources": [],
+    "confidence": "unverified"
+  },
+  {
+    "id": "rai-kunitsugu",
+    "name": "来国次",
+    "reading": "らいくにつぐ",
+    "aliases": [],
+    "school": "来派",
+    "province": "山城国",
+    "sources": [],
+    "confidence": "unverified"
+  },
+  {
+    "id": "shikkake-norinaga",
+    "name": "則長",
+    "reading": "のりなが",
+    "aliases": [
+      "尻懸則長"
+    ],
+    "school": "尻懸派",
+    "province": "大和国",
+    "era": "鎌倉時代末期",
+    "sources": [],
+    "confidence": "unverified"
+  },
+  {
+    "id": "chogi",
+    "name": "長義",
+    "reading": "ちょうぎ",
+    "aliases": [
+      "ながよし",
+      "長船長義"
+    ],
+    "school": "長船派",
+    "province": "備前国",
+    "era": "南北朝時代",
+    "sources": [],
+    "confidence": "unverified"
+  },
+  {
+    "id": "osafune-morimitsu",
+    "name": "盛光",
+    "reading": "もりみつ",
+    "aliases": [
+      "備州長船盛光"
+    ],
+    "school": "長船派（応永備前）",
+    "province": "備前国",
+    "era": "室町時代",
+    "sources": [],
+    "confidence": "unverified"
+  },
+  {
+    "id": "ryosai",
+    "name": "良西",
+    "reading": "りょうさい",
+    "aliases": [],
+    "province": "筑前国",
+    "era": "鎌倉時代後期",
+    "sources": [],
+    "confidence": "unverified"
+  },
+  {
+    "id": "niji-kunitoshi",
+    "name": "国俊",
+    "reading": "くにとし",
+    "aliases": [
+      "二字国俊"
+    ],
+    "school": "来派",
+    "province": "山城国",
+    "era": "鎌倉時代",
+    "description": "「国俊」の二字銘を切る来派の刀工。弘安頃に活動したとされる。「来国俊」と同一人物か別人かについては説が分かれるため、このデータでは別の刀匠として登録している（出典: nihonto.com）。",
+    "sources": [
+      {
+        "url": "https://nihonto.com/niji-kunitoshi-%e4%ba%8c%e5%ad%97%e5%9b%bd%e4%bf%8a/",
+        "title": "nihonto.com NIJI KUNITOSHI 二字国俊",
+        "retrieved_at": "2026-10-07"
+      }
+    ],
+    "confidence": "confirmed"
+  },
+  {
+    "id": "rai-kunitoshi",
+    "name": "来国俊",
+    "reading": "らいくにとし",
+    "aliases": [],
+    "school": "来派",
+    "province": "山城国",
+    "era": "鎌倉時代",
+    "description": "「来国俊」と三字銘を切る来派の刀工。正応頃から活動したとされる。「二字国俊」と同一人物か別人かについては説が分かれる（出典: nihonto.com）。また「来孫太郎」は来国俊の俗名と言われる（出典: 文化遺産オンライン）。",
+    "sources": [
+      {
+        "url": "https://nihonto.com/niji-kunitoshi-%e4%ba%8c%e5%ad%97%e5%9b%bd%e4%bf%8a/",
+        "title": "nihonto.com NIJI KUNITOSHI 二字国俊",
+        "retrieved_at": "2026-10-07"
+      },
+      {
+        "url": "https://online.bunka.go.jp/heritages/detail/150021",
+        "title": "文化遺産オンライン 太刀〈銘来孫太郎作／（花押）正応五□辰八月十三日以下不明〉",
+        "retrieved_at": "2026-10-07"
+      }
+    ],
+    "confidence": "confirmed"
+  },
+  {
+    "id": "nobufusa",
+    "name": "信房",
+    "reading": "のぶふさ",
+    "aliases": [],
+    "school": "古備前派",
+    "province": "備前国",
+    "era": "平安時代後期〜鎌倉時代",
+    "description": "古備前派を代表する刀工の一人（出典: 文化遺産オンライン 致道博物館の国宝 太刀 銘信房作）。同名の刀工がいる可能性があり、人物の特定は作ごとに要確認。",
+    "sources": [
+      {
+        "url": "https://online.bunka.go.jp/heritages/search/page:6686",
+        "title": "文化遺産オンライン 検索結果（致道博物館 太刀 銘信房作）",
+        "retrieved_at": "2026-10-07"
+      }
+    ],
+    "confidence": "unverified"
+  },
+  {
+    "id": "sanemitsu",
+    "name": "真光",
+    "reading": "さねみつ",
+    "aliases": [],
+    "school": "長船派",
+    "province": "備前国",
+    "era": "鎌倉時代",
+    "description": "長船長光の門人と伝えられる（出典: 文化遺産オンライン）。",
+    "sources": [
+      {
+        "url": "https://online.bunka.go.jp/heritages/detail/94760",
+        "title": "文化遺産オンライン 太刀 銘 真光 附糸巻太刀拵",
+        "retrieved_at": "2026-10-07"
+      }
+    ],
+    "confidence": "confirmed"
+  },
+  {
+    "id": "suishinshi-masahide",
+    "name": "正秀",
+    "reading": "まさひで",
+    "aliases": [
+      "水心子正秀"
+    ],
+    "era": "江戸時代後期",
+    "description": "「水心子正秀」を名乗る刀工は複数代いるため、代の特定は要確認。",
+    "sources": [],
+    "confidence": "unverified"
+  },
+  {
+    "id": "ko-bizen-masatsune",
+    "name": "正恒",
+    "reading": "まさつね",
+    "aliases": [],
+    "school": "古備前派",
+    "province": "備前国",
+    "era": "平安時代",
+    "description": "古備前派の刀工。同名の刀工が複数いる（出典: 文化遺産オンライン 徳川美術館の国宝 太刀 銘正恒）。",
+    "sources": [
+      {
+        "url": "https://online.bunka.go.jp/heritages/detail/125634",
+        "title": "文化遺産オンライン 太刀〈銘正恒〉（徳川美術館）",
+        "retrieved_at": "2026-10-07"
+      }
+    ],
+    "confidence": "confirmed"
+  },
+  {
+    "id": "fukuoka-ichimonji",
+    "name": "一文字",
+    "reading": "いちもんじ",
+    "aliases": [
+      "福岡一文字"
+    ],
+    "school": "福岡一文字派",
+    "province": "備前国",
+    "era": "鎌倉時代",
+    "description": "個人ではなく、「一」の字を銘に切る刀工の一派（福岡一文字派）を表す登録。個人が特定できない作の帰属先として使う。",
+    "sources": [],
+    "confidence": "unverified"
+  },
+  {
+    "id": "rai-kunimitsu",
+    "name": "来国光",
+    "reading": "らいくにみつ",
+    "aliases": [],
+    "school": "来派",
+    "province": "山城国",
+    "sources": [],
+    "confidence": "unverified"
+  },
+  {
+    "id": "bungo-yukihira",
+    "name": "行平",
+    "reading": "ゆきひら",
+    "aliases": [
+      "豊後国行平"
+    ],
+    "province": "豊後国",
+    "era": "平安時代末期〜鎌倉時代初期",
+    "sources": [],
+    "confidence": "unverified"
+  },
+  {
+    "id": "sagami-hiromitsu",
+    "name": "広光",
+    "reading": "ひろみつ",
+    "aliases": [
+      "相模国住人広光"
+    ],
+    "school": "相州伝",
+    "province": "相模国",
+    "era": "南北朝時代",
+    "sources": [],
+    "confidence": "unverified"
+  },
+  {
+    "id": "tosaburo-yukimitsu",
+    "name": "行光",
+    "reading": "ゆきみつ",
+    "aliases": [
+      "藤三郎行光"
+    ],
+    "school": "相州伝",
+    "province": "相模国",
+    "era": "鎌倉時代",
+    "description": "「行光」銘の刀工は他にもいる。不動行光の作者としての登録で、人物の特定は要確認。",
+    "sources": [],
+    "confidence": "unverified"
+  },
+  {
+    "id": "fujiwara-masazane",
+    "name": "正真",
+    "reading": "まさざね",
+    "aliases": [
+      "藤原正真"
+    ],
+    "description": "蜻蛉切（大笹穂槍 銘 藤原正真作）の作者。流派・国・時代は要確認。",
+    "sources": [],
+    "confidence": "unverified"
+  },
+  {
+    "id": "kanesada-nosada",
+    "name": "兼定",
+    "reading": "かねさだ",
+    "aliases": [
+      "之定",
+      "和泉守兼定"
+    ],
+    "generation": "二代",
+    "school": "関",
+    "province": "美濃国",
+    "era": "室町時代",
+    "description": "美濃国関の刀工。「定」の字のウ冠の下を「之」と切ることから「之定」と呼ばれる。歌仙兼定の作者（出典: Wikipedia 転載サイト）。「和泉守兼定」は幕末の十一代（会津兼定）を指す場合もあるため、検索時の取り違えに注意。",
+    "sources": [
+      {
+        "url": "https://ja.wikid.org/%E6%AD%8C%E4%BB%99%E5%85%BC%E5%AE%9A",
+        "title": "歌仙兼定（Wikipedia 転載）",
+        "retrieved_at": "2026-10-07"
+      }
+    ],
+    "confidence": "unverified"
+  },
+  {
+    "id": "kashu-kiyomitsu",
+    "name": "清光",
+    "reading": "きよみつ",
+    "aliases": [
+      "加州清光"
+    ],
+    "province": "加賀国",
+    "description": "加賀国金沢の清光は複数代いるため、代の特定は要確認。",
+    "sources": [],
+    "confidence": "unverified"
+  },
+  {
+    "id": "nagasone-kotetsu",
+    "name": "虎徹",
+    "reading": "こてつ",
+    "aliases": [
+      "長曽祢虎徹",
+      "長曽祢興里"
+    ],
+    "province": "武蔵国",
+    "era": "江戸時代前期",
+    "sources": [],
+    "confidence": "unverified"
+  },
+  {
+    "id": "minamoto-kiyomaro",
+    "name": "清麿",
+    "reading": "きよまろ",
+    "aliases": [
+      "源清麿",
+      "山浦清麿"
+    ],
+    "province": "信濃国",
+    "era": "江戸時代後期",
+    "sources": [],
+    "confidence": "unverified"
+  },
+  {
+    "id": "arinari",
+    "name": "有成",
+    "reading": "ありなり",
+    "aliases": [],
+    "description": "石切丸（太刀 銘 有成）の作者。流派・時代は要確認。",
+    "sources": [],
+    "confidence": "unverified"
+  },
+  {
+    "id": "amata-akitsugu",
+    "name": "天田昭次",
+    "reading": "あまたあきつぐ",
+    "aliases": [],
+    "province": "新潟県",
+    "era": "昭和〜平成",
+    "description": "現代の刀匠。七聖剣（1995年、大刀〈直刀〉）の作者（出典: Tokyo Art Beat 星と森の詩美術館 展覧会情報）。",
+    "sources": [
+      {
+        "url": "https://www.tokyoartbeat.com/events/-/In-the-Sky-Stars-On-the-Earth-Forests-In-the-Heart-Poetry/hoshi-to-mori-no-uta-museum/2026-10-01",
+        "title": "Tokyo Art Beat 星と森の詩美術館 開館30周年コレクション展",
+        "retrieved_at": "2026-10-07"
+      }
+    ],
+    "confidence": "unverified"
+  },
+  {
+    "id": "osafune-kagemitsu",
+    "name": "景光",
+    "reading": "かげみつ",
+    "aliases": [
+      "長船景光"
+    ],
+    "school": "長船派",
+    "province": "備前国",
+    "era": "鎌倉時代",
+    "sources": [],
+    "confidence": "unverified"
+  },
+  {
+    "id": "hasebe-kunishige",
+    "name": "国重",
+    "reading": "くにしげ",
+    "aliases": [
+      "長谷部国重"
+    ],
+    "school": "長谷部派",
+    "province": "山城国",
+    "era": "南北朝時代",
+    "description": "圧切長谷部（金象嵌銘 長谷部国重本阿（花押））の作者とされる（出典: 文化遺産オンライン）。",
+    "sources": [
+      {
+        "url": "https://online.bunka.go.jp/db/heritages/detail/197430",
+        "title": "文化遺産オンライン 刀〈金象嵌銘長谷部国重本阿花押（名物へし切長谷部）〉",
+        "retrieved_at": "2026-10-07"
+      }
+    ],
+    "confidence": "unverified"
+  },
+  {
+    "id": "aoe-naotsugu",
+    "name": "直次",
+    "reading": "なおつぐ",
+    "aliases": [
+      "青江直次"
+    ],
+    "school": "青江派",
+    "province": "備中国",
+    "sources": [],
+    "confidence": "unverified"
+  }
+]
