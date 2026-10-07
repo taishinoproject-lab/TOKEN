@@ -310,7 +310,7 @@
       "url": "https://www.kyuhaku.jp/visit/visit_top.html",
       "type": "html",
       "expect_text": "ご利用案内",
-      "note": "ご利用案内（住所）。館データの出典"
+      "note": "ご利用案内（観覧料・アクセス）。本文にある住所は近隣の施設（だざいふ遊園地）のもので、博物館の住所は載っていない"
     },
     {
       "venue_id": "chido-museum",
