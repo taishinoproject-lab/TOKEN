@@ -1,0 +1,40 @@
+---
+// 刀剣のカレンダー購読のリンク（webcal:// と https://）。
+// 公開先（astro.config.mjs の site）が設定されていればビルド時に絶対URLを入れ、
+// 未設定のときは、ブラウザで開いているページのURLから組み立てる。
+interface Props {
+  swordId: string;
+}
+
+const { swordId } = Astro.props;
+const path = `/swords/${swordId}.ics`;
+const httpsUrl = Astro.site ? new URL(path, Astro.site).href : null;
+const webcalUrl = httpsUrl ? httpsUrl.replace(/^https?:/, "webcal:") : null;
+---
+
+<section class="mt-6" data-calendar-links data-ics-path={path}>
+  <h2 class="mb-2 text-lg">カレンダーに追加（購読）</h2>
+  <p class="mb-2 text-sm">この刀の展示予定を、お使いのカレンダーで購読できます。展示情報が更新されると、カレンダーにも反映されます。</p>
+  <ul class="list-disc pl-5">
+    <li>
+      <a href={webcalUrl ?? path} data-calendar-webcal class="underline">カレンダーアプリで購読する（iPhone・Mac など）</a>
+    </li>
+    <li>
+      <a href={httpsUrl ?? path} data-calendar-https class="underline">カレンダーのURL（Google カレンダーなどで「URLで追加」に貼り付け）</a>
+    </li>
+  </ul>
+</section>
+
+<script>
+  // site が未設定でも、開いているページのURLから絶対URLを組み立てる
+  for (const section of document.querySelectorAll<HTMLElement>("[data-calendar-links]")) {
+    const path = section.dataset.icsPath;
+    if (!path) continue;
+    // ビルド時に絶対URLを入れられなかった（相対パスのままの）リンクだけを書き換える
+    const https = new URL(path, window.location.href).href;
+    const webcal = section.querySelector<HTMLAnchorElement>("[data-calendar-webcal]");
+    const httpsLink = section.querySelector<HTMLAnchorElement>("[data-calendar-https]");
+    if (httpsLink?.getAttribute("href")?.startsWith("/")) httpsLink.href = https;
+    if (webcal?.getAttribute("href")?.startsWith("/")) webcal.href = https.replace(/^https?:/, "webcal:");
+  }
+</script>

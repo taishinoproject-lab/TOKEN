@@ -3,6 +3,7 @@ import type { GetStaticPaths } from "astro";
 import { getCollection } from "astro:content";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import Sources from "../../components/Sources.astro";
+import CalendarLinks from "../../components/CalendarLinks.astro";
 import SwordStatus from "../../components/SwordStatus.tsx";
 import { attributedSmithName, swordDisplayName } from "../../lib/display-name";
 import { todayJst } from "../../lib/date";
@@ -117,6 +118,8 @@ const attributions = sword.attributions.map((a) => ({
       </section>
     )
   }
+
+  <CalendarLinks swordId={sword.id} />
 
   <Sources sources={sword.sources} confidence={sword.confidence} />
 </BaseLayout>
