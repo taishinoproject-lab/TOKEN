@@ -2,6 +2,8 @@
 import { getCollection } from "astro:content";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import ExhibitionMap from "../components/map/ExhibitionMap.tsx";
+import VisitNotebook from "../components/visits/VisitNotebook.tsx";
+import type { VisitExhibitionOption } from "../lib/visits";
 import { todayJst } from "../lib/date";
 import { toMapData } from "../lib/map-data";
 
@@ -10,6 +12,13 @@ const exhibitions = (await getCollection("exhibitions")).map((e) => e.data);
 const buildToday = todayJst();
 // 地図に必要な項目だけを埋め込む。開催中・開催予定の判定は、ブラウザで今日の日付を使ってやり直す。
 const mapData = toMapData(venues, exhibitions, buildToday);
+// 訪剣帖で選べる展覧会（終了したものも含む）。表示と検索に必要な項目だけを埋め込む
+const visitOptions: VisitExhibitionOption[] = exhibitions.flatMap((ex) => {
+  const venue = venues.find((v) => v.id === ex.venue_id);
+  return venue
+    ? [{ id: ex.id, title: ex.title, venueId: venue.id, venueName: venue.name, start_date: ex.start_date, end_date: ex.end_date }]
+    : [];
+});
 ---
 
 <BaseLayout title="地図" current="map" width="full" description="開催中・開催予定の刀剣の展覧会がある館を、全国の地図で示します。">
@@ -26,6 +35,11 @@ const mapData = toMapData(venues, exhibitions, buildToday);
       <ExhibitionMap client:only="react" data={mapData} buildToday={buildToday}>
         <p slot="fallback" class="gothic text-sm">地図を読み込んでいます…</p>
       </ExhibitionMap>
+    </section>
+    <section class="sec">
+      <VisitNotebook client:only="react" exhibitions={visitOptions} buildToday={buildToday}>
+        <p slot="fallback" class="note-line">訪剣帖を読み込んでいます…</p>
+      </VisitNotebook>
     </section>
   </div>
 </BaseLayout>

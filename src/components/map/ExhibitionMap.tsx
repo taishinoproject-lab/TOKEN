@@ -8,6 +8,8 @@ import { exhibitionStatusLabel } from "../../lib/status";
 import { exhibitionStatusView, formatSession } from "../../lib/status-view";
 import StatusBadge from "../ui/StatusBadge";
 import UnverifiedBadge from "../ui/UnverifiedBadge";
+import { visitedVenueIds } from "../../lib/visits";
+import { useVisits } from "../visits/useVisits";
 import { createBaseMap, el, isTouchFirst, JAPAN_CENTER, JAPAN_ZOOM, pinIcon } from "./leaflet-setup";
 
 interface Props {
@@ -17,11 +19,13 @@ interface Props {
 
 const period = (ex: { start_date: IsoDate; end_date: IsoDate | null }) => formatDateRange(ex.start_date, ex.end_date);
 
-function popupContent(pin: MapPin): HTMLElement {
+function popupContent(pin: MapPin, visited: boolean): HTMLElement {
   return el(
     "div",
     {},
     el("a", { href: `/venues/${pin.venue.id}` }, el("strong", {}, pin.venue.name)),
+    // 訪剣帖（T-210）に記録がある館
+    ...(visited ? [" ", el("span", { class: "token-visited" }, "訪問済み")] : []),
     ...(pin.venue.unverified ? [el("br"), el("span", { class: "token-unverified" }, "位置は要確認")] : []),
     el(
       "ul",
@@ -46,6 +50,10 @@ export default function ExhibitionMap({ data, buildToday }: Props) {
   const [today, setToday] = useState(buildToday);
   const [touchFirst, setTouchFirst] = useState(false);
   const pins = useMemo(() => mapPins(data, today), [data, today]);
+  const { visits } = useVisits();
+  const visited = useMemo(() => visitedVenueIds(visits), [visits]);
+  // 訪剣帖の記録が変わっただけのときは、地図の表示範囲を動かさない
+  const fittedPinsRef = useRef<MapPin[] | null>(null);
 
   useEffect(() => {
     setToday(todayJst());
@@ -66,14 +74,15 @@ export default function ExhibitionMap({ data, buildToday }: Props) {
     };
   }, []);
 
-  // ピンは今日の日付が決まるたびに置き直す
+  // ピンは、今日の日付が決まったときと、訪剣帖の記録が変わったときに置き直す
   useEffect(() => {
     const map = mapRef.current;
     const layer = layerRef.current;
     if (!map || !layer) return;
     layer.clearLayers();
     for (const pin of pins) {
-      const label = `${pin.venue.name}（${exhibitionStatusLabel[pin.status]}${pin.venue.unverified ? "・位置は要確認" : ""}）`;
+      const isVisited = visited.has(pin.venue.id);
+      const label = `${pin.venue.name}（${exhibitionStatusLabel[pin.status]}${isVisited ? "・訪問済み" : ""}${pin.venue.unverified ? "・位置は要確認" : ""}）`;
       L.marker([pin.venue.lat, pin.venue.lng], {
         icon: pinIcon(pin.status),
         title: label,
@@ -81,15 +90,17 @@ export default function ExhibitionMap({ data, buildToday }: Props) {
         // 開催中のピンを開催予定のピンより手前に出す
         zIndexOffset: pin.status === "ongoing" ? 1000 : 0,
       })
-        .bindPopup(popupContent(pin), { maxWidth: 260, autoPanPadding: [16, 16] })
+        .bindPopup(popupContent(pin, isVisited), { maxWidth: 260, autoPanPadding: [16, 16] })
         .addTo(layer);
     }
+    if (fittedPinsRef.current === pins) return;
+    fittedPinsRef.current = pins;
     if (pins.length > 0) {
       map.fitBounds(L.latLngBounds(pins.map((p) => [p.venue.lat, p.venue.lng])), { padding: [24, 24], maxZoom: 12 });
     } else {
       map.setView(JAPAN_CENTER, JAPAN_ZOOM);
     }
-  }, [pins]);
+  }, [pins, visited]);
 
   return (
     <div className="token-map">
