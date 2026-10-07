@@ -3,7 +3,9 @@ import type { GetStaticPaths } from "astro";
 import { getCollection } from "astro:content";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import ExhibitionStatusLabel from "../../components/ExhibitionStatusLabel.tsx";
+import VenueMap from "../../components/map/VenueMap.tsx";
 import { formatFullDate, todayJst } from "../../lib/date";
+import { toMapVenue } from "../../lib/map-data";
 
 export const getStaticPaths = (async () => {
   const venues = await getCollection("venues");
@@ -27,6 +29,12 @@ const buildToday = todayJst();
     <dt>緯度・経度</dt>
     <dd>{venue.lat}, {venue.lng}</dd>
   </dl>
+
+  <div class="mt-4">
+    <VenueMap client:only="react" venue={toMapVenue(venue)}>
+      <p slot="fallback" class="text-sm">地図を読み込んでいます…</p>
+    </VenueMap>
+  </div>
 
   <ul class="mt-4 list-disc pl-5">
     <li><a href={venue.official_url} class="underline" rel="noopener noreferrer" target="_blank">公式サイト（外部サイト）</a></li>
