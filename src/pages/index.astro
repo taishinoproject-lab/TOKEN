@@ -1,89 +1,98 @@
 ---
+// トップ（T-207）。案Aの導入部（縦書きの見出し・検索窓）、いま会える刀（目録）、会期終了が近い展覧会。
+// 「いま会える刀」と「会期終了が近い展覧会」は、ブラウザで今日の日付（日本時間）を使って判定し直す。
 import { getCollection } from "astro:content";
 import BaseLayout from "../layouts/BaseLayout.astro";
-import ExhibitionStatusLabel from "../components/ExhibitionStatusLabel.tsx";
 import Search from "../components/Search.tsx";
+import NowOnDisplay, { type NowExhibition, type NowSword } from "../components/NowOnDisplay.tsx";
+import EndingSoon, { type EndingExhibition } from "../components/EndingSoon.tsx";
 import { smithDisplayName, swordDisplayName } from "../lib/display-name";
 import { todayJst } from "../lib/date";
+import { exhibitionStatus } from "../lib/status";
 
 const swords = (await getCollection("swords")).map((e) => e.data);
 const smiths = (await getCollection("smiths")).map((e) => e.data);
-const exhibitions = (await getCollection("exhibitions")).map((e) => e.data);
 const venues = (await getCollection("venues")).map((e) => e.data);
 const buildToday = todayJst();
+
+// ビルドの時点で終わっている展覧会は、あとで開催中に戻ることはないので渡さない
+const exhibitions = (await getCollection("exhibitions"))
+  .map((e) => e.data)
+  .filter((ex) => {
+    const status = exhibitionStatus(ex, buildToday);
+    return status === "ongoing" || status === "upcoming";
+  });
+const venueById = new Map(venues.map((v) => [v.id, v]));
+
+const nowExhibitions: NowExhibition[] = exhibitions
+  .filter((ex) => ex.exhibits.some((e) => e.sword_id))
+  .map((ex) => ({
+    id: ex.id,
+    start_date: ex.start_date,
+    end_date: ex.end_date,
+    status: ex.status,
+    periods: ex.periods,
+    exhibits: ex.exhibits.filter((e) => e.sword_id).map((e) => ({ sword_id: e.sword_id, period_ids: e.period_ids })),
+    title: ex.title,
+    venueName: venueById.get(ex.venue_id)?.name ?? ex.venue_id,
+    room: ex.room,
+    confidence: ex.confidence,
+  }));
+const exhibitedSwordIds = new Set(nowExhibitions.flatMap((ex) => ex.exhibits.map((e) => e.sword_id)));
+const nowSwords: NowSword[] = swords
+  .filter((s) => exhibitedSwordIds.has(s.id))
+  .map((s) => {
+    const name = swordDisplayName(s, smiths);
+    return {
+      id: s.id,
+      heading: name.heading,
+      // 号がない刀は、見出しが「種別＋銘」になる。刀匠は刀匠の列に出すので、副題は付けない
+      subtitle: s.go ? name.subtitle : "",
+      designation: s.designation,
+      nbthkRank: s.nbthk_rank,
+      smiths: s.attributions.flatMap((a) => {
+        const smith = smiths.find((sm) => sm.id === a.smith_id);
+        return smith ? [{ name: smithDisplayName(smith), href: `/smiths/${smith.id}`, basis: a.basis }] : [];
+      }),
+    };
+  });
+
+const endingExhibitions: EndingExhibition[] = exhibitions
+  .filter((ex) => ex.end_date !== null)
+  .map((ex) => {
+    const venue = venueById.get(ex.venue_id);
+    return {
+      id: ex.id,
+      start_date: ex.start_date,
+      end_date: ex.end_date,
+      status: ex.status,
+      title: ex.title,
+      venueText: venue ? `${venue.name}${ex.room ? ` ${ex.room}` : ""}　${venue.prefecture}${venue.city}` : ex.venue_id,
+      confidence: ex.confidence,
+    };
+  });
 ---
 
-<BaseLayout>
-  <h1 class="mb-6 text-2xl">訪剣 −TOKEN−</h1>
-  <p class="mb-8">推しの刀が、いま・どこで・いつまで見られるか。</p>
-
-  <section class="mb-8">
-    <h2 class="mb-2 text-xl">検索</h2>
-    <Search client:load />
+<BaseLayout width="full" current="search">
+  <section class="hero" id="search" aria-label="刀を探す">
+    <div class="wrap">
+      <h1 class="hero-v">推しの刀に、会いにゆく。</h1>
+      <div class="hero-body">
+        <p class="lead">いま・どこで・いつまで見られるか。<br />号、銘、刀匠の名から探せます。</p>
+        <Search client:load />
+      </div>
+    </div>
   </section>
 
-  <section class="mb-8">
-    <h2 class="mb-2 text-xl">刀剣</h2>
-    <ul class="list-disc pl-5">
-      {
-        swords.map((sword) => {
-          const name = swordDisplayName(sword, smiths);
-          return (
-            <li>
-              <a href={`/swords/${sword.id}`} class="underline">
-                {name.heading}
-              </a>
-              {name.subtitle && <span class="text-sm">（{name.subtitle}）</span>}
-            </li>
-          );
-        })
-      }
-    </ul>
+  <section class="sec" aria-labelledby="h-now">
+    <div class="wrap">
+      <NowOnDisplay client:load swords={nowSwords} exhibitions={nowExhibitions} buildToday={buildToday} />
+    </div>
   </section>
 
-  <section class="mb-8">
-    <h2 class="mb-2 text-xl">刀匠</h2>
-    <ul class="list-disc pl-5">
-      {
-        smiths.map((smith) => (
-          <li>
-            <a href={`/smiths/${smith.id}`} class="underline">
-              {smithDisplayName(smith)}
-            </a>
-          </li>
-        ))
-      }
-    </ul>
-  </section>
-
-  <section class="mb-8">
-    <h2 class="mb-2 text-xl">展覧会</h2>
-    <ul class="list-disc pl-5">
-      {
-        exhibitions.map((ex) => (
-          <li>
-            <ExhibitionStatusLabel client:load exhibition={ex} buildToday={buildToday} />
-            <a href={`/exhibitions/${ex.id}`} class="underline">
-              {ex.title}
-            </a>
-          </li>
-        ))
-      }
-    </ul>
-  </section>
-
-  <section class="mb-8">
-    <h2 class="mb-2 text-xl">館</h2>
-    <ul class="list-disc pl-5">
-      {
-        venues.map((venue) => (
-          <li>
-            <a href={`/venues/${venue.id}`} class="underline">
-              {venue.name}
-            </a>
-          </li>
-        ))
-      }
-    </ul>
+  <section class="sec" id="exhibitions" aria-labelledby="h-ending">
+    <div class="wrap">
+      <EndingSoon client:load exhibitions={endingExhibitions} buildToday={buildToday} />
+    </div>
   </section>
 </BaseLayout>

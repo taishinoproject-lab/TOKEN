@@ -54,3 +54,27 @@ export function formatDateRange(
 ): string {
   return end === null ? `${format(start)}〜 ${OPEN_END_LABEL}` : `${format(start)}〜${format(end)}`;
 }
+
+const WEEKDAYS_JA = ["日", "月", "火", "水", "木", "金", "土"] as const;
+
+/** 曜日（"日"〜"土"）。 */
+export function weekdayJa(date: IsoDate): string {
+  return WEEKDAYS_JA[new Date(`${date}T00:00:00Z`).getUTCDay()];
+}
+
+/** "2026-10-25" → "10月25日" */
+export function formatMonthDayJa(date: IsoDate): string {
+  const [, m, d] = date.split("-");
+  return `${Number(m)}月${Number(d)}日`;
+}
+
+/** "2026-10-25" → "10月25日（日）" */
+export function formatMonthDayWeek(date: IsoDate): string {
+  return `${formatMonthDayJa(date)}（${weekdayJa(date)}）`;
+}
+
+/** "2026-10-25" → "10.25"（目録の日付欄） */
+export function formatDotDate(date: IsoDate): string {
+  const [, m, d] = date.split("-");
+  return `${Number(m)}.${d}`;
+}

@@ -1,12 +1,17 @@
 ---
+// 刀剣詳細（T-202）。案Aの構成（白鞘の号表示＋本文）に、案Bの展示情報の表と作品データの表を組み込む（D-016）。
 import type { GetStaticPaths } from "astro";
 import { getCollection } from "astro:content";
 import BaseLayout from "../../layouts/BaseLayout.astro";
-import Sources from "../../components/Sources.astro";
 import CalendarLinks from "../../components/CalendarLinks.astro";
-import SwordStatus from "../../components/SwordStatus.tsx";
-import { attributedSmithName, smithDisplayName, swordDisplayName } from "../../lib/display-name";
-import { formatDateRange, todayJst } from "../../lib/date";
+import SwordExhibit, { type SwordExhibitionView } from "../../components/SwordExhibit.tsx";
+import Saya from "../../components/ui/Saya.tsx";
+import SwordSpec from "../../components/SwordSpec.tsx";
+import UnverifiedBadge from "../../components/ui/UnverifiedBadge.tsx";
+import SourceList from "../../components/ui/SourceList.tsx";
+import { bladeAndMei, smithNames, swordDisplayName } from "../../lib/display-name";
+import { todayJst } from "../../lib/date";
+import { hasDesignationMark, latestRetrievedAt } from "../../lib/ui-format";
 
 export const getStaticPaths = (async () => {
   const swords = await getCollection("swords");
@@ -20,107 +25,143 @@ const exhibitions = (await getCollection("exhibitions"))
   .map((e) => e.data)
   .filter((ex) => ex.exhibits.some((exhibit) => exhibit.sword_id === sword.id));
 
-// ブラウザでの再判定に使う項目だけを渡す
-const statusInputs = exhibitions.map((ex) => ({
-  id: ex.id,
-  title: ex.title,
-  start_date: ex.start_date,
-  end_date: ex.end_date,
-  status: ex.status,
-  periods: ex.periods,
-  exhibits: ex.exhibits
-    .filter((exhibit) => exhibit.sword_id === sword.id)
-    .map((exhibit) => ({ sword_id: exhibit.sword_id, period_ids: exhibit.period_ids })),
-}));
+// ブラウザでの再判定と表示に使う項目だけを渡す
+const exhibitionViews: SwordExhibitionView[] = exhibitions.map((ex) => {
+  const venue = venues.find((v) => v.id === ex.venue_id);
+  return {
+    id: ex.id,
+    title: ex.title,
+    start_date: ex.start_date,
+    end_date: ex.end_date,
+    status: ex.status,
+    periods: ex.periods,
+    exhibits: ex.exhibits
+      .filter((exhibit) => exhibit.sword_id === sword.id)
+      .map((exhibit) => ({ sword_id: exhibit.sword_id, period_ids: exhibit.period_ids })),
+    venue: venue ? { name: venue.name, href: `/venues/${venue.id}` } : null,
+    room: ex.room,
+    admission: ex.admission,
+    official_url: ex.official_url,
+    verified_at: ex.verified_at,
+    confidence: ex.confidence,
+  };
+});
 
 const name = swordDisplayName(sword, smiths);
+const go = sword.go?.trim() || null;
 const holderVenue = venues.find((v) => v.id === sword.holder_venue_id);
-const attributions = sword.attributions.map((a) => ({
-  ...a,
-  smith: smiths.find((s) => s.id === a.smith_id),
+const holder = { text: sword.holder_text, href: holderVenue ? `/venues/${holderVenue.id}` : undefined };
+const firstSmith = sword.attributions.map((a) => smiths.find((s) => s.id === a.smith_id)).find((s) => s !== undefined);
+
+const tags = [
+  hasDesignationMark(sword.designation) ? { text: sword.designation, kind: sword.designation } : null,
+  sword.nbthk_rank ? { text: sword.nbthk_rank, kind: "sub", title: "日本美術刀剣保存協会の認定" } : null,
+  sword.era ? { text: sword.era, kind: "sub" } : null,
+  { text: `${sword.holder_text} 蔵`, kind: "sub" },
+].filter((t) => t !== null);
+
+let officialImageHost: string | null = null;
+if (sword.official_image_url) officialImageHost = new URL(sword.official_image_url).hostname;
+
+const exhibitionSourceGroups = exhibitions.map((ex) => ({
+  label: `展示情報（${ex.title}）`,
+  sources: ex.sources.length > 0 ? ex.sources : [{ url: ex.official_url, title: "展覧会の公式ページ", retrieved_at: ex.verified_at }],
+  confidence: ex.confidence,
 }));
+const lastChecked = latestRetrievedAt(sword.sources);
 ---
 
-<BaseLayout title={name.heading}>
-  <h1 class="text-2xl">{name.heading}</h1>
-  {name.subtitle && <p class="mb-4">{name.subtitle}</p>}
-  {sword.confidence === "unverified" && <p class="mb-4 font-bold text-brand-accent">要確認</p>}
-
-  <section class="mb-6">
-    <h2 class="mb-2 text-lg">展示状況</h2>
-    <SwordStatus
-      client:load
-      swordId={sword.id}
-      holderText={sword.holder_text}
-      exhibitions={statusInputs}
-      buildToday={todayJst()}
-    />
-  </section>
-
-  <dl class="grid grid-cols-[auto_1fr] gap-x-4 gap-y-1">
-    {sword.go_reading && <><dt>読み</dt><dd>{sword.go_reading}</dd></>}
-    {sword.aliases.length > 0 && <><dt>別名</dt><dd>{sword.aliases.join("、")}</dd></>}
-    <dt>種別</dt><dd>{sword.blade_type}</dd>
-    <dt>銘</dt><dd>{sword.mei_kind && sword.mei_kind !== sword.mei ? `${sword.mei_kind} ` : ""}{sword.mei}</dd>
-    <dt>刀匠</dt>
-    <dd>
+<BaseLayout
+  title={name.heading}
+  width="full"
+  description={`${name.heading}${name.subtitle ? `（${name.subtitle}）` : ""}の展示情報。いま・どこで・いつまで見られるか。`}
+>
+  <div class="wrap">
+    <nav class="gothic pt-4 text-xs text-usuzumi" aria-label="現在の位置">
+      <a href="/">トップ</a>
       {
-        attributions.length === 0
-          ? "不明"
-          : attributions.map((a, i) => (
-              <>
-                {i > 0 && "・"}
-                {a.smith ? (
-                  <a href={`/smiths/${a.smith.id}`} class="underline">
-                    {attributedSmithName(smithDisplayName(a.smith), a.basis)}
-                  </a>
-                ) : (
-                  a.smith_id
-                )}
-                <span class="text-sm">（{a.basis}）</span>
-              </>
-            ))
+        firstSmith && (
+          <>
+            {" ／ "}
+            <a href={`/smiths/${firstSmith.id}`}>{firstSmith.kind === "school" ? "流派" : "刀匠"} {firstSmith.name}</a>
+          </>
+        )
       }
-    </dd>
-    <dt>指定</dt><dd>{sword.designation}</dd>
-    {sword.nbthk_rank && <><dt>認定</dt><dd>{sword.nbthk_rank}<span class="text-sm">（日本美術刀剣保存協会）</span></dd></>}
-    {sword.era && <><dt>時代</dt><dd>{sword.era}</dd></>}
-    {sword.blade_length_cm !== undefined && <><dt>刃長</dt><dd>{sword.blade_length_cm} cm</dd></>}
-    {sword.sori_cm !== undefined && <><dt>反り</dt><dd>{sword.sori_cm} cm</dd></>}
-    <dt>所蔵</dt>
-    <dd>
-      {holderVenue ? <a href={`/venues/${holderVenue.id}`} class="underline">{sword.holder_text}</a> : sword.holder_text}
-    </dd>
-  </dl>
+      {" ／ "}<span aria-current="page">{name.heading}</span>
+    </nav>
 
-  {sword.story && <section class="mt-6"><h2 class="mb-2 text-lg">号の由来</h2><p>{sword.story}</p></section>}
-  {sword.provenance && <section class="mt-6"><h2 class="mb-2 text-lg">伝来</h2><p>{sword.provenance}</p></section>}
-  {
-    sword.official_image_url && (
-      <p class="mt-6">
-        <a href={sword.official_image_url} class="underline" rel="noopener noreferrer" target="_blank">
-          公式の画像ページを見る（外部サイト）
-        </a>
-      </p>
-    )
-  }
+    <article class="grid gap-7 pt-5 pb-4 min-[900px]:grid-cols-[300px_minmax(0,1fr)] min-[900px]:gap-12">
+      <Saya
+        text={name.heading}
+        isGo={go !== null}
+        reading={go ? sword.go_reading : null}
+        side={go ? bladeAndMei(sword) : smithNames(sword, smiths)}
+      />
 
-  {
-    exhibitions.length > 0 && (
-      <section class="mt-6">
-        <h2 class="mb-2 text-lg">出品される展覧会</h2>
-        <ul class="list-disc pl-5">
-          {exhibitions.map((ex) => (
-            <li>
-              <a href={`/exhibitions/${ex.id}`} class="underline">{ex.title}</a>（{formatDateRange(ex.start_date, ex.end_date, (d) => d)}）
-            </li>
-          ))}
+      <div class="min-w-0">
+        <h1 class="m-0 text-[28px] leading-[1.4] font-extrabold tracking-[0.1em]">{name.heading}</h1>
+        {name.subtitle && <p class="mt-1 text-base text-usuzumi">{name.subtitle}</p>}
+        <ul class="tags">
+          {
+            tags.map((t) => (
+              <li data-kind={t.kind} title={t.title}>
+                {t.text}
+              </li>
+            ))
+          }
+          {
+            sword.confidence === "unverified" && (
+              <li class="border-0! p-0!">
+                <UnverifiedBadge title="この刀の情報は、出典での確認がまだ済んでいません" />
+              </li>
+            )
+          }
         </ul>
-      </section>
-    )
-  }
 
-  <CalendarLinks swordId={sword.id} />
+        <section class="mt-6" aria-labelledby="h-exhibit">
+          <h2 id="h-exhibit" class="cap rule-double pt-3">展示<span>この刀に会える場所と期間</span></h2>
+          <SwordExhibit client:load swordId={sword.id} holder={holder} exhibitions={exhibitionViews} buildToday={todayJst()} />
+        </section>
 
-  <Sources sources={sword.sources} confidence={sword.confidence} />
+        <CalendarLinks swordId={sword.id}>
+          {
+            sword.official_image_url && (
+              <a class="btn" href={sword.official_image_url} rel="noopener noreferrer" target="_blank">
+                公式の画像ページを見る ↗<small>{officialImageHost}（外部サイト）</small>
+              </a>
+            )
+          }
+        </CalendarLinks>
+
+        <section class="mt-8" aria-labelledby="h-spec">
+          <h2 id="h-spec" class="cap">作品データ</h2>
+          <SwordSpec sword={sword} smiths={smiths} holderHref={holder.href} />
+        </section>
+
+        {
+          (sword.story || sword.provenance) && (
+            <div class="prose">
+              {sword.story && (
+                <>
+                  <h2>号の由来</h2>
+                  <p>{sword.story}</p>
+                </>
+              )}
+              {sword.provenance && (
+                <>
+                  <h2>伝来</h2>
+                  <p>{sword.provenance.replace(/\s*→\s*/g, " → ")}</p>
+                </>
+              )}
+            </div>
+          )
+        }
+
+        <SourceList
+          groups={[{ sources: sword.sources, confidence: sword.confidence }, ...exhibitionSourceGroups]}
+          verifiedAt={lastChecked}
+        />
+      </div>
+    </article>
+  </div>
 </BaseLayout>

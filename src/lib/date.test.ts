@@ -1,5 +1,16 @@
 import { describe, expect, it } from "vitest";
-import { addDays, daysBetween, formatDateRange, formatFullDate, formatMonthDay, todayJst } from "./date";
+import {
+  addDays,
+  daysBetween,
+  formatDateRange,
+  formatDotDate,
+  formatFullDate,
+  formatMonthDay,
+  formatMonthDayJa,
+  formatMonthDayWeek,
+  todayJst,
+  weekdayJa,
+} from "./date";
 
 describe("todayJst", () => {
   it("UTC で前日の15時以降は、日本時間では翌日になる", () => {
@@ -38,5 +49,17 @@ describe("formatDateRange", () => {
 
   it("終了日が未定（null）なら「会期未定（公式サイトで確認）」と出し、9999 などは出さない", () => {
     expect(formatDateRange("2026-07-02", null)).toBe("2026年7月2日〜 会期未定（公式サイトで確認）");
+  });
+});
+
+describe("曜日と月日の表示", () => {
+  it("曜日", () => {
+    expect(weekdayJa("2026-10-07")).toBe("水");
+    expect(weekdayJa("2026-10-25")).toBe("日");
+  });
+  it("月日の書式", () => {
+    expect(formatMonthDayJa("2026-01-05")).toBe("1月5日");
+    expect(formatMonthDayWeek("2026-10-25")).toBe("10月25日（日）");
+    expect(formatDotDate("2026-10-05")).toBe("10.05");
   });
 });

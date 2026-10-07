@@ -12,7 +12,7 @@ const buildToday = todayJst();
 const mapData = toMapData(venues, exhibitions, buildToday);
 ---
 
-<BaseLayout title="地図">
+<BaseLayout title="地図" current="map">
   <h1 class="mb-2 text-2xl">地図</h1>
   <p class="mb-4">開催中・開催予定の展覧会がある館です。ピンを押すと、館名と展覧会が表示されます。</p>
   <ExhibitionMap client:only="react" data={mapData} buildToday={buildToday}>

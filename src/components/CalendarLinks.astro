@@ -1,7 +1,8 @@
 ---
-// 刀剣のカレンダー購読のリンク（webcal:// と https://）。
+// 刀剣のカレンダー購読のボタン（webcal://）と、URLで追加するためのリンク（https://）。
 // 公開先（astro.config.mjs の site）が設定されていればビルド時に絶対URLを入れ、
 // 未設定のときは、ブラウザで開いているページのURLから組み立てる。
+// slot には、並べて置くボタン（公式の画像ページへのリンクなど）を入れる。
 interface Props {
   swordId: string;
 }
@@ -12,18 +13,19 @@ const httpsUrl = Astro.site ? new URL(path, Astro.site).href : null;
 const webcalUrl = httpsUrl ? httpsUrl.replace(/^https?:/, "webcal:") : null;
 ---
 
-<section class="mt-6" data-calendar-links data-ics-path={path}>
-  <h2 class="mb-2 text-lg">カレンダーに追加（購読）</h2>
-  <p class="mb-2 text-sm">この刀の展示予定を、お使いのカレンダーで購読できます。展示情報が更新されると、カレンダーにも反映されます。</p>
-  <ul class="list-disc pl-5">
-    <li>
-      <a href={webcalUrl ?? path} data-calendar-webcal class="underline">カレンダーアプリで購読する（iPhone・Mac など）</a>
-    </li>
-    <li>
-      <a href={httpsUrl ?? path} data-calendar-https class="underline">カレンダーのURL（Google カレンダーなどで「URLで追加」に貼り付け）</a>
-    </li>
-  </ul>
-</section>
+<div data-calendar-links data-ics-path={path}>
+  <div class="actions">
+    <a class="btn" data-primary href={webcalUrl ?? path} data-calendar-webcal>
+      この刀の展示予定をカレンダーで受け取る
+      <small>カレンダーアプリで購読（.ics）</small>
+    </a>
+    <slot />
+  </div>
+  <p class="note-line">
+    Google カレンダーなどでは、<a href={httpsUrl ?? path} data-calendar-https>カレンダーのURL</a
+    >を「URLで追加」に貼り付けてください。展示情報が更新されると、カレンダーにも反映されます。
+  </p>
+</div>
 
 <script>
   // site が未設定でも、開いているページのURLから絶対URLを組み立てる
