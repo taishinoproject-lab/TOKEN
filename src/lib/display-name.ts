@@ -58,3 +58,31 @@ export function swordDisplayName(sword: SwordNameFields, smiths: readonly SmithN
   }
   return { heading: bladeMei, subtitle: smithNames(sword, smiths) };
 }
+
+/** 目録の見出しに出す銘の最大の文字数（省略記号を含む） */
+export const CATALOG_MEI_MAX = 12;
+
+/**
+ * 目録の見出しに出す、銘の先頭の部分。銘の全文は刀剣詳細で表示する。
+ * 1. 最初の区切り（「／」または空白）より前だけを残す。区切りは、表と裏、行や面の変わり目を表すため。
+ * 2. 残りが CATALOG_MEI_MAX 文字を超えるなら、先頭から CATALOG_MEI_MAX − 1 文字にして「…」を付ける。
+ * 3. 1 で後ろを落としたときも「…」を付け、続きがあることを示す。
+ */
+export function meiHead(mei: string): string {
+  const full = mei.trim();
+  const head = full.split(/[／/\s]/u)[0] || full;
+  const chars = [...head];
+  if (chars.length > CATALOG_MEI_MAX) return `${chars.slice(0, CATALOG_MEI_MAX - 1).join("")}…`;
+  return head.length < full.length ? `${head}…` : head;
+}
+
+/**
+ * 目録（一覧）での刀の名前。号があれば号と「種別＋銘」（銘は全文）。
+ * 号がなければ「種別＋銘の先頭の部分」（meiHead）だけにして、見出しが何行にもならないようにする。
+ * 刀匠は目録の刀匠の列に出すので、号がない刀の副題は空にする。
+ */
+export function catalogSwordName(sword: Pick<Sword, "go" | "blade_type" | "mei" | "mei_kind">): SwordDisplayName {
+  const go = sword.go?.trim();
+  if (go) return { heading: go, subtitle: bladeAndMei(sword) };
+  return { heading: bladeAndMei({ ...sword, mei: meiHead(sword.mei) }), subtitle: "" };
+}

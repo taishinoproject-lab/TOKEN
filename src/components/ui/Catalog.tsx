@@ -29,6 +29,8 @@ export interface CatalogRow {
   venue?: ReactNode;
   /** 展示の列 */
   display?: ReactNode;
+  /** 展示の列の下に添える注記（出品物の備考など） */
+  displayNote?: string;
 }
 
 export interface CatalogColumns {
@@ -114,6 +116,7 @@ export default function Catalog({ rows, columns, caption }: Props) {
             {cols.display && (
               <td className="c-display" data-label={cols.display}>
                 {row.display ?? "—"}
+                {row.displayNote && <span className="note">{row.displayNote}</span>}
               </td>
             )}
           </tr>

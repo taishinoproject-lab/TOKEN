@@ -12,10 +12,20 @@ const buildToday = todayJst();
 const mapData = toMapData(venues, exhibitions, buildToday);
 ---
 
-<BaseLayout title="地図" current="map">
-  <h1 class="mb-2 text-2xl">地図</h1>
-  <p class="mb-4">開催中・開催予定の展覧会がある館です。ピンを押すと、館名と展覧会が表示されます。</p>
-  <ExhibitionMap client:only="react" data={mapData} buildToday={buildToday}>
-    <p slot="fallback">地図を読み込んでいます…</p>
-  </ExhibitionMap>
+<BaseLayout title="地図" current="map" width="full" description="開催中・開催予定の刀剣の展覧会がある館を、全国の地図で示します。">
+  <div class="wrap">
+    <nav class="gothic pt-4 text-xs text-usuzumi" aria-label="現在の位置">
+      <a href="/">トップ</a>{" ／ "}<span aria-current="page">地図</span>
+    </nav>
+    <section class="sec pt-5!" aria-labelledby="h-map">
+      <div class="sec-h">
+        <h1 id="h-map" class="m-0 text-[22px] leading-[1.4] font-semibold tracking-[0.12em]">地図</h1>
+        <span class="aside">開催中・開催予定の展覧会がある館</span>
+      </div>
+      <p class="note-line mb-3">ピンを押すと、館名と展覧会が表示されます。</p>
+      <ExhibitionMap client:only="react" data={mapData} buildToday={buildToday}>
+        <p slot="fallback" class="gothic text-sm">地図を読み込んでいます…</p>
+      </ExhibitionMap>
+    </section>
+  </div>
 </BaseLayout>

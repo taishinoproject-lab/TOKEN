@@ -19,10 +19,9 @@ const siteName = "訪剣 −TOKEN−";
 const pageTitle = title ? `${title}｜${siteName}` : siteName;
 const pageDescription = description ?? "推しの刀が、いま・どこで・いつまで見られるか。号・銘・刀匠の名から探せます。";
 
-// 展覧会の一覧ページはまだないため、トップの「会期終了が近い展覧会」へ移動する
 const navItems = [
-  { key: "search", href: "/#search", label: "刀を探す" },
-  { key: "exhibitions", href: "/#exhibitions", label: "展覧会" },
+  { key: "search", href: "/swords", label: "刀を探す" },
+  { key: "exhibitions", href: "/exhibitions", label: "展覧会" },
   { key: "map", href: "/map", label: "地図・訪剣帖" },
 ] as const;
 ---

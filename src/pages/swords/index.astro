@@ -1,0 +1,60 @@
+---
+// 刀剣の一覧（ヘッダーの「刀を探す」の行き先）。検索窓と、刀剣の目録（号の読みの五十音順）。
+import { getCollection } from "astro:content";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Search from "../../components/Search.tsx";
+import Catalog, { type CatalogRow } from "../../components/ui/Catalog.tsx";
+import { ATTRIBUTION_LEGEND } from "../../components/ui/AttributionMark.tsx";
+import { catalogSwordName, smithDisplayName } from "../../lib/display-name";
+import { compareSwordsForIndex } from "../../lib/listing";
+
+const swords = (await getCollection("swords")).map((e) => e.data);
+const smiths = (await getCollection("smiths")).map((e) => e.data);
+const smithById = new Map(smiths.map((s) => [s.id, s]));
+
+const rows: CatalogRow[] = [...swords]
+  .sort((a, b) => compareSwordsForIndex(a, b, (s) => catalogSwordName(s).heading))
+  .map((sword) => {
+    const name = catalogSwordName(sword);
+    return {
+      key: sword.id,
+      heading: name.heading,
+      subtitle: name.subtitle,
+      href: `/swords/${sword.id}`,
+      designation: sword.designation,
+      nbthkRank: sword.nbthk_rank,
+      smiths: sword.attributions.flatMap((a) => {
+        const smith = smithById.get(a.smith_id);
+        return smith ? [{ name: smithDisplayName(smith), href: `/smiths/${smith.id}`, basis: a.basis }] : [];
+      }),
+      venue: sword.holder_text,
+    };
+  });
+const withGo = swords.filter((s) => s.go).length;
+---
+
+<BaseLayout title="刀を探す" width="full" current="search" description="号・銘・刀匠の名から刀を探せます。登録されている刀剣の目録。">
+  <div class="wrap">
+    <nav class="gothic pt-4 text-xs text-usuzumi" aria-label="現在の位置">
+      <a href="/">トップ</a>{" ／ "}<span aria-current="page">刀を探す</span>
+    </nav>
+    <section class="sec pt-5!" aria-labelledby="h-search">
+      <div class="sec-h">
+        <h1 id="h-search" class="m-0 text-[22px] leading-[1.4] font-semibold tracking-[0.12em]">刀を探す</h1>
+        <span class="aside">号、銘、刀匠の名から探せます</span>
+      </div>
+      <div class="mt-4 max-w-[640px]">
+        <Search client:load />
+      </div>
+    </section>
+
+    <section class="sec" aria-labelledby="h-index">
+      <div class="sec-h">
+        <h2 id="h-index">刀剣の目録</h2>
+        <span class="aside">{swords.length}件 ／ 号の読みの五十音順（号のない刀{swords.length - withGo}件は最後）</span>
+      </div>
+      <Catalog rows={rows} columns={{ venue: "所蔵", display: false }} caption="刀剣の目録" />
+      <p class="legend">〔帰属〕{ATTRIBUTION_LEGEND}</p>
+    </section>
+  </div>
+</BaseLayout>

@@ -1,6 +1,8 @@
 import { renderToStaticMarkup } from "react-dom/server";
 import { describe, expect, it } from "vitest";
 import { EndingSoonView, type EndingExhibition } from "./EndingSoon";
+import { ExhibitionIndexView, type IndexExhibition } from "./ExhibitionIndex";
+import { ExhibitionInfoView, type ExhibitionInfoData } from "./ExhibitionInfo";
 import { NowOnDisplayView, type NowExhibition, type NowSword } from "./NowOnDisplay";
 import { SwordExhibitView, type SwordExhibitionView } from "./SwordExhibit";
 
@@ -131,5 +133,63 @@ describe("EndingSoonView（会期終了が近い展覧会）", () => {
   it("該当がなければ、そう書く", () => {
     const out = renderToStaticMarkup(<EndingSoonView exhibitions={list} today="2027-02-01" />);
     expect(out).toContain("登録されていません");
+  });
+});
+
+describe("ExhibitionIndexView（展覧会の一覧）", () => {
+  const list: IndexExhibition[] = [
+    { id: "on", title: "開催中の展", start_date: "2026-09-01", end_date: "2026-10-10", venueText: "館A", confidence: "confirmed" },
+    { id: "open", title: "会期未定の展", start_date: "2026-07-02", end_date: null, venueText: "館B", confidence: "unverified" },
+    { id: "up", title: "これからの展", start_date: "2026-10-24", end_date: "2026-12-20", venueText: "館C", confidence: "confirmed", notes: ["出品：太刀"] },
+    { id: "old", title: "終わった展", start_date: "2026-01-01", end_date: "2026-02-01", venueText: "館D", confidence: "confirmed" },
+    { id: "older", title: "前に終わった展", start_date: "2025-01-01", end_date: "2025-02-01", venueText: "館E", confidence: "confirmed" },
+  ];
+
+  it("開催中・開催予定・終了に分け、開催予定は開始日を「から」で出す", () => {
+    const out = renderToStaticMarkup(<ExhibitionIndexView exhibitions={list} today="2026-10-07" endedLimit={1} />);
+    expect(out.indexOf("開催中の展")).toBeLessThan(out.indexOf("これからの展"));
+    expect(out.indexOf("これからの展")).toBeLessThan(out.indexOf("終わった展"));
+    expect(out).toContain("<b>10.24</b><small>（土）から</small>");
+    expect(out).toContain("出品：太刀");
+    expect(out).not.toContain("前に終わった展");
+    expect(out).not.toContain("あと");
+  });
+
+  it("終了日が近い開催中の展覧会は朱、終了日が未定なら開始日と会期未定を出す", () => {
+    const out = renderToStaticMarkup(<ExhibitionIndexView exhibitions={list} today="2026-10-07" groups={["ongoing"]} />);
+    expect(out).toContain('<div class="date" data-soon=""><b>10.10</b>');
+    expect(out).toContain("<b>7.02</b><small>（木）から</small>");
+    expect(out).toContain("会期未定（公式サイトで確認）");
+    expect(out).not.toContain("これからの展");
+  });
+});
+
+describe("ExhibitionInfoView（展覧会の展示情報）", () => {
+  const info: ExhibitionInfoData = {
+    start_date: "2027-01-24",
+    end_date: "2027-03-22",
+    periods: [
+      { id: "前期", start_date: "2027-01-24", end_date: "2027-02-21" },
+      { id: "後期", start_date: "2027-02-23", end_date: "2027-03-22" },
+    ],
+    venue: { name: "ふくやま美術館", href: "/venues/x" },
+    official_url: "https://example.com/",
+    verified_at: "2026-10-07",
+    confidence: "confirmed",
+  };
+
+  it("状態・会期・展示期間の区分を出す", () => {
+    const out = renderToStaticMarkup(<ExhibitionInfoView exhibition={info} today="2026-10-07" />);
+    expect(out).toContain(">開催予定</span>");
+    expect(out).toContain("1月24日（日）から");
+    expect(out).toContain("<b class=\"font-semibold\">後期</b>　2月23日〜3月22日");
+    expect(out).not.toContain("要確認");
+  });
+
+  it("未確認の情報には注意欄を出す", () => {
+    const out = renderToStaticMarkup(<ExhibitionInfoView exhibition={{ ...info, confidence: "unverified", periods: [] }} today="2027-02-01" />);
+    expect(out).toContain(">開催中</span>");
+    expect(out).toContain("区分の登録なし");
+    expect(out).toContain('class="warn"');
   });
 });

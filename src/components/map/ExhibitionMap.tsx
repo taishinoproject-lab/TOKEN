@@ -5,6 +5,9 @@ import L from "leaflet";
 import { formatDateRange, todayJst, type IsoDate } from "../../lib/date";
 import { mapPins, type MapData, type MapPin } from "../../lib/map-data";
 import { exhibitionStatusLabel } from "../../lib/status";
+import { exhibitionStatusView, formatSession } from "../../lib/status-view";
+import StatusBadge from "../ui/StatusBadge";
+import UnverifiedBadge from "../ui/UnverifiedBadge";
 import { createBaseMap, el, isTouchFirst, JAPAN_CENTER, JAPAN_ZOOM, pinIcon } from "./leaflet-setup";
 
 interface Props {
@@ -92,40 +95,45 @@ export default function ExhibitionMap({ data, buildToday }: Props) {
     <div className="token-map">
       <div
         ref={containerRef}
-        className="h-[70vh] max-h-[640px] min-h-80 w-full border border-brand-text/20"
+        className="h-[70vh] max-h-[640px] min-h-80 w-full border border-mokume"
         role="region"
         aria-label="開催中・開催予定の展覧会がある館の地図"
       />
-      <p className="mt-2 flex flex-wrap gap-x-4 gap-y-1 text-sm">
-        <span>
-          <span className="token-pin-swatch bg-brand-accent" aria-hidden="true" /> 開催中の展覧会がある館
-        </span>
-        <span>
-          <span className="token-pin-swatch bg-brand-primary" aria-hidden="true" /> 開催予定の展覧会だけがある館
-        </span>
-      </p>
-      {touchFirst && <p className="mt-1 text-sm">地図は2本の指で動かせます。ピンを押すと展覧会が表示されます。</p>}
+      <ul className="map-legend" aria-label="ピンの凡例">
+        <li>
+          <span className="token-pin-swatch token-pin--ongoing" aria-hidden="true" /> 開催中の展覧会がある館
+        </li>
+        <li>
+          <span className="token-pin-swatch token-pin--upcoming" aria-hidden="true" /> 開催予定の展覧会だけがある館
+        </li>
+      </ul>
+      {touchFirst && <p className="note-line">地図は2本の指で動かせます。ピンを押すと展覧会が表示されます。</p>}
 
-      <section className="mt-6">
-        <h2 className="mb-2 text-lg">館の一覧</h2>
+      <section className="sec" aria-labelledby="h-map-venues">
+        <div className="sec-h">
+          <h2 id="h-map-venues">館の一覧</h2>
+          <span className="aside">
+            {pins.length}館 ／ 開催中・開催予定の展覧会
+          </span>
+        </div>
         {pins.length === 0 ? (
-          <p>開催中・開催予定の展覧会はありません。</p>
+          <p className="gothic mt-4 text-sm">開催中・開催予定の展覧会はありません。</p>
         ) : (
-          <ul className="space-y-3">
+          <ul className="map-venues">
             {pins.map((pin) => (
               <li key={pin.venue.id}>
-                <a href={`/venues/${pin.venue.id}`} className="font-serif font-semibold underline">
-                  {pin.venue.name}
-                </a>
-                {pin.venue.unverified && <span className="ml-2 text-sm font-bold text-brand-accent">位置は要確認</span>}
-                <ul className="list-disc pl-5">
+                <h3>
+                  <a href={`/venues/${pin.venue.id}`}>{pin.venue.name}</a>
+                  {pin.venue.unverified && <UnverifiedBadge title="館の位置は、出典での確認がまだ済んでいません" />}
+                </h3>
+                <ul>
                   {pin.exhibitions.map((ex) => (
-                    <li key={ex.id}>
-                      <span data-status={ex.status}>［{exhibitionStatusLabel[ex.status]}］</span>
-                      <a href={`/exhibitions/${ex.id}`} className="underline">
-                        {ex.title}
-                      </a>
-                      （{period(ex)}）
+                    <li key={ex.id} data-status={ex.status}>
+                      <StatusBadge tone={exhibitionStatusView(ex.status).tone} size="sm">
+                        {exhibitionStatusLabel[ex.status]}
+                      </StatusBadge>{" "}
+                      <a href={`/exhibitions/${ex.id}`}>{ex.title}</a>
+                      <span className="map-session">{formatSession(ex.start_date, ex.end_date)}</span>
                     </li>
                   ))}
                 </ul>

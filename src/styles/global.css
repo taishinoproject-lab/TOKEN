@@ -365,6 +365,10 @@
   .cat .c-desig {
     width: 6em;
   }
+  /* 指定の列が空で、展示の列の注記が長い行でも、名称が1文字ずつ折り返さないようにする */
+  .cat .c-name {
+    min-width: 9em;
+  }
   .cat .c-name .name {
     font-size: 21px;
     font-weight: 600;
@@ -937,6 +941,56 @@
   }
   .search-featured-name:hover {
     text-decoration: underline;
+  }
+
+  /* ---------- 地図ページ（/map）の凡例と館の一覧 ---------- */
+  .map-legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px 20px;
+    margin: 10px 0 0;
+    padding: 0;
+    list-style: none;
+    font-family: var(--font-gothic);
+    font-size: 12px;
+    color: var(--color-usuzumi);
+  }
+  .map-venues {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  .map-venues > li {
+    padding: 14px 10px;
+    border-bottom: 1px solid var(--color-mokume);
+    background: var(--color-washi);
+  }
+  .map-venues h3 {
+    margin: 0;
+    font-size: 17px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    line-height: 1.5;
+  }
+  .map-venues h3 .kakunin {
+    margin-left: 8px;
+  }
+  .map-venues ul {
+    margin: 6px 0 0;
+    padding: 0;
+    list-style: none;
+  }
+  .map-venues ul li {
+    padding: 4px 0;
+    font-size: 15px;
+    line-height: 1.6;
+  }
+  .map-session {
+    display: block;
+    font-family: var(--font-gothic);
+    font-size: 12px;
+    color: var(--color-usuzumi);
+    font-variant-numeric: tabular-nums;
   }
 
   /* ---------- 本文 ---------- */
