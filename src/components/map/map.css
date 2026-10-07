@@ -1,0 +1,53 @@
+/* 地図のピンとポップアップ（T-206）。ピンは画像ではなく CSS で描く。 */
+.token-pin {
+  box-sizing: border-box;
+  border: 3px solid #fff;
+  border-radius: 9999px;
+  box-shadow: 0 1px 4px rgb(0 0 0 / 0.45);
+}
+
+.token-pin--ongoing,
+.token-pin--venue {
+  background-color: var(--color-brand-accent, #c73e3a);
+}
+
+.token-pin--upcoming {
+  background-color: var(--color-brand-primary, #2b4162);
+}
+
+.token-pin:focus-visible {
+  outline: 3px solid var(--color-brand-gold, #b8963e);
+  outline-offset: 2px;
+}
+
+/* 凡例などで使う、ピンと同じ見た目の丸 */
+.token-pin-swatch {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  border: 2px solid #fff;
+  border-radius: 9999px;
+  box-shadow: 0 1px 3px rgb(0 0 0 / 0.45);
+  vertical-align: -2px;
+}
+
+.token-map .leaflet-popup-content {
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  line-height: 1.6;
+  color: var(--color-brand-text, #1f1d1b);
+}
+
+.token-map .leaflet-popup-content a {
+  color: var(--color-brand-primary, #2b4162);
+  text-decoration: underline;
+}
+
+.token-map .leaflet-control-attribution {
+  font-size: 0.6875rem;
+}
+
+.token-map .token-unverified {
+  font-weight: 700;
+  color: var(--color-brand-accent, #c73e3a);
+}

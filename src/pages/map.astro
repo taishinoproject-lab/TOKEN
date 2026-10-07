@@ -1,0 +1,45 @@
+---
+import { getCollection } from "astro:content";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import ExhibitionMap from "../components/map/ExhibitionMap.tsx";
+import VisitNotebook from "../components/visits/VisitNotebook.tsx";
+import type { VisitExhibitionOption } from "../lib/visits";
+import { todayJst } from "../lib/date";
+import { toMapData } from "../lib/map-data";
+
+const venues = (await getCollection("venues")).map((e) => e.data);
+const exhibitions = (await getCollection("exhibitions")).map((e) => e.data);
+const buildToday = todayJst();
+// 地図に必要な項目だけを埋め込む。開催中・開催予定の判定は、ブラウザで今日の日付を使ってやり直す。
+const mapData = toMapData(venues, exhibitions, buildToday);
+// 訪剣帖で選べる展覧会（終了したものも含む）。表示と検索に必要な項目だけを埋め込む
+const visitOptions: VisitExhibitionOption[] = exhibitions.flatMap((ex) => {
+  const venue = venues.find((v) => v.id === ex.venue_id);
+  return venue
+    ? [{ id: ex.id, title: ex.title, venueId: venue.id, venueName: venue.name, start_date: ex.start_date, end_date: ex.end_date }]
+    : [];
+});
+---
+
+<BaseLayout title="地図" current="map" width="full" description="開催中・開催予定の刀剣の展覧会がある館を、全国の地図で示します。">
+  <div class="wrap">
+    <nav class="gothic pt-4 text-xs text-usuzumi" aria-label="現在の位置">
+      <a href="/">トップ</a>{" ／ "}<span aria-current="page">地図</span>
+    </nav>
+    <section class="sec pt-5!" aria-labelledby="h-map">
+      <div class="sec-h">
+        <h1 id="h-map" class="m-0 text-[22px] leading-[1.4] font-semibold tracking-[0.12em]">地図</h1>
+        <span class="aside">開催中・開催予定の展覧会がある館</span>
+      </div>
+      <p class="note-line mb-3">ピンを押すと、館名と展覧会が表示されます。</p>
+      <ExhibitionMap client:only="react" data={mapData} buildToday={buildToday}>
+        <p slot="fallback" class="gothic text-sm">地図を読み込んでいます…</p>
+      </ExhibitionMap>
+    </section>
+    <section class="sec">
+      <VisitNotebook client:only="react" exhibitions={visitOptions} buildToday={buildToday}>
+        <p slot="fallback" class="note-line">訪剣帖を読み込んでいます…</p>
+      </VisitNotebook>
+    </section>
+  </div>
+</BaseLayout>

@@ -1,0 +1,15 @@
+---
+// 出典と最終確認日の欄。見た目は src/components/ui/SourceList.tsx（案A）。
+import SourceList from "./ui/SourceList.tsx";
+import type { Source } from "../lib/schema";
+
+interface Props {
+  sources: Source[];
+  verifiedAt?: string;
+  confidence?: "confirmed" | "unverified";
+}
+
+const { sources, verifiedAt, confidence } = Astro.props;
+---
+
+<SourceList groups={[{ sources, confidence }]} verifiedAt={verifiedAt} />

@@ -1,0 +1,4341 @@
+---
+no_date: 1
+category: 特別展
+title: 前田育徳会創立百周年記念 特別展「百万石！加賀前田家」
+season_spring: 1
+season_summer: 1
+season_autumn: 0
+season_winter: 0
+date_start: 2026/4/14
+date_end: 2026/06/07
+room: 平成館特別展示室
+desc: 加賀前田家は、初代・前田利家が北陸に領地を得て以来、金沢を本拠に、江戸時代を通じて加賀・越中・能登の三か国、百万石以上の規模を誇る大名家として、明治維新に至るまで領国統治を行ないました。近代に入って東京に本拠を移し侯爵となった後も、前田家伝来の文化財の保全に努め、16代・利為（としなり）は、大正15年（1926）に育徳財団（現在の前田育徳会）を設立しました。 令和8年（2026）、前田育徳会は創立百周年を迎えます。これを記念して、加賀前田家歴代当主の事績を振り返るとともに、旧蔵品を含めた加賀前田家伝来品の数々を紹介いたします。百万石の城下で花開いた技術と造形、知識と思想を通じて、今に続く加賀文化の美の真髄に迫ります。
+img: 20260414_kagamaedake_mainvisual.jpg
+caption: 重要文化財 金小札白糸素懸威胴丸具足 前田利家所用 安土桃山時代・16世紀 前田育徳会蔵
+link_label: 前田育徳会創立百周年記念 特別展「百万石！加賀前田家」詳細ページへ移動
+link: /modules/r_free_page/index.php?id=2740
+---
+no_date: 2
+category: 特別展
+title: 弘法大師生誕1250年記念 特別展「空海と真言の名宝」
+season_spring: 0
+season_summer: 1
+season_autumn: 1
+season_winter: 0
+date_start: 2026/7/14
+date_end: 2026/9/6
+room: 平成館特別展示室
+desc: 真言宗各派総大本山会（各山会）は、真言宗の十八本山で構成されています。2023年に真言宗の宗祖・弘法大師空海の生誕1250年を迎えたのを記念し、各派の壁を超えた真言宗十八本山および関係寺院が所蔵する国宝・重要文化財を多数含む寺宝が一堂に会する展覧会です。 教科書でおなじみの国宝「信貴山縁起絵巻」（奈良・朝護孫子寺蔵）をはじめとする名品の数々や国宝「十二天像」（奈良・西大寺蔵）や重要文化財「聖観音菩薩・梵天・帝釈天立像（二間観音）」（京都・教王護国寺［東寺］蔵）などの寺宝が出品されるほか、秘仏開帳をテーマに「弘法大師坐像」（和歌山・金剛峯寺蔵）や、重要文化財「十一面観音菩薩立像」（三重・観菩提寺蔵）、重要文化財「如意輪観音菩薩坐像」（大阪・大門寺蔵）といった、普段は目にすることのできない各地の秘仏が並ぶのも見どころです。 真言宗各派十八本山が誇る選りすぐりの寺宝を、「空海」「後七日御修法」「十八本山」「秘仏」といったテーマでご堪能いただくことで、弘法大師空海の教えが日本全国に広く浸透し、その教えを守り伝え続けた1200年もの長きにわたる歴史を実感できる展覧会です。
+img: 20260714_kobotaishi_mainvisual.jpg
+caption: 弘法大師坐像（部分） 江戸時代・17世紀 和歌山・金剛峯寺蔵 撮影 KanKan
+link_label: 弘法大師生誕1250年記念 特別展「空海と真言の名宝」～ 詳細ページへ移動
+link: /modules/r_free_page/index.php?id=2760
+---
+no_date: 3
+category: 特別展
+title: 開創700年記念 特別展「大徳寺 本朝無双之禅苑」
+season_spring: 0
+season_summer: 0
+season_autumn: 1
+season_winter: 1
+date_start: 2026/10/14
+date_end: 2026/12/6
+room: 平成館特別展示室
+desc: 京都紫野の地に七堂伽藍を構える大徳寺は、開山・宗峰妙超（大燈国師）の峻烈な禅風を今に伝える、洛北随一の巨刹です。嘉暦元年（1326）、後醍醐天皇、花園上皇の帰依を受けた大燈国師が法堂を建立し、「龍宝山大徳寺」と号したのが開創とされています。なかでも、後醍醐天皇は大徳寺を「本朝無双之禅苑」と尊崇し、日本に二つとない禅苑としての光輝を放つことになります。 大燈禅の法灯はその後も長く受け継がれ、一休宗純や沢庵宗彭、江月宗玩ら優れた傑僧を輩出するとともに、織田信長や豊臣秀吉ら戦国武将たちからも篤い信仰を集め、壮麗な障壁画と明媚な庭園を擁する数多くの塔頭が建立されました。また千利休や津田宗及をはじめとする茶人や数寄者との所縁が深いことも知られています。 大徳寺開創700年の節目の年にあたる令和８年（2026）。この記念の年に、東京国立博物館において塔頭や大徳寺派寺院を含む大徳寺山内の寺宝を一堂に会し、その歴史と文化を紹介します。
+img: 20261014_daitokuji_mainvisual.jpg
+caption: 国宝 大井戸茶碗 喜左衛門井戸 韓国慶尚南道 朝鮮時代・16世紀 孤篷庵蔵
+link_label: 開創700年記念 特別展「大徳寺 本朝無双之禅苑」詳細ページへ移動
+link: /modules/r_free_page/index.php?id=2770
+---
+no_date: 3
+category: 特別展
+title: 特別展 内山晋コレクション受贈記念「歌川広重 江戸のベストアングル」
+season_spring: 0
+season_summer: 0
+season_autumn: 1
+season_winter: 1
+date_start: 2026/9/29
+date_end: 2026/12/20
+room: 本館 A室
+desc: 江戸時代後期に活躍した歌川広重（1797～1858）は、四季の移ろいを感じさせる風景画や、色鮮やかな花鳥画で一時代を築いた浮世絵師です。とくに代名詞ともいえる風景画では、日本各地を題材に、天候や時刻の変化、そこに生きる人びとの姿を巧みにとらえ、卓越した画面構成力によって風景の魅力を描き出しました。親しみやすくも新鮮味あふれるその作風は、江戸の人びとの心をつかみました。 このたび当館では、内山晋氏（1893～1980）旧蔵の浮世絵1,025点を受贈しました。内山氏は、歌川広重を中心とする質の高い浮世絵コレクションを築き、出版物や展覧会を通してその魅力を広く紹介するなど、浮世絵の研究と普及に大きな足跡を残した人物です。 本展は、この貴重なコレクションの収蔵を記念し、広重の代表作である「東海道五拾三次」（1期）、「木曽海道六拾九次」（2期）、「名所江戸百景」（3期）の三大シリーズを中心に、風景画、花鳥画の名作を三期に分けて紹介します。これらシリーズ全点を一度に公開する、国内外でも例を見ない、大変貴重な機会となります。 広重がとらえた「江戸のベストアングル」を、ぜひご堪能ください。
+img: 20260929_hiroshige_mainvisual.jpg
+link_label: 特別展 内山晋コレクション受贈記念「歌川広重 江戸のベストアングル」詳細ページへ移動
+link: /modules/r_free_page/index.php?id=2759
+---
+no_date: 4
+category: 特別展
+title: 特別展「源氏物語 王朝のかがやき」
+season_spring: 1
+season_summer: 0
+season_autumn: 0
+season_winter: 0
+date_start: 2027/1/19
+date_end: 2027/3/14
+room: 平成館 特別展示室
+desc: 平安時代に紫式部によって著された『源氏物語』は、宮廷を舞台として貴公子・光源氏や個性豊かな女性たちの恋愛模様、人生模様を織りなした、日本文学史を代表する王朝物語です。後の時代に読み継がれる中で、文字の世界を超え、さまざまな美術作品を生み出しました。 本展は、『源氏物語』の場面やモチーフを表した麗しい絵画、工芸品を一堂に集め、本文を綴った写本やその注釈類、さらに芸能や大衆文化への広がりも紹介することによって、わが国の文化に豊かなかがやきを与え続けたこの名作の魅力に迫ります。 千年以上われわれを魅了し、いまや世界に広がる『源氏物語』。 京都・東京の両国立博物館が総力を挙げてその華やかな美と魅力をお届けする、かつてない大展覧会です。
+img: SPECIAL_LARGE_8601.jpg
+caption: 国宝 源氏物語絵巻 柏木三（部分） 平安時代・12世紀 愛知・徳川美術館蔵 ©徳川美術館イメージアーカイブ/DNPartcom
+link_label: 特別展「源氏物語 王朝のかがやき」詳細ページへ移動
+link: /modules/r_free_page/index.php?id=2763
+---
+no_date: 11
+category: 特別企画
+title: 日韓国交正常化60周年記念 韓国美術の玉手箱 ― 国立中央博物館の所蔵品をむかえて―
+season_spring: 1
+season_summer: 0
+season_autumn: 0
+season_winter: 0
+date_start: 2026/02/10
+date_end: 2026/04/05
+room: 本館 特別1室・特別2室
+---
+no_date: 12
+category: 特別企画
+title: アイルランド チェスター・ビーティー・コレクション 絵巻と絵本のたからばこ
+season_spring: 1
+season_summer: 1
+season_autumn: 0
+season_winter: 0
+date_start: 2026/04/27
+date_end: 2026/07/20
+room: 本館D・E室
+---
+no_date: 13
+category: 特別企画
+title: ビフォー縄文 旧石器時代発見80周年
+season_spring: 0
+season_summer: 1
+season_autumn: 0
+season_winter: 0
+date_start: 2026/06/16
+date_end: 2026/08/23
+room: 平成館企画展示室
+---
+no_date: 51
+category: 特集
+title: おひなさまと日本の人形
+season_spring: 1
+season_summer: 0
+season_autumn: 0
+season_winter: 0
+date_start: 2026/02/10
+date_end: 2026/03/22
+room: 本館14室
+---
+no_date: 52
+category: 特集
+title: 「フォルモサ（美しき島）の豊かな暮らし」―台湾の原住民族の資料―
+season_spring: 1
+season_summer: 0
+season_autumn: 0
+season_winter: 0
+date_start: 2026/03/10
+date_end: 2026/05/31
+room: 平成館企画展示室
+---
+no_date: 53
+category: 特集
+title: キリシタン関係遺品の保存と研究
+season_spring: 1
+season_summer: 0
+season_autumn: 0
+season_winter: 0
+date_start: 2026/03/24
+date_end: 2026/05/10
+room: 本館4室
+---
+no_date: 54
+category: 特集
+title: 「古裂鑑賞のいろは」―加賀藩前田家伝来 名物裂の世界―
+season_spring: 1
+season_summer: 1
+season_autumn: 0
+season_winter: 0
+date_start: 2026/04/21
+date_end: 2026/07/12
+room: 東洋館5室
+---
+no_date: 55
+category: 特集
+title: 親と子のギャラリー 博物館でバクめぐり
+season_spring: 1
+season_summer: 1
+season_autumn: 0
+season_winter: 0
+date_start: 2026/5/12
+date_end: 2026/06/21
+room: 本館4室
+---
+no_date: 56
+category: 特集
+title: 仏教の花―蓮と宝相華―
+season_spring: 0
+season_summer: 1
+season_autumn: 0
+season_winter: 0
+date_start: 2026/6/23
+date_end: 2026/08/30
+room: 本館4室
+---
+no_date: 57
+category: 特集
+title: 親と子のギャラリー この顔どんな顔？能面のあらわすきもち
+season_spring: 0
+season_summer: 0
+season_autumn: 1
+season_winter: 0
+date_start: 2026/09/01
+date_end: 2026/10/25
+room: 本館4室
+---
+no_date: 58
+category: 特集
+title: 渡来人が見た長野―馬と歩んだ古墳時代―
+season_spring: 0
+season_summer: 0
+season_autumn: 1
+season_winter: 1
+date_start: 2026/09/29
+date_end: 2026/12/20
+room: 平成館企画展示室
+---
+no_date: 59
+category: 特集
+title: 令和7(2025)年度新収品
+season_spring: 0
+season_summer: 0
+season_autumn: 1
+season_winter: 0
+date_start: 2026/10/20
+date_end: 2026/11/29
+room: 本館D・E室
+---
+no_date: 60
+category: 特集
+title: 博物館に初もうで―羊（よう）こそメェ～でたきヒツジたち－
+season_spring: 0
+season_summer: 0
+season_autumn: 0
+season_winter: 1
+date_start: 2027/01/01
+date_end: 2027/01/31
+room: 本館E室
+---
+no_date: 61
+category: 特集
+title: 宋時代へのあこがれ―中国と日本をつなぐ美の古典―
+season_spring: 0
+season_summer: 0
+season_autumn: 0
+season_winter: 1
+date_start: 2027/01/01
+date_end: 2027/03/22
+room: 東洋館8室
+---
+no_date: 62
+category: 特集
+title: おひなさまと日本の人形
+season_spring: 0
+season_summer: 0
+season_autumn: 0
+season_winter: 1
+date_start: 2027/2/9
+date_end: 2027/4/4
+room: 本館E室
+---
+no_date: 63
+category: 特集
+title: 隋唐ヒットパレード！―うたう鏡と時めくうつわの7世紀―
+season_spring: 0
+season_summer: 0
+season_autumn: 0
+season_winter: 1
+date_start: 2027/2/16
+date_end: 2027/5/9
+room: 本館D室
+---
+no_date: 101
+property_name: A-10944
+category: 国宝の展示
+property: 国宝
+name: 一遍聖絵 巻第七
+info: 法眼円伊筆 鎌倉時代・正安元年(1299)
+season_spring: 1
+season_summer: 0
+season_autumn: 0
+season_winter: 0
+date_start: 2026/4/14
+date_end: 2026/05/10
+room: 本館12室
+img: A-10944_E0016151.jpg
+---
+no_date: 102
+property_name: A-11085-1
+category: 国宝の展示
+property: 国宝
+name: 十六羅漢像（第九尊者）
+info: 平安時代・11世紀
+season_spring: 0
+season_summer: 0
+season_autumn: 1
+season_winter: 0
+date_start: 2026/10/27
+date_end: 2026/11/23
+room: 本館12室
+img: A-11085_1_E0044177.jpg
+---
+no_date: 103
+property_name: A-10430
+category: 国宝の展示
+property: 国宝
+name: 楼閣山水図屏風
+info: 池大雅筆 江戸時代・18世紀 團伊能氏寄贈
+season_spring: 0
+season_summer: 0
+season_autumn: 0
+season_winter: 1
+date_start: 2027/1/19
+date_end: 2027/02/07
+room: 本館12室
+---
+no_date: 104
+property_name: A-10471
+category: 国宝の展示
+property: 国宝
+name: 松林図屏風
+info: 長谷川等伯筆 安土桃山時代・16世紀
+season_spring: 0
+season_summer: 0
+season_autumn: 0
+season_winter: 1
+date_start: 2027/1/1
+date_end: 2027/01/17
+room: 本館12室
+img: A-10471_E0015379.jpg
+---
+no_date: 105
+property_name: A-1164
+category: 国宝の展示
+property: 国宝
+name: 竹斎読書図
+info: 伝周文筆、竺雲等連序・江西龍派ら五僧賛 室町時代・文安4年(1447)
+season_spring: 0
+season_summer: 0
+season_autumn: 1
+season_winter: 1
+date_start: 2026/11/25
+date_end: 2026/12/20
+room: 本館12室
+---
+no_date: 106
+property_name: B-2405-2
+category: 国宝の展示
+property: 国宝
+name: 円珍自筆書状（円珍関係文書の内）
+info: 円珍筆 平安時代・9世紀
+season_spring: 1
+season_summer: 0
+season_autumn: 0
+season_winter: 0
+date_start: 2026/04/08
+date_end: 2026/05/24
+room: 本館13室
+---
+no_date: 107
+property_name: B-2530-4
+category: 国宝の展示
+property: 国宝
+name: 元暦校本万葉集 巻十（高松宮本）
+info: 平安時代・11世紀
+season_spring: 1
+season_summer: 0
+season_autumn: 0
+season_winter: 0
+date_start: 2027/03/09
+date_end: 2027/04/11
+room: 本館12室
+---
+no_date: 108
+property_name: B-2530-19
+category: 国宝の展示
+property: 国宝
+name: 元暦校本万葉集 巻十九（古河本）
+info: 平安時代・11世紀
+season_spring: 1
+season_summer: 0
+season_autumn: 0
+season_winter: 0
+date_start: 2027/03/09
+date_end: 2027/04/11
+room: 本館12室
+img: B-2530_19_E0007061.jpg
+---
+no_date: 109
+property_name: B-2530-20
+category: 国宝の展示
+property: 国宝
+name: 元暦校本万葉集 巻二十（古河本）
+info: 平安時代・11世紀
+season_spring: 1
+season_summer: 0
+season_autumn: 0
+season_winter: 0
+date_start: 2027/03/09
+date_end: 2027/04/11
+room: 本館12室
+---
+no_date: 110
+property_name: B-3231
+category: 国宝の展示
+property: 国宝
+name: 和歌体十種
+info: 平安時代・11世紀
+season_spring: 0
+season_summer: 1
+season_autumn: 0
+season_winter: 0
+date_start: 2026/06/16
+date_end: 2026/07/20
+room: 本館12室
+img: B-3231_C0060839.jpg
+---
+no_date: 111
+property_name: B-3232
+category: 国宝の展示
+property: 国宝
+name: 和歌体十種断簡
+info: 平安時代・11世紀
+season_spring: 0
+season_summer: 1
+season_autumn: 0
+season_winter: 0
+date_start: 2026/06/16
+date_end: 2026/07/20
+room: 本館12室
+---
+no_date: 112
+property_name: E-4303
+category: 国宝の展示
+property: 国宝
+name: 興福寺鎮壇具 延金
+info: 奈良市興福寺中金堂須弥壇下出土 奈良時代・8世紀
+season_spring: 1
+season_summer: 1
+season_autumn: 1
+season_winter: 1
+date_start: 2026/03/16
+date_end: 2027/04/18
+room: 本館11室
+---
+no_date: 113
+property_name: E-4304
+category: 国宝の展示
+property: 国宝
+name: 興福寺鎮壇具 金塊
+info: 奈良市興福寺中金堂須弥壇下出土 奈良時代・8世紀
+season_spring: 1
+season_summer: 1
+season_autumn: 1
+season_winter: 1
+date_start: 2026/03/16
+date_end: 2027/04/18
+room: 本館11室
+---
+no_date: 114
+property_name: E-4308
+category: 国宝の展示
+property: 国宝
+name: 興福寺鎮壇具 和同開珎
+info: 奈良市興福寺中金堂須弥壇下出土 奈良時代・8世紀
+season_spring: 1
+season_summer: 1
+season_autumn: 1
+season_winter: 1
+date_start: 2026/03/16
+date_end: 2027/04/18
+room: 本館11室
+---
+no_date: 115
+property_name: E-4309
+category: 国宝の展示
+property: 国宝
+name: 興福寺鎮壇具 開元通宝銅銭
+info: 奈良市興福寺中金堂須弥壇下出土 中国・唐時代・8世紀
+season_spring: 1
+season_summer: 1
+season_autumn: 1
+season_winter: 1
+date_start: 2026/03/16
+date_end: 2027/04/18
+room: 本館11室
+---
+no_date: 116
+property_name: E-6039
+category: 国宝の展示
+property: 国宝
+name: 興福寺鎮壇具 和同開珎銅銭
+info: 奈良市興福寺中金堂須弥壇下出土 奈良時代・8世紀
+season_spring: 1
+season_summer: 1
+season_autumn: 1
+season_winter: 1
+date_start: 2026/03/16
+date_end: 2027/04/18
+room: 本館11室
+---
+no_date: 117
+property_name: E-6040
+category: 国宝の展示
+property: 国宝
+name: 興福寺鎮壇具 砂金
+info: 奈良市興福寺中金堂須弥壇下出土 奈良時代・8世紀
+season_spring: 1
+season_summer: 1
+season_autumn: 1
+season_winter: 1
+date_start: 2026/03/16
+date_end: 2027/04/18
+room: 本館11室
+---
+no_date: 118
+property_name: E-14254
+category: 国宝の展示
+property: 国宝
+name: 興福寺鎮壇具 花枝双蝶八花鏡
+info: 奈良市興福寺中金堂須弥壇下出土 奈良時代・8世紀
+season_spring: 1
+season_summer: 1
+season_autumn: 1
+season_winter: 1
+date_start: 2026/03/16
+date_end: 2027/04/18
+room: 本館11室
+---
+no_date: 119
+property_name: E-14255
+category: 国宝の展示
+property: 国宝
+name: 興福寺鎮壇具 瑞花双鳳八花鏡
+info: 奈良市興福寺中金堂須弥壇下出土 中国・唐時代・8世紀
+season_spring: 1
+season_summer: 1
+season_autumn: 1
+season_winter: 1
+date_start: 2026/03/16
+date_end: 2027/04/18
+room: 本館11室
+---
+no_date: 120
+property_name: E-14256
+category: 国宝の展示
+property: 国宝
+name: 興福寺鎮壇具 金銅鋺
+info: 奈良市興福寺中金堂須弥壇下出土 奈良時代・8世紀
+season_spring: 1
+season_summer: 1
+season_autumn: 1
+season_winter: 1
+date_start: 2026/03/16
+date_end: 2027/04/18
+room: 本館11室
+---
+no_date: 121
+property_name: E-14257
+category: 国宝の展示
+property: 国宝
+name: 興福寺鎮壇具 金銅鋺
+info: 奈良市興福寺中金堂須弥壇下出土 奈良時代・8世紀
+season_spring: 1
+season_summer: 1
+season_autumn: 1
+season_winter: 1
+date_start: 2026/03/16
+date_end: 2027/04/18
+room: 本館11室
+---
+no_date: 122
+property_name: E-14258
+category: 国宝の展示
+property: 国宝
+name: 興福寺鎮壇具 金銅鋺
+info: 奈良市興福寺中金堂須弥壇下出土 奈良時代・8世紀
+season_spring: 1
+season_summer: 1
+season_autumn: 1
+season_winter: 1
+date_start: 2026/03/16
+date_end: 2027/04/18
+room: 本館11室
+---
+no_date: 123
+property_name: E-14260
+category: 国宝の展示
+property: 国宝
+name: 興福寺鎮壇具 金銅大盤
+info: 奈良市興福寺中金堂須弥壇下出土 奈良時代・8世紀
+season_spring: 1
+season_summer: 1
+season_autumn: 1
+season_winter: 1
+date_start: 2026/03/16
+date_end: 2027/04/18
+room: 本館11室
+---
+no_date: 124
+property_name: E-14261
+category: 国宝の展示
+property: 国宝
+name: 興福寺鎮壇具 銀大盤
+info: 奈良市興福寺中金堂須弥壇下出土 奈良時代・8世紀
+season_spring: 1
+season_summer: 1
+season_autumn: 1
+season_winter: 1
+date_start: 2026/03/16
+date_end: 2027/04/18
+room: 本館11室
+---
+no_date: 125
+property_name: E-14262
+category: 国宝の展示
+property: 国宝
+name: 興福寺鎮壇具 銀鋺
+info: 奈良市興福寺中金堂須弥壇下出土 奈良時代・8世紀
+season_spring: 1
+season_summer: 1
+season_autumn: 1
+season_winter: 1
+date_start: 2026/03/16
+date_end: 2027/04/18
+room: 本館11室
+---
+no_date: 126
+property_name: E-14263
+category: 国宝の展示
+property: 国宝
+name: 興福寺鎮壇具 響銅盤
+info: 奈良市興福寺中金堂須弥壇下出土 奈良時代・8世紀
+season_spring: 1
+season_summer: 1
+season_autumn: 1
+season_winter: 1
+date_start: 2026/03/16
+date_end: 2027/04/18
+room: 本館11室
+---
+no_date: 127
+property_name: E-14264
+category: 国宝の展示
+property: 国宝
+name: 興福寺鎮壇具 響銅盤
+info: 奈良市興福寺中金堂須弥壇下出土 奈良時代・8世紀
+season_spring: 1
+season_summer: 1
+season_autumn: 1
+season_winter: 1
+date_start: 2026/03/16
+date_end: 2027/04/18
+room: 本館11室
+---
+no_date: 128
+property_name: E-14265
+category: 国宝の展示
+property: 国宝
+name: 興福寺鎮壇具 銀葛形裁文飾金具
+info: 奈良市興福寺中金堂須弥壇下出土 奈良時代・8世紀
+season_spring: 1
+season_summer: 1
+season_autumn: 1
+season_winter: 1
+date_start: 2026/03/16
+date_end: 2027/04/18
+room: 本館11室
+---
+no_date: 129
+property_name: E-14267
+category: 国宝の展示
+property: 国宝
+name: 興福寺鎮壇具 銀匙
+info: 奈良市興福寺中金堂須弥壇下出土 奈良時代・8世紀
+season_spring: 1
+season_summer: 1
+season_autumn: 1
+season_winter: 1
+date_start: 2026/03/16
+date_end: 2027/04/18
+room: 本館11室
+---
+no_date: 130
+property_name: E-14268
+category: 国宝の展示
+property: 国宝
+name: 興福寺鎮壇具 銀匙
+info: 奈良市興福寺中金堂須弥壇下出土 奈良時代・8世紀
+season_spring: 1
+season_summer: 1
+season_autumn: 1
+season_winter: 1
+date_start: 2026/03/16
+date_end: 2027/04/18
+room: 本館11室
+---
+no_date: 131
+property_name: E-14269
+category: 国宝の展示
+property: 国宝
+name: 興福寺鎮壇具 銀鑷
+info: 奈良市興福寺中金堂須弥壇下出土 奈良時代・8世紀
+season_spring: 1
+season_summer: 1
+season_autumn: 1
+season_winter: 1
+date_start: 2026/03/16
+date_end: 2027/04/18
+room: 本館11室
+---
+no_date: 132
+property_name: E-14270
+category: 国宝の展示
+property: 国宝
+name: 興福寺鎮壇具 金銅脚杯
+info: 奈良市興福寺中金堂須弥壇下出土 奈良時代・8世紀
+season_spring: 1
+season_summer: 1
+season_autumn: 1
+season_winter: 1
+date_start: 2026/03/16
+date_end: 2027/04/18
+room: 本館11室
+---
+no_date: 133
+property_name: E-14273
+category: 国宝の展示
+property: 国宝
+name: 興福寺鎮壇具 ガラス玉
+info: 奈良市興福寺中金堂須弥壇下出土 奈良時代・8世紀
+season_spring: 1
+season_summer: 1
+season_autumn: 1
+season_winter: 1
+date_start: 2026/03/16
+date_end: 2027/04/18
+room: 本館11室
+---
+no_date: 134
+property_name: E-14275
+category: 国宝の展示
+property: 国宝
+name: 興福寺鎮壇具 水晶珠
+info: 奈良市興福寺中金堂須弥壇下出土 奈良時代・8世紀
+season_spring: 1
+season_summer: 1
+season_autumn: 1
+season_winter: 1
+date_start: 2026/03/16
+date_end: 2027/04/18
+room: 本館11室
+---
+no_date: 135
+property_name: E-14277
+category: 国宝の展示
+property: 国宝
+name: 興福寺鎮壇具 瑪瑙玉
+info: 奈良市興福寺中金堂須弥壇下出土 奈良時代・8世紀
+season_spring: 1
+season_summer: 1
+season_autumn: 1
+season_winter: 1
+date_start: 2026/03/16
+date_end: 2027/04/18
+room: 本館11室
+---
+no_date: 137
+property_name: F-144-3
+category: 国宝の展示
+property: 国宝
+name: 桜に雉図笄
+info: 河野春明 江戸時代・19世紀
+season_spring: 1
+season_summer: 0
+season_autumn: 0
+season_winter: 0
+date_start: 2026/03/03
+date_end: 2026/05/24
+room: 本館3室
+---
+no_date: 138
+property_name: F-19547
+category: 国宝の展示
+property: 国宝
+name: 短刀（名物 厚藤四郎）
+info: 粟田口吉光 鎌倉時代・13世紀
+season_spring: 0
+season_summer: 1
+season_autumn: 1
+season_winter: 0
+date_start: 2026/8/4
+date_end: 2026/10/25
+room: 本館3室
+---
+no_date: 141
+property_name: F-19931-2
+category: 国宝の展示
+property: 国宝
+name: 太刀（名物 童子切安綱）
+info: 伯耆安綱 平安時代・10～12世紀
+season_spring: 1
+season_summer: 0
+season_autumn: 0
+season_winter: 0
+date_start: 2026/02/25
+date_end: 2026/05/17
+room: 本館3室
+---
+no_date: 142
+property_name: F-19932
+category: 国宝の展示
+property: 国宝
+name: 太刀（名物 大包平）
+info: 古備前包平 平安時代・12世紀
+season_spring: 1
+season_summer: 1
+season_autumn: 0
+season_winter: 0
+date_start: 2026/5/19
+date_end: 2026/08/02
+room: 本館3室
+---
+no_date: 144
+property_name: F-19985-1
+category: 国宝の展示
+property: 国宝
+name: 太刀
+info: 福岡一文字助真 鎌倉時代・13世紀
+season_spring: 1
+season_summer: 1
+season_autumn: 0
+season_winter: 0
+date_start: 2026/04/21
+date_end: 2026/07/12
+room: 本館15・16室
+---
+no_date: 145
+property_name: F-19989
+category: 国宝の展示
+property: 国宝
+name: 太刀 銘 長光
+info: 長船長光 鎌倉時代・13世紀
+season_spring: 0
+season_summer: 1
+season_autumn: 1
+season_winter: 0
+date_start: 2026/08/04
+date_end: 2026/10/25
+room: 本館3室
+---
+no_date: 146
+property_name: F-20103-1
+category: 国宝の展示
+property: 国宝
+name: 太刀（名物 三日月宗近）
+info: 三条宗近 平安時代・10～12世紀 渡邊誠一郎氏寄贈
+season_summer: 1
+season_autumn: 1
+season_winter: 0
+date_start: 2026/08/04
+date_end: 2026/10/25
+room: 本館3室
+---
+no_date: 147
+property_name: F-20107
+category: 国宝の展示
+property: 国宝
+name: 刀（名物 亀甲貞宗）
+info: 相州貞宗 鎌倉～南北朝時代・14世紀 渡邊誠一郎氏寄贈
+season_spring: 1
+season_summer: 1
+season_autumn: 0
+season_winter: 0
+date_start: 2026/5/19
+date_end: 2026/08/02
+room: 本館3室
+---
+no_date: 148
+property_name: H-86
+category: 国宝の展示
+property: 国宝
+name: 八橋蒔絵螺鈿硯箱
+info: 尾形光琳作 江戸時代・18世紀
+season_spring: 1
+season_summer: 1
+season_autumn: 0
+season_winter: 0
+date_start: 2026/05/26
+date_end: 2026/08/16
+room: 本館2室
+---
+no_date: 149
+property_name: H-4445
+category: 国宝の展示
+property: 国宝
+name: 片輪車螺鈿手箱
+info: 鎌倉時代・13世紀
+season_spring: 0
+season_summer: 0
+season_autumn: 0
+season_winter: 1
+date_start: 2027/02/09
+date_end: 2027/04/18
+room: 本館2室
+---
+no_date: 150
+category: 国宝の展示
+property: 国宝
+name: 江田船山古墳出土品
+info: 熊本県和水町 江田船山古墳出土 古墳時代・5～6世紀 一括
+season_spring: 1
+season_summer: 1
+season_autumn: 1
+season_winter: 1
+date_start: 2026/04/08
+date_end: 2027/06/20
+room: 平成館考古展示室
+---
+no_date: 206
+property_name: J-37433
+category: 国宝の展示
+property: 国宝
+name: 扁平鈕式銅鐸
+info: 伝香川県出土 弥生時代(中期)・前2～前1世紀
+season_spring: 1
+season_summer: 1
+season_autumn: 1
+season_winter: 1
+date_start: 2026/02/02
+date_end: 2027/03/14
+room: 平成館考古展示室
+---
+no_date: 207
+property_name: J-39135
+category: 国宝の展示
+property: 国宝
+name: 金象嵌銘環頭大刀
+info: 奈良県天理市 東大寺山古墳出土 古墳時代・4世紀、刀身：中国製・2世紀
+season_spring: 1
+season_summer: 1
+season_autumn: 1
+season_winter: 1
+date_start: 2026/04/08
+date_end: 2027/06/13
+room: 平成館考古展示室
+---
+no_date: 208
+category: 国宝の展示
+property: 国宝
+name: 東大寺山古墳出土品
+info: 奈良県天理市 東大寺山古墳出土 古墳時代・4世紀 一括
+season_spring: 1
+season_summer: 1
+season_autumn: 1
+season_winter: 1
+date_start: 2026/04/08
+date_end: 2027/06/13
+room: 平成館考古展示室
+---
+no_date: 215
+property_name: J-39203
+category: 国宝の展示
+property: 国宝
+name: 瑠璃骨壺
+info: 奈良県宇陀市榛原八滝 文祢麻呂墓出土 飛鳥時代・慶雲4年(707)
+season_spring: 1
+season_summer: 1
+season_autumn: 1
+season_winter: 0
+date_start: 2026/04/08
+date_end: 2026/09/13
+room: 平成館考古展示室
+---
+no_date: 216
+property_name: J-39202
+category: 国宝の展示
+property: 国宝
+name: 金銅壺
+info: 奈良県宇陀市榛原八滝 文祢麻呂墓出土 飛鳥時代・慶雲4年(707)
+season_spring: 1
+season_summer: 1
+season_autumn: 1
+season_winter: 0
+date_start: 2026/04/08
+date_end: 2026/09/13
+room: 平成館考古展示室
+---
+no_date: 217
+property_name: N-1
+category: 国宝の展示
+property: 国宝
+name: 聖徳太子絵伝
+info: 秦致貞筆 平安時代・延久元年(1069)
+season_spring: 0
+season_summer: 0
+season_autumn: 1
+season_winter: 0
+date_start: 2026/10/27
+date_end: 2026/11/29
+room: 法隆寺宝物館 第6室
+---
+no_date: 218
+property_name: N-58
+category: 国宝の展示
+property: 国宝
+name: 灌頂幡
+info: 飛鳥時代・7世紀
+season_spring: 1
+season_summer: 1
+season_autumn: 1
+season_winter: 1
+date_start: 2025/04/21
+date_end: 2027/04/18
+room: 法隆寺宝物館 第1室
+---
+no_date: 219
+property_name: N-71
+category: 国宝の展示
+property: 国宝
+name: 木画経箱
+info: 奈良時代・8世紀
+season_spring: 1
+season_summer: 1
+season_autumn: 0
+season_winter: 0
+date_start: 2026/05/12
+date_end: 2026/08/02
+room: 法隆寺宝物館 第4室
+---
+no_date: 220
+property_name: N-74
+category: 国宝の展示
+property: 国宝
+name: 海磯鏡
+info: 奈良時代・8世紀
+season_spring: 1
+season_summer: 1
+season_autumn: 1
+season_winter: 1
+date_start: 2025/04/21
+date_end: 2027/04/18
+room: 法隆寺宝物館 第5室
+---
+no_date: 221
+property_name: N-208
+category: 国宝の展示
+property: 国宝
+name: 伎楽面 師子児
+info: 飛鳥時代・7世紀
+season_spring: 1
+season_summer: 1
+season_autumn: 1
+season_winter: 1
+date_start: 2025/04/21
+date_end: 2027/04/18
+room: 法隆寺宝物館 第3室（金・土のみ）
+---
+no_date: 222
+property_name: N-210
+category: 国宝の展示
+property: 国宝
+name: 伎楽面 呉公
+info: 飛鳥時代・7世紀
+season_spring: 1
+season_summer: 1
+season_autumn: 1
+season_winter: 1
+date_start: 2025/04/21
+date_end: 2027/04/18
+room: 法隆寺宝物館 第3室（金・土のみ）
+img: N-210_E0066101.jpg
+---
+no_date: 223
+property_name: N-212
+category: 国宝の展示
+property: 国宝
+name: 伎楽面 金剛
+info: 飛鳥時代・7世紀
+season_spring: 1
+season_summer: 1
+season_autumn: 1
+season_winter: 1
+date_start: 2025/04/21
+date_end: 2027/04/18
+room: 法隆寺宝物館 第3室（金・土のみ）
+---
+no_date: 224
+property_name: N-211
+category: 国宝の展示
+property: 国宝
+name: 伎楽面 呉女
+info: 飛鳥時代・7世紀
+season_spring: 1
+season_summer: 1
+season_autumn: 1
+season_winter: 1
+date_start: 2025/04/21
+date_end: 2027/04/18
+room: 法隆寺宝物館 第3室（金・土のみ）
+img: N-211_E0066114.jpg
+---
+no_date: 225
+property_name: N-213
+category: 国宝の展示
+property: 国宝
+name: 伎楽面 金剛
+info: 奈良時代・8世紀
+season_spring: 1
+season_summer: 1
+season_autumn: 1
+season_winter: 1
+date_start: 2025/04/21
+date_end: 2027/04/18
+room: 法隆寺宝物館 第3室（金・土のみ）
+---
+no_date: 226
+property_name: N-214
+category: 国宝の展示
+property: 国宝
+name: 伎楽面 崑崙
+info: 飛鳥時代・7世紀
+season_spring: 1
+season_summer: 1
+season_autumn: 1
+season_winter: 1
+date_start: 2025/04/21
+date_end: 2027/04/18
+room: 法隆寺宝物館 第3室（金・土のみ）
+---
+no_date: 227
+property_name: N-215
+category: 国宝の展示
+property: 国宝
+name: 伎楽面 迦楼羅
+info: 飛鳥時代・7世紀
+season_spring: 1
+season_summer: 1
+season_autumn: 1
+season_winter: 1
+date_start: 2025/04/21
+date_end: 2027/04/18
+room: 法隆寺宝物館 第3室（金・土のみ）
+img: N-215_E0066712.jpg
+---
+no_date: 228
+property_name: N-216
+category: 国宝の展示
+property: 国宝
+name: 伎楽面 太孤父
+info: 飛鳥時代・7世紀
+season_spring: 1
+season_summer: 1
+season_autumn: 1
+season_winter: 1
+date_start: 2025/04/21
+date_end: 2027/04/18
+room: 法隆寺宝物館 第3室（金・土のみ）
+---
+no_date: 229
+property_name: N-217
+category: 国宝の展示
+property: 国宝
+name: 伎楽面 太孤児
+info: 飛鳥時代・7世紀
+season_spring: 1
+season_summer: 1
+season_autumn: 1
+season_winter: 1
+date_start: 2025/04/21
+date_end: 2027/04/18
+room: 法隆寺宝物館 第3室（金・土のみ）
+img: N-217_E0066026.jpg
+---
+no_date: 230
+property_name: N-218
+category: 国宝の展示
+property: 国宝
+name: 伎楽面 太孤児
+info: 飛鳥時代・7世紀
+season_spring: 1
+season_summer: 1
+season_autumn: 1
+season_winter: 1
+date_start: 2025/04/21
+date_end: 2027/04/18
+room: 法隆寺宝物館 第3室（金・土のみ）
+---
+no_date: 231
+property_name: N-219
+category: 国宝の展示
+property: 国宝
+name: 伎楽面 酔胡王
+info: 飛鳥時代・7世紀
+season_spring: 1
+season_summer: 1
+season_autumn: 1
+season_winter: 1
+date_start: 2025/04/21
+date_end: 2027/04/18
+room: 法隆寺宝物館 第3室（金・土のみ）
+---
+no_date: 232
+property_name: N-220
+category: 国宝の展示
+property: 国宝
+name: 伎楽面 酔胡従
+info: 飛鳥時代・7世紀
+season_spring: 1
+season_summer: 1
+season_autumn: 1
+season_winter: 1
+date_start: 2025/04/21
+date_end: 2027/04/18
+room: 法隆寺宝物館 第3室（金・土のみ）
+---
+no_date: 233
+property_name: N-221
+category: 国宝の展示
+property: 国宝
+name: 伎楽面 酔胡従
+info: 飛鳥時代・7世紀
+season_spring: 1
+season_summer: 1
+season_autumn: 1
+season_winter: 1
+date_start: 2025/04/21
+date_end: 2027/04/18
+room: 法隆寺宝物館 第3室（金・土のみ）
+---
+no_date: 234
+property_name: N-222
+category: 国宝の展示
+property: 国宝
+name: 伎楽面 酔胡従
+info: 飛鳥時代・7世紀
+season_spring: 1
+season_summer: 1
+season_autumn: 1
+season_winter: 1
+date_start: 2025/04/21
+date_end: 2027/04/18
+room: 法隆寺宝物館 第3室（金・土のみ）
+---
+no_date: 235
+property_name: N-223
+category: 国宝の展示
+property: 国宝
+name: 伎楽面 酔胡従
+info: 飛鳥時代・7世紀
+season_spring: 1
+season_summer: 1
+season_autumn: 1
+season_winter: 1
+date_start: 2025/04/21
+date_end: 2027/04/18
+room: 法隆寺宝物館 第3室（金・土のみ）
+---
+no_date: 236
+property_name: N-224
+category: 国宝の展示
+property: 国宝
+name: 伎楽面 師子児
+info: 飛鳥～奈良時代・8世紀
+season_spring: 1
+season_summer: 1
+season_autumn: 1
+season_winter: 1
+date_start: 2025/04/21
+date_end: 2027/04/18
+room: 法隆寺宝物館 第3室（金・土のみ）
+---
+no_date: 237
+property_name: N-225
+category: 国宝の展示
+property: 国宝
+name: 伎楽面 呉女
+info: 飛鳥～奈良時代・8世紀
+season_spring: 1
+season_summer: 1
+season_autumn: 1
+season_winter: 1
+date_start: 2025/04/21
+date_end: 2027/04/18
+room: 法隆寺宝物館 第3室（金・土のみ）
+---
+no_date: 238
+property_name: N-226
+category: 国宝の展示
+property: 国宝
+name: 伎楽面 迦楼羅
+info: 飛鳥～奈良時代・8世紀
+season_spring: 1
+season_summer: 1
+season_autumn: 1
+season_winter: 1
+date_start: 2025/04/21
+date_end: 2027/04/18
+room: 法隆寺宝物館 第3室（金・土のみ）
+---
+no_date: 239
+property_name: N-228
+category: 国宝の展示
+property: 国宝
+name: 伎楽面 力士
+info: 飛鳥～奈良時代・8世紀
+season_spring: 1
+season_summer: 1
+season_autumn: 1
+season_winter: 1
+date_start: 2025/04/21
+date_end: 2027/04/18
+room: 法隆寺宝物館 第3室（金・土のみ）
+---
+no_date: 240
+property_name: N-229
+category: 国宝の展示
+property: 国宝
+name: 伎楽面 金剛
+info: 飛鳥～奈良時代・8世紀
+season_spring: 1
+season_summer: 1
+season_autumn: 1
+season_winter: 1
+date_start: 2025/04/21
+date_end: 2027/04/18
+room: 法隆寺宝物館 第3室（金・土のみ）
+---
+no_date: 241
+property_name: N-230
+category: 国宝の展示
+property: 国宝
+name: 伎楽面 波羅門
+info: 飛鳥時代・7世紀
+season_spring: 1
+season_summer: 1
+season_autumn: 1
+season_winter: 1
+date_start: 2025/04/21
+date_end: 2027/04/18
+room: 法隆寺宝物館 第3室（金・土のみ）
+---
+no_date: 242
+property_name: N-231
+category: 国宝の展示
+property: 国宝
+name: 伎楽面 酔胡王
+info: 飛鳥～奈良時代・8世紀
+season_spring: 1
+season_summer: 1
+season_autumn: 1
+season_winter: 1
+date_start: 2025/04/21
+date_end: 2027/04/18
+room: 法隆寺宝物館 第3室（金・土のみ）
+---
+no_date: 243
+property_name: N-232
+category: 国宝の展示
+property: 国宝
+name: 伎楽面 酔胡従
+info: 飛鳥～奈良時代・8世紀
+season_spring: 1
+season_summer: 1
+season_autumn: 1
+season_winter: 1
+date_start: 2025/04/21
+date_end: 2027/04/18
+room: 法隆寺宝物館 第3室（金・土のみ）
+---
+no_date: 244
+property_name: N-233
+category: 国宝の展示
+property: 国宝
+name: 伎楽面 酔胡従
+info: 飛鳥～奈良時代・8世紀
+season_spring: 1
+season_summer: 1
+season_autumn: 1
+season_winter: 1
+date_start: 2025/04/21
+date_end: 2027/04/18
+room: 法隆寺宝物館 第3室（金・土のみ）
+---
+no_date: 245
+property_name: N-235
+category: 国宝の展示
+property: 国宝
+name: 伎楽面 酔胡従
+info: 飛鳥～奈良時代・8世紀
+season_spring: 1
+season_summer: 1
+season_autumn: 1
+season_winter: 1
+date_start: 2025/04/21
+date_end: 2027/04/18
+room: 法隆寺宝物館 第3室（金・土のみ）
+---
+no_date: 246
+property_name: N-236
+category: 国宝の展示
+property: 国宝
+name: 伎楽面 波羅門
+info: 奈良時代・8世紀
+season_spring: 1
+season_summer: 1
+season_autumn: 1
+season_winter: 1
+date_start: 2025/04/21
+date_end: 2027/04/18
+room: 法隆寺宝物館 第3室（金・土のみ）
+---
+no_date: 247
+property_name: N-237
+category: 国宝の展示
+property: 国宝
+name: 伎楽面 酔胡従（未完成）
+info: 飛鳥～奈良時代・7～8世紀
+season_spring: 1
+season_summer: 1
+season_autumn: 1
+season_winter: 1
+date_start: 2025/04/21
+date_end: 2027/04/18
+room: 法隆寺宝物館 第3室（金・土のみ）
+---
+no_date: 248
+property_name: N-238
+category: 国宝の展示
+property: 国宝
+name: 伎楽面 酔胡従（未完成）
+info: 飛鳥～奈良時代・7～8世紀
+season_spring: 1
+season_summer: 1
+season_autumn: 1
+season_winter: 1
+date_start: 2025/04/21
+date_end: 2027/04/18
+room: 法隆寺宝物館 第3室（金・土のみ）
+---
+no_date: 249
+property_name: N-280
+category: 国宝の展示
+property: 国宝
+name: 鵲尾形柄香炉
+info: 朝鮮半島または日本 三国時代または飛鳥時代・6～7世紀
+season_spring: 1
+season_summer: 1
+season_autumn: 1
+season_winter: 1
+date_start: 2025/04/21
+date_end: 2027/04/18
+room: 法隆寺宝物館 第5室
+---
+no_date: 252
+property_name: J-39201-2
+category: 国宝の展示
+property: 国宝
+name: 文祢麻呂墓誌
+info: 奈良県宇陀市榛原八滝 文祢麻呂墓出土 飛鳥時代・慶雲4年(707)
+season_spring: 1
+season_summer: 1
+season_autumn: 1
+season_winter: 1
+date_start: 2026/02/02
+date_end: 2027/03/22
+room: 平成館考古展示室
+---
+no_date: 253
+property_name: J-39201-1
+category: 国宝の展示
+property: 国宝
+name: 銅箱
+info: 奈良県宇陀市榛原八滝 文祢麻呂墓出土 飛鳥時代・慶雲4年(707)
+season_spring: 1
+season_summer: 1
+season_autumn: 1
+season_winter: 0
+date_start: 2026/04/08
+date_end: 2026/09/13
+room: 平成館考古展示室
+---
+no_date: 254
+property_name: 寄託品（C0026290）
+category: 国宝の展示
+property: 国宝
+name: 法華経 巻第六（色紙）
+info: 平安時代・12世紀 和歌山・金剛峯寺蔵
+season_spring: 1
+season_summer: 1
+season_autumn: 0
+season_winter: 0
+date_start: 2026/05/12
+date_end: 2026/06/14
+room: 本館12室
+img: C0026290.jpg
+---
+no_date: 255
+property_name: 寄託品（E0119726）
+category: 国宝の展示
+property: 国宝
+name: 金光明最勝王経金字宝塔曼荼羅 第一幀
+info: 平安時代・12世紀 岩手・大長壽院蔵
+season_spring: 0
+season_summer: 1
+season_autumn: 0
+season_winter: 0
+date_start: 2026/07/22
+date_end: 2026/08/23
+room: 本館12室
+img: E0119726.jpg
+---
+no_date: 256
+property_name: 寄託品（C0034190）
+category: 国宝の展示
+property: 国宝
+name: 渓陰小築図
+info: 太白真玄序・大岳周崇ら六僧賛 室町時代・応永20年(1413) 京都・金地院蔵
+season_spring: 0
+season_summer: 1
+season_autumn: 1
+season_winter: 0
+date_start: 2026/08/25
+date_end: 2026/09/27
+room: 本館12室
+img: C0034190.jpg
+---
+no_date: 257
+property_name: 寄託品（E0135326）
+category: 国宝の展示
+property: 国宝
+name: 遺偈（棺割の墨跡）
+info: 清拙正澄筆 南北朝時代・暦応2年(1339) 東京・公益財団法人常盤山文庫蔵
+season_spring: 0
+season_summer: 0
+season_autumn: 1
+season_winter: 0
+date_start: 2026/09/29
+date_end: 2026/10/25
+room: 本館12室
+img: E0135326.jpg
+---
+no_date: 258
+property_name: 寄託品（E0097414）
+category: 国宝の展示
+property: 国宝
+name: 法華経 妙荘厳王本事品（慈光寺経）
+info: 鎌倉時代・13世紀 埼玉・慈光寺蔵
+season_spring: 0
+season_summer: 0
+season_autumn: 0
+season_winter: 1
+date_start: 2027/02/09
+date_end: 2027/03/07
+room: 本館12室
+img: E0097414.jpg
+---
+no_date: 301
+property_name: 58-14 (寄託品)
+category: 名品の展示
+property: 国宝
+name: 秋草文壺
+info: 神奈川県川崎市幸区南加瀬出土 平安時代・12世紀 東京・慶應義塾
+season_spring: 1
+season_summer: 1
+season_autumn: 1
+season_winter: 1
+date_start: 2026/04/08
+date_end: 2027/03/22
+room: 平成館考古展示室
+---
+no_date: 302
+property_name: A-10136
+category: 名品の展示
+property: 重要文化財
+name: 山水図
+info: 岳翁蔵丘筆 室町時代・15世紀 岡崎正也氏寄贈
+season_spring: 0
+season_summer: 0
+season_autumn: 1
+season_winter: 0
+date_start: 2026/9/1
+date_end: 2026/10/18
+room: 本館13室
+---
+no_date: 303
+property_name: A-10539
+category: 名品の展示
+name: 御産の祷
+info: 安田靫彦筆 大正3年(1914)
+season_spring: 1
+season_summer: 0
+season_autumn: 0
+season_winter: 1
+date_start: 2027/01/26
+date_end: 2027/03/07
+room: 本館8室
+---
+no_date: 304
+property_name: A-10569-1309
+category: 名品の展示
+name: 見立玄宗皇帝・楊貴妃
+info: 鈴木春信筆 江戸時代・18世紀
+season_spring: 0
+season_summer: 1
+season_autumn: 0
+season_winter: 0
+date_start: 2026/06/16
+date_end: 2026/07/20
+room: 本館20室
+---
+no_date: 305
+property_name: A-10569-1394
+category: 名品の展示
+name: 五条橋の牛若丸と弁慶
+info: 勝川春章筆 江戸時代・18世紀
+season_spring: 1
+season_summer: 0
+season_autumn: 0
+season_winter: 0
+date_start: 2026/04/08
+date_end: 2026/05/10
+room: 本館20室
+---
+no_date: 306
+property_name: A-10569-1915
+category: 名品の展示
+name: おきたとおひさの腕相撲
+info: 喜多川歌麿筆 江戸時代・18世紀
+season_spring: 0
+season_summer: 1
+season_autumn: 1
+season_winter: 0
+date_start: 2026/08/25
+date_end: 2026/09/27
+room: 本館20室
+---
+no_date: 307
+property_name: A-10569-375
+category: 名品の展示
+name: 桜の枝持つ初代佐野川市松
+info: 筆者不詳 江戸時代・18世紀
+season_spring: 1
+season_summer: 0
+season_autumn: 0
+season_winter: 0
+date_start: 2027/03/09
+date_end: 2027/04/11
+room: 本館20室
+---
+no_date: 308
+property_name: A-10569-5426
+category: 名品の展示
+name: 通俗水滸傳豪傑百八人之壹人・浪裡白跳張順
+info: 歌川国芳筆 江戸時代・19世紀
+season_spring: 0
+season_summer: 0
+season_autumn: 1
+season_winter: 0
+date_start: 2026/10/27
+date_end: 2026/11/29
+room: 本館20室
+img: A-10569_E0128786.jpg
+---
+no_date: 309
+property_name: A-10569-646
+category: 名品の展示
+name: 千繪の海・五島鯨突
+info: 葛飾北斎筆 江戸時代・19世紀
+season_spring: 0
+season_summer: 1
+season_autumn: 0
+season_winter: 0
+date_start: 2026/07/22
+date_end: 2026/08/23
+room: 本館20室
+---
+no_date: 310
+property_name: A-10569-6950
+category: 名品の展示
+name: 江戸むらさき名所源氏・御殿山花見 見立花の宴
+info: 歌川広重筆 江戸時代・19世紀
+season_spring: 1
+season_summer: 0
+season_autumn: 0
+season_winter: 1
+date_start: 2027/02/02
+date_end: 2027/03/07
+room: 本館20室
+---
+no_date: 311
+property_name: A-10572
+category: 名品の展示
+property: 重要美術品
+name: 鷹山水図屏風
+info: 雪村周継筆 室町時代・16世紀 松永安左エ門氏寄贈
+season_spring: 0
+season_summer: 0
+season_autumn: 0
+season_winter: 1
+date_start: 2026/12/08
+date_end: 2027/1/31
+room: 本館13室
+img: A-10572_E0114199.jpg
+---
+no_date: 312
+property_name: A-1068
+category: 名品の展示
+name: 山水図屏風
+info: 海北友松筆 安土桃山時代・慶長7年(1602)
+season_spring: 1
+season_summer: 1
+season_autumn: 0
+season_winter: 0
+date_start: 2026/05/26
+date_end: 2026/07/12
+room: 本館17室
+---
+no_date: 313
+property_name: A-11114
+category: 名品の展示
+property: 重要文化財
+name: 山野行楽図屏風
+info: 与謝蕪村筆 江戸時代・18世紀
+season_spring: 1
+season_summer: 0
+season_autumn: 0
+season_winter: 0
+date_start: 2026/04/08
+date_end: 2026/05/24
+room: 本館17室
+---
+no_date: 314
+property_name: A-11146
+category: 名品の展示
+name: 白衣観音図
+info: 吉山明兆筆、健中清勇賛 室町時代・15世紀
+season_spring: 1
+season_summer: 0
+season_autumn: 0
+season_winter: 0
+date_start: 2026/4/8
+date_end: 2026/05/24
+room: 本館3室
+---
+no_date: 315
+property_name: A-11191
+category: 名品の展示
+property: 重要文化財
+name: 兎道朝暾図
+info: 青木木米筆 江戸時代・文政7年(1824)
+season_spring: 0
+season_summer: 0
+season_autumn: 1
+season_winter: 0
+date_start: 2026/10/20
+date_end: 2026/11/29
+room: 本館18室
+---
+no_date: 316
+property_name: A-11192-1
+category: 名品の展示
+property: 重要文化財
+name: 公余探勝図巻 上巻
+info: 谷文晁筆 江戸時代・寛政5年(1793)
+season_spring: 0
+season_summer: 0
+season_autumn: 1
+season_winter: 0
+date_start: 2026/09/01
+date_end: 2026/10/18
+room: 本館18室
+---
+no_date: 317
+property_name: A-11350
+category: 名品の展示
+name: 旧蝦夷風俗
+info: 富岡鉄斎筆 明治29年(1896) 清荒神清澄寺寄贈
+season_spring: 0
+season_summer: 0
+season_autumn: 0
+season_winter: 1
+date_start: 2026/12/08
+date_end: 2027/01/24
+room: 本館8室
+---
+no_date: 318
+property_name: A-1148
+category: 名品の展示
+name: 雪中老松図
+info: 円山応挙筆 江戸時代・明和2年(1765)
+season_spring: 0
+season_summer: 0
+season_autumn: 0
+season_winter: 1
+date_start: 2027/01/01
+date_end: 2027/01/31
+room: 本館18室
+---
+no_date: 319
+property_name: A-1195
+category: 名品の展示
+property: 重要文化財
+name: 西湖春景銭塘観潮図屏風
+info: 池大雅筆 江戸時代・18世紀
+season_spring: 0
+season_summer: 0
+season_autumn: 1
+season_winter: 0
+date_start: 2026/09/01
+date_end: 2026/10/18
+room: 本館17室
+---
+no_date: 320
+property_name: A-12076
+category: 名品の展示
+name: 源氏物語図色紙（花宴）
+info: 土佐光吉筆 安土桃山時代・16～17世紀
+season_spring: 1
+season_summer: 0
+season_autumn: 0
+season_winter: 1
+date_start: 2027/02/02
+date_end: 2027/03/22
+room: 本館18室
+---
+no_date: 321
+property_name: A-12089-2
+category: 名品の展示
+name: 流水花卉図屏風
+info: 狩野山雪筆 江戸時代・17世紀
+season_spring: 1
+season_summer: 1
+season_autumn: 0
+season_winter: 0
+date_start: 2026/05/26
+date_end: 2026/07/12
+room: 本館18室
+---
+no_date: 322
+property_name: A-12097
+category: 名品の展示
+property: 重要文化財
+name: 蔦の細道図屏風
+info: 深江芦舟筆 江戸時代・18世紀
+season_spring: 1
+season_summer: 0
+season_autumn: 0
+season_winter: 1
+date_start: 2027/02/02
+date_end: 2027/03/22
+room: 本館17室
+---
+no_date: 323
+property_name: A-12100
+category: 名品の展示
+name: 鰻図
+info: 林十江筆 江戸時代・19世紀
+season_spring: 0
+season_summer: 1
+season_autumn: 0
+season_winter: 0
+date_start: 2026/07/14
+date_end: 2026/08/30
+room: 本館18室
+img: A-12100_C0021712.jpg
+---
+no_date: 324
+property_name: A-12123-1～4
+category: 名品の展示
+name: 梅図襖
+info: 円山応挙筆 江戸時代・天明4年(1784)
+season_spring: 0
+season_summer: 0
+season_autumn: 0
+season_winter: 1
+date_start: 2027/01/01
+date_end: 2027/01/31
+room: 本館17室
+---
+no_date: 325
+property_name: A-12289
+category: 名品の展示
+name: 明粧
+info: 土田麦僊筆 昭和5年(1930） 片山芳子氏寄贈
+season_spring: 0
+season_summer: 1
+season_autumn: 1
+season_winter: 0
+date_start: 2026/07/28
+date_end: 2026/09/06
+room: 本館8室
+---
+no_date: 326
+property_name: A-12308
+category: 名品の展示
+name: 群仙図屏風
+info: 横山華山筆 江戸時代・19世紀
+season_spring: 0
+season_summer: 1
+season_autumn: 0
+season_winter: 0
+date_start: 2026/07/14
+date_end: 2026/08/30
+room: 本館17室
+---
+no_date: 327
+property_name: A-12313
+category: 名品の展示
+name: 松渓清暑図
+info: 野呂介石筆 江戸時代・文政6年(1823)
+season_spring: 1
+season_summer: 0
+season_autumn: 0
+season_winter: 0
+date_start: 2026/04/08
+date_end: 2026/05/24
+room: 本館18室
+---
+no_date: 328
+property_name: A-12315
+category: 名品の展示
+name: 山水図
+info: 賢江祥啓筆 室町時代・15世紀
+season_spring: 1
+season_summer: 1
+season_autumn: 0
+season_winter: 0
+date_start: 2026/5/26
+date_end: 2026/7/12
+room: 本館13室
+---
+no_date: 329
+property_name: A-12326
+category: 名品の展示
+property: 重要文化財
+name: 如意輪観音図
+info: 良全筆 南北朝時代・14世紀 山本達郎氏寄贈
+season_spring: 0
+season_summer: 1
+season_autumn: 0
+season_winter: 0
+date_start: 2026/7/14
+date_end: 2026/8/30
+room: 本館13室
+img: A-12326_E0000330.jpg
+---
+no_date: 330
+property_name: A-12477
+category: 名品の展示
+property: 重要美術品
+name: 山水人物図屏風
+info: 伝賢江祥啓筆 室町時代・16世紀
+season_spring: 1
+season_summer: 0
+season_autumn: 0
+season_winter: 1
+date_start: 2027/2/2
+date_end: 2027/3/22
+room: 本館13室
+---
+no_date: 331
+property_name: A-290-1
+category: 名品の展示
+property: 重要文化財
+name: 朱買臣図
+info: 伝狩野元信筆 旧大仙院方丈障壁画 室町時代・16世紀
+season_spring: 0
+season_summer: 0
+season_autumn: 1
+season_winter: 1
+date_start: 2026/10/20
+date_end: 2026/12/06
+room: 本館13室
+---
+no_date: 332
+property_name: A-79
+category: 名品の展示
+property: 重要文化財
+name: 浅間山図屏風
+info: 亜欧堂田善筆 江戸時代・19世紀
+season_spring: 0
+season_summer: 0
+season_autumn: 1
+season_winter: 0
+date_start: 2026/10/20
+date_end: 2026/11/29
+room: 本館17室
+---
+no_date: 333
+property_name: B-1019
+category: 名品の展示
+name: 三大字「旧劫庵」
+info: 石室善玖筆 南北朝時代・至徳3年(1386)
+season_spring: 0
+season_summer: 1
+season_autumn: 0
+season_winter: 0
+date_start: 2026/07/14
+date_end: 2026/08/30
+room: 本館13室
+---
+no_date: 334
+property_name: B-12-9
+category: 名品の展示
+name: 古今和歌集巻五・真名序断簡（御家切）
+info: 藤原俊成筆 平安時代・12世紀
+season_spring: 0
+season_summer: 1
+season_autumn: 1
+season_winter: 0
+date_start: 2026/08/25
+date_end: 2026/10/04
+room: 本館14室
+---
+no_date: 335
+property_name: B-1668-4
+category: 名品の展示
+name: 書状
+info: 久保正之筆 江戸時代・寛永21年(1644)
+season_spring: 0
+season_summer: 0
+season_autumn: 1
+season_winter: 1
+date_start: 2026/11/17
+date_end: 2026/12/20
+room: 本館15室
+---
+no_date: 336
+property_name: B-1812
+category: 名品の展示
+name: 大般若経 巻第四百六十五断簡（神亀五年五月十五日長屋王願経）
+info: 奈良時代・神亀5年(728)
+season_spring: 0
+season_summer: 0
+season_autumn: 1
+season_winter: 0
+date_start: 2026/10/6
+date_end: 2026/11/15
+room: 本館11室
+---
+no_date: 337
+property_name: B-2451
+category: 名品の展示
+name: 法語
+info: 霊山道隠筆 鎌倉時代・正中2年(1325)
+season_spring: 0
+season_summer: 0
+season_autumn: 1
+season_winter: 0
+date_start: 2026/09/01
+date_end: 2026/10/18
+room: 本館13室
+---
+no_date: 338
+property_name: B-2490
+category: 名品の展示
+name: 書状
+info: 足利尊氏筆 南北朝時代・14世紀
+season_spring: 0
+season_summer: 0
+season_autumn: 0
+season_winter: 1
+date_start: 2027/01/01
+date_end: 2027/02/07
+room: 本館15室
+---
+no_date: 339
+property_name: B-2547
+category: 名品の展示
+name: 源氏物語抄
+info: 近衞信尹筆 江戸時代・17世紀 長谷川巳之吉氏寄贈
+season_spring: 1
+season_summer: 0
+season_autumn: 0
+season_winter: 1
+date_start: 2027/02/02
+date_end: 2027/03/22
+room: 本館18室
+img: B-2547_E0030010.jpg
+---
+no_date: 340
+property_name: B-2813
+category: 名品の展示
+name: 道号「鉄牛」
+info: 養叟宗頤筆 室町時代・15世紀
+season_spring: 0
+season_summer: 0
+season_autumn: 1
+season_winter: 0
+date_start: 2026/10/06
+date_end: 2026/11/15
+room: 本館14室
+---
+no_date: 341
+property_name: B-2855
+category: 名品の展示
+name: 詩書屏風
+info: 貫名菘翁筆 江戸時代・安政4年(1857)
+season_spring: 1
+season_summer: 0
+season_autumn: 0
+season_winter: 0
+date_start: 2026/04/08
+date_end: 2026/05/24
+room: 本館18室
+img: B-2855_C0043621.jpg
+---
+no_date: 342
+property_name: B-2925
+category: 名品の展示
+name: 和歌巻
+info: 本阿弥光悦筆 安土桃山～江戸時代・17世紀
+season_spring: 0
+season_summer: 1
+season_autumn: 0
+season_winter: 0
+date_start: 2026/07/14
+date_end: 2026/08/30
+room: 本館18室
+---
+no_date: 343
+property_name: B-2959
+category: 名品の展示
+name: 和歌「あきのひに」
+info: 良寛筆 江戸時代・19世紀 竹内静子氏寄贈
+season_spring: 0
+season_summer: 0
+season_autumn: 1
+season_winter: 0
+date_start: 2026/09/01
+date_end: 2026/10/18
+room: 本館18室
+---
+no_date: 344
+property_name: B-3066
+category: 名品の展示
+name: 書状
+info: 本阿弥光悦筆 安土桃山時代・16世紀 松本榮一氏寄贈
+season_spring: 1
+season_summer: 0
+season_autumn: 0
+season_winter: 0
+date_start: 2026/04/21
+date_end: 2026/05/31
+room: 本館15室
+---
+no_date: 345
+property_name: B-3075
+category: 名品の展示
+name: 一行書「直透萬重関」
+info: 沢庵宗彭筆 江戸時代・17世紀 山本富子氏・山本賢二氏寄贈
+season_spring: 0
+season_summer: 0
+season_autumn: 1
+season_winter: 0
+date_start: 2026/10/20
+date_end: 2026/11/29
+room: 本館18室
+---
+no_date: 346
+property_name: B-3164
+category: 名品の展示
+name: 詠草
+info: 小林一茶筆 江戸時代・19世紀 金子すみ氏寄贈
+season_spring: 0
+season_summer: 0
+season_autumn: 0
+season_winter: 1
+date_start: 2027/01/01
+date_end: 2027/01/31
+room: 本館18室
+---
+no_date: 347
+property_name: B-3213
+category: 名品の展示
+name: 偈頌
+info: 一休宗純筆 室町時代・応仁元年(1467) 松永安左エ門氏寄贈
+season_spring: 0
+season_summer: 0
+season_autumn: 0
+season_winter: 1
+date_start: 2026/12/08
+date_end: 2027/01/31
+room: 本館13室
+---
+no_date: 348
+property_name: B-3333
+category: 名品の展示
+name: 書状
+info: 小堀遠州筆 江戸時代・17世紀 金谷寛氏寄贈
+season_spring: 0
+season_summer: 0
+season_autumn: 1
+season_winter: 0
+date_start: 2026/10/06
+date_end: 2026/11/15
+room: 本館15室
+---
+no_date: 349
+property_name: B-3409
+category: 名品の展示
+name: 高砂図賛
+info: 池大雅筆 江戸時代・18世紀 久世民榮氏寄贈
+season_spring: 1
+season_summer: 1
+season_autumn: 0
+season_winter: 0
+date_start: 2026/05/26
+date_end: 2026/07/12
+room: 本館18室
+---
+no_date: 350
+property_name: B-3468
+category: 名品の展示
+property: 重要美術品
+name: 番衆歴名
+info: 豊臣秀吉筆 安土桃山時代・16世紀 亡九鬼隆一郎相続財産法人
+season_spring: 0
+season_summer: 1
+season_autumn: 0
+season_winter: 0
+date_start: 2026/06/02
+date_end: 2026/07/12
+room: 本館15室
+---
+no_date: 351
+property_name: C-1856
+category: 名品の展示
+name: 誕生釈迦仏立像
+info: 飛鳥時代・7世紀 矢野鶴子氏寄贈
+season_spring: 1
+season_summer: 0
+season_autumn: 0
+season_winter: 1
+date_start: 2027/1/1
+date_end: 2027/04/18
+room: 本館11室
+img: C-1856_C0042100.jpg
+---
+no_date: 352
+property_name: C-1892
+category: 名品の展示
+name: 金剛力士立像
+info: 平安時代・12世紀
+season_spring: 1
+season_summer: 1
+season_autumn: 1
+season_winter: 1
+date_start: 2025/12/22
+date_end: 2027/4/4
+room: 本館1室
+img: SPECIAL_LARGE_8001.jpg
+---
+no_date: 353
+property_name: C-1894
+category: 名品の展示
+name: 地蔵菩薩立像
+info: 鎌倉時代・13世紀
+season_spring: 1
+season_summer: 1
+season_autumn: 0
+season_winter: 0
+date_start: 2026/4/8
+date_end: 2026/6/28
+room: 本館1室
+---
+no_date: 354
+property_name: C-217
+category: 名品の展示
+name: 菩薩立像
+info: 飛鳥時代・7世紀
+season_spring: 1
+season_summer: 1
+season_autumn: 0
+season_winter: 0
+date_start: 2026/4/21
+date_end: 2026/7/12
+room: 本館11室
+---
+no_date: 355
+property_name: C-232
+category: 名品の展示
+property: 重要文化財
+name: 老猿
+info: 高村光雲作 明治26年(1893) シカゴ・コロンブス世界博覧会事務局寄贈
+season_spring: 0
+season_summer: 1
+season_autumn: 1
+season_winter: 0
+date_start: 2026/7/28
+date_end: 2026/10/18
+room: 本館8室
+img: C-232_E0169265.jpg
+---
+no_date: 356
+property_name: C-326
+category: 名品の展示
+name: 天王立像
+info: 平安時代・9世紀
+season_spring: 0
+season_summer: 0
+season_autumn: 1
+season_winter: 1
+date_start: 2026/10/6
+date_end: 2026/12/20
+room: 本館1室
+---
+no_date: 357
+property_name: C-508
+category: 名品の展示
+property: 重要文化財
+name: 阿弥陀如来立像
+info: 永仙作 鎌倉時代・正嘉3年(1259) 安田善次郎氏寄贈
+season_spring: 0
+season_summer: 0
+season_autumn: 1
+season_winter: 1
+date_start: 2026/10/20
+date_end: 2027/1/31
+room: 本館13室
+---
+no_date: 358
+property_name: E-12744
+category: 名品の展示
+name: 瓢形酒入
+info: 船田一琴作 江戸時代・天保14年(1843)
+season_spring: 1
+season_summer: 0
+season_autumn: 0
+season_winter: 0
+date_start: 2026/04/06
+date_end: 2026/5/31
+room: 本館3室
+---
+no_date: 359
+property_name: E-13034
+category: 名品の展示
+property: 重要文化財
+name: 鷲置物
+info: 鈴木長吉作 明治25年(1892) シカゴ・コロンブス世界博覧会事務局寄贈
+season_spring: 1
+season_summer: 1
+season_autumn: 1
+season_winter: 1
+date_start: 2026/04/21
+date_end: 2027/04/18
+room: 本館8室
+img: E-13034_C0082928.jpg
+---
+no_date: 360
+property_name: E-14270
+category: 名品の展示
+property: 国宝
+name: 興福寺鎮壇具 金銅脚杯
+info: 奈良市興福寺中金堂須弥壇下出土 奈良時代・8世紀
+season_spring: 1
+season_summer: 1
+season_autumn: 1
+season_winter: 1
+date_start: 2025/12/22
+date_end: 2027/4/18
+room: 本館11室
+---
+no_date: 361
+property_name: E-14286
+category: 名品の展示
+property: 重要文化財
+name: 金銅灌仏盤
+info: 平安時代・12世紀
+season_spring: 1
+season_summer: 0
+season_autumn: 0
+season_winter: 0
+date_start: 2026/3/10
+date_end: 2026/5/31
+room: 本館3室
+---
+no_date: 362
+property_name: E-14570
+category: 名品の展示
+property: 重要文化財
+name: 銅梅竹透釣燈籠
+info: 千葉市中央区千葉寺町千葉寺址出土 室町時代・天文19年(1550) 畑野勇治郎氏寄贈
+season_spring: 0
+season_summer: 1
+season_autumn: 0
+season_winter: 0
+date_start: 2026/6/2
+date_end: 2026/8/23
+room: 本館3室
+---
+no_date: 363
+property_name: E-20001
+category: 名品の展示
+name: 烏図真形釜 銘 濡烏
+info: 芦屋 室町時代・15～16世紀
+season_spring: 0
+season_summer: 1
+season_autumn: 1
+season_winter: 0
+date_start: 2026/8/25
+date_end: 2026/11/15
+room: 本館3室
+img: E-20001_E0174870.jpg
+---
+no_date: 366
+property_name: E-20637
+category: 名品の展示
+name: 茄子に黄金虫水滴
+info: 江戸時代・18～19世紀 渡邊豊太郎氏・渡邊誠之氏寄贈
+season_spring: 0
+season_summer: 1
+season_autumn: 1
+season_winter: 0
+date_start: 2026/06/23
+date_end: 2026/09/06
+room: 本館18室
+img: E-20637_E0065037.jpg
+---
+no_date: 369
+property_name: F-19931-2
+category: 名品の展示
+property: 国宝
+name: 太刀（名物 童子切安綱）
+info: 伯耆安綱 平安時代・10～12世紀
+season_spring: 1
+season_summer: 0
+season_autumn: 0
+season_winter: 0
+date_start: 2026/02/25
+date_end: 2026/5/17
+room: 本館3室
+---
+no_date: 370
+property_name: F-19932
+category: 名品の展示
+property: 国宝
+name: 太刀（名物 大包平）
+info: 古備前包平 平安時代・12世紀
+season_spring: 1
+season_summer: 1
+season_autumn: 0
+season_winter: 0
+date_start: 2026/05/19
+date_end: 2026/08/02
+room: 本館3室
+---
+no_date: 371
+property_name: F-19987
+category: 名品の展示
+property: 重要文化財
+name: 黒韋肩妻取威胴丸
+info: 室町時代・15世紀
+season_spring: 0
+season_summer: 1
+season_autumn: 1
+season_winter: 0
+date_start: 2026/07/07
+date_end: 2026/09/27
+room: 本館15室
+---
+no_date: 372
+property_name: F-20103-1
+category: 名品の展示
+property: 国宝
+name: 太刀（名物 三日月宗近）
+info: 三条宗近 平安時代・10～12世紀 渡邊誠一郎氏寄贈
+season_spring: 0
+season_summer: 1
+season_autumn: 1
+season_winter: 0
+date_start: 2026/08/04
+date_end: 2026/10/25
+room: 本館3室
+---
+no_date: 373
+property_name: F-20117-1
+category: 名品の展示
+name: 白糸威二枚胴具足
+info: 江戸時代・17世紀 徳川義寛氏寄贈
+season_spring: 0
+season_summer: 0
+season_autumn: 1
+season_winter: 1
+date_start: 2026/09/29
+date_end: 2026/12/20
+room: 本館15室
+img: F-20117_C0033315.jpg
+---
+no_date: 374
+property_name: F-20137
+category: 名品の展示
+property: 重要文化財
+name: 紺糸威南蛮胴具足
+info: 安土桃山時代・16世紀
+season_spring: 1
+season_summer: 1
+season_autumn: 0
+season_winter: 0
+date_start: 2026/04/14
+date_end: 2026/07/05
+room: 本館15室
+---
+no_date: 375
+property_name: F-20153
+category: 名品の展示
+property: 重要文化財
+name: 樫鳥糸肩赤威胴丸
+info: 陸奥三春藩主秋田家伝来 室町時代・15世紀 秋田一季氏寄贈
+season_spring: 1
+season_summer: 0
+season_autumn: 0
+season_winter: 1
+date_start: 2027/01/01
+date_end: 2027/03/14
+room: 本館15室
+---
+no_date: 377
+property_name: G-4217-1
+category: 名品の展示
+name: 竹一重切花入 銘 園城寺
+info: 伝千利休作 安土桃山時代・天正18年(1590) 松平直亮氏寄贈
+season_spring: 0
+season_summer: 0
+season_autumn: 1
+season_winter: 1
+date_start: 2026/10/06
+date_end: 2026/12/20
+room: 本館14室
+---
+no_date: 378
+property_name: G-5101
+category: 名品の展示
+property: 重要文化財
+name: 色絵花鳥文大深鉢
+info: 伊万里(柿右衛門様式) 江戸時代・17世紀
+season_spring: 0
+season_summer: 1
+season_autumn: 1
+season_winter: 0
+date_start: 2026/06/02
+date_end: 2026/9/27
+room: 本館3室
+---
+no_date: 380
+property_name: G-5307
+category: 名品の展示
+property: 重要文化財
+name: 一重口水指 銘 柴庵
+info: 信楽 安土桃山～江戸時代・16～17世紀 広田松繁氏寄贈
+season_spring: 0
+season_summer: 1
+season_autumn: 1
+season_winter: 0
+date_start: 2026/7/14
+date_end: 2026/10/4
+room: 本館14室
+---
+no_date: 381
+property_name: G-5387
+category: 名品の展示
+name: 瓢花入
+info: 仰木魯堂、原三溪旧蔵 江戸時代・17世紀 広田松繁氏寄贈
+season_spring: 1
+season_summer: 1
+season_autumn: 0
+season_winter: 0
+date_start: 2026/4/21
+date_end: 2026/7/12
+room: 本館14室
+---
+no_date: 382
+property_name: G-5797
+category: 名品の展示
+name: 色絵桜樹図透鉢
+info: 仁阿弥道八作 江戸時代・19世紀
+season_spring: 1
+season_summer: 0
+season_autumn: 0
+season_winter: 0
+date_start: 2026/3/10
+date_end: 2026/05/31
+room: 本館3室
+---
+no_date: 384
+property_name: H-4214
+category: 名品の展示
+property: 重要文化財
+name: 檜扇紋散蒔絵手箱
+info: 鎌倉時代・13世紀
+season_spring: 0
+season_summer: 0
+season_autumn: 1
+season_winter: 1
+date_start: 2026/11/10
+date_end: 2027/02/07
+room: 本館2室
+---
+no_date: 385
+property_name: H-4233
+category: 名品の展示
+name: 梅月蒔絵手箱
+info: 室町時代・16世紀
+season_spring: 0
+season_summer: 1
+season_autumn: 1
+season_winter: 0
+date_start: 2026/08/18
+date_end: 2026/11/08
+room: 本館2室
+---
+no_date: 386
+property_name: H-4503
+category: 名品の展示
+name: 芹蒔絵椀
+info: 安土桃山時代・16世紀 荒川浩和氏寄贈
+season_spring: 0
+season_summer: 0
+season_autumn: 1
+season_winter: 0
+date_start: 2026/09/08
+date_end: 2026/11/29
+room: 本館18室
+---
+no_date: 387
+property_name: H-4632
+category: 名品の展示
+name: 百万塔
+info: 奈良時代・宝亀元年(770) 山越保子氏寄贈
+season_spring: 1
+season_summer: 0
+season_autumn: 0
+season_winter: 0
+date_start: 2027/3/16
+date_end: 2027/4/18
+room: 本館11室
+---
+no_date: 388
+property_name: H-4633
+category: 名品の展示
+name: 蓮池蒔絵舎利厨子
+info: 厨子蒔絵：五十嵐作、厨子彫刻：道圓作、舎利塔：後藤程乗作 江戸時代・寛文12年(1672)
+season_spring: 1
+season_summer: 0
+season_autumn: 0
+season_winter: 0
+date_start: 2026/03/17
+date_end: 2026/05/24
+room: 本館2室
+---
+no_date: 389
+property_name: H-4788
+category: 名品の展示
+name: 鳳輦
+info: 明治39年(1906)宮内省(式部職)より引継 江戸時代・19世紀
+season_spring: 1
+season_summer: 1
+season_autumn: 1
+season_winter: 1
+date_start: 2026/4/6
+date_end: 2027/04/04
+room: 本館便殿
+---
+no_date: 390
+property_name: H-521
+category: 名品の展示
+name: 水藻蒔絵香箪笥
+info: 江戸時代・17世紀
+season_spring: 1
+season_summer: 1
+season_autumn: 0
+season_winter: 0
+date_start: 2026/04/08
+date_end: 2026/6/21
+room: 本館18室
+---
+no_date: 391
+property_name: H-86
+category: 名品の展示
+property: 国宝
+name: 八橋蒔絵螺鈿硯箱
+info: 尾形光琳作 江戸時代・18世紀
+season_spring: 1
+season_summer: 1
+season_autumn: 0
+season_winter: 0
+date_start: 2026/05/26
+date_end: 2026/08/16
+room: 本館2室
+---
+no_date: 392
+property_name: I-1077
+category: 名品の展示
+name: 打掛 紅綸子地御簾薬玉桜模様
+info: 江戸時代・18世紀
+season_spring: 1
+season_summer: 1
+season_autumn: 0
+season_winter: 0
+date_start: 2026/4/8
+date_end: 2026/6/28
+room: 本館20室
+---
+no_date: 393
+property_name: I-1397
+category: 名品の展示
+name: 掻取白綸子地菖蒲牡丹葵菱源氏車模様
+info: 紀州徳川家伝来 江戸時代・18世紀
+season_spring: 1
+season_summer: 0
+season_autumn: 0
+season_winter: 1
+date_start: 2027/01/01
+date_end: 2027/03/22
+room: 本館18室
+---
+no_date: 394
+property_name: I-2005
+category: 名品の展示
+name: 唐織 紅緑茶段御簾色紙短冊萩模様
+info: 上杉家伝来 江戸時代・18世紀
+season_spring: 0
+season_summer: 0
+season_autumn: 1
+season_winter: 0
+date_start: 2026/9/15
+date_end: 2026/11/29
+room: 本館19室
+---
+no_date: 395
+property_name: I-2260
+category: 名品の展示
+property: 重要文化財
+name: 天冠
+info: 和歌山・丹生都比売神社伝来 鎌倉～南北朝時代・14世紀
+season_spring: 1
+season_summer: 0
+season_autumn: 0
+season_winter: 1
+date_start: 2027/1/1
+date_end: 2027/3/22
+room: 本館19室
+---
+no_date: 396
+property_name: I-2830
+category: 名品の展示
+name: タナシ 浅葱地流水紅葉若松雲模様
+info: 沖縄本島 第二尚氏時代・19世紀
+season_spring: 0
+season_summer: 1
+season_autumn: 1
+season_winter: 0
+date_start: 2026/08/04
+date_end: 2026/10/25
+room: 本館6室
+---
+no_date: 397
+property_name: I-2843
+category: 名品の展示
+name: 狩衣 紺地雲龍丸模様
+info: 上杉家伝来 江戸時代・18世紀
+season_spring: 1
+season_summer: 1
+season_autumn: 0
+season_winter: 0
+date_start: 2026/4/8
+date_end: 2026/6/28
+room: 本館19室
+---
+no_date: 398
+property_name: I-3235
+category: 名品の展示
+name: 縫箔 浅葱地五枚笹柳桜模様
+info: 奈良・金春家伝来 安土桃山時代・16～17世紀
+season_spring: 0
+season_summer: 1
+season_autumn: 1
+season_winter: 0
+date_start: 2026/6/30
+date_end: 2026/9/13
+room: 本館19室
+img: I-3235_C0045702.jpg
+---
+no_date: 399
+property_name: I-3928
+category: 名品の展示
+name: 小袖 萌黄縮緬地菊薄垣水模様
+info: 江戸時代・18世紀
+season_spring: 0
+season_summer: 0
+season_autumn: 1
+season_winter: 0
+date_start: 2026/9/15
+date_end: 2026/11/29
+room: 本館20室
+---
+no_date: 400
+property_name: I-4092
+category: 名品の展示
+property: 重要文化財
+name: 小袖 黒紅綸子地草木鶴亀幾何学形模様
+info: 江戸時代・17世紀
+season_spring: 1
+season_summer: 0
+season_autumn: 0
+season_winter: 1
+date_start: 2027/1/1
+date_end: 2027/3/22
+room: 本館20室
+---
+no_date: 401
+property_name: I-4293
+category: 名品の展示
+name: 帷子 黒麻地御簾藤模様
+info: 旧久留米藩藩士家伝来 江戸時代・18世紀
+season_spring: 0
+season_summer: 1
+season_autumn: 1
+season_winter: 0
+date_start: 2026/6/30
+date_end: 2026/9/13
+room: 本館20室
+---
+no_date: 402
+property_name: I-4312
+category: 名品の展示
+name: 小袖 紫白染分縮緬地笠扇桜文字模様
+info: 江戸時代・18世紀
+season_spring: 1
+season_summer: 1
+season_autumn: 0
+season_winter: 0
+date_start: 2027/3/24
+date_end: 2027/6/13
+room: 本館20室
+---
+no_date: 403
+property_name: J-20915
+category: 名品の展示
+property: 重要文化財
+name: 埴輪 盛装女子
+info: 群馬県伊勢崎市豊城町横塚出土 古墳時代・6世紀
+season_spring: 1
+season_summer: 1
+season_autumn: 1
+season_winter: 1
+date_start: 2026/02/02
+date_end: 2027/07/04
+room: 平成館考古展示室
+img: J-20915_E0042242.jpg
+---
+no_date: 404
+property_name: J-21428,J-21429
+category: 名品の展示
+name: 埴輪 踊る人々
+info: 埼玉県熊谷市 野原古墳出土 古墳時代・6世紀
+season_spring: 1
+season_summer: 1
+season_autumn: 0
+season_winter: 1
+date_start: 2027/01/01
+date_end: 2027/06/27
+room: 本館11室
+img: J-21428_J-21429_E0171724.jpg
+---
+no_date: 405
+property_name: J-25363
+category: 名品の展示
+name: 鴟尾
+info: 大阪府柏原市 鳥坂寺跡(高井田廃寺)出土 飛鳥～奈良時代・7～8世紀
+season_spring: 1
+season_summer: 1
+season_autumn: 1
+season_winter: 1
+date_start: 2026/02/02
+date_end: 2027/03/22
+room: 平成館考古展示室
+---
+no_date: 406
+property_name: J-37433
+category: 名品の展示
+property: 国宝
+name: 扁平鈕式銅鐸
+info: 伝香川県出土 弥生時代(中期)・前2～前1世紀
+season_spring: 1
+season_summer: 1
+season_autumn: 1
+season_winter: 1
+date_start: 2026/02/02
+date_end: 2027/03/14
+room: 平成館考古展示室
+---
+no_date: 407
+property_name: J-38392
+category: 名品の展示
+property: 重要文化財
+name: 遮光器土偶
+info: 青森県つがる市木造亀ヶ岡出土 縄文時代(晩期)・前1000～前400年
+season_spring: 1
+season_summer: 1
+season_autumn: 1
+season_winter: 1
+date_start: 2026/02/02
+date_end: 2027/03/14
+room: 平成館考古展示室
+img: J-38392_E0084447.jpg
+---
+no_date: 408
+property_name: J-39036
+category: 名品の展示
+name: 火焰型土器
+info: 伝新潟県長岡市馬高出土 縄文時代(中期)・前3000～前2000年
+season_spring: 0
+season_summer: 1
+season_autumn: 1
+season_winter: 1
+date_start: 2026/06/30
+date_end: 2026/12/20
+room: 本館11室
+---
+no_date: 409
+property_name: J-573
+category: 名品の展示
+property: 国宝
+name: 銀象嵌銘大刀
+info: 熊本県和水町 江田船山古墳出土 古墳時代・5～6世紀
+season_spring: 1
+season_summer: 1
+season_autumn: 1
+season_winter: 1
+date_start: 2026/02/02
+date_end: 2027/06/20
+room: 平成館考古展示室
+---
+no_date: 410
+property_name: K-25662
+category: 名品の展示
+name: 木綿衣
+info: 北海道アイヌ志村弥十郎着用 19世紀 ウィーン万国博覧会事務局引継
+season_spring: 1
+season_summer: 0
+season_autumn: 0
+season_winter: 1
+date_start: 2027/01/26
+date_end: 2027/03/07
+room: 本館6室
+---
+no_date: 411
+property_name: K-27552
+category: 名品の展示
+name: シトキ（首飾）
+info: 北海道アイヌ 19世紀
+season_spring: 1
+season_summer: 1
+season_autumn: 0
+season_winter: 0
+date_start: 2026/05/12
+date_end: 2026/08/02
+room: 本館6室
+---
+no_date: 412
+property_name: K-28028
+category: 名品の展示
+name: 煙草入
+info: 樺太アイヌ 19世紀 徳川頼貞氏寄贈
+season_spring: 0
+season_summer: 0
+season_autumn: 1
+season_winter: 1
+date_start: 2026/10/27
+date_end: 2027/1/24
+room: 本館6室
+---
+no_date: 413
+property_name: N-121
+category: 名品の展示
+property: 重要文化財
+name: 青磁四耳壺
+info: 中国 唐時代・7世紀
+season_spring: 1
+season_summer: 0
+season_autumn: 0
+season_winter: 1
+date_start: 2027/1/19
+date_end: 2027/4/11
+room: 法隆寺宝物館 第4室
+img: N-121_C0032269.jpg
+---
+no_date: 414
+property_name: N-131
+category: 名品の展示
+name: 御所人形
+info: 江戸時代・19世紀
+season_spring: 1
+season_summer: 0
+season_autumn: 0
+season_winter: 1
+date_start: 2026/2/17
+date_end: 2026/5/10
+room: 法隆寺宝物館 第4室
+---
+no_date: 415
+property_name: N-13-2
+category: 名品の展示
+property: 重要文化財
+name: 梵網経 下巻
+info: 平安時代・9世紀
+season_spring: 1
+season_summer: 0
+season_autumn: 0
+season_winter: 1
+date_start: 2027/01/26
+date_end: 2027/03/14
+room: 法隆寺宝物館 第6室
+---
+no_date: 416
+property_name: N-139-1
+category: 名品の展示
+property: 重要文化財
+name: 壺鐙
+info: 飛鳥時代・7世紀
+season_spring: 0
+season_summer: 0
+season_autumn: 1
+season_winter: 1
+date_start: 2026/10/27
+date_end: 2027/1/17
+room: 法隆寺宝物館 第4室
+---
+no_date: 417
+property_name: N-144
+category: 名品の展示
+property: 重要文化財
+name: 阿弥陀如来倚像および両脇侍立像
+info: 飛鳥時代・7世紀
+season_spring: 1
+season_summer: 1
+season_autumn: 1
+season_winter: 1
+date_start: 2026/04/20
+date_end: 2027/4/18
+room: 法隆寺宝物館 第2室
+---
+no_date: 418
+property_name: N-15
+category: 名品の展示
+property: 重要文化財
+name: 勝鬘経
+info: 鎌倉時代・13世紀
+season_spring: 1
+season_summer: 1
+season_autumn: 0
+season_winter: 0
+date_start: 2026/04/14
+date_end: 2026/06/07
+room: 法隆寺宝物館 第6室
+---
+no_date: 419
+property_name: N-18-1
+category: 名品の展示
+property: 重要文化財
+name: 古今目録抄（聖徳太子伝私記）上巻
+info: 顕真筆 鎌倉時代・13世紀
+season_spring: 0
+season_summer: 1
+season_autumn: 0
+season_winter: 0
+date_start: 2026/06/09
+date_end: 2026/08/02
+room: 法隆寺宝物館 第6室
+---
+no_date: 420
+property_name: N-217
+category: 名品の展示
+property: 国宝
+name: 伎楽面 太孤児
+info: 飛鳥時代・7世紀
+season_spring: 1
+season_summer: 1
+season_autumn: 1
+season_winter: 1
+date_start: 2026/04/20
+date_end: 2027/4/18
+room: 法隆寺宝物館 第3室
+---
+no_date: 421
+property_name: N-27-1
+category: 名品の展示
+name: 広東綾幡残欠（和銅7年銘）
+info: 奈良時代・和銅7年(714)
+season_spring: 0
+season_summer: 0
+season_autumn: 0
+season_winter: 1
+date_start: 2026/12/01
+date_end: 2026/12/20
+room: 法隆寺宝物館 第6室
+---
+no_date: 422
+property_name: N-280
+category: 名品の展示
+property: 国宝
+name: 鵲尾形柄香炉
+info: 朝鮮半島または日本 三国時代または飛鳥時代・6～7世紀
+season_spring: 1
+season_summer: 1
+season_autumn: 1
+season_winter: 1
+date_start: 2026/04/20
+date_end: 2027/4/18
+room: 法隆寺宝物館 第5室
+---
+no_date: 423
+property_name: N-313-1
+category: 名品の展示
+name: 淡緑地輪繫文錦裂
+info: 奈良時代・8世紀
+season_spring: 0
+season_summer: 1
+season_autumn: 0
+season_winter: 0
+date_start: 2026/07/07
+date_end: 2026/08/02
+room: 法隆寺宝物館 第6室
+---
+no_date: 424
+property_name: N-24
+category: 名品の展示
+name: 広東綾大幡
+info: 飛鳥～奈良時代・7～8世紀
+season_spring: 0
+season_summer: 1
+season_autumn: 0
+season_winter: 0
+date_start: 2026/08/04
+date_end: 2026/08/30
+room: 法隆寺宝物館 第6室
+---
+no_date: 425
+property_name: N-315
+category: 名品の展示
+name: 広東幡残欠
+info: 飛鳥～奈良時代・7～8世紀
+season_spring: 0
+season_summer: 0
+season_autumn: 0
+season_winter: 0
+date_start: 2026/05/12
+date_end: 2026/06/07
+room: 法隆寺宝物館 第6室
+---
+no_date: 426
+property_name: N-319-26
+category: 名品の展示
+name: 織物天蓋残欠
+info: 飛鳥～奈良時代・7～8世紀
+season_spring: 0
+season_summer: 0
+season_autumn: 1
+season_winter: 0
+date_start: 2026/09/29
+date_end: 2026/10/25
+room: 法隆寺宝物館 第6室
+---
+no_date: 427
+property_name: N-323
+category: 名品の展示
+name: 双鳥円文木綿裂
+info: 飛鳥～奈良時代・7～8世紀
+season_spring: 0
+season_summer: 0
+season_autumn: 0
+season_winter: 1
+date_start: 2027/01/01
+date_end: 2027/01/24
+room: 法隆寺宝物館 第6室
+---
+no_date: 428
+property_name: N-32-3
+category: 名品の展示
+property: 重要文化財
+name: 繡仏裂
+info: 飛鳥時代・7世紀
+season_spring: 0
+season_summer: 0
+season_autumn: 1
+season_winter: 0
+date_start: 2026/10/27
+date_end: 2026/11/29
+room: 法隆寺宝物館 第6室
+---
+no_date: 429
+property_name: N-34
+category: 名品の展示
+property: 重要文化財
+name: 糞掃衣
+info: 奈良時代・8世紀
+season_spring: 0
+season_summer: 1
+season_autumn: 0
+season_winter: 0
+date_start: 2026/06/09
+date_end: 2026/07/05
+room: 法隆寺宝物館 第6室
+---
+no_date: 430
+property_name: N-40
+category: 名品の展示
+property: 重要文化財
+name: 狩猟文錦褥
+info: 奈良時代・8世紀
+season_spring: 0
+season_summer: 0
+season_autumn: 0
+season_winter: 0
+date_start: 2026/09/01
+date_end: 2026/09/27
+room: 法隆寺宝物館 第6室
+---
+no_date: 431
+property_name: N-41-１
+category: 名品の展示
+property: 重要文化財
+name: 花鳥蝶文錦褥 表裂
+info: 奈良時代・8世紀
+season_spring: 1
+season_summer: 0
+season_autumn: 0
+season_winter: 1
+date_start: 2027/02/16
+date_end: 2027/03/14
+room: 法隆寺宝物館 第6室
+---
+no_date: 432
+property_name: N-50-2
+category: 名品の展示
+property: 重要文化財
+name: 山形文組紐幡頭
+info: 飛鳥～奈良時代・7～8世紀
+season_spring: 0
+season_summer: 0
+season_autumn: 0
+season_winter: 1
+date_start: 2027/01/26
+date_end: 2027/02/14
+room: 法隆寺宝物館 第6室
+---
+no_date: 433
+property_name: N-56
+category: 名品の展示
+property: 重要文化財
+name: 蜀江錦幡残欠
+info: 飛鳥時代・7世紀
+season_spring: 1
+season_summer: 0
+season_autumn: 0
+season_winter: 0
+date_start: 2026/04/14
+date_end: 2026/05/10
+room: 法隆寺宝物館 第6室
+---
+no_date: 434
+property_name: N-58
+category: 名品の展示
+property: 国宝
+name: 灌頂幡
+info: 法隆寺献納宝物 飛鳥時代・7世紀
+season_spring: 1
+season_summer: 1
+season_autumn: 1
+season_winter: 1
+date_start: 2025/04/21
+date_end: 2027/4/18
+room: 法隆寺宝物館 第1室
+img: N-58_C0027521.jpg
+---
+no_date: 435
+property_name: N-67
+category: 名品の展示
+property: 重要文化財
+name: 雷神文磬
+info: 法隆寺献納宝物 鎌倉時代・13～14世紀
+season_spring: 1
+season_summer: 1
+season_autumn: 1
+season_winter: 1
+date_start: 2025/04/21
+date_end: 2027/4/18
+room: 法隆寺宝物館 第5室
+---
+no_date: 436
+property_name: N-71
+category: 名品の展示
+property: 国宝
+name: 木画経箱
+info: 法隆寺献納宝物 奈良時代・8世紀
+season_spring: 1
+season_summer: 1
+season_autumn: 0
+season_winter: 0
+date_start: 2026/5/12
+date_end: 2026/8/2
+room: 法隆寺宝物館 第4室
+---
+no_date: 437
+property_name: N-74
+category: 名品の展示
+property: 国宝
+name: 海磯鏡
+info: 法隆寺献納宝物 奈良時代・8世紀
+season_spring: 1
+season_summer: 1
+season_autumn: 1
+season_winter: 1
+date_start: 2025/04/21
+date_end: 2027/4/18
+room: 法隆寺宝物館 第5室
+img: N-74_C0060957.jpg
+---
+no_date: 438
+property_name: N-8-1
+category: 名品の展示
+property: 重要文化財
+name: 梵本心経および尊勝陀羅尼
+info: 後グプタ時代・7～8世紀
+season_spring: 0
+season_summer: 0
+season_autumn: 0
+season_winter: 1
+date_start: 2026/12/01
+date_end: 2027/01/24
+room: 法隆寺宝物館 第6室
+---
+no_date: 439
+property_name: N-88
+category: 名品の展示
+property: 重要文化財
+name: 鳳凰円文螺鈿唐櫃
+info: 法隆寺献納宝物 平安時代・12世紀
+season_spring: 0
+season_summer: 1
+season_autumn: 1
+season_winter: 0
+date_start: 2026/8/4
+date_end: 2026/10/25
+room: 法隆寺宝物館 第4室
+img: N-88_C0038205.jpg
+---
+no_date: 440
+property_name: P-582-2
+category: 名品の展示
+property: 重要文化財
+name: 東海道分間延絵図平塚、大磯、小田原、箱根、箱根権現
+info: 道中奉行所編浅草文庫旧蔵 江戸時代・文化3年(1806)
+season_spring: 0
+season_summer: 0
+season_autumn: 0
+season_winter: 1
+date_start: 2027/1/1
+date_end: 2027/2/28
+room: 本館5室
+---
+no_date: 441
+property_name: QA-4006
+category: 名品の展示
+name: 鯨図
+info: 栗本丹洲著 江戸時代･18～19世紀
+season_spring: 0
+season_summer: 1
+season_autumn: 0
+season_winter: 0
+date_start: 2026/6/23
+date_end: 2026/8/23
+room: 本館5室
+---
+no_date: 442
+property_name: TA-163
+category: 名品の展示
+property: 重要文化財
+name: 四季花鳥図軸
+info: 呂紀筆 中国 明時代・15～16世紀
+season_spring: 1
+season_summer: 1
+season_autumn: 0
+season_winter: 0
+date_start: 2026/05/12
+date_end: 2026/06/14
+room: 東洋館8室
+img: TA-163_1_E0008186.jpg
+---
+no_date: 443
+property_name: TA-436
+category: 名品の展示
+name: 水牛・水禽図
+info: 朝鮮半島 朝鮮時代・17世紀 小倉コレクション保存会寄贈
+season_spring: 0
+season_summer: 1
+season_autumn: 0
+season_winter: 0
+date_start: 2026/06/02
+date_end: 2026/07/12
+room: 東洋館10室
+---
+no_date: 444
+property_name: TA-505
+category: 名品の展示
+name: 『秘密集会』阿閦金剛三十二尊曼荼羅（『ヴァジュラーヴァリー』曼荼羅集のうち2番）
+info: 中国 清時代・18世紀
+season_spring: 0
+season_summer: 0
+season_autumn: 1
+season_winter: 0
+date_start: 2026/10/20
+date_end: 2026/11/29
+room: 東洋館8室
+---
+no_date: 445
+property_name: TA-536
+category: 名品の展示
+name: 緑荷図軸
+info: 張大千筆 中国 中華民国34年(1945) 林宗毅氏寄贈
+season_spring: 0
+season_summer: 1
+season_autumn: 0
+season_winter: 0
+date_start: 2026/06/16
+date_end: 2026/07/26
+room: 東洋館8室
+---
+no_date: 446
+property_name: TA-647-2
+category: 名品の展示
+name: ラズム・ナーマ
+info: ムガル派インド 16世紀末
+season_spring: 0
+season_summer: 0
+season_autumn: 1
+season_winter: 0
+date_start: 2026/10/27
+date_end: 2026/11/29
+room: 東洋館13室
+---
+no_date: 447
+property_name: TA-798
+category: 名品の展示
+name: 玉堂富貴図軸
+info: 藍濤筆 中国 清時代・康熙18年(1679) 橋本末吉氏・橋本太乙氏寄贈
+season_spring: 0
+season_summer: 0
+season_autumn: 1
+season_winter: 0
+date_start: 2026/09/08
+date_end: 2026/10/18
+room: 東洋館8室
+---
+no_date: 448
+property_name: TA-823
+category: 名品の展示
+name: 渓山晴翠図軸
+info: 顧大申筆 中国 清時代・康煕8年(1669) 橋本末吉氏・橋本太乙氏寄贈
+season_spring: 0
+season_summer: 1
+season_autumn: 1
+season_winter: 0
+date_start: 2026/07/28
+date_end: 2026/09/06
+room: 東洋館8室
+---
+no_date: 449
+property_name: TB-1
+category: 名品の展示
+name: 草書「本固邦寧」額
+info: 原跡：伝英祖筆 朝鮮半島 原跡：朝鮮時代・18世紀
+season_spring: 0
+season_summer: 0
+season_autumn: 1
+season_winter: 0
+date_start: 2026/10/14
+date_end: 2026/11/29
+room: 東洋館10室
+---
+no_date: 450
+property_name: TB-1219
+category: 名品の展示
+name: 楷書離騒九歌巻
+info: 文徴明筆 中国 明時代・嘉靖31年(1552) 高島菊次郎氏寄贈
+season_spring: 0
+season_summer: 1
+season_autumn: 1
+season_winter: 0
+date_start: 2026/08/25
+date_end: 2026/10/18
+room: 東洋館8室
+---
+no_date: 451
+property_name: TB-1352
+category: 名品の展示
+name: 褚模蘭亭序
+info: 原跡：王羲之筆 中国 原跡：東晋時代・永和9年(353) 高島菊次郎氏寄贈
+season_spring: 0
+season_summer: 1
+season_autumn: 0
+season_winter: 0
+date_start: 2026/06/30
+date_end: 2026/08/23
+room: 東洋館8室
+---
+no_date: 452
+property_name: TB-1580
+category: 名品の展示
+name: 隷書「七子清唫処」額
+info: 伊秉綬筆 中国 清時代・嘉慶17年(1812) 高島菊次郎氏寄贈
+season_spring: 0
+season_summer: 1
+season_autumn: 0
+season_winter: 0
+date_start: 2026/06/30
+date_end: 2026/08/23
+room: 東洋館8室
+---
+no_date: 453
+property_name: TB-1590
+category: 名品の展示
+name: 臨石鼓文軸
+info: 呉昌碩筆 中国 中華民国14年(1925) 林宗毅氏寄贈
+season_spring: 1
+season_summer: 1
+season_autumn: 0
+season_winter: 0
+date_start: 2026/05/12
+date_end: 2026/06/28
+room: 東洋館8室
+img: TB-1590_E0107514.jpg
+---
+no_date: 454
+property_name: TB-1670
+category: 名品の展示
+name: 蘭亭洮河緑石抄手硯
+info: 中国 青山杉雨氏旧蔵 明時代・14～17世紀 青山慶示氏寄贈
+season_spring: 1
+season_summer: 1
+season_autumn: 0
+season_winter: 0
+date_start: 2026/05/12
+date_end: 2026/08/23
+room: 東洋館8室
+---
+no_date: 455
+property_name: TB-1679
+category: 名品の展示
+name: 翡翠硯
+info: 中国 青山杉雨氏旧蔵 清時代・18～19世紀 山野好子氏寄贈
+season_spring: 0
+season_summer: 1
+season_autumn: 1
+season_winter: 0
+date_start: 2026/08/25
+date_end: 2026/11/29
+room: 東洋館8室
+---
+no_date: 456
+property_name: TB-913
+category: 名品の展示
+name: 行書格物篇軸
+info: 乾隆帝筆中国 清時代・乾隆43年(1778)
+season_spring: 0
+season_summer: 0
+season_autumn: 1
+season_winter: 0
+date_start: 2026/10/20
+date_end: 2026/11/29
+room: 東洋館8室
+---
+no_date: 457
+property_name: TC-397
+category: 名品の展示
+name: 楣
+info: カンボジア、プラサート・スララウ フランス極東学院交換品 アンコール時代・10世紀
+season_spring: 1
+season_summer: 1
+season_autumn: 1
+season_winter: 1
+date_start: 2026/04/20
+date_end: 2027/04/18
+room: 東洋館11室
+---
+no_date: 458
+property_name: TC-401
+category: 名品の展示
+name: 浮彫アプサラス像
+info: カンボジア、バイヨン フランス極東学院交換品 アンコール時代・12～13世紀
+season_spring: 1
+season_summer: 1
+season_autumn: 1
+season_winter: 1
+date_start: 2026/04/20
+date_end: 2027/04/18
+room: 東洋館11室
+---
+no_date: 459
+property_name: TC-424
+category: 名品の展示
+name: 宝冠如来坐像
+info: インド パーラ朝・10～11世紀
+season_spring: 0
+season_summer: 1
+season_autumn: 1
+season_winter: 0
+date_start: 2026/6/30
+date_end: 2026/11/29
+room: 東洋館3室
+---
+no_date: 460
+property_name: TC-456
+category: 名品の展示
+name: 如来像頭部
+info: 中国・ホータン大谷探検隊将来品 3～4世紀
+season_spring: 1
+season_summer: 1
+season_autumn: 1
+season_winter: 1
+date_start: 2026/03/16
+date_end: 2027/04/11
+room: 東洋館3室
+---
+no_date: 461
+property_name: TC-554
+category: 名品の展示
+name: 衆人奏楽図
+info: 中国・ベゼクリク石窟第33窟大谷探検隊将来品 高昌ウイグル期・10～11世紀
+season_spring: 1
+season_summer: 0
+season_autumn: 0
+season_winter: 1
+date_start: 2027/02/16
+date_end: 2027/04/11
+room: 東洋館3室
+---
+no_date: 462
+property_name: TC-557
+category: 名品の展示
+name: 舎利容器
+info: 中国・クチャ出土大谷探検隊将来品 6～7世紀
+season_spring: 0
+season_summer: 0
+season_autumn: 1
+season_winter: 0
+date_start: 2026/09/15
+date_end: 2026/11/29
+room: 東洋館3室
+---
+no_date: 463
+property_name: TC-728
+category: 名品の展示
+name: 仏鉢供養・菩薩交脚像
+info: アフガニスタン 3～4世紀 矢野鶴子氏寄贈
+season_spring: 1
+season_summer: 1
+season_autumn: 1
+season_winter: 1
+date_start: 2025/12/22
+date_end: 2027/06/27
+room: 東洋館3室
+---
+no_date: 464
+property_name: TC-731
+category: 名品の展示
+name: 兜率天上の弥勒菩薩像
+info: パキスタン クシャーン朝・2～3世紀
+season_spring: 1
+season_summer: 1
+season_autumn: 1
+season_winter: 1
+date_start: 2025/12/22
+date_end: 2027/06/27
+room: 東洋館3室
+---
+no_date: 465
+property_name: TC-789
+category: 名品の展示
+name: 男女像・満瓶浮彫結界石
+info: タイ ドヴァーラヴァティー時代・8～10世紀 山本達郎氏寄贈
+season_spring: 1
+season_summer: 1
+season_autumn: 1
+season_winter: 0
+date_start: 2026/4/8
+date_end: 2026/10/18
+room: 東洋館12室
+---
+no_date: 466
+property_name: TC-818
+category: 名品の展示
+name: 菩薩立像
+info: 中国・敦煌莫高窟大谷探検隊将来品 唐時代・7～10世紀 井上恒一氏寄贈
+season_spring: 0
+season_summer: 0
+season_autumn: 0
+season_winter: 1
+date_start: 2027/01/01
+date_end: 2027/02/14
+room: 東洋館3室
+---
+no_date: 467
+property_name: TC-830
+category: 名品の展示
+name: 四臂神像
+info: インドネシア、東部ジャワ岡野繁藏旧蔵 14～15世紀 有賀澄子氏寄贈
+season_spring: 1
+season_summer: 0
+season_autumn: 1
+season_winter: 1
+date_start: 2026/10/20
+date_end: 2027/5/9
+room: 東洋館12室
+---
+no_date: 468
+property_name: TG-1635
+category: 名品の展示
+name: 白玉水禽形合子
+info: 「賜恭親王 乾隆御製」銘 中国 清時代・乾隆年間(1736～95) 神谷伝兵衛氏寄贈
+season_spring: 1
+season_summer: 1
+season_autumn: 0
+season_winter: 1
+date_start: 2026/01/01
+date_end: 2026/06/21
+room: 東洋館9室
+img: TG-1635_E0014198.jpg
+---
+no_date: 469
+property_name: TG-2110
+category: 名品の展示
+name: 青磁蓮弁文盤
+info: 中国 南朝時代・5～6世紀 横河民輔氏寄贈
+season_spring: 1
+season_summer: 1
+season_autumn: 1
+season_winter: 1
+date_start: 2026/08/18
+date_end: 2027/07/11
+room: 東洋館5室
+---
+no_date: 470
+property_name: TG-2152
+category: 名品の展示
+property: 重要美術品
+name: 白釉鉄絵牡丹文瓶
+info: 中国・磁州窯 北宋～金時代・12世紀 山田節子氏寄贈
+season_spring: 1
+season_summer: 1
+season_autumn: 0
+season_winter: 1
+date_start: 2027/2/9
+date_end: 2027/7/11
+room: 東洋館5室
+---
+no_date: 471
+property_name: TG-2166
+category: 名品の展示
+name: 青磁千鳥香炉
+info: 中国・龍泉窯 南宋時代・13世紀 広田松繁氏寄贈
+season_spring: 1
+season_summer: 1
+season_autumn: 1
+season_winter: 1
+date_start: 2026/8/18
+date_end: 2027/7/11
+room: 東洋館5室
+---
+no_date: 472
+property_name: TG-2186
+category: 名品の展示
+name: 多色ガラス燭台
+info: 「乾隆年製」銘 中国 清時代・乾隆年間(1736～95)
+season_spring: 0
+season_summer: 0
+season_autumn: 1
+season_winter: 0
+date_start: 2026/9/15
+date_end: 2026/11/29
+room: 東洋館9室
+---
+no_date: 473
+property_name: TG-2204
+category: 名品の展示
+property: 重要美術品
+name: 大井戸茶碗 有楽井戸
+info: 朝鮮半島織田有楽斎、紀伊国屋文左衛門所持 朝鮮時代・16世紀 松永安左エ門氏寄贈
+season_spring: 1
+season_summer: 0
+season_autumn: 0
+season_winter: 1
+date_start: 2027/1/1
+date_end: 2027/5/30
+room: 本館14室
+---
+no_date: 474
+property_name: TG-2731
+category: 名品の展示
+name: 青花貼花龍文燭台
+info: ベトナム 永治二年(1677)
+season_spring: 1
+season_summer: 1
+season_autumn: 0
+season_winter: 1
+date_start: 2027/2/16
+date_end: 2027/6/20
+room: 東洋館12室
+img: TG-2731_C0088489.jpg
+---
+no_date: 475
+property_name: TG-2735
+category: 名品の展示
+name: 青花唐草文高足碗
+info: 中国・景徳鎮窯 明時代・宣徳年間(1426～35)
+season_spring: 1
+season_summer: 1
+season_autumn: 0
+season_winter: 0
+date_start: 2026/4/8
+date_end: 2026/8/16
+room: 東洋館5室
+---
+no_date: 476
+property_name: TG-2903
+category: 名品の展示
+name: 青磁蓮花文稜花平鉢
+info: タイ・シーサッチャナーライ窯 15世紀 山田義雄氏寄贈
+season_spring: 1
+season_summer: 1
+season_autumn: 1
+season_winter: 1
+date_start: 2026/6/9
+date_end: 2027/06/20
+room: 東洋館12室
+---
+no_date: 477
+property_name: TG-2980
+category: 名品の展示
+name: 青磁平鉢
+info: タイ・北方窯 15世紀 吉岡健氏寄贈
+season_spring: 1
+season_summer: 1
+season_autumn: 1
+season_winter: 1
+date_start: 2026/6/9
+date_end: 2027/6/20
+room: 東洋館12室
+---
+no_date: 478
+property_name: TG-2999
+category: 名品の展示
+name: 扁壺
+info: 韓国京畿道広州金沙里 朝鮮時代・18世紀 塚越正明氏寄贈
+season_spring: 1
+season_summer: 1
+season_autumn: 1
+season_winter: 0
+date_start: 2026/04/21
+date_end: 2026/11/29
+room: 東洋館10室
+---
+no_date: 479
+property_name: TG-3115
+category: 名品の展示
+name: 鉄砂菊花竹文壺
+info: 韓国京畿道広州 朝鮮時代・18世紀 伊藤郁太郎氏寄贈
+season_spring: 1
+season_summer: 1
+season_autumn: 1
+season_winter: 1
+date_start: 2026/01/01
+date_end: 2027/6/13
+room: 東洋館10室
+---
+no_date: 480
+property_name: TH-153
+category: 名品の展示
+name: 山水人物彫犀角杯
+info: 中国 清時代・18世紀
+season_spring: 0
+season_summer: 1
+season_autumn: 1
+season_winter: 0
+date_start: 2026/6/23
+date_end: 2026/9/13
+room: 東洋館9室
+---
+no_date: 481
+property_name: TH-326
+category: 名品の展示
+name: 寿字彫木彩漆筆
+info: 中国 清時代・17～19世紀 広田松繁氏寄贈
+season_spring: 1
+season_summer: 0
+season_autumn: 0
+season_winter: 0
+date_start: 2027/3/24
+date_end: 2027/5/9
+room: 東洋館8室
+---
+no_date: 482
+property_name: TH-358
+category: 名品の展示
+name: 如意形時計
+info: 中国 清時代・18～19世紀 広田松繁氏寄贈
+season_spring: 1
+season_summer: 0
+season_autumn: 1
+season_winter: 1
+date_start: 2026/11/30
+date_end: 2027/3/22
+room: 東洋館9室
+img: TH-358_E0092325.jpg
+---
+no_date: 483
+property_name: TH-376
+category: 名品の展示
+name: 犀皮盆
+info: 中国 南宋時代・12～13世紀 アーサー・Ｍ.サックラー夫妻寄贈
+season_spring: 0
+season_summer: 1
+season_autumn: 1
+season_winter: 0
+date_start: 2026/6/23
+date_end: 2026/9/13
+room: 東洋館9室
+---
+no_date: 484
+property_name: TH-510
+category: 名品の展示
+name: 童子存星方勝形合子
+info: 「大明嘉靖年製」銘 中国 明時代・嘉靖年間(1522～66)
+season_spring: 0
+season_summer: 0
+season_autumn: 1
+season_winter: 0
+date_start: 2026/9/15
+date_end: 2026/11/29
+room: 東洋館9室
+---
+no_date: 485
+property_name: TH-524
+category: 名品の展示
+name: 龍存星輪花盆
+info: 「大清康熙年製」銘 中国 清時代・康熙年間(1662～1722)
+season_spring: 1
+season_summer: 1
+season_autumn: 0
+season_winter: 0
+date_start: 2026/3/24
+date_end: 2026/6/21
+room: 東洋館9室
+---
+no_date: 486
+property_name: TH-76-1
+category: 名品の展示
+name: 九龍堆朱合子
+info: 「大清乾隆年製／九龍寶盒」銘 中国 清時代・乾隆年間(1736～95) 神谷伝兵衛氏寄贈
+season_spring: 1
+season_summer: 0
+season_autumn: 0
+season_winter: 1
+date_start: 2027/1/1
+date_end: 2027/3/22
+room: 東洋館9室
+---
+no_date: 487
+property_name: TI-128
+category: 名品の展示
+name: 団領（文官服）
+info: 朝鮮半島 朝鮮時代・19世紀
+season_spring: 1
+season_summer: 0
+season_autumn: 0
+season_winter: 1
+date_start: 2027/1/1
+date_end: 2027/4/18
+room: 東洋館10室
+---
+no_date: 488
+property_name: TI-324
+category: 名品の展示
+name: 五彩石畳宝尽文様錦 大蔵錦
+info: 中国 前田家伝来 明時代・16～17世紀
+season_spring: 1
+season_summer: 0
+season_autumn: 0
+season_winter: 1
+date_start: 2027/01/01
+date_end: 2027/3/14
+room: 東洋館5室
+---
+no_date: 489
+property_name: TI-349-8
+category: 名品の展示
+name: サロン（腰衣） 赤藍地孔雀花束文様印金バティック
+info: インドネシア・ジャワ島 20世紀初頭
+season_spring: 0
+season_summer: 0
+season_autumn: 1
+season_winter: 0
+date_start: 2026/09/08
+date_end: 2026/11/29
+room: 東洋館13室
+---
+no_date: 490
+property_name: TI-389
+category: 名品の展示
+name: 緑地花卉蔓草文様金更紗
+info: インド北西部 前田家伝来 17世紀後半
+season_spring: 1
+season_summer: 1
+season_autumn: 0
+season_winter: 0
+date_start: 2026/04/21
+date_end: 2026/07/12
+room: 東洋館13室
+---
+no_date: 491
+property_name: TI-396-1
+category: 名品の展示
+name: カシミヤ・ショール裂 紺地ペイズリー唐草文様
+info: インド・カシミール 18～19世紀
+season_spring: 1
+season_summer: 0
+season_autumn: 0
+season_winter: 1
+date_start: 2027/01/01
+date_end: 2027/3/14
+room: 東洋館13室
+---
+no_date: 492
+property_name: TI-513
+category: 名品の展示
+name: 打敷 五彩緞子縫合せ草花文様編繡
+info: 中国 明時代・16世紀
+season_spring: 0
+season_summer: 0
+season_autumn: 1
+season_winter: 0
+date_start: 2026/09/08
+date_end: 2026/11/29
+room: 東洋館5室
+---
+no_date: 493
+property_name: TI-560-2
+category: 名品の展示
+name: 婚礼用寝具 赤紫地鋸歯菱幾何文様
+info: マーシュアラブ 20世紀初頭
+season_spring: 0
+season_summer: 1
+season_autumn: 1
+season_winter: 0
+date_start: 2026/07/14
+date_end: 2026/09/06
+room: 東洋館13室
+---
+no_date: 494
+property_name: TI-595-3
+category: 名品の展示
+name: 袍裂 金茶地双鷺雲文様錦
+info: 中国 遼時代・10世紀
+season_spring: 0
+season_summer: 1
+season_autumn: 1
+season_winter: 0
+date_start: 2026/07/14
+date_end: 2026/9/6
+room: 東洋館5室
+---
+no_date: 495
+property_name: TJ-2822
+category: 名品の展示
+name: 緑釉倉
+info: 伝中国陝西省西安市付近 前漢～後漢時代・前1～後1世紀 徳川頼貞氏寄贈
+season_spring: 1
+season_summer: 1
+season_autumn: 0
+season_winter: 1
+date_start: 2027/02/09
+date_end: 2027/07/11
+room: 東洋館5室
+---
+no_date: 496
+property_name: TJ-5997
+category: 名品の展示
+name: 有蓋高杯
+info: 韓国 三国時代(加耶)・5世紀前半 藤澤昌三氏寄贈
+season_spring: 0
+season_summer: 1
+season_autumn: 1
+season_winter: 1
+date_start: 2026/06/30
+date_end: 2027/01/17
+room: 東洋館10室
+---
+no_date: 497
+property_name: TK-1966
+category: 名品の展示
+name: 石貨
+info: ミクロネシア、ヤップ島 19世紀後半 田口卯吉氏寄贈
+season_spring: 1
+season_summer: 1
+season_autumn: 0
+season_winter: 0
+date_start: 2026/03/24
+date_end: 2026/06/21
+room: 東洋館13室
+---
+no_date: 498
+property_name: TK-2804
+category: 名品の展示
+name: ワニ像
+info: メラネシア、ニューギニア島北東部 19世紀後半～20世紀初頭 藤川政次郎氏寄贈
+season_spring: 1
+season_summer: 0
+season_autumn: 0
+season_winter: 1
+date_start: 2027/01/01
+date_end: 2027/03/22
+room: 東洋館13室
+img: TK-2804_C0096091.jpg
+---
+no_date: 499
+property_name: TK-3494
+category: 名品の展示
+name: ワヤン・クリ カルノ
+info: インドネシア、中部ジャワ 20世紀後半 田枝豪氏寄贈
+season_spring: 0
+season_summer: 1
+season_autumn: 1
+season_winter: 0
+date_start: 2026/6/23
+date_end: 2026/10/25
+room: 東洋館13室
+img: TK-3494_E0060399.jpg
+---
+no_date: 500
+property_name: 令2-20
+category: 名品の展示
+property: 重要美術品
+name: 後宇多法皇和韻偈
+info: 一山一寧筆 鎌倉時代・14世紀 東京・公益財団法人常盤山文庫
+season_spring: 1
+season_summer: 1
+season_autumn: 0
+season_winter: 0
+date_start: 2026/05/26
+date_end: 2026/07/12
+room: 本館13室
+---
+no_date: 501
+property_name: 令2-21
+category: 名品の展示
+name: 覚道人宛進道語
+info: 宗峰妙超筆 南北朝時代・14世紀 東京・公益財団法人常盤山文庫
+season_spring: 0
+season_summer: 0
+season_autumn: 1
+season_winter: 1
+date_start: 2026/10/20
+date_end: 2026/12/06
+room: 本館13室
+---
+no_date: 502
+property_name: 令2-23
+category: 名品の展示
+name: 七言律詩梅花第四
+info: 虎関師錬筆 南北朝時代・建武5年(1338) 東京・公益財団法人常盤山文庫
+season_spring: 1
+season_summer: 0
+season_autumn: 0
+season_winter: 1
+date_start: 2027/02/02
+date_end: 2027/03/22
+room: 本館13室
+---
+no_date: 503
+property_name: 令2-90
+category: 名品の展示
+name: 小倉色紙
+info: 藤原定家筆 鎌倉時代・13世紀 個人蔵
+season_spring: 0
+season_summer: 0
+season_autumn: 0
+season_winter: 1
+date_start: 2027/01/01
+date_end: 2027/02/07
+room: 本館14室
+---
+no_date: 504
+property_name: KU-a117
+category: 名品の展示
+property: 重要文化財
+name: 湖畔
+info: 黒田清輝筆 明治30年(1897)
+season_spring: 0
+season_summer: 0
+season_autumn: 1
+season_winter: 0
+date_start: 2026/10/27
+date_end: 2026/11/08
+room: 黒田記念館特別室
+img: KU-a117.jpg
+---
+no_date: 505
+property_name: KU-a117
+category: 名品の展示
+property: 重要文化財
+name: 湖畔
+info: 黒田清輝筆 明治30年(1897)
+season_spring: 0
+season_summer: 0
+season_autumn: 0
+season_winter: 1
+date_start: 2027/01/01
+date_end: 2027/01/11
+room: 黒田記念館特別室
+img: KU-a117.jpg
+---
+no_date: 601
+category: 教育普及活動
+title: 親と子のギャラリー 博物館でバクめぐり
+season_spring: 1
+season_summer: 1
+season_autumn: 0
+season_winter: 0
+date_start: 2026/5/12
+date_end: 2026/06/21
+room: 本館4室
+---
+no_date: 603
+category: 教育普及活動
+title: トーハクキッズデー
+season_spring: 0
+season_summer: 1
+season_autumn: 0
+season_winter: 0
+date_start: 2026/7/24
+date_end: 2026/7/25
+room: 構内
+---
+no_date: 602
+category: 教育普及活動
+title: 親と子のギャラリー この顔どんな顔？能面のあらわすきもち
+season_spring: 0
+season_summer: 0
+season_autumn: 1
+season_winter: 0
+date_start: 2026/09/01
+date_end: 2026/10/25
+room: 本館4室
+---
+no_room: 375
+no_date: 701
+category: 催し物
+title: 博物館でお花見を
+season_spring: 1
+season_summer: 0
+season_autumn: 0
+season_winter: 0
+date_start: 2026/3/10
+date_end: 2026/04/05
+room: 本館、庭園
+---
+no_room: 375
+no_date: 702
+category: 催し物
+title: トーハクキッズデー
+season_spring: 0
+season_summer: 1
+season_autumn: 0
+season_winter: 0
+date_start: 2026/7/24
+date_end: 2026/7/25
+room: 構内
+desc: 小さなお子様連れの方に気軽に博物館に来て楽しんでいただきたいという思いから、夏に子ども向けイベント「キッズデー」を開催します。
+---
+no_room: 376
+no_date: 703
+category: 催し物
+title: 博物館でアジアの旅 カラフルアジア
+season_spring: 0
+season_summer: 0
+season_autumn: 1
+season_winter: 1
+date_start: 2026/9/15
+date_end: 2026/11/8
+room: 東洋館
+img: uid000451_2026081315501618b67094.jpg
+---
+no_room: 377
+no_date: 704
+category: 催し物
+title: 博物館に初もうで
+season_spring: 1
+season_summer: 0
+season_autumn: 0
+season_winter: 0
+date_start: 2027/1/1
+date_end: 2027/1/24
+room: 本館
+---
+no_room: 378
+no_date: 801
+category: 庭園
+title: 春の庭園（3月～5月）
+season_spring: 1
+season_summer: 0
+season_autumn: 0
+season_winter: 0
+date_start: 2026/3/1
+date_end: 2026/05/31
+desc: 東京国立博物館の本館北側に広がる庭園は、池を中心に5棟の茶室を配し、四季折々の花や紅葉に彩られる憩いの空間です。春はソメイヨシノをはじめ、オオシマザクラ、八重咲きのカンザン、枝垂れのエドヒガンザクラなど、約10種類もの桜が次々と開花します。散策のベストシーズンであるこの季節、展示室で見る桜の作品とあわせて、庭園で咲く桜もお楽しみください。
+img: teien_spring.jpg
+---
+no_room: 379
+no_date: 802
+category: 庭園
+title: 夏の庭園（6月～8月）
+season_spring: 0
+season_summer: 1
+season_autumn: 0
+season_winter: 0
+date_start: 2026/6/1
+date_end: 2026/08/31
+desc: 東京国立博物館の本館北側に広がる庭園は、池を中心に5棟の茶室を配し、5代将軍徳川綱吉が法隆寺に献納した五重塔や、石碑や燈籠なども遺されています。また、初夏には本館前のタイサンボクや表慶館横のモッコクなど香りの良い花が開花時期を迎えます。涼しい館内での鑑賞とあわせて、博物館の多彩な樹木もお楽しみください。
+img: teien_summer.jpg
+---
+no_room: 380
+no_date: 803
+category: 庭園
+title: 秋の庭園（9月～11月）
+season_spring: 0
+season_summer: 0
+season_autumn: 1
+season_winter: 0
+date_start: 2026/9/1
+date_end: 2026/11/30
+desc: 東京国立博物館の本館北側に広がる庭園は、池を中心に5棟の茶室を配し、四季折々の花や紅葉に彩られる憩いの空間です。秋にはキンモクセイのほか、イチョウ、ハゼノキ、イロハモミジなど紅葉の美しい樹木を楽しむことができます。展示室では紅葉狩りなど秋を題材とした作品も展示されます。過ごしやすくなった芸術の秋に、ぜひ展示とあわせて庭園の散策をお楽しみください。
+img: teien_autumn.jpg
+---
+no_room: 381
+no_date: 804
+category: 庭園
+title: 冬の庭園（12月～2月）
+season_spring: 0
+season_summer: 0
+season_autumn: 0
+season_winter: 1
+date_start: 2026/12/1
+date_end: 2027/02/28
+desc: 東京国立博物館の本館北側に広がる庭園は、池を中心に5棟の茶室を配し、5代将軍徳川綱吉が法隆寺に献納した五重塔や、石碑や燈籠なども遺されています。かつてあった動植物の研究部門「天産部」の名残で、珍しい樹木や野草が植えられているのも特徴です。展示室で見る雪景色や梅を主題とした作品とあわせて、冬に見ごろを迎えるウメ、前庭のツバキなどもぜひお楽しみください。
+img: teien_winter.jpg

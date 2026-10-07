@@ -1,32 +1,21 @@
-# React + TypeScript + Vite
+# 訪剣 −TOKEN−
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+日本刀ファン向けに「推しの刀が、いま・どこで・いつまで見られるか」を伝えるWebサイトです。
+開発ルールは [CLAUDE.md](./CLAUDE.md)、仕様は [docs/](./docs/) を参照してください。
 
-Currently, two official plugins are available:
+## 構成
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- Astro（静的サイト生成）＋ React（動きのある部分のみ）＋ Tailwind CSS v4
+- データ: `data/*.json`（型と検証は `src/lib/schema.ts`・`src/lib/validate.ts`）
+- 中間発表デモのコードは `legacy/` に参照用として残しています（ビルド対象外）。
 
-## React Compiler
+## コマンド
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the Oxlint configuration
-
-If you are developing a production application, we recommend enabling type-aware lint rules by installing `oxlint-tsgolint` and editing `.oxlintrc.json`:
-
-```json
-{
-  "$schema": "./node_modules/oxlint/configuration_schema.json",
-  "plugins": ["react", "typescript", "oxc"],
-  "options": {
-    "typeAware": true
-  },
-  "rules": {
-    "react/rules-of-hooks": "error",
-    "react/only-export-components": ["warn", { "allowConstantExport": true }]
-  }
-}
-```
-
-See the [Oxlint rules documentation](https://oxc.rs/docs/guide/usage/linter/rules) for the full list of rules and categories.
+| コマンド | 内容 |
+|---|---|
+| `npm ci` | 依存パッケージのインストール |
+| `npm run dev` | 開発サーバーの起動 |
+| `npm run validate` | データの検証（data-model.md §12） |
+| `npm run build` | データ検証 → 型チェック → `dist/` に静的サイトを生成 |
+| `npm run lint` | oxlint |
+| `npm test` | Vitest による単体テスト |

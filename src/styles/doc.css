@@ -1,0 +1,94 @@
+/* 文章のページ（/about、/privacy。T-402）。案Aの見出し（明朝＋下の太罫）と本文。 */
+.doc h1 {
+  font-size: 26px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  line-height: 1.4;
+  margin: 8px 0 0;
+}
+.doc .lead {
+  margin: 12px 0 0;
+  font-size: 15px;
+}
+.doc .updated {
+  margin: 6px 0 0;
+  font-family: var(--font-gothic);
+  font-size: 12px;
+  color: var(--color-usuzumi);
+}
+.doc h2 {
+  font-size: 19px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  line-height: 1.5;
+  margin: 36px 0 10px;
+  padding-bottom: 6px;
+  border-bottom: 1px solid var(--color-sumi);
+}
+.doc h3 {
+  font-size: 16px;
+  font-weight: 600;
+  margin: 20px 0 4px;
+}
+.doc p,
+.doc li {
+  font-size: 15px;
+  line-height: 1.9;
+}
+.doc p {
+  margin: 10px 0 0;
+}
+.doc ul {
+  margin: 8px 0 0;
+  padding-left: 1.4em;
+  list-style: disc;
+}
+.doc li + li {
+  margin-top: 4px;
+}
+.doc .small {
+  font-family: var(--font-gothic);
+  font-size: 12px;
+  color: var(--color-usuzumi);
+}
+.doc .warn p {
+  margin: 0;
+  font-size: 14px;
+}
+.doc .warn {
+  margin-top: 14px;
+}
+.doc table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+  font-size: 14px;
+  background: var(--color-washi);
+}
+.doc th,
+.doc td {
+  text-align: left;
+  vertical-align: top;
+  padding: 9px 8px;
+  border-bottom: 1px solid var(--color-mokume);
+  line-height: 1.7;
+}
+.doc th {
+  width: 9em;
+  font-family: var(--font-gothic);
+  font-weight: 400;
+  font-size: 12px;
+  color: var(--color-usuzumi);
+  background: var(--color-shiraki-2);
+}
+@media (max-width: 599px) {
+  .doc th,
+  .doc td {
+    display: block;
+    width: auto;
+  }
+  .doc th {
+    border-bottom: 0;
+    padding-bottom: 2px;
+  }
+}

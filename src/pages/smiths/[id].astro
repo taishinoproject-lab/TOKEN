@@ -1,0 +1,232 @@
+---
+// 刀匠詳細（T-203）。案Aの見出しと出典の欄に、案Bの目録（.cat）と展覧会の一覧（.ex-list）を組み込む（D-016）。
+// 流派単位の登録（kind: "school"、D-012）は、見出しの札と説明で「流派」と分かるようにする。
+import type { GetStaticPaths } from "astro";
+import { getCollection } from "astro:content";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import ExhibitionIndex, { type IndexExhibition } from "../../components/ExhibitionIndex.tsx";
+import Catalog, { type CatalogRow } from "../../components/ui/Catalog.tsx";
+import SourceList from "../../components/ui/SourceList.tsx";
+import SpecTable from "../../components/ui/SpecTable.tsx";
+import UnverifiedBadge from "../../components/ui/UnverifiedBadge.tsx";
+import { ATTRIBUTION_LEGEND } from "../../components/ui/AttributionMark.tsx";
+import { catalogSwordName, smithDisplayName } from "../../lib/display-name";
+import { todayJst } from "../../lib/date";
+import { latestRetrievedAt } from "../../lib/ui-format";
+import { BASIS_ORDER, smithExhibitions, smithExhibitLabels, smithStudents, smithWorks } from "../../lib/listing";
+import { exhibitionStatus } from "../../lib/status";
+
+export const getStaticPaths = (async () => {
+  const smiths = await getCollection("smiths");
+  return smiths.map((entry) => ({ params: { id: entry.id }, props: { smith: entry.data } }));
+}) satisfies GetStaticPaths;
+
+const { smith } = Astro.props;
+const smiths = (await getCollection("smiths")).map((e) => e.data);
+const swords = (await getCollection("swords")).map((e) => e.data);
+const venues = (await getCollection("venues")).map((e) => e.data);
+const exhibitions = (await getCollection("exhibitions")).map((e) => e.data);
+const smithById = new Map(smiths.map((s) => [s.id, s]));
+const venueById = new Map(venues.map((v) => [v.id, v]));
+const buildToday = todayJst();
+
+const isSchool = smith.kind === "school";
+const kindLabel = isSchool ? "流派" : "刀匠";
+
+// 帰属する刀剣の目録（在銘→極め→伝の順）
+const works = smithWorks(smith.id, swords);
+const rows: CatalogRow[] = works.map(({ sword }) => {
+  const name = catalogSwordName(sword);
+  return {
+    key: sword.id,
+    heading: name.heading,
+    subtitle: name.subtitle,
+    href: `/swords/${sword.id}`,
+    designation: sword.designation,
+    nbthkRank: sword.nbthk_rank,
+    // 合作などで複数の刀匠に帰属する刀もあるので、すべての帰属を出す
+    smiths: sword.attributions.flatMap((a) => {
+      const s = smithById.get(a.smith_id);
+      if (!s) return [];
+      return [{ name: smithDisplayName(s), href: s.id === smith.id ? undefined : `/smiths/${s.id}`, basis: a.basis }];
+    }),
+    venue: sword.holder_text,
+  };
+});
+const basisCounts = BASIS_ORDER.map((b) => ({ basis: b, count: works.filter((w) => w.basis === b).length })).filter(
+  (c) => c.count > 0,
+);
+
+// この刀匠の作が出品される展覧会。ビルドの時点で終わっているものは、あとで開催中に戻らないので渡さない
+const relatedExhibitions: IndexExhibition[] = smithExhibitions(smith.id, swords, exhibitions)
+  .filter((ex) => {
+    const status = exhibitionStatus(ex, buildToday);
+    return status === "ongoing" || status === "upcoming" || status === "postponed";
+  })
+  .map((ex) => {
+    const venue = venueById.get(ex.venue_id);
+    const labels = smithExhibitLabels(smith.id, swords, ex);
+    return {
+      id: ex.id,
+      title: ex.title,
+      start_date: ex.start_date,
+      end_date: ex.end_date,
+      status: ex.status,
+      venueText: venue ? `${venue.name}${ex.room ? ` ${ex.room}` : ""}　${venue.prefecture}${venue.city}` : ex.venue_id,
+      confidence: ex.confidence,
+      notes: labels.length > 0 ? [`出品：${labels.join("、")}`] : [],
+    };
+  });
+
+const teachers = (smith.teacher_ids ?? []).map((id) => smithById.get(id)).filter((s) => s !== undefined);
+const students = smithStudents(smith.id, smiths);
+
+const profileRows = [
+  { label: "読み", value: smith.reading },
+  smith.aliases.length > 0 ? { label: "別表記", value: smith.aliases.join("、") } : null,
+  smith.generation ? { label: "代", value: smith.generation } : null,
+  smith.school && smith.school !== smith.name ? { label: "流派", value: smith.school } : null,
+  smith.province ? { label: "国", value: smith.province } : null,
+  smith.era ? { label: "時代", value: smith.era } : null,
+].filter((r) => r !== null);
+
+const tags = [
+  // 流派の登録は、個人の刀匠と取り違えないよう、札でも示す
+  isSchool ? { text: "流派の登録", kind: undefined } : null,
+  smith.generation ? { text: smith.generation, kind: "sub" } : null,
+  smith.province ? { text: smith.province, kind: "sub" } : null,
+  smith.era ? { text: smith.era, kind: "sub" } : null,
+].filter((t) => t !== null);
+---
+
+<BaseLayout
+  title={smithDisplayName(smith)}
+  width="full"
+  description={`${kindLabel} ${smith.name}（${smith.reading}）の作と、作が出品される展覧会。`}
+>
+  <div class="wrap">
+    <nav class="gothic pt-4 text-xs text-usuzumi" aria-label="現在の位置">
+      <a href="/">トップ</a>{" ／ "}<a href="/swords">刀剣</a>{" ／ "}<span aria-current="page">{kindLabel} {smith.name}</span>
+    </nav>
+
+    <article class="max-w-[880px] pt-5 pb-4">
+      <header>
+        <p class="gothic m-0 text-xs tracking-[0.2em] text-usuzumi">{kindLabel}</p>
+        <h1 class="m-0 text-[30px] leading-[1.4] font-extrabold tracking-[0.12em]">
+          {smith.name}{isSchool && <span class="ml-2 text-lg font-semibold tracking-[0.08em]">（流派）</span>}
+        </h1>
+        <p class="mt-1 text-base text-usuzumi">{smith.reading}</p>
+        <ul class="tags">
+          {tags.map((t) => <li data-kind={t.kind}>{t.text}</li>)}
+          {
+            smith.confidence === "unverified" && (
+              <li class="border-0! p-0!">
+                <UnverifiedBadge title={`この${kindLabel}の情報は、出典での確認がまだ済んでいません`} />
+              </li>
+            )
+          }
+        </ul>
+        {
+          isSchool && (
+            <p class="note-line">
+              個人ではなく、流派として登録しています。刀工個人を特定できない作は、この流派に帰属させています。
+            </p>
+          )
+        }
+      </header>
+
+      <div class="mt-6 grid gap-6 min-[900px]:grid-cols-[minmax(0,1fr)_300px] min-[900px]:gap-10">
+        <section aria-labelledby="h-about">
+          <h2 id="h-about" class="cap rule-double pt-3">紹介</h2>
+          {smith.description ? <p class="mt-3 text-[15px]">{smith.description}</p> : <p class="gothic mt-3 text-sm">紹介文は登録されていません。</p>}
+        </section>
+        <section aria-labelledby="h-profile">
+          <h2 id="h-profile" class="cap rule-double pt-3">基本情報</h2>
+          <SpecTable rows={profileRows} caption={`${kindLabel}の基本情報`} />
+        </section>
+      </div>
+
+      <section class="sec" aria-labelledby="h-works">
+        <div class="sec-h">
+          <h2 id="h-works">{isSchool ? "この流派の作" : "この刀匠の作"}</h2>
+          <span class="aside">
+            {works.length}件{basisCounts.length > 0 && ` ／ ${basisCounts.map((c) => `${c.basis} ${c.count}`).join("・")}`}
+          </span>
+        </div>
+        {
+          rows.length === 0 ? (
+            <p class="gothic mt-4 text-sm">登録されている刀剣はありません。</p>
+          ) : (
+            <>
+              <Catalog rows={rows} columns={{ venue: "所蔵", display: false }} caption={`${smith.name}に帰属する刀剣の目録`} />
+              <p class="legend">〔帰属〕{ATTRIBUTION_LEGEND}</p>
+            </>
+          )
+        }
+      </section>
+
+      <section class="sec" aria-labelledby="h-exhibitions">
+        <div class="sec-h">
+          <h2 id="h-exhibitions">{isSchool ? "この流派の作に会える展覧会" : "この刀匠の作に会える展覧会"}</h2>
+          <span class="aside">開催中・開催予定</span>
+        </div>
+        {
+          relatedExhibitions.length === 0 ? (
+            <p class="gothic mt-4 text-sm">開催中・開催予定の展覧会で、この{kindLabel}の作の出品は登録されていません。</p>
+          ) : (
+            <ExhibitionIndex
+              client:load
+              exhibitions={relatedExhibitions}
+              buildToday={buildToday}
+              groups={["ongoing", "upcoming"]}
+              idPrefix="smith-ex"
+            />
+          )
+        }
+      </section>
+
+      {
+        (teachers.length > 0 || students.length > 0) && (
+          <section class="sec" aria-labelledby="h-lineage">
+            <div class="sec-h">
+              <h2 id="h-lineage">師弟関係</h2>
+            </div>
+            <table class="spec">
+              <caption class="sr-only">師弟関係</caption>
+              <tbody>
+                {teachers.length > 0 && (
+                  <tr>
+                    <th scope="row">師</th>
+                    <td>
+                      {teachers.map((t, i) => (
+                        <>
+                          {i > 0 && "・"}
+                          <a href={`/smiths/${t.id}`}>{smithDisplayName(t)}</a>
+                        </>
+                      ))}
+                    </td>
+                  </tr>
+                )}
+                {students.length > 0 && (
+                  <tr>
+                    <th scope="row">弟子</th>
+                    <td>
+                      {students.map((t, i) => (
+                        <>
+                          {i > 0 && "・"}
+                          <a href={`/smiths/${t.id}`}>{smithDisplayName(t)}</a>
+                        </>
+                      ))}
+                    </td>
+                  </tr>
+                )}
+              </tbody>
+            </table>
+          </section>
+        )
+      }
+
+      <SourceList groups={[{ sources: smith.sources, confidence: smith.confidence }]} verifiedAt={latestRetrievedAt(smith.sources)} />
+    </article>
+  </div>
+</BaseLayout>

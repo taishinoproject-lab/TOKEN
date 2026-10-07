@@ -1,0 +1,167 @@
+---
+// 刀剣詳細（T-202）。案Aの構成（白鞘の号表示＋本文）に、案Bの展示情報の表と作品データの表を組み込む（D-016）。
+import type { GetStaticPaths } from "astro";
+import { getCollection } from "astro:content";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import CalendarLinks from "../../components/CalendarLinks.astro";
+import SwordExhibit, { type SwordExhibitionView } from "../../components/SwordExhibit.tsx";
+import Saya from "../../components/ui/Saya.tsx";
+import SwordSpec from "../../components/SwordSpec.tsx";
+import UnverifiedBadge from "../../components/ui/UnverifiedBadge.tsx";
+import SourceList from "../../components/ui/SourceList.tsx";
+import { bladeAndMei, smithNames, swordDisplayName } from "../../lib/display-name";
+import { todayJst } from "../../lib/date";
+import { hasDesignationMark, latestRetrievedAt } from "../../lib/ui-format";
+
+export const getStaticPaths = (async () => {
+  const swords = await getCollection("swords");
+  return swords.map((entry) => ({ params: { id: entry.id }, props: { sword: entry.data } }));
+}) satisfies GetStaticPaths;
+
+const { sword } = Astro.props;
+const smiths = (await getCollection("smiths")).map((e) => e.data);
+const venues = (await getCollection("venues")).map((e) => e.data);
+const exhibitions = (await getCollection("exhibitions"))
+  .map((e) => e.data)
+  .filter((ex) => ex.exhibits.some((exhibit) => exhibit.sword_id === sword.id));
+
+// ブラウザでの再判定と表示に使う項目だけを渡す
+const exhibitionViews: SwordExhibitionView[] = exhibitions.map((ex) => {
+  const venue = venues.find((v) => v.id === ex.venue_id);
+  return {
+    id: ex.id,
+    title: ex.title,
+    start_date: ex.start_date,
+    end_date: ex.end_date,
+    status: ex.status,
+    periods: ex.periods,
+    exhibits: ex.exhibits
+      .filter((exhibit) => exhibit.sword_id === sword.id)
+      .map((exhibit) => ({ sword_id: exhibit.sword_id, period_ids: exhibit.period_ids })),
+    venue: venue ? { name: venue.name, href: `/venues/${venue.id}` } : null,
+    room: ex.room,
+    admission: ex.admission,
+    official_url: ex.official_url,
+    verified_at: ex.verified_at,
+    confidence: ex.confidence,
+  };
+});
+
+const name = swordDisplayName(sword, smiths);
+const go = sword.go?.trim() || null;
+const holderVenue = venues.find((v) => v.id === sword.holder_venue_id);
+const holder = { text: sword.holder_text, href: holderVenue ? `/venues/${holderVenue.id}` : undefined };
+const firstSmith = sword.attributions.map((a) => smiths.find((s) => s.id === a.smith_id)).find((s) => s !== undefined);
+
+const tags = [
+  hasDesignationMark(sword.designation) ? { text: sword.designation, kind: sword.designation } : null,
+  sword.nbthk_rank ? { text: sword.nbthk_rank, kind: "sub", title: "日本美術刀剣保存協会の認定" } : null,
+  sword.era ? { text: sword.era, kind: "sub" } : null,
+  { text: `${sword.holder_text} 蔵`, kind: "sub" },
+].filter((t) => t !== null);
+
+let officialImageHost: string | null = null;
+if (sword.official_image_url) officialImageHost = new URL(sword.official_image_url).hostname;
+
+const exhibitionSourceGroups = exhibitions.map((ex) => ({
+  label: `展示情報（${ex.title}）`,
+  sources: ex.sources.length > 0 ? ex.sources : [{ url: ex.official_url, title: "展覧会の公式ページ", retrieved_at: ex.verified_at }],
+  confidence: ex.confidence,
+}));
+const lastChecked = latestRetrievedAt(sword.sources);
+---
+
+<BaseLayout
+  title={name.heading}
+  width="full"
+  description={`${name.heading}${name.subtitle ? `（${name.subtitle}）` : ""}の展示情報。いま・どこで・いつまで見られるか。`}
+>
+  <div class="wrap">
+    <nav class="gothic pt-4 text-xs text-usuzumi" aria-label="現在の位置">
+      <a href="/">トップ</a>
+      {
+        firstSmith && (
+          <>
+            {" ／ "}
+            <a href={`/smiths/${firstSmith.id}`}>{firstSmith.kind === "school" ? "流派" : "刀匠"} {firstSmith.name}</a>
+          </>
+        )
+      }
+      {" ／ "}<span aria-current="page">{name.heading}</span>
+    </nav>
+
+    <article class="grid gap-7 pt-5 pb-4 min-[900px]:grid-cols-[300px_minmax(0,1fr)] min-[900px]:gap-12">
+      <Saya
+        text={name.heading}
+        isGo={go !== null}
+        reading={go ? sword.go_reading : null}
+        side={go ? bladeAndMei(sword) : smithNames(sword, smiths)}
+      />
+
+      <div class="min-w-0">
+        <h1 class="m-0 text-[28px] leading-[1.4] font-extrabold tracking-[0.1em]">{name.heading}</h1>
+        {name.subtitle && <p class="mt-1 text-base text-usuzumi">{name.subtitle}</p>}
+        <ul class="tags">
+          {
+            tags.map((t) => (
+              <li data-kind={t.kind} title={t.title}>
+                {t.text}
+              </li>
+            ))
+          }
+          {
+            sword.confidence === "unverified" && (
+              <li class="border-0! p-0!">
+                <UnverifiedBadge title="この刀の情報は、出典での確認がまだ済んでいません" />
+              </li>
+            )
+          }
+        </ul>
+
+        <section class="mt-6" aria-labelledby="h-exhibit">
+          <h2 id="h-exhibit" class="cap rule-double pt-3">展示<span>この刀に会える場所と期間</span></h2>
+          <SwordExhibit client:load swordId={sword.id} holder={holder} exhibitions={exhibitionViews} buildToday={todayJst()} />
+        </section>
+
+        <CalendarLinks swordId={sword.id}>
+          {
+            sword.official_image_url && (
+              <a class="btn" href={sword.official_image_url} rel="noopener noreferrer" target="_blank">
+                公式の画像ページを見る ↗<small>{officialImageHost}（外部サイト）</small>
+              </a>
+            )
+          }
+        </CalendarLinks>
+
+        <section class="mt-8" aria-labelledby="h-spec">
+          <h2 id="h-spec" class="cap">作品データ</h2>
+          <SwordSpec sword={sword} smiths={smiths} holderHref={holder.href} />
+        </section>
+
+        {
+          (sword.story || sword.provenance) && (
+            <div class="prose">
+              {sword.story && (
+                <>
+                  <h2>号の由来</h2>
+                  <p>{sword.story}</p>
+                </>
+              )}
+              {sword.provenance && (
+                <>
+                  <h2>伝来</h2>
+                  <p>{sword.provenance.replace(/\s*→\s*/g, " → ")}</p>
+                </>
+              )}
+            </div>
+          )
+        }
+
+        <SourceList
+          groups={[{ sources: sword.sources, confidence: sword.confidence }, ...exhibitionSourceGroups]}
+          verifiedAt={lastChecked}
+        />
+      </div>
+    </article>
+  </div>
+</BaseLayout>

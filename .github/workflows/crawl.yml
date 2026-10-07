@@ -1,0 +1,74 @@
+# 週1回の巡回（T-304）。AI を使わない部分（取得・差分の検出）だけを自動で実行する。
+# 本文に変化があった週だけ、crawl/YYYY-MM-DD ブランチにスナップショットをコミットして、main に向けた PR を作る。
+# 抽出（data/ の更新）は、その PR を起点に docs/crawler-runbook.md の手順で行う。
+name: 週1回の巡回
+
+on:
+  schedule:
+    # 毎週月曜 08:47（日本時間）。cron は UTC で書く
+    - cron: "47 23 * * 0"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: crawl
+  cancel-in-progress: false
+
+jobs:
+  crawl:
+    # main 以外から手動で実行すると、その差分まで PR に混ざるため、main でだけ動かす
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .node-version
+          cache: npm
+
+      - run: npm ci
+
+      - name: 巡回
+        id: fetch
+        # 失敗したページがあっても、他のページの結果で PR を作るため、ここでは止めない（最後の段で失敗にする）
+        run: |
+          rm -f crawl/changes.json
+          set +e
+          npm run crawl:fetch
+          echo "exit_code=$?" >> "$GITHUB_OUTPUT"
+
+      - name: 変化の判定と PR 本文の作成
+        id: check
+        env:
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: npm run crawl:actions -- --body-file "$RUNNER_TEMP/pr-body.md" --run-url "$RUN_URL" --suffix "$GITHUB_RUN_ID"
+
+      - name: ブランチに push して PR を作る
+        if: steps.check.outputs.has_changes == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          BRANCH: ${{ steps.check.outputs.branch }}
+          TITLE: ${{ steps.check.outputs.title }}
+          COMMIT_MESSAGE: ${{ steps.check.outputs.commit_message }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898283+github-actions[bot]@users.noreply.github.com"
+          git switch -c "$BRANCH"
+          git add crawl/snapshots crawl/changes.json
+          git commit -m "$COMMIT_MESSAGE"
+          git push origin "$BRANCH"
+          if ! gh label list --limit 200 --json name --jq '.[].name' | grep -qx crawl; then
+            gh label create crawl --color 5319e7 --description "週1回の巡回で作られたPR"
+          fi
+          gh pr create --base main --head "$BRANCH" --title "$TITLE" --body-file "$RUNNER_TEMP/pr-body.md" --label crawl
+
+      - name: 取得に失敗したページがあれば失敗にする
+        if: steps.fetch.outputs.exit_code != '0'
+        run: |
+          echo "::error::取得に失敗したページがあります（一覧は「変化の判定と PR 本文の作成」の段と、実行の概要を参照）"
+          exit 1

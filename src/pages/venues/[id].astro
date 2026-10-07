@@ -1,0 +1,108 @@
+---
+// 館詳細。案Aの見出しと出典の欄に、地図と、その館の展覧会の一覧（案Bの .ex-list）を組み込む（D-016）。
+import type { GetStaticPaths } from "astro";
+import { getCollection } from "astro:content";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import ExhibitionIndex, { type IndexExhibition } from "../../components/ExhibitionIndex.tsx";
+import VenueMap from "../../components/map/VenueMap.tsx";
+import SourceList from "../../components/ui/SourceList.tsx";
+import UnverifiedBadge from "../../components/ui/UnverifiedBadge.tsx";
+import { todayJst } from "../../lib/date";
+import { toMapVenue } from "../../lib/map-data";
+
+export const getStaticPaths = (async () => {
+  const venues = await getCollection("venues");
+  return venues.map((entry) => ({ params: { id: entry.id }, props: { venue: entry.data } }));
+}) satisfies GetStaticPaths;
+
+const { venue } = Astro.props;
+const buildToday = todayJst();
+const exhibitions: IndexExhibition[] = (await getCollection("exhibitions"))
+  .map((e) => e.data)
+  .filter((ex) => ex.venue_id === venue.id)
+  .map((ex) => ({
+    id: ex.id,
+    title: ex.title,
+    start_date: ex.start_date,
+    end_date: ex.end_date,
+    status: ex.status,
+    venueText: ex.room ?? venue.name,
+    confidence: ex.confidence,
+  }));
+const address = venue.address ?? `${venue.prefecture}${venue.city}`;
+const hostOf = (url: string) => new URL(url).hostname;
+---
+
+<BaseLayout title={venue.name} width="full" description={`${venue.name}（${venue.prefecture}${venue.city}）の刀剣の展覧会と地図。`}>
+  <div class="wrap">
+    <nav class="gothic pt-4 text-xs text-usuzumi" aria-label="現在の位置">
+      <a href="/">トップ</a>{" ／ "}<a href="/map">地図</a>{" ／ "}<span aria-current="page">{venue.name}</span>
+    </nav>
+
+    <article class="max-w-[880px] pt-5 pb-4">
+      <header>
+        <p class="gothic m-0 text-xs tracking-[0.2em] text-usuzumi">館</p>
+        <h1 class="m-0 text-[28px] leading-[1.4] font-extrabold tracking-[0.1em]">{venue.name}</h1>
+        <p class="mt-1 text-base text-usuzumi">
+          {venue.prefecture}{venue.city}
+          {venue.confidence === "unverified" && <UnverifiedBadge title="この館の情報は、出典での確認がまだ済んでいません" />}
+        </p>
+      </header>
+
+      <section class="mt-6" aria-labelledby="h-info">
+        <h2 id="h-info" class="cap rule-double pt-3">館の情報</h2>
+        <table class="exhibit">
+          <caption class="sr-only">館の情報</caption>
+          <tbody>
+            <tr><th scope="row">住所</th><td>{address}</td></tr>
+            <tr>
+              <th scope="row">公式サイト</th>
+              <td><a href={venue.official_url} rel="noopener noreferrer" target="_blank">{hostOf(venue.official_url)} ↗</a></td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <div class="actions">
+        <a class="btn" data-primary href={venue.official_url} rel="noopener noreferrer" target="_blank">
+          館の公式サイト ↗<small>{hostOf(venue.official_url)}（外部サイト）</small>
+        </a>
+        {
+          venue.exhibitions_page_url && (
+            <a class="btn" href={venue.exhibitions_page_url} rel="noopener noreferrer" target="_blank">
+              公式の展覧会情報 ↗<small>{hostOf(venue.exhibitions_page_url)}（外部サイト）</small>
+            </a>
+          )
+        }
+      </div>
+
+      <section class="sec" aria-labelledby="h-map">
+        <div class="sec-h">
+          <h2 id="h-map">地図</h2>
+          <span class="aside">{address}</span>
+        </div>
+        <div class="mt-3">
+          <VenueMap client:only="react" venue={toMapVenue(venue)}>
+            <p slot="fallback" class="gothic text-sm">地図を読み込んでいます…</p>
+          </VenueMap>
+        </div>
+      </section>
+
+      <section class="sec" aria-labelledby="h-exhibitions">
+        <div class="sec-h">
+          <h2 id="h-exhibitions">この館の展覧会</h2>
+          <span class="aside">{exhibitions.length}件 ／ 開催中・開催予定・終了</span>
+        </div>
+        {
+          exhibitions.length === 0 ? (
+            <p class="gothic mt-4 text-sm">登録されている展覧会はありません。</p>
+          ) : (
+            <ExhibitionIndex client:load exhibitions={exhibitions} buildToday={buildToday} idPrefix="venue-ex" />
+          )
+        }
+      </section>
+
+      <SourceList groups={[{ label: "館の情報", sources: venue.sources, confidence: venue.confidence }]} verifiedAt={venue.verified_at} />
+    </article>
+  </div>
+</BaseLayout>

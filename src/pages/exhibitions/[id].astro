@@ -1,0 +1,154 @@
+---
+// 展覧会詳細（T-204）。案Aの見出しと出典の欄に、案Bの展示情報の表（.exhibit）と目録（.cat）を組み込む（D-016）。
+import type { GetStaticPaths } from "astro";
+import { getCollection } from "astro:content";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import ExhibitionInfo, { type ExhibitionInfoData } from "../../components/ExhibitionInfo.tsx";
+import ExhibitionStatusLabel from "../../components/ExhibitionStatusLabel.tsx";
+import VenueMap from "../../components/map/VenueMap.tsx";
+import Catalog, { type CatalogRow, type CatalogSmith } from "../../components/ui/Catalog.tsx";
+import SourceList from "../../components/ui/SourceList.tsx";
+import UnverifiedBadge from "../../components/ui/UnverifiedBadge.tsx";
+import { catalogSwordName, smithDisplayName } from "../../lib/display-name";
+import { todayJst } from "../../lib/date";
+import { exhibitRowPeriod } from "../../lib/listing";
+import { toMapVenue } from "../../lib/map-data";
+import { formatSession } from "../../lib/status-view";
+
+export const getStaticPaths = (async () => {
+  const exhibitions = await getCollection("exhibitions");
+  return exhibitions.map((entry) => ({ params: { id: entry.id }, props: { exhibition: entry.data } }));
+}) satisfies GetStaticPaths;
+
+const { exhibition: ex } = Astro.props;
+const smiths = (await getCollection("smiths")).map((e) => e.data);
+const swords = (await getCollection("swords")).map((e) => e.data);
+const venues = (await getCollection("venues")).map((e) => e.data);
+const venue = venues.find((v) => v.id === ex.venue_id);
+const smithById = new Map(smiths.map((s) => [s.id, s]));
+const buildToday = todayJst();
+
+const info: ExhibitionInfoData = {
+  start_date: ex.start_date,
+  end_date: ex.end_date,
+  status: ex.status,
+  periods: ex.periods,
+  venue: venue
+    ? { name: venue.name, href: `/venues/${venue.id}`, address: venue.address ?? `${venue.prefecture}${venue.city}` }
+    : null,
+  room: ex.room,
+  admission: ex.admission,
+  official_url: ex.official_url,
+  verified_at: ex.verified_at,
+  confidence: ex.confidence,
+};
+
+// 出品リストの目録。刀剣データがある行は刀名を刀剣ページに、刀匠名を刀匠ページにリンクする。
+// リンク先がない行は、出品リストの表記（label）だけを出す。
+const rows: CatalogRow[] = ex.exhibits.map((exhibit, i) => {
+  const sword = exhibit.sword_id ? swords.find((s) => s.id === exhibit.sword_id) : undefined;
+  // 刀匠は、出品物に直接付いたものを優先し、なければ刀剣の帰属から取る。帰属の区別は刀剣の登録から取る
+  const attributions = exhibit.smith_id
+    ? [{ smith_id: exhibit.smith_id, basis: sword?.attributions.find((a) => a.smith_id === exhibit.smith_id)?.basis }]
+    : (sword?.attributions ?? []);
+  const rowSmiths: CatalogSmith[] = attributions.flatMap((a) => {
+    const smith = smithById.get(a.smith_id);
+    return smith ? [{ name: smithDisplayName(smith), href: `/smiths/${smith.id}`, basis: a.basis }] : [];
+  });
+  const name = sword ? catalogSwordName(sword) : null;
+  return {
+    key: `${i}-${exhibit.label}`,
+    heading: name ? name.heading : exhibit.label,
+    subtitle: name?.subtitle,
+    href: sword ? `/swords/${sword.id}` : undefined,
+    designation: sword?.designation,
+    nbthkRank: sword?.nbthk_rank,
+    smiths: rowSmiths,
+    display: exhibitRowPeriod(ex, exhibit),
+    displayNote: exhibit.note,
+  };
+});
+const linkedCount = ex.exhibits.filter((e) => e.sword_id || e.smith_id).length;
+
+const externalLinks = [
+  { href: ex.official_url, label: "展覧会の公式ページ" },
+  ex.flyer_url ? { href: ex.flyer_url, label: "チラシ（公式）" } : null,
+  ex.list_url ? { href: ex.list_url, label: "出品目録（公式）" } : null,
+].filter((l) => l !== null);
+const hostOf = (url: string) => new URL(url).hostname;
+---
+
+<BaseLayout title={ex.title} width="full" current="exhibitions" description={`${ex.title}（${venue?.name ?? ""}）の会期・展示期間・出品リスト。`}>
+  <div class="wrap">
+    <nav class="gothic pt-4 text-xs text-usuzumi" aria-label="現在の位置">
+      <a href="/">トップ</a>{" ／ "}<a href="/exhibitions">展覧会</a>{" ／ "}<span aria-current="page">{ex.title}</span>
+    </nav>
+
+    <article class="max-w-[880px] pt-5 pb-4">
+      <header>
+        <h1 class="m-0 text-[26px] leading-[1.45] font-extrabold tracking-[0.08em] min-[900px]:text-[30px]">{ex.title}</h1>
+        <p class="gothic tnum mt-2 text-sm">
+          <ExhibitionStatusLabel client:load exhibition={ex} buildToday={buildToday} />
+          {formatSession(ex.start_date, ex.end_date)}
+          {ex.confidence === "unverified" && <UnverifiedBadge title="この展覧会の情報は、公式サイトでの確認がまだ済んでいません" />}
+        </p>
+        {venue && <p class="mt-1 text-base text-usuzumi">{venue.name}{ex.room && `　${ex.room}`}</p>}
+      </header>
+
+      <section class="mt-6" aria-labelledby="h-info">
+        <h2 id="h-info" class="cap rule-double pt-3">展示情報<span>会場・会期・展示期間・観覧料</span></h2>
+        <ExhibitionInfo client:load exhibition={info} buildToday={buildToday} />
+      </section>
+
+      <div class="actions">
+        {
+          externalLinks.map((l, i) => (
+            <a class="btn" data-primary={i === 0 ? "" : undefined} href={l.href} rel="noopener noreferrer" target="_blank">
+              {l.label} ↗<small>{hostOf(l.href)}（外部サイト）</small>
+            </a>
+          ))
+        }
+      </div>
+
+      <section class="sec" aria-labelledby="h-list">
+        <div class="sec-h">
+          <h2 id="h-list">出品リスト</h2>
+          <span class="aside">{ex.exhibits.length}件 ／ 刀剣・刀匠のページがあるもの {linkedCount}件</span>
+        </div>
+        {
+          rows.length === 0 ? (
+            <p class="gothic mt-4 text-sm">
+              出品リストは登録されていません。{ex.list_url ? "公式の出品目録をご覧ください。" : "出品作品は公式ページでご確認ください。"}
+            </p>
+          ) : (
+            <>
+              <Catalog rows={rows} columns={{ venue: false }} caption="出品リストの目録" />
+              <p class="note-line">刀名は刀剣のページに、刀匠名は刀匠のページにつながります。展示の欄は、その作品が展示される期間の区分です。</p>
+            </>
+          )
+        }
+      </section>
+
+      {
+        venue && (
+          <section class="sec" aria-labelledby="h-map">
+            <div class="sec-h">
+              <h2 id="h-map">会場の地図</h2>
+              <span class="aside">{venue.address ?? `${venue.prefecture}${venue.city}`}</span>
+            </div>
+            <div class="mt-3">
+              <VenueMap client:only="react" venue={toMapVenue(venue)}>
+                <p slot="fallback" class="gothic text-sm">地図を読み込んでいます…</p>
+              </VenueMap>
+            </div>
+          </section>
+        )
+      }
+
+      <SourceList
+        groups={[{ label: "展覧会", sources: ex.sources, confidence: ex.confidence }]}
+        verifiedAt={ex.verified_at}
+      />
+    </article>
+  </div>
+</BaseLayout>
