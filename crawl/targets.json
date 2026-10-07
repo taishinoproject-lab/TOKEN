@@ -73,6 +73,251 @@
       "type": "html",
       "expect_text": "『熱田神宮宝物館』展覧予定表",
       "note": "宝物館の年間スケジュール。刀剣が主題の企画展・特別陳列だけを展覧会として登録する"
+    },
+    {
+      "venue_id": "touken-museum",
+      "url": "https://www.touken.or.jp/museum/exhibition/exhibition.html",
+      "type": "html",
+      "expect_text": "開催中の展覧会",
+      "note": "開催中の展覧会。会期・入館料・展示作品リスト（目録PDFへのリンク）。目録PDFは縦書きで、文字を取り出すと1字ずつに分かれるため巡回先に入れていない"
+    },
+    {
+      "venue_id": "touken-museum",
+      "url": "https://www.touken.or.jp/museum/exhibition/tabid290.html",
+      "type": "html",
+      "expect_text": "次回の展覧会",
+      "note": "次回の展覧会。2026-10-07 時点では中身が空（見出しのみ）。次回展の情報が載ったら拾う"
+    },
+    {
+      "venue_id": "touken-museum",
+      "url": "https://www.touken.or.jp/museum/exhibition/schedule.html",
+      "type": "html",
+      "expect_text": "年間スケジュール",
+      "note": "年間スケジュール（年度ごと）。日付は年度の見出しの下に「月日」だけで書かれ、翌年1月以降の最初の項目だけ西暦が付く"
+    },
+    {
+      "venue_id": "touken-museum",
+      "url": "https://www.touken.or.jp/museum/information/admission.html",
+      "type": "html",
+      "expect_text": "入館料金・開館情報",
+      "note": "入館料金。通常展と特別展（期間を明記）の料金"
+    },
+    {
+      "venue_id": "touken-museum",
+      "url": "https://www.touken.or.jp/access/",
+      "type": "html",
+      "expect_text": "アクセス",
+      "note": "アクセス（住所）。館データの出典"
+    },
+    {
+      "venue_id": "seikado-bunko-art-museum",
+      "url": "https://www.seikado.or.jp/exhibition/schedule/",
+      "type": "html",
+      "expect_text": "年間スケジュール",
+      "note": "年間スケジュール（2026年度）。2026-10-07 時点では刀剣が主題の展覧会はない"
+    },
+    {
+      "venue_id": "seikado-bunko-art-museum",
+      "url": "https://www.seikado.or.jp/exhibition/current_exhibition/",
+      "type": "html",
+      "expect_text": "開催中の展覧会",
+      "note": "開催中の展覧会"
+    },
+    {
+      "venue_id": "seikado-bunko-art-museum",
+      "url": "https://www.seikado.or.jp/guide/access/",
+      "type": "html",
+      "expect_text": "交通案内・アクセス",
+      "note": "交通案内・アクセス（住所）。館データの出典。/access からこのURLに転送される"
+    },
+    {
+      "venue_id": "tokugawa-art-museum",
+      "url": "https://www.tokugawa-art-museum.jp/exhibitions/",
+      "type": "html",
+      "expect_text": "これからの展覧会",
+      "note": "展覧会（開催中・これから・名品コレクション展示・過去）"
+    },
+    {
+      "venue_id": "tokugawa-art-museum",
+      "url": "https://www.tokugawa-art-museum.jp/wp-content/uploads/2025/09/list_of_works_on_display.pdf",
+      "type": "pdf",
+      "expect_text": "名品コレクション展示室",
+      "note": "名品コレクション展示の展示作品リスト。展示室1「武家のシンボル －武具・刀剣－」に刀剣がある。ファイル名（2025/09）は変わらず、中身が会期ごとに差し替わる。年間展覧会情報のPDF（exhibitions2026.pdf）は英語面が中心で、日本語の文字がうまく取り出せないため巡回先に入れていない"
+    },
+    {
+      "venue_id": "tokugawa-art-museum",
+      "url": "https://www.tokugawa-art-museum.jp/news/%E3%81%A8%E3%81%8F%E3%81%B3%E3%81%A8%E3%81%95%E3%81%AE%E3%81%B3%E3%80%80%E6%9D%A5%E6%98%A5%E9%96%8B%E5%82%AC/",
+      "type": "html",
+      "expect_text": "名刀のいろは",
+      "note": "お知らせ「とくび と さのび 名刀のいろは」（2027年春の会期）。展覧会ページが公開されたら差し替える"
+    },
+    {
+      "venue_id": "tokugawa-art-museum",
+      "url": "https://www.tokugawa-art-museum.jp/visitor-information/",
+      "type": "html",
+      "expect_text": "交通アクセス",
+      "note": "来館のご案内（住所・入館料）。館データの出典"
+    },
+    {
+      "venue_id": "sano-art-museum",
+      "url": "https://sanobi.or.jp/exhibition/",
+      "type": "html",
+      "expect_text": "開催中の展覧会",
+      "note": "開催中の展覧会（主な出品作品・入館料）"
+    },
+    {
+      "venue_id": "sano-art-museum",
+      "url": "https://sanobi.or.jp/exhibition/upcoming/",
+      "type": "html",
+      "expect_text": "予告",
+      "note": "予告（次回の展覧会）"
+    },
+    {
+      "venue_id": "sano-art-museum",
+      "url": "https://sanobi.or.jp/exhibition/?y=2026",
+      "type": "html",
+      "expect_text": "2026年度の展覧会",
+      "note": "年間スケジュール（2026年度）。年度が変わったら y= を変える。下部に館の住所がある"
+    },
+    {
+      "venue_id": "sano-art-museum",
+      "url": "https://sanobi.or.jp/exhibition/japaneseswords_2026/",
+      "type": "html",
+      "expect_text": "名刀のいろは",
+      "note": "「さのび と とくび 名刀のいろは」の展覧会ページ（主な出品作品）。出品目録PDFは文字を取り出せないため巡回先に入れていない。会期（2026-10-18まで）が終わったら外してよい"
+    },
+    {
+      "venue_id": "ishikawa-prefectural-museum-of-art",
+      "url": "https://www.ishibi.pref.ishikawa.jp/exhibition/",
+      "type": "html",
+      "expect_text": "の展覧会",
+      "note": "展覧会一覧（取得した日の展覧会）。?ymd=YYYY-MM-DD で日付を指定できるが、巡回では当日分だけを取る。年間スケジュールのPDF（nenkan_2026_s.pdf）は暦だけで、展覧会名が文字で入っていないため巡回先に入れていない"
+    },
+    {
+      "venue_id": "ishikawa-prefectural-museum-of-art",
+      "url": "https://www.ishibi.pref.ishikawa.jp/access/",
+      "type": "html",
+      "expect_text": "アクセス",
+      "note": "アクセス（住所）。館データの出典"
+    },
+    {
+      "venue_id": "kyoto-national-museum",
+      "url": "https://www.kyohaku.go.jp/jp/exhibitions/",
+      "type": "html",
+      "expect_text": "展示一覧",
+      "note": "展示一覧（開催中・開催予定の特別展・特集展示）。年間スケジュールのPDF（schedule_ja.pdf）は文字が入っていないため巡回先に入れていない"
+    },
+    {
+      "venue_id": "kyoto-national-museum",
+      "url": "https://www.kyohaku.go.jp/jp/visit/access/",
+      "type": "html",
+      "expect_text": "交通アクセス",
+      "note": "交通アクセス（住所）。館データの出典"
+    },
+    {
+      "venue_id": "hayashibara-museum-of-art",
+      "url": "https://www.hayashibara-museumofart.jp/list/exhibition/",
+      "type": "html",
+      "expect_text": "開催中・今後の展覧会",
+      "note": "展覧会一覧（開催中・今後の展覧会と過去の展覧会）"
+    },
+    {
+      "venue_id": "hayashibara-museum-of-art",
+      "url": "https://www.hayashibara-museumofart.jp/data/guide/",
+      "type": "html",
+      "expect_text": "利用案内",
+      "note": "利用案内（住所）。館データの出典"
+    },
+    {
+      "venue_id": "fukuyama-museum-of-art",
+      "url": "https://www.city.fukuyama.hiroshima.jp/site/fukuyama-museum/319657.html",
+      "type": "html",
+      "expect_text": "2026年度特別展",
+      "note": "特別展の一覧（年度ごと）。会期・前期後期の区分"
+    },
+    {
+      "venue_id": "fukuyama-museum-of-art",
+      "url": "https://www.city.fukuyama.hiroshima.jp/site/fukuyama-museum/373411.html",
+      "type": "html",
+      "expect_text": "2026年度所蔵品展",
+      "note": "所蔵品展の一覧（年度ごと）。小松安弘コレクションの刀剣は所蔵品展で展示される"
+    },
+    {
+      "venue_id": "fukuyama-museum-of-art",
+      "url": "https://www.city.fukuyama.hiroshima.jp/site/fukuyama-museum/201121.html",
+      "type": "html",
+      "expect_text": "小松安弘コレクション展示情報",
+      "note": "小松安弘コレクション（刀剣）の展示情報。2026-10-07 時点の更新日は2025年9月24日で、今後の予定は「順次お知らせ」。旧ページ「刀剣展示について」（56931.html）は2015年の内容のため巡回先に入れていない"
+    },
+    {
+      "venue_id": "fukuyama-museum-of-art",
+      "url": "https://www.city.fukuyama.hiroshima.jp/site/fukuyama-museum/253394.html",
+      "type": "html",
+      "expect_text": "アクセス",
+      "note": "アクセス（住所）。館データの出典"
+    },
+    {
+      "venue_id": "fukuoka-city-museum",
+      "url": "https://museum.city.fukuoka.jp/topics/kuroda.html",
+      "type": "html",
+      "expect_text": "黒田家名宝展示",
+      "note": "黒田家名宝展示の展示予定（期ごとの会期と出品リストPDFへのリンク）。年度の表示は「展示予定（2026-2027）」"
+    },
+    {
+      "venue_id": "fukuoka-city-museum",
+      "url": "https://museum.city.fukuoka.jp/topics/pdf/kuroda_list01.pdf",
+      "type": "pdf",
+      "expect_text": "黒田家の名宝",
+      "note": "企画展「黒田家の名宝 4」第Ⅰ期の出品リスト。ページ上のリンクには ?日付 が付くが、付けずに取得している。年度が変わるとファイルの中身が差し替わる可能性がある"
+    },
+    {
+      "venue_id": "fukuoka-city-museum",
+      "url": "https://museum.city.fukuoka.jp/topics/pdf/kuroda_list02.pdf",
+      "type": "pdf",
+      "expect_text": "黒田家の名宝",
+      "note": "同 第Ⅱ期の出品リスト"
+    },
+    {
+      "venue_id": "fukuoka-city-museum",
+      "url": "https://museum.city.fukuoka.jp/topics/pdf/kuroda_list03.pdf",
+      "type": "pdf",
+      "expect_text": "黒田家の名宝",
+      "note": "同 第Ⅲ期の出品リスト"
+    },
+    {
+      "venue_id": "fukuoka-city-museum",
+      "url": "https://museum.city.fukuoka.jp/topics/pdf/kuroda_list04.pdf",
+      "type": "pdf",
+      "expect_text": "黒田家の名宝",
+      "note": "同 第Ⅳ期の出品リスト"
+    },
+    {
+      "venue_id": "fukuoka-city-museum",
+      "url": "https://museum.city.fukuoka.jp/exhibition/",
+      "type": "html",
+      "expect_text": "展示・体験学習室",
+      "note": "展示・体験学習室の案内（企画展示室2の黒田家名宝展示の説明、住所）。年間スケジュールのPDFは画像のため巡回先に入れていない"
+    },
+    {
+      "venue_id": "kyushu-national-museum",
+      "url": "https://www.kyuhaku.jp/exhibition/exhibition_schedule.html",
+      "type": "html",
+      "expect_text": "展示室年間スケジュール",
+      "note": "展示室年間スケジュール（これからの展示）。/exhibition/ は一覧ページがなく 403 になる"
+    },
+    {
+      "venue_id": "kyushu-national-museum",
+      "url": "https://www.kyuhaku.jp/visit/visit_top.html",
+      "type": "html",
+      "expect_text": "ご利用案内",
+      "note": "ご利用案内（住所）。館データの出典"
+    },
+    {
+      "venue_id": "chido-museum",
+      "url": "https://www.chido.jp/exhibition/",
+      "type": "html",
+      "expect_text": "年間スケジュール",
+      "note": "企画展示（今月・来月・年間スケジュール）。住所も載っている"
     }
   ]
 }
