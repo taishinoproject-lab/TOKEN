@@ -5,7 +5,8 @@
   "type": "module",
   "scripts": {
     "dev": "astro dev",
-    "build": "astro check && astro build",
+    "validate": "tsx scripts/validate-data.ts",
+    "build": "npm run validate && astro check && astro build",
     "preview": "astro preview",
     "lint": "oxlint",
     "test": "vitest run",
