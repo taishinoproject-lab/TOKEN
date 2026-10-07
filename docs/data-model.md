@@ -63,7 +63,7 @@ interface Venue {
   short_name: string;           // 表示用の短い名前: "東博"
   prefecture: string;           // "東京都"
   city: string;                 // "台東区"
-  address?: string;
+  address?: string;             // 都道府県から始まる完全な住所。表示ではこれを優先する
   lat: number;                  // 緯度（地図のピン位置はこの値だけで決まる）
   lng: number;
   official_url: string;         // 館の公式トップページ
