@@ -7,7 +7,6 @@ import { afterEach, describe, expect, it } from "vitest";
 
 const root = resolve(import.meta.dirname, "..");
 const script = join(root, "scripts", "validate-data.ts");
-const tsx = join(root, "node_modules", ".bin", "tsx");
 
 let workDir: string | undefined;
 
@@ -18,7 +17,9 @@ function copyData(): string {
 }
 
 function runScript(dataDir?: string) {
-  const result = spawnSync(tsx, dataDir ? [script, dataDir] : [script], { encoding: "utf-8" });
+  // Windows でも動くように、.bin/tsx ではなく node に tsx を読み込ませて実行する
+  const args = ["--import", "tsx", script, ...(dataDir ? [dataDir] : [])];
+  const result = spawnSync(process.execPath, args, { cwd: root, encoding: "utf-8" });
   return { status: result.status, output: `${result.stdout}${result.stderr}` };
 }
 
