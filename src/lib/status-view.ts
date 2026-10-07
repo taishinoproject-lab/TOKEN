@@ -72,3 +72,19 @@ export function formatSession(start: IsoDate, end: IsoDate | null): string {
   const endText = start.slice(0, 4) === end.slice(0, 4) ? formatMonthDayWeek(end) : `${end.slice(0, 4)}年${formatMonthDayWeek(end)}`;
   return `${startText}〜${endText}`;
 }
+
+/** 展覧会ページの「状態」の行で、札の横に添える文言 */
+export function exhibitionStatusDetail(ex: Pick<Exhibition, "start_date" | "end_date">, status: ExhibitionStatus): string {
+  switch (status) {
+    case "ongoing":
+      return ex.end_date === null ? OPEN_END_LABEL : `${formatMonthDayWeek(ex.end_date)}まで`;
+    case "upcoming":
+      return `${formatMonthDayWeek(ex.start_date)}から`;
+    case "ended":
+      return "会期は終了しました";
+    case "cancelled":
+      return "中止になりました";
+    case "postponed":
+      return "延期になりました";
+  }
+}

@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { exhibitionStatusView, exhibitPeriodText, formatSession, swordStatusView } from "./status-view";
+import { exhibitionStatusDetail, exhibitionStatusView, exhibitPeriodText, formatSession, swordStatusView } from "./status-view";
 
 describe("swordStatusView", () => {
   it("4種類の状態を、色の種類と文言にする", () => {
@@ -62,5 +62,18 @@ describe("formatSession", () => {
   });
   it("終了日が未定なら会期未定（D-012）", () => {
     expect(formatSession("2026-07-02", null)).toBe("2026年7月2日（木）〜 会期未定（公式サイトで確認）");
+  });
+});
+
+describe("exhibitionStatusDetail", () => {
+  const ex = { start_date: "2026-10-24", end_date: "2026-12-20" };
+  it("開催中は終了日、開催予定は開始日を添える", () => {
+    expect(exhibitionStatusDetail(ex, "ongoing")).toBe("12月20日（日）まで");
+    expect(exhibitionStatusDetail(ex, "upcoming")).toBe("10月24日（土）から");
+    expect(exhibitionStatusDetail(ex, "ended")).toBe("会期は終了しました");
+  });
+
+  it("終了日が未定なら会期未定と表示する（D-012）", () => {
+    expect(exhibitionStatusDetail({ start_date: "2026-07-02", end_date: null }, "ongoing")).toBe("会期未定（公式サイトで確認）");
   });
 });

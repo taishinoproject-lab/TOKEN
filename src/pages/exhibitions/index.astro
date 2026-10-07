@@ -1,0 +1,46 @@
+---
+// 展覧会の一覧（ヘッダーの「展覧会」の行き先）。開催中 → 開催予定 → 終了（直近のものだけ）の順。
+// ブラウザで今日の日付（日本時間）を使って分け直す。
+import { getCollection } from "astro:content";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import ExhibitionIndex, { type IndexExhibition } from "../../components/ExhibitionIndex.tsx";
+import { todayJst } from "../../lib/date";
+
+/** 終了した展覧会を何件まで出すか */
+const ENDED_LIMIT = 6;
+
+const venues = (await getCollection("venues")).map((e) => e.data);
+const venueById = new Map(venues.map((v) => [v.id, v]));
+const exhibitions: IndexExhibition[] = (await getCollection("exhibitions"))
+  .map((e) => e.data)
+  .map((ex) => {
+    const venue = venueById.get(ex.venue_id);
+    return {
+      id: ex.id,
+      title: ex.title,
+      start_date: ex.start_date,
+      end_date: ex.end_date,
+      status: ex.status,
+      venueText: venue ? `${venue.name}${ex.room ? ` ${ex.room}` : ""}　${venue.prefecture}${venue.city}` : ex.venue_id,
+      confidence: ex.confidence,
+    };
+  });
+---
+
+<BaseLayout title="展覧会" width="full" current="exhibitions" description="刀剣が見られる展覧会の一覧。開催中・開催予定・終了した展覧会。">
+  <div class="wrap">
+    <nav class="gothic pt-4 text-xs text-usuzumi" aria-label="現在の位置">
+      <a href="/">トップ</a>{" ／ "}<span aria-current="page">展覧会</span>
+    </nav>
+    <section class="sec pt-5!" aria-labelledby="h-exhibitions">
+      <div class="sec-h">
+        <h1 id="h-exhibitions" class="m-0 text-[22px] leading-[1.4] font-semibold tracking-[0.12em]">展覧会</h1>
+        <span class="aside">開催中 → 開催予定 → 終了（直近の{ENDED_LIMIT}件）</span>
+      </div>
+      <p class="note-line">
+        開催中は会期の終わりが近い順、開催予定は始まりが近い順です。日付の朱は、会期の終わりが近いことを示します。
+      </p>
+      <ExhibitionIndex client:load exhibitions={exhibitions} buildToday={todayJst()} endedLimit={ENDED_LIMIT} idPrefix="all-ex" />
+    </section>
+  </div>
+</BaseLayout>

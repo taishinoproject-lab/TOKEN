@@ -6,7 +6,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import Search from "../components/Search.tsx";
 import NowOnDisplay, { type NowExhibition, type NowSword } from "../components/NowOnDisplay.tsx";
 import EndingSoon, { type EndingExhibition } from "../components/EndingSoon.tsx";
-import { smithDisplayName, swordDisplayName } from "../lib/display-name";
+import { catalogSwordName, smithDisplayName } from "../lib/display-name";
 import { todayJst } from "../lib/date";
 import { exhibitionStatus } from "../lib/status";
 
@@ -42,12 +42,12 @@ const exhibitedSwordIds = new Set(nowExhibitions.flatMap((ex) => ex.exhibits.map
 const nowSwords: NowSword[] = swords
   .filter((s) => exhibitedSwordIds.has(s.id))
   .map((s) => {
-    const name = swordDisplayName(s, smiths);
+    // 号がない刀は、見出しを「種別＋銘の先頭の部分」にする（銘の全文は刀剣詳細で出す）
+    const name = catalogSwordName(s);
     return {
       id: s.id,
       heading: name.heading,
-      // 号がない刀は、見出しが「種別＋銘」になる。刀匠は刀匠の列に出すので、副題は付けない
-      subtitle: s.go ? name.subtitle : "",
+      subtitle: name.subtitle,
       designation: s.designation,
       nbthkRank: s.nbthk_rank,
       smiths: s.attributions.flatMap((a) => {

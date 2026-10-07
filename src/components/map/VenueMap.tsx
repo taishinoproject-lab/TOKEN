@@ -45,12 +45,12 @@ export default function VenueMap({ venue }: Props) {
     <figure className="token-map">
       <div
         ref={containerRef}
-        className="h-64 w-full border border-brand-text/20 sm:h-80"
+        className="h-64 w-full border border-mokume sm:h-80"
         role="region"
         aria-label={`${venue.name}の位置を示す地図`}
       />
-      <figcaption className="mt-1 text-sm">
-        {venue.unverified && <span className="font-bold text-brand-accent">位置は要確認。</span>}
+      <figcaption className="gothic mt-1 text-xs text-usuzumi">
+        {venue.unverified && <span className="font-bold text-shu">位置は要確認。</span>}
         {touchFirst ? "地図は2本の指で動かせます。" : null}
       </figcaption>
     </figure>
