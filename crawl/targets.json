@@ -1,0 +1,78 @@
+{
+  "$comment": "自動収集の巡回先（T-301）。館ID・URL・種類（html/pdf/json）・メモ。追加・変更の手順は docs/crawler-runbook.md を参照。",
+  "user_agent": "TOKEN-crawler/0.1 (+https://github.com/taishinoproject-lab/token)",
+  "request_interval_ms": 2000,
+  "max_pages_per_venue": 8,
+  "targets": [
+    {
+      "venue_id": "tnm",
+      "url": "https://www.tnm.jp/modules/r_exhibition/index.php?controller=hall&hid=12&lang=ja",
+      "type": "html",
+      "expect_text": "東京国立博物館 - 展示・催し物",
+      "note": "本館（日本ギャラリー）の展示室一覧。刀剣は「1階 ジャンル別展示」の「刀剣」（2026-04-08 から本館3室。旧13室）。各展示の「展示作品リストへ」が item ページ。新しい会期の刀剣の item ページが現れたら、targets に追加する。東博のページは、まれに別の言語の版が返るため、URL に lang=ja を付けている"
+    },
+    {
+      "venue_id": "tnm",
+      "url": "https://www.tnm.jp/modules/r_exhibition/index.php?controller=item&id=8466&lang=ja",
+      "type": "html",
+      "expect_text": "展示作品リスト",
+      "note": "本館3室「刀剣」2026-08-04〜2026-10-25 の展示作品リスト（作品ごとの展示期間あり）。会期が終わったら次の会期の item ページに差し替える"
+    },
+    {
+      "venue_id": "tnm",
+      "url": "https://www.tnm.jp/modules/r_exhibition/index.php?controller=change&lang=ja",
+      "type": "html",
+      "expect_text": "今週の東博コレクション展",
+      "note": "今週の東博コレクション展（その週に展示替えのあった展示室）"
+    },
+    {
+      "venue_id": "tnm",
+      "url": "https://www.tnm.jp/data/schedule.json",
+      "type": "json",
+      "expect_text": "category:",
+      "note": "年間スケジュール（https://www.tnm.jp/modules/r_free_page/index.php?id=1255）の元データ。ページ本体は JavaScript で描画するため、このJSONを取得する。国宝・名品の展示期間と展示室がある"
+    },
+    {
+      "venue_id": "tnm",
+      "url": "https://www.tnm.jp/modules/r_free_page/index.php?id=113&lang=ja",
+      "type": "html",
+      "expect_text": "東博コレクション展（平常展）観覧料",
+      "note": "交通・料金・開館時間。東博コレクション展（平常展）の観覧料の出典"
+    },
+    {
+      "venue_id": "bizen-osafune-token-museum",
+      "url": "https://www.city.setouchi.lg.jp/site/token/111308.html",
+      "type": "html",
+      "expect_text": "年間展示予定",
+      "note": "年間展示予定（2026年度）。会期・展覧会名・料金。年度が変わるとページが別になる可能性がある"
+    },
+    {
+      "venue_id": "bizen-osafune-token-museum",
+      "url": "https://www.city.setouchi.lg.jp/site/token/1315.html",
+      "type": "html",
+      "expect_text": "現在の展示",
+      "note": "現在の展示。開催中の展覧会の展示品一覧（表）がある"
+    },
+    {
+      "venue_id": "atsuta-jingu",
+      "url": "https://www.atsutajingu.or.jp/houmotukan_kusanagi/kusanagi/",
+      "type": "html",
+      "expect_text": "剣の宝庫 草薙館",
+      "note": "剣の宝庫 草薙館。その月の刀剣展の名称・会期・主な展示品と拝観料。前の月の展示品が HTML コメントで残っているが、抽出時に除いている"
+    },
+    {
+      "venue_id": "atsuta-jingu",
+      "url": "https://www.atsutajingu.or.jp/houmotukan_kusanagi/schedule/index02.html",
+      "type": "html",
+      "expect_text": "『草薙館』展覧予定表",
+      "note": "草薙館の年間スケジュール（毎月入れ替え）"
+    },
+    {
+      "venue_id": "atsuta-jingu",
+      "url": "https://www.atsutajingu.or.jp/houmotukan_kusanagi/schedule/",
+      "type": "html",
+      "expect_text": "『熱田神宮宝物館』展覧予定表",
+      "note": "宝物館の年間スケジュール。刀剣が主題の企画展・特別陳列だけを展覧会として登録する"
+    }
+  ]
+}

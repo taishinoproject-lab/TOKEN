@@ -245,48 +245,207 @@
   },
   {
     "id": "2026-tnm-honkan-13-0804",
-    "title": "総合文化展 本館13室 刀剣",
+    "title": "東博コレクション展 刀剣",
     "venue_id": "tnm",
-    "room": "本館13室",
+    "room": "本館3室",
     "start_date": "2026-08-04",
     "end_date": "2026-10-25",
-    "official_url": "https://www.tnm.jp/",
+    "official_url": "https://www.tnm.jp/modules/r_exhibition/index.php?controller=item&id=8466",
+    "list_url": "https://www.tnm.jp/modules/r_exhibition/index.php?controller=item&id=8466",
     "admission": "一般 1,000円",
     "periods": [],
     "exhibits": [
       {
-        "label": "国宝 太刀 銘 三条（名物 三日月宗近）",
+        "label": "国宝 太刀（名物 三日月宗近） 三条宗近",
         "sword_id": "mikazuki-munechika",
         "smith_id": "sanjo-munechika"
       },
       {
-        "label": "国宝 短刀 銘 吉光（名物 厚藤四郎）",
+        "label": "国宝 太刀 長船長光",
+        "smith_id": "osafune-nagamitsu"
+      },
+      {
+        "label": "重文 刀 大隅掾正弘"
+      },
+      {
+        "label": "重文 刀 南紀重国",
+        "note": "文化庁蔵"
+      },
+      {
+        "label": "重文 直刀（号 水龍剣）"
+      },
+      {
+        "label": "重文 太刀 古青江貞次"
+      },
+      {
+        "label": "国宝 短刀（名物 厚藤四郎） 粟田口吉光",
         "sword_id": "atsu-toshiro",
         "smith_id": "awataguchi-yoshimitsu"
       },
       {
-        "label": "国宝 太刀 銘 長光",
-        "smith_id": "osafune-nagamitsu"
+        "label": "重文 太刀 手掻包永",
+        "note": "兵庫・姫路神社蔵"
       },
       {
-        "label": "重要文化財 直刀 無銘（水龍剣）"
+        "label": "重文 太刀（号 今荒波） 備前一文字"
+      },
+      {
+        "label": "重美 太刀 長船景光",
+        "smith_id": "osafune-kagemitsu"
+      },
+      {
+        "label": "重文 太刀 越中則重",
+        "smith_id": "norishige",
+        "note": "文化庁蔵"
+      },
+      {
+        "label": "重美 短刀 伝相州正宗",
+        "smith_id": "masamune",
+        "note": "「伝」（帰属は伝承）"
+      },
+      {
+        "label": "太刀 奥州宝寿"
+      },
+      {
+        "label": "脇指 金房政次"
+      },
+      {
+        "label": "重美 短刀 小野繁慶"
+      },
+      {
+        "label": "刀 大和守元平"
       }
     ],
     "sources": [
       {
-        "url": "https://www.tnm.jp/",
-        "title": "旧データ（src/data）に記載のURL。内容は今回未確認",
-        "retrieved_at": "2026-10-07"
+        "url": "https://www.tnm.jp/modules/r_exhibition/index.php?controller=item&id=8466&lang=ja",
+        "title": "東京国立博物館 本館「刀剣」作品リスト",
+        "retrieved_at": "2026-10-07",
+        "quote": "刀剣 作品リスト 刀剣 国宝 短刀（名物 厚藤四郎） 粟田口吉光 鎌倉時代・13世紀 本館 3室 2026年8月4日（火） ～ 2026年10月25日（日）"
+      },
+      {
+        "url": "https://www.tnm.jp/modules/r_exhibition/index.php?controller=item&id=8466&lang=ja",
+        "title": "東京国立博物館 本館「刀剣」作品リスト",
+        "retrieved_at": "2026-10-07",
+        "quote": "平安時代から江戸時代制作された16口を展示します。"
+      },
+      {
+        "url": "https://www.tnm.jp/modules/r_exhibition/index.php?controller=hall&hid=12&lang=ja",
+        "title": "東京国立博物館 本館（日本ギャラリー）展示室一覧",
+        "retrieved_at": "2026-10-07",
+        "quote": "2026年4月8日（水）から下記の通り本館展示室番号を変更しています。 1階：11室〜19室 → 1室〜9室"
+      },
+      {
+        "url": "https://www.tnm.jp/modules/r_free_page/index.php?id=113&lang=ja",
+        "title": "東京国立博物館 交通・料金・開館時間",
+        "retrieved_at": "2026-10-07",
+        "quote": "東博コレクション展（平常展）観覧料 一般 1,000円"
+      },
+      {
+        "url": "https://www.tnm.jp/modules/r_exhibition/index.php?controller=item&id=8466&lang=ja",
+        "title": "東京国立博物館 本館「刀剣」作品リスト",
+        "retrieved_at": "2026-10-07",
+        "quote": "国宝 太刀（名物 三日月宗近） 1口 三条宗近 平安時代・12世紀"
+      },
+      {
+        "url": "https://www.tnm.jp/modules/r_exhibition/index.php?controller=item&id=8466&lang=ja",
+        "title": "東京国立博物館 本館「刀剣」作品リスト",
+        "retrieved_at": "2026-10-07",
+        "quote": "国宝 太刀 1口 長船長光 鎌倉時代・13世紀 F-19989"
+      },
+      {
+        "url": "https://www.tnm.jp/modules/r_exhibition/index.php?controller=item&id=8466&lang=ja",
+        "title": "東京国立博物館 本館「刀剣」作品リスト",
+        "retrieved_at": "2026-10-07",
+        "quote": "重文 刀 1口 大隅掾正弘 江戸時代・慶長11年(1606)"
+      },
+      {
+        "url": "https://www.tnm.jp/modules/r_exhibition/index.php?controller=item&id=8466&lang=ja",
+        "title": "東京国立博物館 本館「刀剣」作品リスト",
+        "retrieved_at": "2026-10-07",
+        "quote": "重文 刀 1口 南紀重国 江戸時代・17世紀 文化庁蔵"
+      },
+      {
+        "url": "https://www.tnm.jp/modules/r_exhibition/index.php?controller=item&id=8466&lang=ja",
+        "title": "東京国立博物館 本館「刀剣」作品リスト",
+        "retrieved_at": "2026-10-07",
+        "quote": "重文 直刀 （号 水龍剣） 1口 奈良時代・8世紀"
+      },
+      {
+        "url": "https://www.tnm.jp/modules/r_exhibition/index.php?controller=item&id=8466&lang=ja",
+        "title": "東京国立博物館 本館「刀剣」作品リスト",
+        "retrieved_at": "2026-10-07",
+        "quote": "重文 太刀 1口 古青江貞次 鎌倉時代・13世紀"
+      },
+      {
+        "url": "https://www.tnm.jp/modules/r_exhibition/index.php?controller=item&id=8466&lang=ja",
+        "title": "東京国立博物館 本館「刀剣」作品リスト",
+        "retrieved_at": "2026-10-07",
+        "quote": "国宝 短刀（名物 厚藤四郎） 1口 粟田口吉光 鎌倉時代・13世紀 F-19547"
+      },
+      {
+        "url": "https://www.tnm.jp/modules/r_exhibition/index.php?controller=item&id=8466&lang=ja",
+        "title": "東京国立博物館 本館「刀剣」作品リスト",
+        "retrieved_at": "2026-10-07",
+        "quote": "重文 太刀 1口 手掻包永 鎌倉時代・13世紀 兵庫・姫路神社蔵"
+      },
+      {
+        "url": "https://www.tnm.jp/modules/r_exhibition/index.php?controller=item&id=8466&lang=ja",
+        "title": "東京国立博物館 本館「刀剣」作品リスト",
+        "retrieved_at": "2026-10-07",
+        "quote": "重文 太刀（号 今荒波） 1口 備前一文字 鎌倉時代・13世紀"
+      },
+      {
+        "url": "https://www.tnm.jp/modules/r_exhibition/index.php?controller=item&id=8466&lang=ja",
+        "title": "東京国立博物館 本館「刀剣」作品リスト",
+        "retrieved_at": "2026-10-07",
+        "quote": "重美 太刀 1口 長船景光 鎌倉時代・延慶2年(1309)"
+      },
+      {
+        "url": "https://www.tnm.jp/modules/r_exhibition/index.php?controller=item&id=8466&lang=ja",
+        "title": "東京国立博物館 本館「刀剣」作品リスト",
+        "retrieved_at": "2026-10-07",
+        "quote": "重文 太刀 1口 越中則重 鎌倉時代・14世紀 文化庁蔵"
+      },
+      {
+        "url": "https://www.tnm.jp/modules/r_exhibition/index.php?controller=item&id=8466&lang=ja",
+        "title": "東京国立博物館 本館「刀剣」作品リスト",
+        "retrieved_at": "2026-10-07",
+        "quote": "重美 短刀 1口 伝相州正宗 鎌倉時代・14世紀"
+      },
+      {
+        "url": "https://www.tnm.jp/modules/r_exhibition/index.php?controller=item&id=8466&lang=ja",
+        "title": "東京国立博物館 本館「刀剣」作品リスト",
+        "retrieved_at": "2026-10-07",
+        "quote": "太刀 1口 奥州宝寿 鎌倉時代・13世紀"
+      },
+      {
+        "url": "https://www.tnm.jp/modules/r_exhibition/index.php?controller=item&id=8466&lang=ja",
+        "title": "東京国立博物館 本館「刀剣」作品リスト",
+        "retrieved_at": "2026-10-07",
+        "quote": "脇指 1口 金房政次 安土桃山時代・天正18年(1590)"
+      },
+      {
+        "url": "https://www.tnm.jp/modules/r_exhibition/index.php?controller=item&id=8466&lang=ja",
+        "title": "東京国立博物館 本館「刀剣」作品リスト",
+        "retrieved_at": "2026-10-07",
+        "quote": "重美 短刀 1口 小野繁慶 江戸時代・17世紀"
+      },
+      {
+        "url": "https://www.tnm.jp/modules/r_exhibition/index.php?controller=item&id=8466&lang=ja",
+        "title": "東京国立博物館 本館「刀剣」作品リスト",
+        "retrieved_at": "2026-10-07",
+        "quote": "刀 1口 大和守元平 江戸時代・寛政8年(1796)"
       }
     ],
     "verified_at": "2026-10-07",
-    "confidence": "unverified"
+    "confidence": "confirmed"
   },
   {
     "id": "2026-tnm-honkan-13-1027",
     "title": "総合文化展 本館13室 刀剣",
     "venue_id": "tnm",
-    "room": "本館13室",
+    "room": "本館3室",
     "start_date": "2026-10-27",
     "end_date": "2027-01-24",
     "official_url": "https://www.tnm.jp/",
@@ -310,6 +469,12 @@
         "url": "https://www.tnm.jp/",
         "title": "旧データ（src/data）に記載のURL。内容は今回未確認",
         "retrieved_at": "2026-10-07"
+      },
+      {
+        "url": "https://www.tnm.jp/modules/r_exhibition/index.php?controller=hall&hid=12&lang=ja",
+        "title": "東京国立博物館 本館（日本ギャラリー）展示室一覧",
+        "retrieved_at": "2026-10-07",
+        "quote": "2026年4月8日（水）から下記の通り本館展示室番号を変更しています。 1階：11室〜19室 → 1室〜9室"
       }
     ],
     "verified_at": "2026-10-07",
@@ -319,7 +484,7 @@
     "id": "2027-tnm-honkan-13-0101",
     "title": "総合文化展 本館13室 刀剣",
     "venue_id": "tnm",
-    "room": "本館13室",
+    "room": "本館3室",
     "start_date": "2027-01-01",
     "end_date": "2027-03-14",
     "official_url": "https://www.tnm.jp/",
@@ -336,6 +501,12 @@
         "url": "https://www.tnm.jp/",
         "title": "旧データ（src/data）に記載のURL。内容は今回未確認",
         "retrieved_at": "2026-10-07"
+      },
+      {
+        "url": "https://www.tnm.jp/modules/r_exhibition/index.php?controller=hall&hid=12&lang=ja",
+        "title": "東京国立博物館 本館（日本ギャラリー）展示室一覧",
+        "retrieved_at": "2026-10-07",
+        "quote": "2026年4月8日（水）から下記の通り本館展示室番号を変更しています。 1階：11室〜19室 → 1室〜9室"
       }
     ],
     "verified_at": "2026-10-07",
@@ -343,16 +514,18 @@
   },
   {
     "id": "2026-bizen-osafune-omamori-gatana",
-    "title": "秋季特別展「お守り刀展覧会」",
+    "title": "秋季特別展「第19回お守り刀展覧会」",
     "venue_id": "bizen-osafune-token-museum",
+    "room": "1・2階展示室",
     "start_date": "2026-10-03",
     "end_date": "2026-11-23",
     "official_url": "https://www.city.setouchi.lg.jp/site/token/111308.html",
+    "list_url": "https://www.city.setouchi.lg.jp/site/token/1315.html",
     "admission": "一般 1,000円",
     "periods": [],
     "exhibits": [
       {
-        "label": "現代刀 お守り刀"
+        "label": "現代刀職が制作したお守り刀"
       }
     ],
     "sources": [
@@ -363,8 +536,27 @@
       },
       {
         "url": "https://www.city.setouchi.lg.jp/site/token/111308.html",
-        "title": "旧データ（src/data）に記載のURL。内容は今回未確認",
-        "retrieved_at": "2026-10-07"
+        "title": "備前長船刀剣博物館 年間展示予定(2026年度)",
+        "retrieved_at": "2026-10-07",
+        "quote": "令和8年10月3日（土曜日）～11月23日（月曜日・祝日） 秋季特別展「第19回お守り刀展覧会」"
+      },
+      {
+        "url": "https://www.city.setouchi.lg.jp/site/token/111308.html",
+        "title": "備前長船刀剣博物館 年間展示予定(2026年度)",
+        "retrieved_at": "2026-10-07",
+        "quote": "本展では現代刀職が制作したお守り刀を、総合・刀身・外装・研磨の4部門から審査し、優れた作品を展示します。"
+      },
+      {
+        "url": "https://www.city.setouchi.lg.jp/site/token/111308.html",
+        "title": "備前長船刀剣博物館 年間展示予定(2026年度)",
+        "retrieved_at": "2026-10-07",
+        "quote": "料金 一般：1000円（800円）、高大生：600円、中学生以下：無料 ※（ ）内は20名以上の団体料金 ※65歳以上の方：800円（必須：年齢の分かる証明書提示） ※高大生は学生証提示必須 ※障がい者手帳提示の方と付添者1名：無料 開催場所 備前長船刀剣博物館 1・2階展示室 冬季特別展"
+      },
+      {
+        "url": "https://www.city.setouchi.lg.jp/site/token/1315.html",
+        "title": "備前長船刀剣博物館 現在の展示",
+        "retrieved_at": "2026-10-07",
+        "quote": "【現在の展示】特別展「第十九回お守り刀展覧会」"
       }
     ],
     "verified_at": "2026-10-07",
@@ -372,53 +564,59 @@
   },
   {
     "id": "2026-bizen-osafune-ko-bizen",
-    "title": "冬季特別展「古備前展（仮題）」",
+    "title": "冬季特別展「古備前―刀剣王国の黎明（仮題）」",
     "venue_id": "bizen-osafune-token-museum",
+    "room": "1・2階展示室",
     "start_date": "2026-12-05",
     "end_date": "2027-02-14",
     "official_url": "https://www.city.setouchi.lg.jp/site/token/111308.html",
-    "admission": "一般 1,000円",
+    "admission": "一般 1,200円",
     "periods": [],
-    "exhibits": [
-      {
-        "label": "刀剣 信房",
-        "smith_id": "nobufusa",
-        "note": "旧データでは致道博物館蔵の国宝「太刀 銘 信房作」と紐づいていたが、同じ刀かどうか未確認のため刀剣へのリンクは付けていない"
-      }
-    ],
+    "exhibits": [],
     "sources": [
       {
         "url": "https://www.city.setouchi.lg.jp/site/token/111308.html",
-        "title": "旧データ（src/data）に記載のURL。内容は今回未確認",
-        "retrieved_at": "2026-10-07"
+        "title": "備前長船刀剣博物館 年間展示予定(2026年度)",
+        "retrieved_at": "2026-10-07",
+        "quote": "令和8年12月5日（土曜日）～令和9年2月14日（日曜日） 冬季特別展「古備前―刀剣王国の黎明（仮題）」"
+      },
+      {
+        "url": "https://www.city.setouchi.lg.jp/site/token/111308.html",
+        "title": "備前長船刀剣博物館 年間展示予定(2026年度)",
+        "retrieved_at": "2026-10-07",
+        "quote": "料金 一般：1200円（1000円）、高大生：800円、中学生以下：無料 ※（ ）内は20名以上の団体料金 ※65歳以上の方：1000円（必須：年齢の分かる証明書提示） ※高大生は学生証提示必須 ※障がい者手帳提示の方と付添者1名：無料 開催場所 備前長船刀剣博物館 1・2階展示室 テーマ展「華やぐ刀剣"
       }
     ],
     "verified_at": "2026-10-07",
-    "confidence": "unverified"
+    "confidence": "confirmed"
   },
   {
     "id": "2027-bizen-osafune-tosogu",
-    "title": "テーマ展「刀装具展（仮題）」",
+    "title": "テーマ展「華やぐ刀剣―刃文と装いの美―（仮題）」",
     "venue_id": "bizen-osafune-token-museum",
+    "room": "2階展示室",
     "start_date": "2027-02-20",
     "end_date": "2027-04-18",
     "official_url": "https://www.city.setouchi.lg.jp/site/token/111308.html",
     "admission": "一般 500円",
     "periods": [],
-    "exhibits": [
-      {
-        "label": "刀装具"
-      }
-    ],
+    "exhibits": [],
     "sources": [
       {
         "url": "https://www.city.setouchi.lg.jp/site/token/111308.html",
-        "title": "旧データ（src/data）に記載のURL。内容は今回未確認",
-        "retrieved_at": "2026-10-07"
+        "title": "備前長船刀剣博物館 年間展示予定(2026年度)",
+        "retrieved_at": "2026-10-07",
+        "quote": "令和9年2月20日（土曜日）～4月18日（日曜日） テーマ展「華やぐ刀剣―刃文と装いの美―（仮題）」"
+      },
+      {
+        "url": "https://www.city.setouchi.lg.jp/site/token/111308.html",
+        "title": "備前長船刀剣博物館 年間展示予定(2026年度)",
+        "retrieved_at": "2026-10-07",
+        "quote": "料金 一般：500円（400円）、高大生：300円（250円）、中学生以下：無料 ※（ ）内は20名以上の団体料金 ※65歳以上の方：400円（必須：年齢の分かる証明書提示） ※高大生は学生証提示必須 ※障がい者手帳提示の方と付添者1名：無料 開催場所 備前長船刀剣博物館 2階展示室 「刀剣の見方」"
       }
     ],
     "verified_at": "2026-10-07",
-    "confidence": "unverified"
+    "confidence": "confirmed"
   },
   {
     "id": "2026-touken-museum-suzuki-collection",
@@ -565,31 +763,233 @@
   },
   {
     "id": "2026-atsuta-jingu-shuki-kikaku",
-    "title": "秋季企画展",
+    "title": "秋季企画展「館蔵 備前伝とゆかりの刀剣(仮称)」",
     "venue_id": "atsuta-jingu",
     "room": "宝物館",
     "start_date": "2026-09-18",
     "end_date": "2026-10-27",
-    "official_url": "https://www.atsutajingu.or.jp/",
+    "official_url": "https://www.atsutajingu.or.jp/houmotukan_kusanagi/schedule/",
     "periods": [],
     "exhibits": [],
-    "sources": [],
+    "sources": [
+      {
+        "url": "https://www.atsutajingu.or.jp/houmotukan_kusanagi/schedule/",
+        "title": "熱田神宮 宝物館 年間スケジュール",
+        "retrieved_at": "2026-10-07",
+        "quote": "『熱田神宮宝物館』展覧予定表 期日 展示内容"
+      },
+      {
+        "url": "https://www.atsutajingu.or.jp/houmotukan_kusanagi/schedule/",
+        "title": "熱田神宮 宝物館 年間スケジュール",
+        "retrieved_at": "2026-10-07",
+        "quote": "令和8年9月18日～10月27日 秋季企画展 「館蔵 備前伝とゆかりの刀剣(仮称)」"
+      }
+    ],
     "verified_at": "2026-10-07",
-    "confidence": "unverified"
+    "confidence": "confirmed"
   },
   {
     "id": "2026-atsuta-jingu-saikaido-to-nankaido",
-    "title": "西海道と南海道",
+    "title": "刀剣展「西海道と南海道」",
     "venue_id": "atsuta-jingu",
     "room": "剣の宝庫 草薙館",
     "start_date": "2026-09-30",
     "end_date": "2026-10-26",
-    "official_url": "https://www.atsutajingu.or.jp/",
+    "official_url": "https://www.atsutajingu.or.jp/houmotukan_kusanagi/kusanagi/",
+    "admission": "大人 500円（草薙館単館券）",
+    "periods": [],
+    "exhibits": [
+      {
+        "label": "重要文化財 太刀 銘 元弘三年六月一日実阿作（筑前）"
+      },
+      {
+        "label": "愛知県指定文化財 太刀 銘 豊後国行平作（豊後）",
+        "smith_id": "bungo-yukihira"
+      },
+      {
+        "label": "太刀 銘 友行（豊後）"
+      },
+      {
+        "label": "脇指 銘 豊後州住正宗／應永二二年四月日（豊後）"
+      },
+      {
+        "label": "刀 無銘（豊後）"
+      },
+      {
+        "label": "脇指 銘 豊州高田住平鎮豊（豊後）"
+      },
+      {
+        "label": "刀 銘 藤原統行（豊後）"
+      },
+      {
+        "label": "短刀 銘 吉光（土佐）",
+        "note": "土佐の吉光。粟田口吉光とは別の刀工"
+      },
+      {
+        "label": "短刀 銘 吉光（土佐）",
+        "note": "土佐の吉光。粟田口吉光とは別の刀工"
+      },
+      {
+        "label": "短刀 銘 土佐国住上野大掾久国作（土佐）"
+      }
+    ],
+    "sources": [
+      {
+        "url": "https://www.atsutajingu.or.jp/houmotukan_kusanagi/kusanagi/",
+        "title": "熱田神宮 剣の宝庫 草薙館",
+        "retrieved_at": "2026-10-07",
+        "quote": "10月 刀剣展「西海道と南海道」令和8年9月30日(水)～10月26日(月) ・主な展示品"
+      },
+      {
+        "url": "https://www.atsutajingu.or.jp/houmotukan_kusanagi/kusanagi/",
+        "title": "熱田神宮 剣の宝庫 草薙館",
+        "retrieved_at": "2026-10-07",
+        "quote": "・草薙館単館券 大人500円（400円） 小中生200円（100円）"
+      },
+      {
+        "url": "https://www.atsutajingu.or.jp/houmotukan_kusanagi/schedule/index02.html",
+        "title": "熱田神宮 草薙館 年間スケジュール",
+        "retrieved_at": "2026-10-07",
+        "quote": "令和8年9月30日～10月26日 西海道と南海道"
+      },
+      {
+        "url": "https://www.atsutajingu.or.jp/houmotukan_kusanagi/kusanagi/",
+        "title": "熱田神宮 剣の宝庫 草薙館",
+        "retrieved_at": "2026-10-07",
+        "quote": "重要文化財 太刀 銘 元弘三年六月一日実阿作 （筑前）"
+      },
+      {
+        "url": "https://www.atsutajingu.or.jp/houmotukan_kusanagi/kusanagi/",
+        "title": "熱田神宮 剣の宝庫 草薙館",
+        "retrieved_at": "2026-10-07",
+        "quote": "愛知県指定文化財 太刀 銘 豊後国行平作 （豊後）"
+      },
+      {
+        "url": "https://www.atsutajingu.or.jp/houmotukan_kusanagi/kusanagi/",
+        "title": "熱田神宮 剣の宝庫 草薙館",
+        "retrieved_at": "2026-10-07",
+        "quote": "太刀 銘 友行 （豊後）"
+      },
+      {
+        "url": "https://www.atsutajingu.or.jp/houmotukan_kusanagi/kusanagi/",
+        "title": "熱田神宮 剣の宝庫 草薙館",
+        "retrieved_at": "2026-10-07",
+        "quote": "脇指 銘 豊後州住正宗 ／ 應永二二年四月日 （豊後）"
+      },
+      {
+        "url": "https://www.atsutajingu.or.jp/houmotukan_kusanagi/kusanagi/",
+        "title": "熱田神宮 剣の宝庫 草薙館",
+        "retrieved_at": "2026-10-07",
+        "quote": "刀 無銘 （豊後） 脇指 銘 豊州高田住平鎮豊"
+      },
+      {
+        "url": "https://www.atsutajingu.or.jp/houmotukan_kusanagi/kusanagi/",
+        "title": "熱田神宮 剣の宝庫 草薙館",
+        "retrieved_at": "2026-10-07",
+        "quote": "脇指 銘 豊州高田住平鎮豊 （豊後）"
+      },
+      {
+        "url": "https://www.atsutajingu.or.jp/houmotukan_kusanagi/kusanagi/",
+        "title": "熱田神宮 剣の宝庫 草薙館",
+        "retrieved_at": "2026-10-07",
+        "quote": "刀 銘 藤原統行 （豊後）"
+      },
+      {
+        "url": "https://www.atsutajingu.or.jp/houmotukan_kusanagi/kusanagi/",
+        "title": "熱田神宮 剣の宝庫 草薙館",
+        "retrieved_at": "2026-10-07",
+        "quote": "短刀 銘 吉光 （土佐） 短刀 銘 吉光 （土佐）"
+      },
+      {
+        "url": "https://www.atsutajingu.or.jp/houmotukan_kusanagi/kusanagi/",
+        "title": "熱田神宮 剣の宝庫 草薙館",
+        "retrieved_at": "2026-10-07",
+        "quote": "短刀 銘 土佐国住上野大掾久国作 （土佐）"
+      }
+    ],
+    "verified_at": "2026-10-07",
+    "confidence": "confirmed"
+  },
+  {
+    "id": "2026-atsuta-jingu-muramasa",
+    "title": "村正",
+    "venue_id": "atsuta-jingu",
+    "room": "剣の宝庫 草薙館",
+    "start_date": "2026-10-28",
+    "end_date": "2026-11-23",
+    "official_url": "https://www.atsutajingu.or.jp/houmotukan_kusanagi/schedule/index02.html",
     "periods": [],
     "exhibits": [],
-    "sources": [],
+    "sources": [
+      {
+        "url": "https://www.atsutajingu.or.jp/houmotukan_kusanagi/schedule/index02.html",
+        "title": "熱田神宮 草薙館 年間スケジュール",
+        "retrieved_at": "2026-10-07",
+        "quote": "令和8年度 『草薙館』展覧予定表"
+      },
+      {
+        "url": "https://www.atsutajingu.or.jp/houmotukan_kusanagi/schedule/index02.html",
+        "title": "熱田神宮 草薙館 年間スケジュール",
+        "retrieved_at": "2026-10-07",
+        "quote": "令和8年10月28日～11月23日 村正"
+      }
+    ],
     "verified_at": "2026-10-07",
-    "confidence": "unverified"
+    "confidence": "confirmed"
+  },
+  {
+    "id": "2026-atsuta-jingu-tokai-gendai-tosho",
+    "title": "特別陳列「第31回熱田の杜 東海現代刀匠刀剣展」",
+    "venue_id": "atsuta-jingu",
+    "room": "宝物館",
+    "start_date": "2026-10-30",
+    "end_date": "2026-11-24",
+    "official_url": "https://www.atsutajingu.or.jp/houmotukan_kusanagi/schedule/",
+    "periods": [],
+    "exhibits": [],
+    "sources": [
+      {
+        "url": "https://www.atsutajingu.or.jp/houmotukan_kusanagi/schedule/",
+        "title": "熱田神宮 宝物館 年間スケジュール",
+        "retrieved_at": "2026-10-07",
+        "quote": "『熱田神宮宝物館』展覧予定表 期日 展示内容"
+      },
+      {
+        "url": "https://www.atsutajingu.or.jp/houmotukan_kusanagi/schedule/",
+        "title": "熱田神宮 宝物館 年間スケジュール",
+        "retrieved_at": "2026-10-07",
+        "quote": "令和8年10月30日～11月24日 特別陳列 「第31回熱田の杜 東海現代刀匠刀剣展」"
+      }
+    ],
+    "verified_at": "2026-10-07",
+    "confidence": "confirmed"
+  },
+  {
+    "id": "2026-atsuta-jingu-hokurikudo-to-sanindo",
+    "title": "北陸道と山陰道",
+    "venue_id": "atsuta-jingu",
+    "room": "剣の宝庫 草薙館",
+    "start_date": "2026-11-25",
+    "end_date": "2026-12-24",
+    "official_url": "https://www.atsutajingu.or.jp/houmotukan_kusanagi/schedule/index02.html",
+    "periods": [],
+    "exhibits": [],
+    "sources": [
+      {
+        "url": "https://www.atsutajingu.or.jp/houmotukan_kusanagi/schedule/index02.html",
+        "title": "熱田神宮 草薙館 年間スケジュール",
+        "retrieved_at": "2026-10-07",
+        "quote": "令和8年度 『草薙館』展覧予定表"
+      },
+      {
+        "url": "https://www.atsutajingu.or.jp/houmotukan_kusanagi/schedule/index02.html",
+        "title": "熱田神宮 草薙館 年間スケジュール",
+        "retrieved_at": "2026-10-07",
+        "quote": "令和8年11月25日～12月24日 北陸道と山陰道"
+      }
+    ],
+    "verified_at": "2026-10-07",
+    "confidence": "confirmed"
   },
   {
     "id": "2027-atsuta-jingu-mononofu-to-atsuta",
@@ -598,12 +998,52 @@
     "room": "剣の宝庫 草薙館",
     "start_date": "2027-01-01",
     "end_date": "2027-01-25",
-    "official_url": "https://www.atsutajingu.or.jp/",
+    "official_url": "https://www.atsutajingu.or.jp/houmotukan_kusanagi/schedule/index02.html",
     "periods": [],
     "exhibits": [],
-    "sources": [],
+    "sources": [
+      {
+        "url": "https://www.atsutajingu.or.jp/houmotukan_kusanagi/schedule/index02.html",
+        "title": "熱田神宮 草薙館 年間スケジュール",
+        "retrieved_at": "2026-10-07",
+        "quote": "令和8年度 『草薙館』展覧予定表"
+      },
+      {
+        "url": "https://www.atsutajingu.or.jp/houmotukan_kusanagi/schedule/index02.html",
+        "title": "熱田神宮 草薙館 年間スケジュール",
+        "retrieved_at": "2026-10-07",
+        "quote": "令和9年1月1日～1月25日 もののふ(武士)と熱田"
+      }
+    ],
     "verified_at": "2026-10-07",
-    "confidence": "unverified"
+    "confidence": "confirmed"
+  },
+  {
+    "id": "2027-atsuta-jingu-shinto-shinshinto",
+    "title": "新刀・新々刀",
+    "venue_id": "atsuta-jingu",
+    "room": "剣の宝庫 草薙館",
+    "start_date": "2027-01-27",
+    "end_date": "2027-02-21",
+    "official_url": "https://www.atsutajingu.or.jp/houmotukan_kusanagi/schedule/index02.html",
+    "periods": [],
+    "exhibits": [],
+    "sources": [
+      {
+        "url": "https://www.atsutajingu.or.jp/houmotukan_kusanagi/schedule/index02.html",
+        "title": "熱田神宮 草薙館 年間スケジュール",
+        "retrieved_at": "2026-10-07",
+        "quote": "令和8年度 『草薙館』展覧予定表"
+      },
+      {
+        "url": "https://www.atsutajingu.or.jp/houmotukan_kusanagi/schedule/index02.html",
+        "title": "熱田神宮 草薙館 年間スケジュール",
+        "retrieved_at": "2026-10-07",
+        "quote": "令和9年1月27日～2月21日 新刀・新々刀"
+      }
+    ],
+    "verified_at": "2026-10-07",
+    "confidence": "confirmed"
   },
   {
     "id": "2027-atsuta-jingu-tokaido-to-tosando",
@@ -612,12 +1052,25 @@
     "room": "剣の宝庫 草薙館",
     "start_date": "2027-02-23",
     "end_date": "2027-03-22",
-    "official_url": "https://www.atsutajingu.or.jp/",
+    "official_url": "https://www.atsutajingu.or.jp/houmotukan_kusanagi/schedule/index02.html",
     "periods": [],
     "exhibits": [],
-    "sources": [],
+    "sources": [
+      {
+        "url": "https://www.atsutajingu.or.jp/houmotukan_kusanagi/schedule/index02.html",
+        "title": "熱田神宮 草薙館 年間スケジュール",
+        "retrieved_at": "2026-10-07",
+        "quote": "令和8年度 『草薙館』展覧予定表"
+      },
+      {
+        "url": "https://www.atsutajingu.or.jp/houmotukan_kusanagi/schedule/index02.html",
+        "title": "熱田神宮 草薙館 年間スケジュール",
+        "retrieved_at": "2026-10-07",
+        "quote": "令和9年2月23日～3月22日 東海道と東山道"
+      }
+    ],
     "verified_at": "2026-10-07",
-    "confidence": "unverified"
+    "confidence": "confirmed"
   },
   {
     "id": "2026-ishikiri-homotsukan-kokai",

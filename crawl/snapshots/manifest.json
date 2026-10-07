@@ -1,0 +1,94 @@
+{
+  "entries": [
+    {
+      "venue_id": "atsuta-jingu",
+      "url": "https://www.atsutajingu.or.jp/houmotukan_kusanagi/kusanagi/",
+      "type": "html",
+      "file": "atsuta-jingu/www.atsutajingu.or.jp_houmotukan_kusanagi_kusanagi-e9c09b85.txt",
+      "changed_at": "2026-10-07",
+      "fetched_at": "2026-10-07",
+      "sha256": "924346271c49c8fca49b9e08eee3dedb38d645dd72cb5481dd6bd358b505d10e"
+    },
+    {
+      "venue_id": "atsuta-jingu",
+      "url": "https://www.atsutajingu.or.jp/houmotukan_kusanagi/schedule/",
+      "type": "html",
+      "file": "atsuta-jingu/www.atsutajingu.or.jp_houmotukan_kusanagi_schedule-02fb99ad.txt",
+      "changed_at": "2026-10-07",
+      "fetched_at": "2026-10-07",
+      "sha256": "60d9ef7639746933f02ba44ed4810d1e947cf4df4137713757fcd3e394891f17"
+    },
+    {
+      "venue_id": "atsuta-jingu",
+      "url": "https://www.atsutajingu.or.jp/houmotukan_kusanagi/schedule/index02.html",
+      "type": "html",
+      "file": "atsuta-jingu/www.atsutajingu.or.jp_houmotukan_kusanagi_schedule_index02.html-5cd7895e.txt",
+      "changed_at": "2026-10-07",
+      "fetched_at": "2026-10-07",
+      "sha256": "0913f2853b4b7dd99fdcd253125cb432a162447368ab8d2c03e1b1f70e30558e"
+    },
+    {
+      "venue_id": "bizen-osafune-token-museum",
+      "url": "https://www.city.setouchi.lg.jp/site/token/111308.html",
+      "type": "html",
+      "file": "bizen-osafune-token-museum/www.city.setouchi.lg.jp_site_token_111308.html-b68ca272.txt",
+      "changed_at": "2026-10-07",
+      "fetched_at": "2026-10-07",
+      "sha256": "e4c5a5b60786d5928413f467318b0e28fb235ef9b89a12cdef016d3e755f9ea3"
+    },
+    {
+      "venue_id": "bizen-osafune-token-museum",
+      "url": "https://www.city.setouchi.lg.jp/site/token/1315.html",
+      "type": "html",
+      "file": "bizen-osafune-token-museum/www.city.setouchi.lg.jp_site_token_1315.html-10a5aa5c.txt",
+      "changed_at": "2026-10-07",
+      "fetched_at": "2026-10-07",
+      "sha256": "9fc5c130d174964c5c7e41cfbb1449d86dabab6e65ae9d3f81acf2af7cb54d60"
+    },
+    {
+      "venue_id": "tnm",
+      "url": "https://www.tnm.jp/data/schedule.json",
+      "type": "json",
+      "file": "tnm/www.tnm.jp_data_schedule.json-8b8bc1bf.txt",
+      "changed_at": "2026-10-07",
+      "fetched_at": "2026-10-07",
+      "sha256": "59fc5cb2a386aa02cfe08977dc758f721a27f67afdc74cce66bce04df475fee3"
+    },
+    {
+      "venue_id": "tnm",
+      "url": "https://www.tnm.jp/modules/r_exhibition/index.php?controller=change&lang=ja",
+      "type": "html",
+      "file": "tnm/www.tnm.jp_modules_r_exhibition_index.php_controller_change_lang_ja-56dc2b27.txt",
+      "changed_at": "2026-10-07",
+      "fetched_at": "2026-10-07",
+      "sha256": "88562f43f679d48606c5ea9127bf73cf04e4a548d3c748d2e134eea366e301f0"
+    },
+    {
+      "venue_id": "tnm",
+      "url": "https://www.tnm.jp/modules/r_exhibition/index.php?controller=hall&hid=12&lang=ja",
+      "type": "html",
+      "file": "tnm/www.tnm.jp_modules_r_exhibition_index.php_controller_hall_hid_12_lang_ja-5a1b5930.txt",
+      "changed_at": "2026-10-07",
+      "fetched_at": "2026-10-07",
+      "sha256": "18aec81437fff0ba32c36eda214fea3e39c8736ec3d5b329e4d9093a48a8e36b"
+    },
+    {
+      "venue_id": "tnm",
+      "url": "https://www.tnm.jp/modules/r_exhibition/index.php?controller=item&id=8466&lang=ja",
+      "type": "html",
+      "file": "tnm/www.tnm.jp_modules_r_exhibition_index.php_controller_item_id_8466_lang_ja-5ec0fa22.txt",
+      "changed_at": "2026-10-07",
+      "fetched_at": "2026-10-07",
+      "sha256": "14fbd7193e222060a443c1ecae32ce8a25352f4978178140eea3ec413a95b4f5"
+    },
+    {
+      "venue_id": "tnm",
+      "url": "https://www.tnm.jp/modules/r_free_page/index.php?id=113&lang=ja",
+      "type": "html",
+      "file": "tnm/www.tnm.jp_modules_r_free_page_index.php_id_113_lang_ja-98a036aa.txt",
+      "changed_at": "2026-10-07",
+      "fetched_at": "2026-10-07",
+      "sha256": "52858a0c5cdc34be82e95589089271c38ae64dfb5ca738ad43dceed2c48807e3"
+    }
+  ]
+}

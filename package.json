@@ -10,6 +10,9 @@
     "preview": "astro preview",
     "lint": "oxlint",
     "test": "vitest run",
+    "crawl:fetch": "tsx scripts/crawl/fetch.ts",
+    "crawl:verify": "tsx scripts/crawl/verify.ts",
+    "crawl:report": "tsx scripts/crawl/report.ts",
     "astro": "astro"
   },
   "dependencies": {
@@ -31,6 +34,7 @@
     "tailwindcss": "^4.3.2",
     "tsx": "^4.23.15",
     "typescript": "~6.0.2",
+    "unpdf": "^1.8.1",
     "vite": "^8.1.1",
     "vitest": "^5.0.3"
   },
