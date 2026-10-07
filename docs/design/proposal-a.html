@@ -1,0 +1,349 @@
+<!doctype html>
+<!--
+  訪剣 −TOKEN−  デザイン案A「鞘書（さやがき）・白鞘」  静的な見本（T-201 / D-015）
+
+  ねらい: 白木の地と墨の文字の対比。見出しは縦書き、鞘書を思わせる筆の書体を「号」だけに使う。
+  画像は使わない。装飾は罫線と、白鞘の継ぎ目・目釘穴を思わせる抽象的な線と円のみ。
+
+  配色（CSS 変数）
+    --shiraki      #F3EDE1  白木（ページの地）
+    --shiraki-2    #EAE2D2  白木・濃（帯、区切り）
+    --washi        #FBF8F2  和紙（カードの地）
+    --sumi         #1E1B18  墨（本文）
+    --usuzumi      #5C554D  薄墨（補足の文字）
+    --kokuen       #3A342E  濃い墨（ボタン）
+    --shu          #A23B2A  朱（要確認、強調）
+    --mokume       #CFC2AB  木目（罫線）
+    --ok           #2F5A3C  松葉色（いま会えます）
+
+  書体（Google Fonts）
+    Yuji Syuku        … 号の縦書き見出しのみ（鞘書の筆致）
+    Shippori Mincho   … 見出し・本文
+    Zen Kaku Gothic New … 日付・ボタンなど小さな情報（明朝だと細くなりすぎる箇所）
+
+  データ: data/*.json の実データ（三日月宗近・厚藤四郎・後藤藤四郎・池田正宗、展覧会4件）。
+  表示日は 2026-10-07（日本時間）を想定した静的な見本。実装時は今日の日付で判定する（data-model.md §9）。
+-->
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>案A 鞘書・白鞘｜訪剣 −TOKEN− デザイン見本</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;600;800&family=Yuji+Syuku&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --shiraki:#F3EDE1; --shiraki-2:#EAE2D2; --washi:#FBF8F2;
+    --sumi:#1E1B18; --usuzumi:#5C554D; --kokuen:#3A342E;
+    --shu:#A23B2A; --mokume:#CFC2AB; --ok:#2F5A3C;
+    --mincho:"Shippori Mincho","Hiragino Mincho ProN","Yu Mincho",serif;
+    --fude:"Yuji Syuku","Shippori Mincho",serif;
+    --gothic:"Zen Kaku Gothic New","Hiragino Sans","Yu Gothic",sans-serif;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0}
+  body{background:var(--shiraki);color:var(--sumi);font-family:var(--mincho);line-height:1.8;font-size:16px;-webkit-text-size-adjust:100%}
+  a{color:inherit}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+
+  /* 見本の区切り（デザインの一部ではない） */
+  .specimen-label{font-family:var(--gothic);font-size:12px;letter-spacing:.08em;background:var(--sumi);color:var(--washi);padding:8px 20px}
+  .specimen-label b{font-weight:700;margin-right:.6em}
+  .screen{border-bottom:12px solid var(--sumi)}
+
+  /* ヘッダー */
+  .hdr{border-bottom:1px solid var(--mokume)}
+  .hdr .wrap{display:flex;align-items:center;justify-content:space-between;height:64px}
+  .logo{font-weight:800;font-size:20px;letter-spacing:.12em;text-decoration:none;white-space:nowrap}
+  .logo small{font-weight:400;font-size:12px;letter-spacing:.2em;color:var(--usuzumi);margin-left:.4em}
+  .nav{display:none;gap:28px;font-size:14px}
+  .nav a{text-decoration:none;color:var(--usuzumi)}
+  .menu{font-family:var(--gothic);font-size:13px;border:1px solid var(--sumi);padding:4px 10px;background:none;color:var(--sumi)}
+  @media(min-width:768px){.nav{display:flex}.menu{display:none}}
+
+  /* トップ：導入 */
+  .hero{position:relative;padding:48px 0 40px;overflow:hidden}
+  .hero .wrap{display:flex;gap:32px;align-items:flex-start}
+  .hero-v{writing-mode:vertical-rl;white-space:nowrap;margin:0;font-family:var(--fude);font-size:30px;line-height:1.5;letter-spacing:.18em;flex:none;border-left:1px solid var(--mokume);padding-left:16px}
+  .hero-body{flex:1;min-width:0;padding-top:8px}
+  .hero-body p.lead{font-size:15px;color:var(--usuzumi);margin:0 0 20px}
+  .search{display:flex;border:1px solid var(--sumi);background:var(--washi)}
+  .search input{flex:1;min-width:0;border:0;background:none;font:inherit;font-size:16px;padding:14px 14px;color:var(--sumi)}
+  .search input::placeholder{color:#6F675D}
+  .search button{border:0;background:var(--sumi);color:var(--washi);font-family:var(--gothic);font-size:14px;padding:0 18px;letter-spacing:.1em}
+  .hint{font-family:var(--gothic);font-size:12px;color:var(--usuzumi);margin-top:10px}
+  .hint a{margin-right:1em}
+  @media(max-width:520px){
+    .hero .wrap{gap:18px}
+    .fuda-list .fuda .go{font-size:24px}
+    .fuda-list .fuda{padding:16px 10px 14px}
+    .hero-v{font-size:22px;padding-left:10px}
+  }
+
+  /* 見出し */
+  .sec{padding:40px 0}
+  .sec-h{display:flex;flex-wrap:wrap;align-items:baseline;gap:14px;margin:0 0 20px;border-bottom:1px solid var(--sumi);padding-bottom:8px}
+  .sec-h h2{font-size:22px;font-weight:600;margin:0;letter-spacing:.12em}
+  .sec-h span{font-family:var(--gothic);font-size:12px;color:var(--usuzumi)}
+
+  /* いま会える刀：鞘書の札（縦書き） */
+  .fuda-list{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+  @media(min-width:768px){.fuda-list{grid-template-columns:repeat(4,1fr);gap:20px}}
+  .fuda{position:relative;display:flex;flex-direction:row-reverse;gap:10px;background:var(--washi);border:1px solid var(--mokume);padding:18px 14px 16px;text-decoration:none;min-height:300px}
+  .fuda::before{content:"";position:absolute;top:10px;bottom:10px;right:6px;border-right:1px solid var(--shiraki-2)}
+  .fuda .go{writing-mode:vertical-rl;white-space:nowrap;font-family:var(--fude);font-size:30px;line-height:1.2;letter-spacing:.1em}
+  .fuda .sub{writing-mode:vertical-rl;font-size:13px;color:var(--usuzumi);letter-spacing:.1em;line-height:1.6}
+  .fuda .meta{flex:1;display:flex;flex-direction:column;justify-content:flex-end;font-family:var(--gothic);font-size:12px;line-height:1.5;min-width:0}
+  .fuda .until{font-size:13px;font-weight:700;color:var(--ok);margin-top:4px}
+  .fuda .meki{position:absolute;left:12px;top:14px;width:9px;height:9px;border:1px solid var(--mokume);border-radius:50%}
+  .kakunin{display:inline-block;font-family:var(--gothic);font-size:11px;font-weight:700;color:var(--shu);border:1px solid var(--shu);padding:0 5px;line-height:1.6;letter-spacing:.05em;white-space:nowrap}
+  .basis{display:inline-block;font-family:var(--gothic);font-size:11px;border:1px solid var(--usuzumi);color:var(--usuzumi);padding:0 4px;line-height:1.5;margin-bottom:4px;align-self:flex-start}
+  .basis.kiwame{border-style:dashed}
+
+  /* 会期終了が近い展覧会 */
+  .ending li{list-style:none;display:grid;grid-template-columns:72px 1fr;gap:4px 16px;padding:16px 0;border-bottom:1px solid var(--mokume)}
+  .ending ul{margin:0;padding:0}
+  .ending .left{grid-row:span 2;text-align:center;border-right:1px solid var(--mokume);padding-right:12px;font-family:var(--gothic)}
+  .ending .left b{display:block;font-family:var(--mincho);font-size:28px;line-height:1.1;font-weight:600}
+  .ending .left small{font-size:11px;color:var(--usuzumi)}
+  .ending .t{font-size:16px;font-weight:600;line-height:1.5}
+  .ending .v{font-family:var(--gothic);font-size:13px;color:var(--usuzumi)}
+  .ending .shu{color:var(--shu)}
+
+  .ftr{font-family:var(--gothic);font-size:12px;color:var(--usuzumi);padding:28px 0 36px;border-top:1px solid var(--mokume)}
+
+  /* 刀剣詳細 */
+  .crumb{font-family:var(--gothic);font-size:12px;color:var(--usuzumi);padding:16px 0 0}
+  .detail{display:grid;gap:28px;padding:20px 0 48px}
+  @media(min-width:900px){.detail{grid-template-columns:300px 1fr;gap:48px}}
+  .saya{position:relative;background:var(--washi);border:1px solid var(--mokume);display:flex;flex-direction:row-reverse;justify-content:center;gap:18px;padding:28px 20px;min-height:380px}
+  .saya::before,.saya::after{content:"";position:absolute;top:0;bottom:0;border-left:1px solid var(--shiraki-2)}
+  .saya::before{left:24px}.saya::after{right:24px}
+  .saya .go{writing-mode:vertical-rl;font-family:var(--fude);font-size:48px;line-height:1.1;letter-spacing:.12em}
+  .saya .yomi{writing-mode:vertical-rl;font-size:13px;color:var(--usuzumi);letter-spacing:.3em}
+  .saya .mei{writing-mode:vertical-rl;font-size:17px;letter-spacing:.25em;margin-top:56px}
+  .saya .meki{position:absolute;bottom:22px;left:50%;width:12px;height:12px;margin-left:-6px;border:1px solid var(--mokume);border-radius:50%}
+  @media(min-width:900px){.saya{min-height:560px}.saya .go{font-size:76px}}
+
+  .d-h1{font-size:28px;font-weight:800;letter-spacing:.1em;margin:0;line-height:1.4}
+  .d-sub{font-size:16px;color:var(--usuzumi);margin:4px 0 0}
+  .tags{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0 0;font-family:var(--gothic);font-size:12px}
+  .tags span{border:1px solid var(--sumi);padding:1px 8px}
+  .tags .kokuho{background:var(--sumi);color:var(--washi)}
+
+  .status{margin:24px 0 0;border-top:3px double var(--sumi);border-bottom:1px solid var(--sumi);padding:18px 0}
+  .status .now{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 14px}
+  .status .now strong{font-size:24px;color:var(--ok);letter-spacing:.1em}
+  .status .now .until{font-family:var(--gothic);font-weight:700;font-size:15px}
+  .status .where{margin:8px 0 0;font-size:15px}
+  .status .where a{font-weight:600}
+  .status .note{font-family:var(--gothic);font-size:12px;color:var(--usuzumi);margin:8px 0 0}
+  .status .note .kakunin{margin-right:6px}
+
+  .actions{display:grid;gap:10px;margin:20px 0 0}
+  @media(min-width:600px){.actions{grid-template-columns:1fr 1fr}}
+  .btn{display:flex;align-items:center;justify-content:center;gap:8px;font-family:var(--gothic);font-size:14px;font-weight:500;text-decoration:none;padding:13px 14px;border:1px solid var(--kokuen);letter-spacing:.06em;min-height:48px;text-align:center}
+  .btn.primary{background:var(--kokuen);color:var(--washi)}
+  .btn small{font-weight:400;font-size:11px;opacity:.85}
+
+  .kv{margin:28px 0 0;border-top:1px solid var(--sumi)}
+  .kv div{display:grid;grid-template-columns:6.5em 1fr;border-bottom:1px solid var(--mokume);padding:10px 0;font-size:15px}
+  .kv dt{color:var(--usuzumi);font-size:13px;font-family:var(--gothic);padding-top:2px}
+  .kv dd{margin:0}
+  .kv dd a{font-weight:600}
+  .kv .legend{font-family:var(--gothic);font-size:11px;color:var(--usuzumi);display:block;margin-top:2px}
+
+  .prose h3{font-size:17px;font-weight:600;letter-spacing:.12em;margin:28px 0 6px}
+  .prose p{margin:0;font-size:15px}
+
+  .states{margin:28px 0 0;padding:14px;border:1px dashed var(--mokume);font-family:var(--gothic);font-size:12px}
+  .states p{margin:0 0 8px;color:var(--usuzumi)}
+  .states ul{display:flex;flex-wrap:wrap;gap:8px;margin:0;padding:0;list-style:none}
+  .states li{padding:3px 10px;border:1px solid}
+  .st-now{color:var(--ok)} .st-soon{color:var(--sumi)} .st-plan{color:var(--usuzumi)} .st-hold{color:var(--usuzumi);border-style:dotted!important}
+
+  .sources{margin:32px 0 0;font-family:var(--gothic);font-size:12px;color:var(--usuzumi);border-top:1px solid var(--mokume);padding-top:12px}
+  .sources h3{font-family:var(--mincho);font-size:14px;color:var(--sumi);margin:0 0 6px;letter-spacing:.12em}
+  .sources ol{margin:0;padding-left:1.4em}
+  .sources li{margin:0 0 6px;word-break:break-all}
+  .sources .checked{margin:8px 0 0;color:var(--sumi)}
+
+  /* シェア画像（1200×630） */
+  .ogp-sec{padding:32px 0 48px}
+  .ogp-sec p{font-family:var(--gothic);font-size:12px;color:var(--usuzumi);margin:0 0 12px}
+  .ogp{width:100%;max-width:1200px;aspect-ratio:1200/630;container-type:inline-size;margin:0 auto;box-shadow:0 0 0 1px var(--mokume)}
+  .ogp-in{position:relative;width:100%;height:100%;background:var(--shiraki);overflow:hidden;display:flex;flex-direction:row-reverse;align-items:stretch;padding:4.6cqw 6cqw}
+  .ogp-in::before,.ogp-in::after{content:"";position:absolute;top:0;bottom:0;border-left:.12cqw solid var(--mokume)}
+  .ogp-in::before{right:3cqw}.ogp-in::after{left:3cqw}
+  .ogp-go{writing-mode:vertical-rl;white-space:nowrap;font-family:var(--fude);font-size:6.6cqw;line-height:1.05;letter-spacing:.1em;color:var(--sumi)}
+  .ogp-mei{writing-mode:vertical-rl;font-family:var(--mincho);font-size:2.3cqw;letter-spacing:.3em;color:var(--usuzumi);margin:2cqw 2.6cqw 0 0}
+  .ogp-left{flex:1;display:flex;flex-direction:column;justify-content:space-between;font-family:var(--mincho)}
+  .ogp-brand{font-weight:800;font-size:2.4cqw;letter-spacing:.16em}
+  .ogp-brand small{display:block;font-weight:400;font-size:1.3cqw;color:var(--usuzumi);letter-spacing:.2em}
+  .ogp-info{border-top:.25cqw double var(--sumi);padding-top:1.4cqw;max-width:52cqw}
+  .ogp-info .a{font-size:2.2cqw;font-weight:600}
+  .ogp-info .b{font-family:var(--gothic);font-size:1.6cqw;color:var(--usuzumi);margin-top:.4cqw}
+  .ogp-info .c{display:inline-block;margin-top:1.2cqw;font-family:var(--gothic);font-size:1.7cqw;font-weight:700;color:var(--ok);border:.12cqw solid var(--ok);padding:.2cqw 1cqw}
+  .ogp-meki{position:absolute;left:50%;bottom:3cqw;width:1.2cqw;height:1.2cqw;border:.12cqw solid var(--mokume);border-radius:50%}
+</style>
+</head>
+<body>
+
+<!-- ============ 1. トップ ============ -->
+<div class="specimen-label"><b>案A 鞘書・白鞘</b>① トップ（2026年10月7日を表示日とした見本）</div>
+<section class="screen">
+  <header class="hdr"><div class="wrap">
+    <a class="logo" href="#">訪剣<small>−TOKEN−</small></a>
+    <nav class="nav"><a href="#">刀を探す</a><a href="#">展覧会</a><a href="#">地図・訪剣帖</a></nav>
+    <button class="menu" type="button">目次</button>
+  </div></header>
+
+  <div class="hero"><div class="wrap">
+    <h1 class="hero-v">推しの刀に、会いにゆく。</h1>
+    <div class="hero-body">
+      <p class="lead">いま・どこで・いつまで見られるか。<br>号、銘、刀匠の名から探せます。</p>
+      <form class="search" role="search" onsubmit="return false">
+        <input type="search" aria-label="刀を探す" placeholder="号・銘・刀匠名で探す">
+        <button type="submit">探す</button>
+      </form>
+      <p class="hint">よく探される名前：<a href="#">三日月宗近</a><a href="#">吉光</a><a href="#">正宗</a></p>
+    </div>
+  </div></div>
+
+  <div class="sec"><div class="wrap">
+    <div class="sec-h"><h2>いま会える刀</h2><span>10月7日 現在、展示中</span></div>
+    <div class="fuda-list">
+      <a class="fuda" href="#"><span class="meki"></span>
+        <span class="go">三日月宗近</span><span class="sub">太刀　銘 三条</span>
+        <span class="meta"><span class="basis">在銘</span>東京国立博物館<br>本館13室<span class="until">10月25日まで</span><span class="kakunin">要確認</span></span>
+      </a>
+      <a class="fuda" href="#"><span class="meki"></span>
+        <span class="go">厚藤四郎</span><span class="sub">短刀　銘 吉光</span>
+        <span class="meta"><span class="basis">在銘</span>東京国立博物館<br>本館13室<span class="until">10月25日まで</span><span class="kakunin">要確認</span></span>
+      </a>
+      <a class="fuda" href="#"><span class="meki"></span>
+        <span class="go">後藤藤四郎</span><span class="sub">短刀　銘 吉光</span>
+        <span class="meta"><span class="basis">在銘</span>佐野美術館<br>名刀のいろは<span class="until">10月18日まで</span><span class="kakunin">要確認</span></span>
+      </a>
+      <a class="fuda" href="#"><span class="meki"></span>
+        <span class="go">池田正宗</span><span class="sub">刀　金象嵌銘</span>
+        <span class="meta"><span class="basis kiwame">極め</span>佐野美術館<br>名刀のいろは<span class="until">10月18日まで</span><span class="kakunin">要確認</span></span>
+      </a>
+    </div>
+  </div></div>
+
+  <div class="sec ending"><div class="wrap">
+    <div class="sec-h"><h2>会期終了が近い展覧会</h2><span>終了日の近い順</span></div>
+    <ul>
+      <li><div class="left"><b class="shu">5</b><small>日後に終了</small></div>
+        <div class="t">鈴木嘉定コレクション寄贈品展 <span class="kakunin">要確認</span></div>
+        <div class="v">刀剣博物館（東京都墨田区）／10月12日（月）まで</div></li>
+      <li><div class="left"><b>11</b><small>日後に終了</small></div>
+        <div class="t">さのび と とくび 名刀のいろは <span class="kakunin">要確認</span></div>
+        <div class="v">佐野美術館（静岡県三島市）／10月18日（日）まで</div></li>
+      <li><div class="left"><b>18</b><small>日後に終了</small></div>
+        <div class="t">総合文化展 本館13室 刀剣 <span class="kakunin">要確認</span></div>
+        <div class="v">東京国立博物館（東京都台東区）／10月25日（日）まで</div></li>
+      <li><div class="left"><b>19</b><small>日後に終了</small></div>
+        <div class="t">西海道と南海道 <span class="kakunin">要確認</span></div>
+        <div class="v">熱田神宮 剣の宝庫 草薙館（愛知県名古屋市熱田区）／10月26日（月）まで</div></li>
+    </ul>
+  </div></div>
+
+  <footer class="ftr"><div class="wrap">訪剣 −TOKEN−　展示情報は各館の公式サイトで最終確認してください。</div></footer>
+</section>
+
+<!-- ============ 2. 刀剣詳細 ============ -->
+<div class="specimen-label"><b>案A 鞘書・白鞘</b>② 刀剣詳細 /swords/mikazuki-munechika</div>
+<section class="screen">
+  <header class="hdr"><div class="wrap">
+    <a class="logo" href="#">訪剣<small>−TOKEN−</small></a>
+    <nav class="nav"><a href="#">刀を探す</a><a href="#">展覧会</a><a href="#">地図・訪剣帖</a></nav>
+    <button class="menu" type="button">目次</button>
+  </div></header>
+
+  <div class="wrap">
+    <p class="crumb"><a href="#">トップ</a> ／ <a href="#">刀匠 三条宗近</a> ／ 三日月宗近</p>
+    <article class="detail">
+      <div class="saya" aria-hidden="true">
+        <span class="go">三日月宗近</span>
+        <span class="yomi">みかづきむねちか</span>
+        <span class="mei">太刀　銘　三条</span>
+        <span class="meki"></span>
+      </div>
+
+      <div>
+        <h1 class="d-h1">三日月宗近</h1>
+        <p class="d-sub">太刀　銘 三条</p>
+        <div class="tags"><span class="kokuho">国宝</span><span>平安時代</span><span>東京国立博物館 蔵</span></div>
+
+        <div class="status">
+          <div class="now"><strong>いま会えます</strong><span class="until">10月25日（日）まで</span></div>
+          <p class="where"><a href="#">東京国立博物館</a> 本館13室<br>「総合文化展 本館13室 刀剣」2026年8月4日〜10月25日</p>
+          <p class="note"><span class="kakunin">要確認</span>この展示情報は、公式サイトでの確認がまだ済んでいません。お出かけ前に<a href="#">公式サイト</a>をご確認ください。</p>
+        </div>
+
+        <div class="actions">
+          <a class="btn primary" href="#">この刀の展示予定をカレンダーで受け取る <small>（.ics 購読）</small></a>
+          <a class="btn" href="#">刀の写真を公式ページで見る ↗ <small>（ColBase）</small></a>
+        </div>
+
+        <dl class="kv">
+          <div><dt>号</dt><dd>三日月宗近（みかづきむねちか）</dd></div>
+          <div><dt>銘</dt><dd>三条</dd></div>
+          <div><dt>刀匠</dt><dd><a href="#">三条宗近</a>　<span class="basis">在銘</span><span class="legend">在銘＝本人の銘がある ／ 極め＝無銘だが鑑定で帰属 ／ 伝＝そう伝えられる</span></dd></div>
+          <div><dt>種別</dt><dd>太刀</dd></div>
+          <div><dt>指定</dt><dd>国宝</dd></div>
+          <div><dt>時代</dt><dd>平安時代</dd></div>
+          <div><dt>刃長・反り</dt><dd>80cm ・ 2.7cm</dd></div>
+          <div><dt>所蔵</dt><dd><a href="#">東京国立博物館</a></dd></div>
+        </dl>
+
+        <div class="prose">
+          <h3>号の由来</h3>
+          <p>刃文に三日月形の打ち除けが複数見えることに由来。天下五剣の一つ。</p>
+          <h3>伝来</h3>
+          <p>高台院 → 徳川秀忠 → 徳川将軍家 → 東京国立博物館</p>
+        </div>
+
+        <div class="states">
+          <p>展示状態の表示（4種類の見本。この刀の情報ではありません）</p>
+          <ul><li class="st-now">いま会えます／○月○日まで</li><li class="st-soon">○/○から展示</li><li class="st-plan">開催予定</li><li class="st-hold">所蔵先：○○</li></ul>
+        </div>
+
+        <div class="sources">
+          <h3>出典</h3>
+          <ol>
+            <li><a href="#">文化遺産オンライン 太刀〈銘三条（名物三日月宗近）〉</a>（取得 2026-10-07）</li>
+            <li><a href="#">ColBase</a>（取得 2026-10-07）<span class="kakunin">要確認</span> 旧データに記載のURL。内容は未確認</li>
+            <li>展示情報：<a href="#">東京国立博物館 公式サイト</a>（取得 2026-10-07）<span class="kakunin">要確認</span></li>
+          </ol>
+          <p class="checked">最終確認日：2026年10月7日</p>
+        </div>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- ============ 3. シェア画像 ============ -->
+<div class="specimen-label"><b>案A 鞘書・白鞘</b>③ シェア用画像（1200×630、文字だけで組む）</div>
+<section class="ogp-sec"><div class="wrap" style="max-width:1240px">
+  <p>実寸 1200×630 の見本です。画面の幅に合わせて縮小して表示しています。</p>
+  <div class="ogp" id="ogp"><div class="ogp-in">
+    <div class="ogp-go">三日月宗近</div>
+    <div class="ogp-mei">太刀　銘　三条</div>
+    <div class="ogp-left">
+      <div class="ogp-brand">訪剣<small>−TOKEN−　推しの刀に、会いにゆく。</small></div>
+      <div class="ogp-info">
+        <div class="a">三条宗近 作　国宝</div>
+        <div class="b">東京国立博物館 蔵</div>
+        <div class="c">東京国立博物館 本館13室で展示中（10月25日まで）</div>
+      </div>
+    </div>
+    <span class="ogp-meki"></span>
+  </div></div>
+</div></section>
+
+</body>
+</html>
