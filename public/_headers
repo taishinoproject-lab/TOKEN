@@ -1,0 +1,15 @@
+# Cloudflare Pages の応答ヘッダーの設定（T-403）。ビルド時に dist/_headers にコピーされる。
+# 書き方: https://developers.cloudflare.com/pages/configuration/headers/
+
+# すべてのページ
+/*
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+
+# 刀剣ごとのカレンダー（src/pages/swords/[id].ics.ts）。カレンダーのアプリが読めるように種類を指定する
+/swords/*.ics
+  Content-Type: text/calendar; charset=utf-8
+
+# プレビュー（本番以外のブランチ）の URL は、検索結果に出さない
+https://:version.:project.pages.dev/*
+  X-Robots-Tag: noindex

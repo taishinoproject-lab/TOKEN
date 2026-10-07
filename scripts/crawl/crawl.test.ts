@@ -241,3 +241,47 @@ describe("decodeHtml", () => {
     expect(decodeHtml(new TextEncoder().encode("刀剣"), null)).toBe("刀剣");
   });
 });
+
+describe("runCrawl の再試行", () => {
+  it("5xx が返ったら1回だけやり直し、成功すれば保存する", async () => {
+    let calls = 0;
+    const { deps, sleeps } = fakeDeps({});
+    deps.fetch = (async (input: string | URL | Request) => {
+      const url = String(input);
+      if (url.endsWith("/robots.txt")) return new Response("", { status: 404 });
+      calls++;
+      return calls === 1 ? new Response("busy", { status: 503 }) : new Response("<p>本文</p>", { status: 200 });
+    }) as typeof fetch;
+    const report = await runCrawl({ config: config([{ venue_id: "museum", url: A, type: "html" }]), snapshotDir: dir }, deps);
+    expect(calls).toBe(2);
+    expect(report.pages[0].status).toBe("new");
+    expect(sleeps).toContain(10_000);
+  });
+
+  it("通信エラーが続いたら error にして、次の館の巡回を続ける", async () => {
+    const other = "https://other.example.jp/";
+    const { deps } = fakeDeps({ [other]: { body: "<p>別の館</p>" } });
+    const baseFetch = deps.fetch;
+    let failures = 0;
+    deps.fetch = (async (input: string | URL | Request, init?: RequestInit) => {
+      if (String(input).startsWith("https://museum.example.jp/") && !String(input).endsWith("/robots.txt")) {
+        failures++;
+        throw new Error("fetch failed");
+      }
+      return baseFetch(input, init);
+    }) as typeof fetch;
+    const report = await runCrawl(
+      {
+        config: config([
+          { venue_id: "museum", url: A, type: "html" },
+          { venue_id: "other", url: other, type: "html" },
+        ]),
+        snapshotDir: dir,
+      },
+      deps,
+    );
+    expect(failures).toBe(2);
+    expect(report.pages.map((p) => p.status)).toEqual(["error", "new"]);
+    expect(report.pages[0].reason).toBe("fetch failed");
+  });
+});
