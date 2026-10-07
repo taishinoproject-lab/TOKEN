@@ -56,6 +56,10 @@ export interface CrawlOptions {
 
 const MAX_LISTED_LINES = 200;
 const FETCH_TIMEOUT_MS = 30_000;
+/** 通信エラー・タイムアウト・5xx・429 のときの試行回数（初回を含む） */
+const MAX_ATTEMPTS = 2;
+/** 再試行の前に空ける時間 */
+const RETRY_DELAY_MS = 10_000;
 
 export function manifestPath(snapshotDir: string): string {
   return join(snapshotDir, "manifest.json");
@@ -112,9 +116,28 @@ export async function runCrawl(options: CrawlOptions, deps: CrawlDeps): Promise<
   const pages: PageResult[] = [];
   const headers = { "User-Agent": config.user_agent, "Accept-Language": "ja" };
 
-  async function get(url: string, extraDelayMs = 0): Promise<Response> {
+  async function getOnce(url: string, extraDelayMs: number): Promise<Response> {
     await throttle.wait(extraDelayMs);
     return deps.fetch(url, { headers, redirect: "follow", signal: AbortSignal.timeout(FETCH_TIMEOUT_MS) });
+  }
+
+  /** 一時的な失敗（通信エラー・タイムアウト・5xx・429）のときだけ、間隔を空けて1回だけやり直す。 */
+  async function get(url: string, extraDelayMs = 0): Promise<Response> {
+    for (let attempt = 1; ; attempt++) {
+      const delay = attempt === 1 ? extraDelayMs : Math.max(extraDelayMs, RETRY_DELAY_MS);
+      try {
+        const res = await getOnce(url, delay);
+        if (attempt < MAX_ATTEMPTS && (res.status >= 500 || res.status === 429)) {
+          deps.log(`  HTTP ${res.status} のため、やり直します: ${url}`);
+          await res.body?.cancel();
+          continue;
+        }
+        return res;
+      } catch (error) {
+        if (attempt >= MAX_ATTEMPTS) throw error;
+        deps.log(`  ${(error as Error).message} のため、やり直します: ${url}`);
+      }
+    }
   }
 
   async function robotsFor(origin: string): Promise<RobotsPolicy> {

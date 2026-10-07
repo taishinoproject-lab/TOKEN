@@ -13,6 +13,7 @@
     "crawl:fetch": "tsx scripts/crawl/fetch.ts",
     "crawl:verify": "tsx scripts/crawl/verify.ts",
     "crawl:report": "tsx scripts/crawl/report.ts",
+    "crawl:actions": "tsx scripts/crawl/actions.ts",
     "astro": "astro"
   },
   "dependencies": {

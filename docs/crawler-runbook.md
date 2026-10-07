@@ -56,6 +56,7 @@ git add / commit / push    # ⑥ 人の確認へ
   - 1館あたり `max_pages_per_venue`（8ページ）まで。
 - 本文の抽出は決定的（同じページからは同じテキスト）。HTML のコメント、script / style、ルビの読み（rt）は除く。PDF は unpdf でテキストにする。JSON は「キー: 値」の行にする。
 - 本文が変わったページだけ、スナップショットのファイルが書き換わる。
+- 通信エラー・タイムアウト（30秒）・HTTP 5xx・429 のときは、10秒以上空けて1回だけやり直す。それでも失敗したページだけが `error` になり、他のページ・他の館の巡回は続く。
 - 失敗（`error`）があると終了コードが 1 になるが、他のページの結果は保存されている。失敗したページは前回のスナップショットが残るので、そのまま続けてよい。失敗の内容は「要確認」に書く。
 
 ### 結果の読み方（`crawl/changes.json`）
@@ -194,3 +195,39 @@ npm run build          # データ検証（scripts/validate-data.ts）を含む
 | 東京国立博物館（`tnm`） | 本館の展示室一覧、刀剣の展示作品リスト（item ページ）、今週の東博コレクション展、年間スケジュールの JSON、料金ページ | 東博のページは、まれに別の言語（中国語など）の版が返るため、`r_exhibition` と `r_free_page` の URL には `&lang=ja` を付ける。2026年4月8日から本館の展示室番号が変わった（1階 11〜19室 → 1〜9室）。刀剣は**本館3室**（旧13室）。展示室一覧に新しい会期の「刀剣」が出たら、その「展示作品リストへ」の item ページ（`controller=item&id=…`）を targets に足し、会期の終わった item ページを外す。年間スケジュールのページ（`r_free_page/index.php?id=1255`）は JavaScript で描画するため、元データの `https://www.tnm.jp/data/schedule.json` を取得している（国宝・名品の展示期間と展示室がある）。次の会期の情報は、会期の直前まで公開されないことが多い |
 | 備前長船刀剣博物館（`bizen-osafune-token-museum`） | 年間展示予定（2026年度）、現在の展示 | 年度ごとに年間展示予定のページが別になる可能性がある。「現在の展示」は開催中の展覧会に合わせて内容が入れ替わる（展示品一覧の表がある）。2026年秋は漫画とのコラボ展示が同時開催されているが、掲載しない（D-012-4） |
 | 熱田神宮（`atsuta-jingu`） | 草薙館、草薙館の年間スケジュール、宝物館の年間スケジュール | 草薙館は毎月入れ替え。草薙館のページには、その月の刀剣展の「主な展示品」がある。前の月の展示品が HTML コメントで残っているが、抽出時に除かれる。宝物館は刀剣が主題の企画展・特別陳列だけを登録する。年間スケジュールは年度（4月〜翌3月）単位 |
+
+---
+
+## 8. GitHub Actions が作った PR を起点にする（T-304）
+
+巡回（①）は、GitHub Actions（`.github/workflows/crawl.yml`）が**毎週月曜 08:47（日本時間）**に自動で実行する。手動でも実行できる（GitHub の **Actions** → **週1回の巡回** → **Run workflow**。ブランチは `main` を選ぶ）。
+
+### 8.1 Actions が行うこと
+
+1. `npm ci` → `npm run crawl:fetch` を実行する。
+2. `npm run crawl:actions` で `crawl/changes.json` を読み、本文が `new` / `changed` のページがあるかを判定する。
+3. **変化がなければ、何もせずに終わる**（ブランチもPRも作らない。結果は実行の概要に出る）。
+4. 変化があれば、`crawl/snapshots/` と `crawl/changes.json` を `crawl/YYYY-MM-DD` ブランチにコミットして push し、`main` に向けた PR を作る（ラベル `crawl`）。同じ名前のブランチがすでにあれば、末尾に実行IDを付ける。
+5. 取得に失敗したページがあれば、PR 本文・実行ログ・実行の概要に一覧で出し、最後にジョブを失敗（赤）にする（PR は作られる）。GitHub から失敗の通知が届くので、それで気づける。
+
+### 8.2 PR を受け取ったら（AI のセッション）
+
+1. PR のブランチを取得して切り替える。
+   ```
+   git fetch origin crawl/2026-10-12
+   git switch crawl/2026-10-12
+   npm ci
+   ```
+2. **`npm run crawl:fetch` は実行しない**（巡回は Actions が済ませている。スナップショットは PR のものを使う）。
+3. PR 本文の「変化のあった館とページ」と `crawl/changes.json` を見て、3. 抽出 → 4. 検証 → 5. 報告 の手順を行う。`crawl:report` の基準は `origin/main`（既定）のままでよい。
+4. `data/exhibitions.json` と `crawl/report.md` をコミットし、**同じブランチ（`crawl/YYYY-MM-DD`）に push する**。新しいブランチや新しい PR は作らない。
+5. `crawl/report.md` の内容を、PR の本文に追記する（ツールで PR 本文を編集できない場合は、PR へのコメントとして書く）。
+6. 本文の変化がデータに関係しないもの（展示室の他の分野の入れ替え、ページの飾りの変更など）だけだった場合は、データを変えずに、`crawl/report.md` に「データの変更なし」と理由を書いて push する。
+
+### 8.3 注意
+
+- Actions（`GITHUB_TOKEN`）が作った PR では、CI（`.github/workflows/ci.yml`）は自動で始まらないか、承認待ちになる。抽出の結果を push すると CI が実行される。データの変更なしでマージする場合も、マージ前に CI が通っていることを確かめる。
+  - 出典: <https://docs.github.com/en/actions/how-tos/write-workflows/choose-when-workflows-run/trigger-a-workflow>（"events triggered by the `GITHUB_TOKEN` will not create a new workflow run"）
+- 前の週の巡回の PR がマージされていないと、次の週の巡回は `main` のスナップショットと比べるため、同じ変化がもう一度 PR になる。古い PR は、マージするか閉じてから次の週を迎える。
+- GitHub Actions は米国などのサーバーから接続する。館によっては国外からの接続を拒む可能性がある。特定の館が毎週 `error` になる場合は、「要確認」に書いてオーナーに伝える。
+- オーナーは、リポジトリの **Settings** → **Actions** → **General** → **Workflow permissions** で「**Allow GitHub Actions to create and approve pull requests**」を有効にしておく必要がある（無効だと PR の作成で失敗する）。
