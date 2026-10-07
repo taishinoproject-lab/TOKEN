@@ -1,23 +1,947 @@
 @import "tailwindcss";
 
-/* 色と書体は中間発表デモ（legacy/src/index.css）から引き継ぐ。デザインの本格的な作り込みは T-201 で行う。 */
+/*
+  訪剣 −TOKEN− のデザインの土台（D-016、docs/design/system.md）。
+  色・書体・装飾は案A（鞘書・白鞘）、展示情報と目録の形式は案B（展示目録・図録）を、案Aの色と書体に置き換えて使う。
+  書体は src/layouts/BaseLayout.astro で Google Fonts から読み込む。
+*/
 @theme {
-  --color-brand-bg: #F5F1E8;
-  --color-brand-text: #1F1D1B;
-  --color-brand-primary: #2B4162;
-  --color-brand-accent: #C73E3A;
-  --color-brand-gold: #B8963E;
+  /* §1 色（案A）。文字と地の組み合わせは WCAG AA（4.5:1 以上）を満たす */
+  --color-shiraki: #f3ede1; /* ページの地（白木） */
+  --color-shiraki-2: #eae2d2; /* 帯、区切り、表の見出し列の地 */
+  --color-washi: #fbf8f2; /* カード・表の地（和紙） */
+  --color-sumi: #1e1b18; /* 本文、太罫 */
+  --color-usuzumi: #5c554d; /* 補足の文字、表の項目名 */
+  --color-kokuen: #3a342e; /* 主ボタン */
+  --color-shu: #a23b2a; /* 要確認、会期終了間近、国宝の印 */
+  --color-mokume: #cfc2ab; /* 細罫（装飾専用。文字や入力欄の枠には使わない） */
+  --color-ok: #2f5a3c; /* いま会えます */
+  --color-placeholder: #6f675d; /* 入力欄の例文（和紙の地で 5.25） */
 
-  --font-serif: "Shippori Mincho", "Hiragino Mincho ProN", "Yu Mincho", serif;
-  --font-sans: "Zen Kaku Gothic New", "Hiragino Sans", "Yu Gothic", sans-serif;
+  /* 旧トークン（中間発表デモから）。刀匠・展覧会・館・地図の画面を作り直すまでの間、新しい色に寄せて残す */
+  --color-brand-bg: var(--color-shiraki);
+  --color-brand-text: var(--color-sumi);
+  --color-brand-primary: var(--color-kokuen);
+  --color-brand-accent: var(--color-shu);
+  --color-brand-gold: var(--color-mokume);
+
+  /* §2 書体 */
+  --font-fude: "Yuji Syuku", "Shippori Mincho", "Hiragino Mincho ProN", "Yu Mincho", serif; /* 号の見出しだけ */
+  --font-mincho: "Shippori Mincho", "Hiragino Mincho ProN", "Yu Mincho", serif; /* 見出し、号・刀名、本文 */
+  --font-gothic: "Zen Kaku Gothic New", "Hiragino Sans", "Yu Gothic", sans-serif; /* 日付、数字、項目名、ボタン、注記 */
+  --font-serif: var(--font-mincho);
+  --font-sans: var(--font-gothic);
 }
 
-body {
-  background-color: var(--color-brand-bg);
-  color: var(--color-brand-text);
-  font-family: var(--font-sans);
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+  }
+  body {
+    background-color: var(--color-shiraki);
+    color: var(--color-sumi);
+    font-family: var(--font-mincho);
+    font-size: 16px;
+    line-height: 1.8;
+    overflow-wrap: anywhere;
+  }
+  a {
+    color: inherit;
+    text-decoration: underline;
+    text-underline-offset: 0.2em;
+  }
+  :focus-visible {
+    outline: 2px solid var(--color-sumi);
+    outline-offset: 2px;
+  }
 }
 
-h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-serif);
+@layer components {
+  /* ---------- 共通 ---------- */
+  .wrap {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 0 16px;
+  }
+  @media (min-width: 768px) {
+    .wrap {
+      padding: 0 24px;
+    }
+  }
+  .gothic {
+    font-family: var(--font-gothic);
+  }
+  .tnum {
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* ---------- ヘッダー・フッター（案A） ---------- */
+  .site-hdr {
+    position: relative;
+    border-bottom: 1px solid var(--color-mokume);
+  }
+  .site-hdr .wrap {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 64px;
+  }
+  .logo {
+    font-weight: 800;
+    font-size: 20px;
+    letter-spacing: 0.12em;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+  .logo small {
+    font-weight: 400;
+    font-size: 12px;
+    letter-spacing: 0.2em;
+    color: var(--color-usuzumi);
+    margin-left: 0.4em;
+  }
+  .site-nav {
+    display: none;
+    gap: 28px;
+    font-size: 14px;
+  }
+  .site-nav a {
+    text-decoration: none;
+    color: var(--color-usuzumi);
+  }
+  .site-nav a[aria-current="page"],
+  .site-nav a:hover {
+    color: var(--color-sumi);
+    text-decoration: underline;
+  }
+  .site-menu > summary {
+    list-style: none;
+    cursor: pointer;
+    font-family: var(--font-gothic);
+    font-size: 13px;
+    line-height: 1.6;
+    border: 1px solid var(--color-sumi);
+    padding: 6px 12px;
+  }
+  .site-menu > summary::-webkit-details-marker {
+    display: none;
+  }
+  .site-menu[open] > summary {
+    background: var(--color-sumi);
+    color: var(--color-washi);
+  }
+  .site-menu ul {
+    position: absolute;
+    z-index: 1000;
+    left: 0;
+    right: 0;
+    top: 100%;
+    margin: 0;
+    padding: 4px 16px 12px;
+    list-style: none;
+    background: var(--color-shiraki);
+    border-bottom: 1px solid var(--color-sumi);
+  }
+  .site-menu li a {
+    display: block;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--color-mokume);
+    text-decoration: none;
+    font-size: 16px;
+    letter-spacing: 0.08em;
+  }
+  @media (min-width: 768px) {
+    .site-nav {
+      display: flex;
+    }
+    .site-menu {
+      display: none;
+    }
+  }
+  .site-ftr {
+    font-family: var(--font-gothic);
+    font-size: 12px;
+    color: var(--color-usuzumi);
+    padding: 28px 0 36px;
+    border-top: 1px solid var(--color-mokume);
+    margin-top: 48px;
+  }
+  .site-ftr p {
+    margin: 0;
+  }
+
+  /* ---------- 見出し（案A：明朝＋下の太罫） ---------- */
+  .sec {
+    padding: 40px 0 0;
+  }
+  .sec-h {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 4px 14px;
+    margin: 0 0 0;
+    border-bottom: 1px solid var(--color-sumi);
+    padding-bottom: 8px;
+  }
+  .sec-h h2 {
+    font-size: 22px;
+    font-weight: 600;
+    margin: 0;
+    letter-spacing: 0.12em;
+    line-height: 1.4;
+  }
+  .sec-h .aside {
+    font-family: var(--font-gothic);
+    font-size: 12px;
+    color: var(--color-usuzumi);
+  }
+  /* 欄の見出し（案Bの .cap） */
+  .cap {
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    border-bottom: 1px solid var(--color-sumi);
+    padding-bottom: 4px;
+    margin: 0;
+    line-height: 1.6;
+  }
+  .cap span {
+    font-family: var(--font-gothic);
+    font-weight: 400;
+    font-size: 11px;
+    color: var(--color-usuzumi);
+    margin-left: 8px;
+    letter-spacing: 0;
+  }
+  .rule-double {
+    border-top: 3px double var(--color-sumi);
+  }
+
+  /* ---------- 札・印 ---------- */
+  /* 要確認（案A：朱の枠） */
+  .kakunin {
+    display: inline-block;
+    font-family: var(--font-gothic);
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--color-shu);
+    border: 1px solid var(--color-shu);
+    padding: 0 5px;
+    line-height: 1.6;
+    letter-spacing: 0.05em;
+    white-space: nowrap;
+    vertical-align: 0.1em;
+  }
+  /* 帰属の区別（案A：在銘は実線、極めは破線、伝は点線） */
+  .attr-box {
+    display: inline-block;
+    font-family: var(--font-gothic);
+    font-size: 11px;
+    border: 1px solid var(--color-usuzumi);
+    color: var(--color-usuzumi);
+    padding: 0 4px;
+    line-height: 1.5;
+    white-space: nowrap;
+    vertical-align: 0.1em;
+  }
+  .attr-box[data-basis="極め"] {
+    border-style: dashed;
+  }
+  .attr-box[data-basis="伝"] {
+    border-style: dotted;
+  }
+  /* 帰属の区別（目録：〔在銘〕の亀甲括弧） */
+  .attr-bracket {
+    font-family: var(--font-gothic);
+    font-size: 11px;
+    color: var(--color-usuzumi);
+    margin-left: 2px;
+    white-space: nowrap;
+  }
+  /* 指定・認定の印 */
+  .mark {
+    display: inline-block;
+    font-family: var(--font-gothic);
+    font-size: 11px;
+    line-height: 1.5;
+    padding: 0 5px;
+    border: 1px solid currentColor;
+    white-space: nowrap;
+  }
+  .mark[data-kind="国宝"] {
+    color: var(--color-shu);
+  }
+  /* 状態の札 */
+  .status-badge {
+    display: inline-block;
+    font-family: var(--font-gothic);
+    font-weight: 700;
+    line-height: 1.5;
+    padding: 1px 10px;
+    border: 1px solid currentColor;
+    white-space: nowrap;
+  }
+  .status-badge[data-tone="ok"] {
+    background: var(--color-ok);
+    border-color: var(--color-ok);
+    color: var(--color-washi);
+  }
+  .status-badge[data-tone="soon"] {
+    color: var(--color-sumi);
+  }
+  .status-badge[data-tone="plan"] {
+    color: var(--color-usuzumi);
+  }
+  .status-badge[data-tone="hold"] {
+    color: var(--color-usuzumi);
+    border-style: dotted;
+  }
+  .status-badge[data-tone="ended"] {
+    color: var(--color-usuzumi);
+    border-style: dashed;
+  }
+  .status-badge[data-size="sm"] {
+    font-size: 11px;
+    padding: 0 6px;
+  }
+  .status-badge[data-size="md"] {
+    font-size: 15px;
+  }
+  /* 号などの札（刀剣詳細の見出しの下） */
+  .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 14px 0 0;
+    padding: 0;
+    list-style: none;
+    font-family: var(--font-gothic);
+    font-size: 12px;
+  }
+  .tags li {
+    border: 1px solid var(--color-sumi);
+    padding: 1px 8px;
+    line-height: 1.6;
+  }
+  .tags li[data-kind="国宝"] {
+    background: var(--color-shu);
+    border-color: var(--color-shu);
+    color: var(--color-washi);
+  }
+  .tags li[data-kind="sub"] {
+    border-color: var(--color-usuzumi);
+    color: var(--color-usuzumi);
+  }
+
+  /* ---------- 目録（案Bの .cat。system.md §4.2） ---------- */
+  .cat {
+    width: 100%;
+    border-collapse: collapse;
+    background: var(--color-washi);
+    font-variant-numeric: tabular-nums;
+  }
+  .cat th {
+    font-family: var(--font-gothic);
+    font-size: 11px;
+    font-weight: 400;
+    color: var(--color-usuzumi);
+    text-align: left;
+    padding: 8px 10px;
+    border-bottom: 1px solid var(--color-sumi);
+    white-space: nowrap;
+  }
+  .cat td {
+    padding: 14px 10px;
+    border-bottom: 1px solid var(--color-mokume);
+    vertical-align: top;
+    font-size: 14px;
+    line-height: 1.6;
+  }
+  .cat .c-no {
+    font-size: 13px;
+    color: var(--color-usuzumi);
+    width: 3.2em;
+  }
+  .cat .c-desig {
+    width: 6em;
+  }
+  .cat .c-name .name {
+    font-size: 21px;
+    font-weight: 600;
+    text-decoration: none;
+    line-height: 1.3;
+  }
+  .cat .c-name a.name:hover {
+    text-decoration: underline;
+  }
+  .cat .c-name small {
+    display: block;
+    font-size: 13px;
+    color: var(--color-usuzumi);
+    margin-top: 2px;
+  }
+  .cat .c-smith,
+  .cat .c-venue,
+  .cat .c-display {
+    font-family: var(--font-gothic);
+  }
+  .cat .until {
+    font-weight: 700;
+    color: var(--color-ok);
+    white-space: nowrap;
+  }
+  .cat .note {
+    display: block;
+    font-size: 12px;
+    color: var(--color-usuzumi);
+  }
+  /* スマホでは表を2段組のカードに組み替える（No. を左、項目名を行頭に付ける） */
+  @media (max-width: 767px) {
+    .cat thead {
+      display: none;
+    }
+    .cat,
+    .cat tbody,
+    .cat tr,
+    .cat td {
+      display: block;
+      width: 100%;
+    }
+    .cat tr {
+      display: grid;
+      grid-template-columns: 2.6em minmax(0, 1fr);
+      padding: 14px 4px;
+      border-bottom: 1px solid var(--color-mokume);
+    }
+    .cat td {
+      border: 0;
+      padding: 0;
+      grid-column: 2;
+    }
+    .cat td.c-no {
+      grid-column: 1;
+      grid-row: 1 / span 6;
+      width: auto;
+    }
+    .cat td.c-desig:empty {
+      display: none;
+    }
+    .cat td.c-smith,
+    .cat td.c-venue,
+    .cat td.c-display {
+      font-size: 13px;
+      margin-top: 2px;
+    }
+    .cat td[data-label]::before {
+      content: attr(data-label) "　";
+      color: var(--color-usuzumi);
+      font-weight: 400;
+    }
+    .cat .note {
+      display: inline;
+      margin-left: 0.5em;
+    }
+  }
+
+  /* 会期終了が近い展覧会（案Bの .ex-list） */
+  .ex-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    font-variant-numeric: tabular-nums;
+  }
+  .ex-list li {
+    display: grid;
+    grid-template-columns: 5.2em minmax(0, 1fr);
+    gap: 2px 16px;
+    padding: 14px 10px;
+    border-bottom: 1px solid var(--color-mokume);
+    background: var(--color-washi);
+  }
+  .ex-list .date {
+    grid-row: span 2;
+    line-height: 1.2;
+    border-right: 1px solid var(--color-mokume);
+    padding-right: 10px;
+  }
+  .ex-list .date b {
+    display: block;
+    font-size: 24px;
+    font-weight: 600;
+  }
+  .ex-list .date small {
+    font-family: var(--font-gothic);
+    font-size: 11px;
+    color: var(--color-usuzumi);
+  }
+  .ex-list .date[data-soon] b {
+    color: var(--color-shu);
+  }
+  .ex-list .t {
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 1.5;
+  }
+  .ex-list .v {
+    font-family: var(--font-gothic);
+    font-size: 13px;
+    color: var(--color-usuzumi);
+  }
+  @media (min-width: 900px) {
+    .ex-list {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      column-gap: 32px;
+    }
+  }
+
+  /* ---------- 展示情報の表（案Bの .exhibit。§4.1） ---------- */
+  .exhibit {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+    background: var(--color-washi);
+    font-variant-numeric: tabular-nums;
+  }
+  .exhibit th,
+  .exhibit td {
+    text-align: left;
+    padding: 10px 8px;
+    border-bottom: 1px solid var(--color-mokume);
+    vertical-align: top;
+    line-height: 1.7;
+  }
+  .exhibit th {
+    width: 7.5em;
+    font-family: var(--font-gothic);
+    font-weight: 400;
+    color: var(--color-usuzumi);
+    font-size: 12px;
+    background: var(--color-shiraki-2);
+  }
+  .exhibit .until {
+    display: inline-block;
+    font-family: var(--font-gothic);
+    font-weight: 700;
+    font-size: 16px;
+    margin-left: 8px;
+  }
+  .exhibit .sub {
+    display: block;
+    font-family: var(--font-gothic);
+    font-size: 12px;
+    color: var(--color-usuzumi);
+  }
+  /* 要確認の注意欄（案Bの .warn） */
+  .warn {
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+    margin: 12px 0 0;
+    padding: 10px 12px;
+    border-left: 3px solid var(--color-shu);
+    background: color-mix(in srgb, var(--color-shu) 7%, var(--color-washi));
+    font-family: var(--font-gothic);
+    font-size: 13px;
+    line-height: 1.7;
+  }
+  .warn p {
+    margin: 0;
+  }
+  .note-line {
+    margin: 12px 0 0;
+    font-family: var(--font-gothic);
+    font-size: 12px;
+    color: var(--color-usuzumi);
+  }
+
+  /* ---------- 作品データの表（案Bの .spec。§4.3） ---------- */
+  .spec {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+  }
+  .spec th,
+  .spec td {
+    text-align: left;
+    padding: 9px 6px;
+    border-bottom: 1px solid var(--color-mokume);
+    vertical-align: top;
+    line-height: 1.7;
+  }
+  .spec th {
+    width: 6.5em;
+    font-family: var(--font-gothic);
+    font-weight: 400;
+    color: var(--color-usuzumi);
+    font-size: 12px;
+    white-space: nowrap;
+  }
+  .spec td.num {
+    font-size: 16px;
+    font-variant-numeric: tabular-nums;
+  }
+  .spec .sub {
+    font-family: var(--font-gothic);
+    font-size: 12px;
+    color: var(--color-usuzumi);
+  }
+  .legend {
+    font-family: var(--font-gothic);
+    font-size: 11px;
+    color: var(--color-usuzumi);
+    margin: 6px 0 0;
+  }
+
+  /* ---------- ボタン（案A） ---------- */
+  .actions {
+    display: grid;
+    gap: 10px;
+    margin: 20px 0 0;
+  }
+  @media (min-width: 600px) {
+    .actions {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+  .btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-gothic);
+    font-size: 14px;
+    font-weight: 700;
+    text-decoration: none;
+    padding: 10px 14px;
+    border: 1px solid var(--color-kokuen);
+    letter-spacing: 0.06em;
+    min-height: 52px;
+    text-align: center;
+    line-height: 1.5;
+  }
+  .btn small {
+    font-weight: 400;
+    font-size: 11px;
+    letter-spacing: 0;
+  }
+  .btn[data-primary] {
+    background: var(--color-kokuen);
+    color: var(--color-washi);
+  }
+  .btn:not([data-primary]):hover {
+    background: var(--color-washi);
+  }
+
+  /* ---------- 白鞘の号表示（案Aの .saya） ---------- */
+  .saya {
+    position: relative;
+    background: var(--color-washi);
+    border: 1px solid var(--color-mokume);
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: center;
+    gap: 18px;
+    padding: 28px 36px 44px;
+    height: 380px;
+    overflow: hidden;
+  }
+  .saya::before,
+  .saya::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    border-left: 1px solid var(--color-shiraki-2);
+  }
+  .saya::before {
+    left: 24px;
+  }
+  .saya::after {
+    right: 24px;
+  }
+  .saya .go {
+    writing-mode: vertical-rl;
+    font-family: var(--font-fude);
+    font-size: var(--saya-go, 48px);
+    line-height: 1.1;
+    letter-spacing: 0.12em;
+  }
+  .saya .go[data-font="mincho"] {
+    font-family: var(--font-mincho);
+    font-weight: 600;
+  }
+  .saya .yomi {
+    writing-mode: vertical-rl;
+    font-size: 13px;
+    color: var(--color-usuzumi);
+    letter-spacing: 0.3em;
+  }
+  .saya .mei {
+    writing-mode: vertical-rl;
+    font-size: 17px;
+    letter-spacing: 0.25em;
+    margin-top: 56px;
+  }
+  .saya .meki {
+    position: absolute;
+    bottom: 18px;
+    left: 50%;
+    width: 12px;
+    height: 12px;
+    margin-left: -6px;
+    border: 1px solid var(--color-mokume);
+    border-radius: 50%;
+  }
+  .saya[data-size="l"] {
+    --saya-go: 48px;
+  }
+  .saya[data-size="m"] {
+    --saya-go: 40px;
+  }
+  .saya[data-size="s"] {
+    --saya-go: 32px;
+  }
+  .saya[data-size="xs"] {
+    --saya-go: 24px;
+  }
+  @media (min-width: 900px) {
+    .saya {
+      height: 560px;
+    }
+    .saya[data-size="l"] {
+      --saya-go: 76px;
+    }
+    .saya[data-size="m"] {
+      --saya-go: 62px;
+    }
+    .saya[data-size="s"] {
+      --saya-go: 48px;
+    }
+    .saya[data-size="xs"] {
+      --saya-go: 34px;
+    }
+  }
+
+  /* ---------- 出典と最終確認日（案A） ---------- */
+  .sources {
+    margin: 32px 0 0;
+    font-family: var(--font-gothic);
+    font-size: 12px;
+    color: var(--color-usuzumi);
+    border-top: 1px solid var(--color-mokume);
+    padding-top: 12px;
+    line-height: 1.7;
+  }
+  .sources h2 {
+    font-family: var(--font-mincho);
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--color-sumi);
+    margin: 0 0 6px;
+    letter-spacing: 0.12em;
+  }
+  .sources ol {
+    margin: 0;
+    padding-left: 1.4em;
+    list-style: decimal;
+  }
+  .sources li {
+    margin: 0 0 6px;
+    overflow-wrap: anywhere;
+  }
+  .sources .kakunin {
+    margin: 0 4px;
+  }
+  .sources .checked {
+    margin: 8px 0 0;
+    color: var(--color-sumi);
+  }
+
+  /* ---------- トップの導入部（案A：縦書きの見出しと検索窓） ---------- */
+  .hero {
+    padding: 40px 0 8px;
+  }
+  .hero .wrap {
+    display: flex;
+    gap: 32px;
+    align-items: flex-start;
+  }
+  .hero-v {
+    writing-mode: vertical-rl;
+    white-space: nowrap;
+    margin: 0;
+    font-family: var(--font-fude);
+    font-weight: 400;
+    font-size: 30px;
+    line-height: 1.5;
+    letter-spacing: 0.18em;
+    flex: none;
+    border-left: 1px solid var(--color-mokume);
+    padding-left: 16px;
+  }
+  .hero-body {
+    flex: 1;
+    min-width: 0;
+    padding-top: 8px;
+  }
+  .hero-body .lead {
+    font-size: 15px;
+    color: var(--color-usuzumi);
+    margin: 0 0 20px;
+  }
+  @media (max-width: 520px) {
+    .hero .wrap {
+      gap: 16px;
+    }
+    .hero-v {
+      font-size: 22px;
+      padding-left: 10px;
+    }
+  }
+
+  /* ---------- 検索窓と結果 ---------- */
+  .search-box {
+    display: flex;
+    border: 1px solid var(--color-sumi);
+    background: var(--color-washi);
+  }
+  .search-box input {
+    flex: 1;
+    min-width: 0;
+    border: 0;
+    background: none;
+    font: inherit;
+    font-size: 16px;
+    padding: 12px;
+    color: var(--color-sumi);
+  }
+  .search-box input::placeholder {
+    color: var(--color-placeholder);
+  }
+  .search-box input:focus-visible {
+    outline-offset: -3px;
+  }
+  .search-box button {
+    border: 0;
+    background: var(--color-sumi);
+    color: var(--color-washi);
+    font-family: var(--font-gothic);
+    font-size: 14px;
+    padding: 0 18px;
+    letter-spacing: 0.1em;
+    cursor: pointer;
+    flex: none;
+  }
+  .search-hint {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 4px 12px;
+    font-family: var(--font-gothic);
+    font-size: 12px;
+    color: var(--color-usuzumi);
+    margin: 10px 0 0;
+  }
+  .search-hint button {
+    font: inherit;
+    color: var(--color-sumi);
+    text-decoration: underline;
+    text-underline-offset: 0.2em;
+    background: none;
+    border: 0;
+    padding: 4px 0;
+    cursor: pointer;
+  }
+  .search-hint span {
+    flex-basis: 100%;
+  }
+  .search-results {
+    margin-top: 16px;
+    border-bottom: 1px solid var(--color-sumi);
+    padding-bottom: 12px;
+  }
+  .search-group {
+    margin-top: 16px;
+  }
+  .search-group h3 {
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    border-bottom: 1px solid var(--color-sumi);
+    padding-bottom: 4px;
+    margin: 0;
+  }
+  .search-group ul,
+  .search-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  .search-group li {
+    padding: 10px 0;
+    border-bottom: 1px solid var(--color-mokume);
+    line-height: 1.6;
+  }
+  .search-name {
+    font-size: 18px;
+    font-weight: 600;
+    text-decoration: none;
+    margin-right: 0.6em;
+  }
+  .search-name:hover {
+    text-decoration: underline;
+  }
+  .search-sub {
+    font-size: 13px;
+    color: var(--color-usuzumi);
+  }
+  .search-meta {
+    display: block;
+    font-family: var(--font-gothic);
+    font-size: 12px;
+    color: var(--color-usuzumi);
+  }
+  .search-note {
+    font-family: var(--font-gothic);
+    font-size: 13px;
+    margin: 12px 0 0;
+  }
+  /* 号・別名の完全一致（D-013）。二重罫の枠で最上位に強調する */
+  .search-featured {
+    margin-top: 16px;
+    padding: 14px 16px;
+    border: 3px double var(--color-sumi);
+    background: var(--color-washi);
+  }
+  .search-featured-label {
+    margin: 0 0 2px;
+    font-family: var(--font-gothic);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+  }
+  .search-featured-name {
+    font-size: 26px;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-decoration: none;
+    margin-right: 0.5em;
+  }
+  .search-featured-name:hover {
+    text-decoration: underline;
+  }
+
+  /* ---------- 本文 ---------- */
+  .prose h2,
+  .prose h3 {
+    font-size: 17px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    margin: 28px 0 6px;
+  }
+  .prose p {
+    margin: 0;
+    font-size: 15px;
+  }
 }

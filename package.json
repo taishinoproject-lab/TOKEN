@@ -13,7 +13,9 @@
     "crawl:fetch": "tsx scripts/crawl/fetch.ts",
     "crawl:verify": "tsx scripts/crawl/verify.ts",
     "crawl:report": "tsx scripts/crawl/report.ts",
-    "astro": "astro"
+    "astro": "astro",
+    "fonts:fude-glyphs": "tsx scripts/fonts/fude-glyphs.ts",
+    "fonts:fude-report": "tsx scripts/fonts/fude-report.ts"
   },
   "dependencies": {
     "@astrojs/react": "^7.0.1",

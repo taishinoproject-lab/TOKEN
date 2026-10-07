@@ -1,13 +1,30 @@
 ---
+// 共通レイアウト（案A）。ヘッダー（ロゴ・ナビ・スマホ用メニュー）とフッター（免責文）。
 import "../styles/global.css";
 
 interface Props {
   title?: string;
+  description?: string;
+  /** ナビで現在のページを示す */
+  current?: "search" | "exhibitions" | "map";
+  /**
+   * main の組み方。narrow（既定）は本文の幅に収めて余白を付ける。
+   * full はページ側で .wrap を使って組む（トップ・刀剣詳細など）。
+   */
+  width?: "narrow" | "full";
 }
 
-const { title } = Astro.props;
+const { title, description, current, width = "narrow" } = Astro.props;
 const siteName = "訪剣 −TOKEN−";
 const pageTitle = title ? `${title}｜${siteName}` : siteName;
+const pageDescription = description ?? "推しの刀が、いま・どこで・いつまで見られるか。号・銘・刀匠の名から探せます。";
+
+// 展覧会の一覧ページはまだないため、トップの「会期終了が近い展覧会」へ移動する
+const navItems = [
+  { key: "search", href: "/#search", label: "刀を探す" },
+  { key: "exhibitions", href: "/#exhibitions", label: "展覧会" },
+  { key: "map", href: "/map", label: "地図・訪剣帖" },
+] as const;
 ---
 
 <!doctype html>
@@ -15,24 +32,63 @@ const pageTitle = title ? `${title}｜${siteName}` : siteName;
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={pageDescription} />
     <link rel="icon" type="image/jpeg" href="/logo.jpg" />
     <title>{pageTitle}</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!-- 書体は使う太さだけを読み込む（docs/design/system.md §2） -->
     <link
-      href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;600&family=Zen+Kaku+Gothic+New:wght@400;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;600;800&family=Yuji+Syuku&family=Zen+Kaku+Gothic+New:wght@400;700&display=swap"
       rel="stylesheet"
     />
   </head>
-  <body class="min-h-screen">
-    <header class="flex items-center justify-between border-b border-brand-text/20 px-4 py-3">
-      <a href="/" class="font-serif text-lg font-semibold">{siteName}</a>
-      <nav aria-label="サイト内">
-        <a href="/map" class="underline">地図</a>
-      </nav>
+  <body class="flex min-h-screen flex-col">
+    <header class="site-hdr">
+      <div class="wrap">
+        <a class="logo" href="/">訪剣<small>−TOKEN−</small></a>
+        <nav class="site-nav" aria-label="サイト内">
+          {
+            navItems.map((item) => (
+              <a href={item.href} aria-current={current === item.key ? "page" : undefined}>
+                {item.label}
+              </a>
+            ))
+          }
+        </nav>
+        <details class="site-menu">
+          <summary aria-label="メニューを開く">目次</summary>
+          <nav aria-label="サイト内（メニュー）">
+            <ul>
+              {
+                navItems.map((item) => (
+                  <li>
+                    <a href={item.href} aria-current={current === item.key ? "page" : undefined}>
+                      {item.label}
+                    </a>
+                  </li>
+                ))
+              }
+            </ul>
+          </nav>
+        </details>
+      </div>
     </header>
-    <main class="mx-auto max-w-3xl px-4 py-6">
+    <main class:list={["flex-1", width === "narrow" && "wrap max-w-3xl py-6"]}>
       <slot />
     </main>
+    <footer class="site-ftr">
+      <div class="wrap">
+        <p>訪剣 −TOKEN−　展示情報は各館の公式サイトで最終確認してください。</p>
+      </div>
+    </footer>
+    <script>
+      // スマホ用メニュー：項目を選んだら閉じる（同じページ内の移動でも閉じるように）
+      for (const menu of document.querySelectorAll<HTMLDetailsElement>(".site-menu")) {
+        menu.addEventListener("click", (e) => {
+          if ((e.target as HTMLElement).closest("a")) menu.open = false;
+        });
+      }
+    </script>
   </body>
 </html>

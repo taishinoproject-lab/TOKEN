@@ -1,30 +1,60 @@
 // 検索窓（data-model.md §10）。ビルド時に生成した /search-index.json を読み込み、ブラウザ側で検索する。
-// 見た目は仮（デザインは T-201 で行う）。
-import { useDeferredValue, useEffect, useId, useState } from "react";
+// 見た目は案A（墨の枠の検索窓）。号・別名の完全一致で1振りに決まる刀は、最上位に強調表示する（D-013）。
+import { useDeferredValue, useEffect, useId, useState, type SubmitEvent } from "react";
 import { smithDisplayName } from "../lib/display-name";
 import {
   SEARCH_INDEX_VERSION,
-  attributionLabels,
   searchIndex,
   type SearchIndex,
   type SmithHit,
   type SwordHit,
 } from "../lib/search";
+import AttributionMark from "./ui/AttributionMark";
 
 const MAX_RESULTS = 30;
 
+/** 検索窓の下に出す入力例。押すと検索語に入る */
+const EXAMPLES = ["三日月宗近", "正宗", "國廣", "髭切"];
+
 type LoadState = { kind: "idle" } | { kind: "loading" } | { kind: "ready"; index: SearchIndex } | { kind: "error" };
 
-function SwordItem({ hit, featured = false }: { hit: SwordHit; featured?: boolean }) {
-  const labels = attributionLabels(hit.sword);
+function SwordAttributions({ hit }: { hit: SwordHit }) {
+  const { attributions } = hit.sword;
+  if (attributions.length === 0) return null;
   return (
-    <li className={featured ? "rounded border-2 border-brand-primary p-3" : "py-1"}>
-      {featured && <p className="mb-1 text-sm font-bold text-brand-primary">号が一致した刀</p>}
-      <a href={`/swords/${hit.sword.id}`} className={featured ? "text-xl underline" : "underline"}>
+    <span className="search-meta">
+      刀匠：
+      {attributions.map((a, i) => (
+        <span key={a.smith_id}>
+          {i > 0 && "・"}
+          {a.smith_name ?? a.smith_id}
+          <AttributionMark basis={a.basis} variant="bracket" />
+        </span>
+      ))}
+    </span>
+  );
+}
+
+export function SwordItem({ hit, featured = false }: { hit: SwordHit; featured?: boolean }) {
+  if (featured) {
+    return (
+      <li className="search-featured">
+        <p className="search-featured-label">号・別名が一致した刀</p>
+        <a href={`/swords/${hit.sword.id}`} className="search-featured-name">
+          {hit.sword.heading}
+        </a>
+        {hit.sword.subtitle && <span className="search-sub">{hit.sword.subtitle}</span>}
+        <SwordAttributions hit={hit} />
+      </li>
+    );
+  }
+  return (
+    <li>
+      <a href={`/swords/${hit.sword.id}`} className="search-name">
         {hit.sword.heading}
       </a>
-      {hit.sword.subtitle && <span className="text-sm">（{hit.sword.subtitle}）</span>}
-      {labels.length > 0 && <span className="block text-sm">刀匠：{labels.join("・")}</span>}
+      {hit.sword.subtitle && <span className="search-sub">{hit.sword.subtitle}</span>}
+      <SwordAttributions hit={hit} />
     </li>
   );
 }
@@ -34,13 +64,13 @@ function SmithItem({ hit }: { hit: SmithHit }) {
   // 流派単位の登録では、流派名は名前と重なるので出さない
   const extra = [smith.generation, smith.school !== smith.name ? smith.school : undefined].filter(Boolean).join("・");
   return (
-    <li className="py-1">
-      <a href={`/smiths/${smith.id}`} className="underline">
+    <li>
+      <a href={`/smiths/${smith.id}`} className="search-name">
         {smithDisplayName(smith)}
       </a>
-      <span className="text-sm">
-        （{smith.reading}
-        {extra && `／${extra}`}）
+      <span className="search-sub">
+        {smith.reading}
+        {extra && `／${extra}`}
       </span>
     </li>
   );
@@ -71,9 +101,16 @@ export default function Search() {
   const result = state.kind === "ready" && deferredQuery.trim() !== "" ? searchIndex(state.index, deferredQuery) : null;
   const total = result ? result.smiths.length + result.swords.length + (result.featured ? 1 : 0) : 0;
 
+  // 結果はその場で出るので、送信ではページを移動しない（スマホのキーボードを閉じるだけ）
+  const onSubmit = (e: SubmitEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const input = e.currentTarget.querySelector("input");
+    input?.blur();
+  };
+
   const smithSection = result && result.smiths.length > 0 && (
-    <section key="smiths" className="mt-4">
-      <h3 className="mb-1 text-lg">刀匠（{result.smiths.length}件）</h3>
+    <section key="smiths" className="search-group">
+      <h3>刀匠（{result.smiths.length}件）</h3>
       <ul>
         {result.smiths.slice(0, MAX_RESULTS).map((hit) => (
           <SmithItem key={hit.smith.id} hit={hit} />
@@ -82,43 +119,54 @@ export default function Search() {
     </section>
   );
   const swordSection = result && result.swords.length > 0 && (
-    <section key="swords" className="mt-4">
-      <h3 className="mb-1 text-lg">刀剣（{result.swords.length}件）</h3>
+    <section key="swords" className="search-group">
+      <h3>刀剣（{result.swords.length}件）</h3>
       <ul>
         {result.swords.slice(0, MAX_RESULTS).map((hit) => (
           <SwordItem key={hit.sword.id} hit={hit} />
         ))}
       </ul>
       {result.swords.length > MAX_RESULTS && (
-        <p className="text-sm">ほか {result.swords.length - MAX_RESULTS} 件。検索語を詳しくすると絞り込めます。</p>
+        <p className="search-note">ほか {result.swords.length - MAX_RESULTS} 件。検索語を詳しくすると絞り込めます。</p>
       )}
     </section>
   );
 
   return (
-    <div role="search">
-      <label htmlFor={inputId} className="mb-1 block">
-        刀の号・銘・刀匠名で探す
-      </label>
-      <input
-        id={inputId}
-        type="search"
-        value={query}
-        onChange={(e) => setQuery(e.target.value)}
-        placeholder="例：三日月宗近、正宗、國廣"
-        autoComplete="off"
-        enterKeyHint="search"
-        className="w-full rounded border border-brand-text/40 bg-white px-3 py-2 text-base"
-      />
+    <div>
+      <form className="search-box" role="search" onSubmit={onSubmit}>
+        <label htmlFor={inputId} className="sr-only">
+          刀の号・銘・刀匠名で探す
+        </label>
+        <input
+          id={inputId}
+          type="search"
+          value={query}
+          onChange={(e) => setQuery(e.target.value)}
+          placeholder="号・銘・刀匠名で探す"
+          autoComplete="off"
+          enterKeyHint="search"
+        />
+        <button type="submit">探す</button>
+      </form>
+      <p className="search-hint">
+        例：
+        {EXAMPLES.map((ex) => (
+          <button key={ex} type="button" onClick={() => setQuery(ex)}>
+            {ex}
+          </button>
+        ))}
+        <span>旧字体・かなでも探せます</span>
+      </p>
 
-      <div aria-live="polite" className={result && total > 0 ? "mt-2 border-b border-brand-text/20 pb-4" : undefined}>
-        {state.kind === "loading" && <p className="mt-2 text-sm">読み込み中…</p>}
+      <div aria-live="polite" className={result && total > 0 ? "search-results" : undefined}>
+        {state.kind === "loading" && <p className="search-note">読み込み中…</p>}
         {state.kind === "error" && (
-          <p className="mt-2 text-sm text-brand-accent">検索の準備に失敗しました。ページを再読み込みしてください。</p>
+          <p className="search-note text-shu">検索の準備に失敗しました。ページを再読み込みしてください。</p>
         )}
-        {result && total === 0 && <p className="mt-2 text-sm">「{query.trim()}」に一致する刀・刀匠は見つかりませんでした。</p>}
+        {result && total === 0 && <p className="search-note">「{query.trim()}」に一致する刀・刀匠は見つかりませんでした。</p>}
         {result?.featured && (
-          <ul className="mt-4">
+          <ul className="search-list">
             <SwordItem hit={result.featured} featured />
           </ul>
         )}

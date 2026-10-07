@@ -164,6 +164,7 @@ export type Venue = z.infer<typeof venueSchema>;
 export type SmithKind = z.infer<typeof smithKindSchema>;
 export type Smith = z.infer<typeof smithSchema>;
 export type BladeType = z.infer<typeof bladeTypeSchema>;
+export type Designation = z.infer<typeof designationSchema>;
 export type NbthkRank = z.infer<typeof nbthkRankSchema>;
 export type AttributionBasis = z.infer<typeof attributionBasisSchema>;
 export type Sword = z.infer<typeof swordSchema>;

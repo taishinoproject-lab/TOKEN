@@ -6,7 +6,7 @@ import type { Exhibit, Exhibition } from "./schema";
 export type ExhibitionStatus = "upcoming" | "ongoing" | "ended" | "cancelled" | "postponed";
 
 type ExhibitionDates = Pick<Exhibition, "start_date" | "end_date" | "status">;
-type ExhibitionForStatus = Pick<Exhibition, "id" | "start_date" | "end_date" | "status" | "periods"> & {
+export type ExhibitionForStatus = Pick<Exhibition, "id" | "start_date" | "end_date" | "status" | "periods"> & {
   exhibits: Pick<Exhibit, "sword_id" | "period_ids">[];
 };
 
