@@ -10,6 +10,20 @@ Cloudflare Pages の **Git 連携**（GitHub のリポジトリを Cloudflare �
 
 ---
 
+## 推奨：Vercel で公開する（D-022）
+
+このリポジトリは、すでに Vercel のプロジェクト（`token`）に接続されていて、PR ごとのプレビューも作られている。新しいアカウントを作らずに済むため、公開先は Vercel を使う。以下の Cloudflare Pages の手順（§0〜§8）は、Vercel から移る場合の予備として残す。
+
+ビルドの設定はリポジトリの `vercel.json` に書いてある（ビルドコマンド `npm run build`、出力先 `dist`、`.ics` の Content-Type など）。Node.js のバージョンは `.node-version`（22）に合わせる。
+
+1. PR を `main` に取り込む。`main` への push で、本番の公開が自動で始まる。
+2. Vercel のダッシュボードで、プロジェクト `token` → **Settings** → **Build and Deployment**（**要確認**：画面の名前は変わることがある）を開き、Framework Preset が **Astro** または **Other** で、`vercel.json` の設定が使われていることを確かめる。中間発表のときの設定（Vite）が残っている場合は、Astro に変える。
+3. **Settings** → **Environment Variables** で、`SITE_URL` に本番の URL（例：`https://token-xxxx.vercel.app`、独自ドメインを使う場合はそのドメイン）を、Production の環境に登録する。登録後、**Deployments** から最新の本番を選んで再デプロイする。
+4. 本番の URL を、スマホとPCで開いて確かめる（§4 と同じ確認）。
+5. PR ごとのプレビューは、Vercel のログインが必要な設定（Deployment Protection）になっている。本番の URL は誰でも見られることを、ログアウトした状態で確かめる。
+
+---
+
 ## 0. リポジトリ側で用意済みのもの
 
 | ファイル | 内容 |
