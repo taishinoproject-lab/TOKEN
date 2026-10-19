@@ -860,6 +860,20 @@ date_start: 2026/5/19
 date_end: 2026/08/02
 room: 本館3室
 ---
+no_date: 147
+property_name: F-19916
+category: 国宝の展示
+property: 国宝
+name: 刀（名物 観世正宗）
+info: 相州正宗 鎌倉時代・14世紀
+season_spring: 0
+season_summer: 0
+season_autumn: 1
+season_winter: 1
+date_start: 2026/10/27
+date_end: 2026/12/13
+room: 本館3室
+---
 no_date: 148
 property_name: H-86
 category: 国宝の展示
@@ -872,20 +886,6 @@ season_autumn: 0
 season_winter: 0
 date_start: 2026/05/26
 date_end: 2026/08/16
-room: 本館2室
----
-no_date: 149
-property_name: H-4445
-category: 国宝の展示
-property: 国宝
-name: 片輪車螺鈿手箱
-info: 鎌倉時代・13世紀
-season_spring: 0
-season_summer: 0
-season_autumn: 0
-season_winter: 1
-date_start: 2027/02/09
-date_end: 2027/04/18
 room: 本館2室
 ---
 no_date: 150
