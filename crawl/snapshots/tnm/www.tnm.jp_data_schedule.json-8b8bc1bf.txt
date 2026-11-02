@@ -78,6 +78,22 @@ caption: 国宝 源氏物語絵巻 柏木三（部分） 平安時代・12世紀
 link_label: 特別展「源氏物語 王朝のかがやき」詳細ページへ移動
 link: /modules/r_free_page/index.php?id=2763
 ---
+no_date: 5
+category: 特別展
+title: 智証大師諡号1100年記念 特別展「国宝 三井寺のすべて」
+season_spring: 0
+season_summer: 1
+season_autumn: 0
+season_winter: 0
+date_start: 2027/4/20
+date_end: 2027/6/13
+room: 平成館 特別展示室
+desc: 天台寺門宗総本山である園城寺は、飛鳥時代に創建された滋賀県を代表する古刹です。近江八景では「三井晩鐘」で知られるとおり、「三井寺」の名でも親しまれています。平安時代、第5代天台座主を務めた智証大師円珍（814～891）により天台別院として中興されて以来、幾多の戦乱に遭いながらも復興により乗り越え、今日まで法灯を伝えてきました。 令和9年（2027）は円珍が醍醐天皇より智証大師号を授かって1100年の節目にあたり、これを記念して円珍ゆかりの寺宝の数々を一堂に公開する展覧会を開催いたします。
+img: 20261015_miidera.jpg
+caption: 重要文化財 如意輪観音菩薩坐像 平安時代・10～11世紀 滋賀・三井寺蔵
+link_label: 智証大師諡号1100年記念 特別展「国宝 三井寺のすべて」詳細ページへ移動
+link: /modules/r_free_page/index.php?id=2777
+---
 no_date: 11
 category: 特別企画
 title: 日韓国交正常化60周年記念 韓国美術の玉手箱 ― 国立中央博物館の所蔵品をむかえて―
@@ -860,6 +876,20 @@ date_start: 2026/5/19
 date_end: 2026/08/02
 room: 本館3室
 ---
+no_date: 147
+property_name: F-19916
+category: 国宝の展示
+property: 国宝
+name: 刀（名物 観世正宗）
+info: 相州正宗 鎌倉時代・14世紀
+season_spring: 0
+season_summer: 0
+season_autumn: 1
+season_winter: 1
+date_start: 2026/10/27
+date_end: 2026/12/13
+room: 本館3室
+---
 no_date: 148
 property_name: H-86
 category: 国宝の展示
@@ -872,20 +902,6 @@ season_autumn: 0
 season_winter: 0
 date_start: 2026/05/26
 date_end: 2026/08/16
-room: 本館2室
----
-no_date: 149
-property_name: H-4445
-category: 国宝の展示
-property: 国宝
-name: 片輪車螺鈿手箱
-info: 鎌倉時代・13世紀
-season_spring: 0
-season_summer: 0
-season_autumn: 0
-season_winter: 1
-date_start: 2027/02/09
-date_end: 2027/04/18
 room: 本館2室
 ---
 no_date: 150
