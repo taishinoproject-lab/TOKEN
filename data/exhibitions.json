@@ -1565,23 +1565,6 @@
     "confidence": "unverified"
   },
   {
-    "id": "2026-edo-tokyo-museum-bizen-den",
-    "title": "秋季企画展「館蔵 備前伝とゆかりの刀剣(仮称)」",
-    "venue_id": "edo-tokyo-museum",
-    "start_date": "2026-09-15",
-    "end_date": "2026-11-08",
-    "official_url": "https://www.edo-tokyo-museum.or.jp/",
-    "periods": [],
-    "exhibits": [
-      {
-        "label": "備前伝ゆかりの刀剣"
-      }
-    ],
-    "sources": [],
-    "verified_at": "2026-10-07",
-    "confidence": "unverified"
-  },
-  {
     "id": "2026-atsuta-jingu-shuki-kikaku",
     "title": "秋季企画展「館蔵 備前伝とゆかりの刀剣(仮称)」",
     "venue_id": "atsuta-jingu",
@@ -2001,22 +1984,22 @@
       {
         "label": "虎徹",
         "smith_id": "nagasone-kotetsu",
-        "note": "出品目録は未公開。展覧会名（新刀・東西の巨匠 虎徹と助広）による"
+        "note": "ふくやま美術館の出品目録は未公開。展覧会名（新刀・東西の巨匠 虎徹と助広）による"
       },
       {
         "label": "助広",
-        "note": "出品目録は未公開。展覧会名（新刀・東西の巨匠 虎徹と助広）による。助広は同名で複数代いるため、刀匠へのリンクは付けていない"
+        "note": "ふくやま美術館の出品目録は未公開。展覧会名（新刀・東西の巨匠 虎徹と助広）による。助広は同名で複数代いるため、刀匠へのリンクは付けていない"
       }
     ],
     "sources": [
       {
         "url": "https://www.city.fukuyama.hiroshima.jp/site/fukuyama-museum/319657.html",
         "title": "ふくやま美術館 特別展（2026年度）",
-        "retrieved_at": "2026-10-07",
+        "retrieved_at": "2026-11-16",
         "quote": "【新刀・東西の巨匠 虎徹と助広】 2027年1月24日（日）～3月22日（月・休） 前期：2月21日（日）まで、後期：2月23日（火・祝）から"
       }
     ],
-    "verified_at": "2026-10-07",
+    "verified_at": "2026-11-16",
     "confidence": "confirmed"
   },
   {
@@ -2034,22 +2017,32 @@
   },
   {
     "id": "2026-sanada-treasure-museum-hana-no-maru",
-    "title": "企画展「松代城 花の丸―真田家の御殿―」",
+    "title": "特別展「松代城 花の丸ー真田家の御殿ー」",
     "venue_id": "sanada-treasure-museum",
-    "start_date": "2026-07-02",
-    "end_date": null,
-    "official_url": "https://www.sanadahoumotsukan.com/",
-    "admission": "一般 600円",
-    "periods": [],
+    "start_date": "2026-06-27",
+    "end_date": "2026-12-14",
+    "official_url": "https://www.sanadahoumotsukan.com/event-info.php?n=189",
+    "periods": [
+      {
+        "id": "前期",
+        "start_date": "2026-06-27",
+        "end_date": "2026-09-14"
+      },
+      {
+        "id": "後期",
+        "start_date": "2026-09-16",
+        "end_date": "2026-12-14"
+      }
+    ],
     "exhibits": [],
     "sources": [
       {
-        "url": "https://todokue.art/exhibitions/tnFdqiAQqM",
-        "title": "旧データ（src/data）に記載のURL。内容は今回未確認",
-        "retrieved_at": "2026-10-07"
+        "url": "https://www.sanadahoumotsukan.com/event-info.php?n=189",
+        "title": "真田宝物館 特別展「松代城 花の丸ー真田家の御殿ー」（公式サイト。2026-11-16 に閲覧して会期を確認。巡回の対象外のため引用の照合はしていない）",
+        "retrieved_at": "2026-11-16"
       }
     ],
-    "verified_at": "2026-10-07",
+    "verified_at": "2026-11-16",
     "confidence": "unverified"
   }
 ]
