@@ -462,12 +462,6 @@
         "quote": "平安時代から江戸時代制作された16口を展示します。"
       },
       {
-        "url": "https://www.tnm.jp/modules/r_exhibition/index.php?controller=hall&hid=12&lang=ja",
-        "title": "東京国立博物館 本館（日本ギャラリー）展示室一覧",
-        "retrieved_at": "2026-10-07",
-        "quote": "2026年4月8日（水）から下記の通り本館展示室番号を変更しています。 1階：11室〜19室 → 1室〜9室"
-      },
-      {
         "url": "https://www.tnm.jp/modules/r_free_page/index.php?id=113&lang=ja",
         "title": "東京国立博物館 交通・料金・開館時間",
         "retrieved_at": "2026-10-07",
@@ -575,42 +569,256 @@
   },
   {
     "id": "2026-tnm-honkan-13-1027",
-    "title": "総合文化展 本館13室 刀剣",
+    "title": "東博コレクション展 刀剣",
     "venue_id": "tnm",
     "room": "本館3室",
     "start_date": "2026-10-27",
     "end_date": "2027-01-24",
-    "official_url": "https://www.tnm.jp/",
+    "official_url": "https://www.tnm.jp/modules/r_exhibition/index.php?controller=item&id=8467",
+    "list_url": "https://www.tnm.jp/modules/r_exhibition/index.php?controller=item&id=8467",
     "admission": "一般 1,000円",
-    "periods": [],
+    "periods": [
+      {
+        "id": "12月13日まで",
+        "start_date": "2026-10-27",
+        "end_date": "2026-12-13"
+      }
+    ],
     "exhibits": [
       {
-        "label": "国宝 刀 無銘 正宗（名物 観世正宗）",
-        "smith_id": "masamune"
+        "label": "重文 短刀 相州国光",
+        "period_ids": [
+          "12月13日まで"
+        ]
       },
       {
-        "label": "国宝 短刀 銘 国光（名物 相州国光）"
+        "label": "国宝 刀（名物 観世正宗） 相州正宗",
+        "smith_id": "masamune",
+        "period_ids": [
+          "12月13日まで"
+        ],
+        "note": "年間スケジュールに記載の展示期間は 2026年10月27日〜12月13日"
       },
       {
-        "label": "重要文化財 大太刀 銘 備中国住人左兵衛尉直次作（青江直次）",
-        "smith_id": "aoe-naotsugu"
+        "label": "重文 短刀 青江次直",
+        "period_ids": [
+          "12月13日まで"
+        ]
+      },
+      {
+        "label": "重美 太刀 豊後友行",
+        "period_ids": [
+          "12月13日まで"
+        ]
+      },
+      {
+        "label": "重美 太刀 伯耆安綱",
+        "smith_id": "yasutsuna",
+        "period_ids": [
+          "12月13日まで"
+        ]
+      },
+      {
+        "label": "重文 太刀 豊後行平",
+        "smith_id": "bungo-yukihira",
+        "period_ids": [
+          "12月13日まで"
+        ]
+      },
+      {
+        "label": "太刀 山城了戒",
+        "period_ids": [
+          "12月13日まで"
+        ]
+      },
+      {
+        "label": "重文 太刀 手掻包永",
+        "period_ids": [
+          "12月13日まで"
+        ],
+        "note": "個人蔵"
+      },
+      {
+        "label": "重文 太刀 長船光忠",
+        "smith_id": "osafune-mitsutada",
+        "period_ids": [
+          "12月13日まで"
+        ]
+      },
+      {
+        "label": "太刀 長船元重",
+        "period_ids": [
+          "12月13日まで"
+        ]
+      },
+      {
+        "label": "刀 伝筑州左",
+        "period_ids": [
+          "12月13日まで"
+        ]
+      },
+      {
+        "label": "重文 太刀 長船則光",
+        "period_ids": [
+          "12月13日まで"
+        ]
+      },
+      {
+        "label": "刀 関兼元",
+        "period_ids": [
+          "12月13日まで"
+        ]
+      },
+      {
+        "label": "脇指 相州綱広",
+        "period_ids": [
+          "12月13日まで"
+        ]
+      },
+      {
+        "label": "刀 堀川国広",
+        "smith_id": "horikawa-kunihiro",
+        "period_ids": [
+          "12月13日まで"
+        ]
+      },
+      {
+        "label": "刀 運寿是一",
+        "period_ids": [
+          "12月13日まで"
+        ]
       }
     ],
     "sources": [
       {
-        "url": "https://www.tnm.jp/",
-        "title": "旧データ（src/data）に記載のURL。内容は今回未確認",
-        "retrieved_at": "2026-10-07"
+        "url": "https://www.tnm.jp/modules/r_exhibition/index.php?controller=item&id=8467&lang=ja",
+        "title": "東京国立博物館 本館3室「刀剣」展示作品リスト（2026年10月27日〜2027年1月24日）",
+        "retrieved_at": "2026-11-16",
+        "quote": "刀剣 作品リスト 刀剣 国宝 刀（名物 観世正宗）（部分） 相州正宗 鎌倉時代・14世紀 本館 3室 2026年10月27日（火） ～ 2027年1月24日（日）"
       },
       {
-        "url": "https://www.tnm.jp/modules/r_exhibition/index.php?controller=hall&hid=12&lang=ja",
-        "title": "東京国立博物館 本館（日本ギャラリー）展示室一覧",
-        "retrieved_at": "2026-10-07",
-        "quote": "2026年4月8日（水）から下記の通り本館展示室番号を変更しています。 1階：11室〜19室 → 1室〜9室"
+        "url": "https://www.tnm.jp/modules/r_exhibition/index.php?controller=item&id=8467&lang=ja",
+        "title": "東京国立博物館 本館3室「刀剣」展示作品リスト（2026年10月27日〜2027年1月24日）",
+        "retrieved_at": "2026-11-16",
+        "quote": "平安時代から江戸時代制作された16口を展示します。"
+      },
+      {
+        "url": "https://www.tnm.jp/data/schedule.json",
+        "title": "東京国立博物館 年間スケジュール（元データ）",
+        "retrieved_at": "2026-11-16",
+        "quote": "name: 刀（名物 観世正宗） info: 相州正宗 鎌倉時代・14世紀 season_spring: 0 season_summer: 0 season_autumn: 1 season_winter: 1 date_start: 2026/10/27 date_end: 2026/12/13 room: 本館3室"
+      },
+      {
+        "url": "https://www.tnm.jp/modules/r_free_page/index.php?id=113&lang=ja",
+        "title": "東京国立博物館 交通・料金・開館時間",
+        "retrieved_at": "2026-11-16",
+        "quote": "2026年12月14日(月)～2027年4月25日(日)まで、本館2～3室は展示環境整備のため閉室します。"
+      },
+      {
+        "url": "https://www.tnm.jp/modules/r_free_page/index.php?id=113&lang=ja",
+        "title": "東京国立博物館 交通・料金・開館時間",
+        "retrieved_at": "2026-11-16",
+        "quote": "東博コレクション展（平常展）観覧料 一般 1,000円"
+      },
+      {
+        "url": "https://www.tnm.jp/modules/r_exhibition/index.php?controller=item&id=8467&lang=ja",
+        "title": "東京国立博物館 本館3室「刀剣」展示作品リスト（2026年10月27日〜2027年1月24日）",
+        "retrieved_at": "2026-11-16",
+        "quote": "重文 短刀 1口 相州国光 鎌倉時代・13世紀 渡邊誠一郎氏寄贈 F-20113"
+      },
+      {
+        "url": "https://www.tnm.jp/modules/r_exhibition/index.php?controller=item&id=8467&lang=ja",
+        "title": "東京国立博物館 本館3室「刀剣」展示作品リスト（2026年10月27日〜2027年1月24日）",
+        "retrieved_at": "2026-11-16",
+        "quote": "国宝 刀（名物 観世正宗） 1口 相州正宗 鎌倉時代・14世紀 F-19916"
+      },
+      {
+        "url": "https://www.tnm.jp/modules/r_exhibition/index.php?controller=item&id=8467&lang=ja",
+        "title": "東京国立博物館 本館3室「刀剣」展示作品リスト（2026年10月27日〜2027年1月24日）",
+        "retrieved_at": "2026-11-16",
+        "quote": "重文 短刀 1口 青江次直 南北朝時代・延文3年(1358) 渡邊誠一郎氏寄贈 F-20114-1"
+      },
+      {
+        "url": "https://www.tnm.jp/modules/r_exhibition/index.php?controller=item&id=8467&lang=ja",
+        "title": "東京国立博物館 本館3室「刀剣」展示作品リスト（2026年10月27日〜2027年1月24日）",
+        "retrieved_at": "2026-11-16",
+        "quote": "重美 太刀 1口 豊後友行 西条松平家伝来 南北朝時代・正平年間(1346～70) 藤澤昌三氏寄贈 F-20276"
+      },
+      {
+        "url": "https://www.tnm.jp/modules/r_exhibition/index.php?controller=item&id=8467&lang=ja",
+        "title": "東京国立博物館 本館3室「刀剣」展示作品リスト（2026年10月27日〜2027年1月24日）",
+        "retrieved_at": "2026-11-16",
+        "quote": "重美 太刀 1口 伯耆安綱 平安時代・12世紀 F-19994"
+      },
+      {
+        "url": "https://www.tnm.jp/modules/r_exhibition/index.php?controller=item&id=8467&lang=ja",
+        "title": "東京国立博物館 本館3室「刀剣」展示作品リスト（2026年10月27日〜2027年1月24日）",
+        "retrieved_at": "2026-11-16",
+        "quote": "重文 太刀 1口 豊後行平 平安～鎌倉時代・12～13世紀 F-19974-1"
+      },
+      {
+        "url": "https://www.tnm.jp/modules/r_exhibition/index.php?controller=item&id=8467&lang=ja",
+        "title": "東京国立博物館 本館3室「刀剣」展示作品リスト（2026年10月27日〜2027年1月24日）",
+        "retrieved_at": "2026-11-16",
+        "quote": "太刀 1口 山城了戒 鎌倉時代・13～14世紀 F-15"
+      },
+      {
+        "url": "https://www.tnm.jp/modules/r_exhibition/index.php?controller=item&id=8467&lang=ja",
+        "title": "東京国立博物館 本館3室「刀剣」展示作品リスト（2026年10月27日〜2027年1月24日）",
+        "retrieved_at": "2026-11-16",
+        "quote": "重文 太刀 1口 手掻包永 鎌倉時代・13世紀 個人蔵"
+      },
+      {
+        "url": "https://www.tnm.jp/modules/r_exhibition/index.php?controller=item&id=8467&lang=ja",
+        "title": "東京国立博物館 本館3室「刀剣」展示作品リスト（2026年10月27日〜2027年1月24日）",
+        "retrieved_at": "2026-11-16",
+        "quote": "重文 太刀 1口 長船光忠 鎌倉時代・13世紀 F-19968"
+      },
+      {
+        "url": "https://www.tnm.jp/modules/r_exhibition/index.php?controller=item&id=8467&lang=ja",
+        "title": "東京国立博物館 本館3室「刀剣」展示作品リスト（2026年10月27日〜2027年1月24日）",
+        "retrieved_at": "2026-11-16",
+        "quote": "太刀 1口 長船元重 南北朝時代・観応4年(1355) F-169"
+      },
+      {
+        "url": "https://www.tnm.jp/modules/r_exhibition/index.php?controller=item&id=8467&lang=ja",
+        "title": "東京国立博物館 本館3室「刀剣」展示作品リスト（2026年10月27日〜2027年1月24日）",
+        "retrieved_at": "2026-11-16",
+        "quote": "刀 1口 伝筑州左 南北朝時代・14世紀 F-320-1"
+      },
+      {
+        "url": "https://www.tnm.jp/modules/r_exhibition/index.php?controller=item&id=8467&lang=ja",
+        "title": "東京国立博物館 本館3室「刀剣」展示作品リスト（2026年10月27日〜2027年1月24日）",
+        "retrieved_at": "2026-11-16",
+        "quote": "重文 太刀 1口 長船則光 室町時代・長禄3年(1459) F-20269"
+      },
+      {
+        "url": "https://www.tnm.jp/modules/r_exhibition/index.php?controller=item&id=8467&lang=ja",
+        "title": "東京国立博物館 本館3室「刀剣」展示作品リスト（2026年10月27日〜2027年1月24日）",
+        "retrieved_at": "2026-11-16",
+        "quote": "刀 1口 関兼元 室町時代・16世紀 川田龍吉氏寄贈 F-17073"
+      },
+      {
+        "url": "https://www.tnm.jp/modules/r_exhibition/index.php?controller=item&id=8467&lang=ja",
+        "title": "東京国立博物館 本館3室「刀剣」展示作品リスト（2026年10月27日〜2027年1月24日）",
+        "retrieved_at": "2026-11-16",
+        "quote": "脇指 1口 相州綱広 安土桃山時代・元亀4年(1573) F-15824"
+      },
+      {
+        "url": "https://www.tnm.jp/modules/r_exhibition/index.php?controller=item&id=8467&lang=ja",
+        "title": "東京国立博物館 本館3室「刀剣」展示作品リスト（2026年10月27日〜2027年1月24日）",
+        "retrieved_at": "2026-11-16",
+        "quote": "刀 1口 堀川国広 安土桃山時代・17世紀 F-17299"
+      },
+      {
+        "url": "https://www.tnm.jp/modules/r_exhibition/index.php?controller=item&id=8467&lang=ja",
+        "title": "東京国立博物館 本館3室「刀剣」展示作品リスト（2026年10月27日〜2027年1月24日）",
+        "retrieved_at": "2026-11-16",
+        "quote": "刀 1口 運寿是一 江戸時代・嘉永6年(1853) F-283"
       }
     ],
-    "verified_at": "2026-10-07",
-    "confidence": "unverified"
+    "verified_at": "2026-11-16",
+    "confidence": "confirmed"
   },
   {
     "id": "2027-tnm-honkan-13-0101",
@@ -633,12 +841,6 @@
         "url": "https://www.tnm.jp/",
         "title": "旧データ（src/data）に記載のURL。内容は今回未確認",
         "retrieved_at": "2026-10-07"
-      },
-      {
-        "url": "https://www.tnm.jp/modules/r_exhibition/index.php?controller=hall&hid=12&lang=ja",
-        "title": "東京国立博物館 本館（日本ギャラリー）展示室一覧",
-        "retrieved_at": "2026-10-07",
-        "quote": "2026年4月8日（水）から下記の通り本館展示室番号を変更しています。 1階：11室〜19室 → 1室〜9室"
       }
     ],
     "verified_at": "2026-10-07",

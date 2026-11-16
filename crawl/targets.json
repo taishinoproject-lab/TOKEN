@@ -13,10 +13,10 @@
     },
     {
       "venue_id": "tnm",
-      "url": "https://www.tnm.jp/modules/r_exhibition/index.php?controller=item&id=8466&lang=ja",
+      "url": "https://www.tnm.jp/modules/r_exhibition/index.php?controller=item&id=8467&lang=ja",
       "type": "html",
       "expect_text": "展示作品リスト",
-      "note": "本館3室「刀剣」2026-08-04〜2026-10-25 の展示作品リスト（作品ごとの展示期間あり）。会期が終わったら次の会期の item ページに差し替える"
+      "note": "本館3室「刀剣」2026-10-27〜2027-01-24 の展示作品リスト（作品ごとの展示期間あり）。会期が終わったら次の会期の item ページに差し替える。前の会期（8/4〜10/25、id=8466）のスナップショットは、終了した展覧会の引用の照合元として crawl/snapshots/ に残している（巡回はしない）"
     },
     {
       "venue_id": "tnm",

@@ -317,6 +317,15 @@
     },
     {
       "venue_id": "tnm",
+      "url": "https://www.tnm.jp/modules/r_exhibition/index.php?controller=item&id=8467&lang=ja",
+      "type": "html",
+      "file": "tnm/www.tnm.jp_modules_r_exhibition_index.php_controller_item_id_8467_lang_ja-f1a4147e.txt",
+      "changed_at": "2026-11-16",
+      "fetched_at": "2026-11-16",
+      "sha256": "e39ec237f1eae5587d6c2663d8d4fa1868465b97714d225aedf2b860a7ede21d"
+    },
+    {
+      "venue_id": "tnm",
       "url": "https://www.tnm.jp/modules/r_free_page/index.php?id=113&lang=ja",
       "type": "html",
       "file": "tnm/www.tnm.jp_modules_r_free_page_index.php_id_113_lang_ja-98a036aa.txt",
