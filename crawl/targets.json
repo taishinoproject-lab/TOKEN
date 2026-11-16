@@ -184,14 +184,7 @@
       "url": "https://sanobi.or.jp/exhibition/?y=2026",
       "type": "html",
       "expect_text": "2026年度の展覧会",
-      "note": "年間スケジュール（2026年度）。年度が変わったら y= を変える。下部に館の住所がある"
-    },
-    {
-      "venue_id": "sano-art-museum",
-      "url": "https://sanobi.or.jp/exhibition/japaneseswords_2026/",
-      "type": "html",
-      "expect_text": "名刀のいろは",
-      "note": "「さのび と とくび 名刀のいろは」の展覧会ページ（主な出品作品）。出品目録PDFは文字を取り出せないため巡回先に入れていない。会期（2026-10-18まで）が終わったら外してよい"
+      "note": "年間スケジュール（2026年度）。年度が変わったら y= を変える。下部に館の住所がある。「さのび と とくび 名刀のいろは」（2026-10-18 終了）の展覧会ページ（/exhibition/japaneseswords_2026/）は、会期の終了後に主な出品作品の記載が消えたため巡回先から外した。会期中（2026-10-07）に取得した本文を、引用の照合元として crawl/snapshots/ に残している"
     },
     {
       "venue_id": "ishikawa-prefectural-museum-of-art",
