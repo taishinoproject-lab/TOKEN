@@ -1,231 +1,220 @@
-# 自動収集の報告：対象館を15館に拡大（T-401、2026-10-07）
+# 巡回の反映 2026-11-16（公開メンタリング 11/26 向け・タスク1）
 
-対象: docs/venue-selection.md の15館のうち、試験3館（東博・備前長船・熱田神宮）を除く12館
-手順: [docs/crawler-runbook.md](../docs/crawler-runbook.md) のとおり `crawl:fetch`（12館のうち巡回できた11館）→ 抽出 → `crawl:verify` → `lint` / `test` / `build` → `crawl:report`
-比較の基準: `origin/claude/trusting-ramanujan-3fojj3`（試験運用1回目の結果を含む作業ブランチ）
+- ブランチ: `data/2026-11-16-crawl`（`work/2026-11-16-prep` から分岐。基準は `origin/main`）
+- **この PR は、巡回の PR #5〜#10 を置き換えます。** 11/16 のスナップショット（`crawl/2026-11-16` と同じ内容）を含みます。#5〜#10 を閉じる操作はオーナーが行ってください。
+- 手順: [docs/crawler-runbook.md](../docs/crawler-runbook.md) §8.2 のとおり（スナップショットは 11/16 のものを使用。追加した巡回先2件だけ、その館を `crawl:fetch` で取得）
+- 検査: `npm run crawl:verify`（すべての引用を本文で確認）、`npm run lint`、`npm test`（311件）、`npm run build`（エラー0件）がすべて成功
+- このセッションにかかった時間の目安: 本文の末尾「作業時間の目安」を参照
 
-試験運用1回目（試験3館）の報告は、git の履歴（このファイルの前の版）を参照。
+## 変更点（館ごと。コミットも館ごと）
 
-## まとめ
+| 館 | 変更 |
+|---|---|
+| 東京国立博物館 | 10/27〜の刀剣展示の**作品リスト（item id=8467）を巡回先に追加**。`2026-tnm-honkan-13-1027` を作品リストの16口で置き換え、`confirmed` に。題名を「東博コレクション展 刀剣」に（ID は変更なし）。**会期（〜2027-01-24）と展示期間（〜12/13）を分けて記録**（判断済みの (d)）。旧データの「国宝 短刀 銘 国光（名物 相州国光）」「重要文化財 大太刀 直次」は作品リストにないため外した。本文から消えた「展示室番号の変更」の引用（3件）を外した |
+| 刀剣博物館 | 「虎徹と助広」に開催中のページの引用を追加。**目録PDFを巡回先に追加**し、前期（10/24〜11/23）・後期（11/25〜12/20）を登録。終了した「鈴木嘉定コレクション寄贈品展」は、ページから消えた引用を外した（年間スケジュールの引用は残る） |
+| 徳川美術館 | 内容の変更なし。終了した「ときめく箱」の引用を「過去の展覧会」の欄の表記に直した |
+| 福岡市博物館 | 内容の変更なし（第Ⅱ〜Ⅳ期を 11/16 の本文で確認） |
+| 佐野美術館 | 終了した「名刀のいろは」の展覧会ページから主な出品作品が消えたため、**巡回先から外し、会期中（10/7）の本文を照合元として残した**。展覧会のデータは変更なし |
+| 備前長船刀剣博物館 | 題名の「（仮題）」が外れたのに合わせた（ID は変更なし）。古備前展（12/5〜）に出品物「重要文化財 太刀 銘 信房作」（寄贈品）を追加。「現在の展示」が次回展示の内容に入れ替わったため、お守り刀展の引用1件を外した。**コラボ企画に関わる記述は掲載していません**（D-009・D-012-4） |
+| 江戸東京博物館 | **`2026-edo-tokyo-museum-bizen-den` を展覧会データから外した**（判断済みの (b)）。公式サイトのトップと展覧会一覧（2026-11-16 閲覧）に記載がなく、出典も空。館のデータは残した |
+| 真田宝物館 | 判断済みの (c)：**公式サイトで確認できたため、外さずに会期を直した**（下の要確認 1）。会期未定 → 2026-06-27〜2026-12-14、前期・後期を追加。まとめサイトの出典と、裏付けのない料金を外した |
+| ふくやま美術館 | 内容の変更なし（「虎徹と助広」を 11/16 の本文で確認） |
+| 石川県立・京都国立・林原・九州国立・致道 | 開催中・開催予定の刀剣が主題の展覧会は本文になく、データの変更なし（林原「サムライたちの物語」6/14 終了、致道「武装美伝」8/31 終了は、終了済みのため追加していない） |
 
-| 館 | 巡回 | 展覧会：照合済み | うち修正 | 追加 | 館データ |
-|---|---|---|---|---|---|
-| 刀剣博物館 `touken-museum` | 5ページ | 3件 | 3件 | 1件 | 住所に引用を付けた |
-| 静嘉堂文庫美術館 `seikado-bunko-art-museum` | 3ページ | 0件 | − | 0件（刀剣展なし） | 新規（confirmed） |
-| 徳川美術館 `tokugawa-art-museum` | 4ページ | 1件 | 1件 | 2件 | 住所に引用を付けた |
-| 名古屋刀剣博物館 | **巡回できず** | − | − | − | 登録せず（要確認 1） |
-| 佐野美術館 `sano-art-museum` | 4ページ | 1件 | 1件 | 0件 | 住所・緯度経度を公式サイトで確認（unverified → confirmed） |
-| 石川県立美術館 `ishikawa-prefectural-museum-of-art` | 2ページ | 0件 | − | 0件（刀剣展なし） | 新規（unverified：緯度経度） |
-| 京都国立博物館 `kyoto-national-museum` | 2ページ | 0件 | − | 0件（刀剣展なし） | 新規（confirmed） |
-| 林原美術館 `hayashibara-museum-of-art` | 2ページ | 0件 | − | 0件（刀剣展なし） | 新規（confirmed） |
-| ふくやま美術館 `fukuyama-museum-of-art` | 4ページ | 1件 | 1件 | 0件 | 住所・緯度経度を公式サイトで確認（unverified → confirmed） |
-| 福岡市博物館 `fukuoka-city-museum` | 6ページ | 1件 | 1件 | 3件 | 住所に引用を付けた |
-| 九州国立博物館 `kyushu-national-museum` | 2ページ | 0件 | − | 0件（刀剣展なし） | 新規（unverified：住所なし） |
-| 致道博物館 `chido-museum` | 1ページ | 0件 | − | 0件（刀剣展は8/31に終了） | 住所に引用を付けた |
-| 計 | 35ページ | 7件 | 7件 | 6件 | 追加5館・変更9館 |
+### prep.md の (b)(c)(d) の結果
 
-- 試験3館は今回巡回していない（`crawl/changes.json` は今回の11館の結果だけ）。館データの住所の引用は、試験運用1回目のスナップショットから取った（東博・備前長船）。
-- 引用の照合: 150件すべてを本文で確認（`npm run crawl:verify`、警告0件）。
-- データ検証: エラー0件、警告 90件 → 88件（未確認の展覧会・館が減った一方、リンクのない出品リストの警告4件と、未確認の館2件が増えた）。
+- **(b) 江戸東京博物館**: 公式サイトで確認できず → 外した。確認したページ: <https://www.edo-tokyo-museum.or.jp/>、<https://www.edo-tokyo-museum.or.jp/s-exhibition/>（開催中の企画展は「日米交流 知のかけはし」10/24〜12/6、特集展示は「浮世絵の異国趣味」）。
+- **(c) 真田宝物館**: 公式サイト <https://www.sanadahoumotsukan.com/event-info.php?n=189> に「特別展「松代城 花の丸ー真田家の御殿ー」」「2026年6月27日(土)～2026年12月14日(月)」「前期:6月27日(土)～9月14日(月)」「後期:9月16日(水)～12月14日(月)」とある。巡回の対象外のドメインのため、スナップショットと引用の照合はしていない（`confidence` は `unverified` のまま）。
+- **(d) 東京国立博物館**: 引用と元ページは下の自動生成部分の `2026-tnm-honkan-13-1027` を参照。展示期間の根拠は、年間スケジュールの「刀（名物 観世正宗）… date_start: 2026/10/27 date_end: 2026/12/13 room: 本館3室」と、料金・開館のページの「2026年12月14日(月)～2027年4月25日(日)まで、本館2～3室は展示環境整備のため閉室します。」。
 
-### 照合・修正の内容（展覧会）
+## 要確認
 
-| 展覧会 | 結果 | 根拠 |
-|---|---|---|
-| `2026-touken-museum-suzuki-collection` | 会期一致 → confirmed。料金の表記を「大人 1,000円」に。目録PDFを `list_url` に | 開催中の展覧会・年間スケジュール |
-| `2026-touken-museum-kotetsu-to-sukehiro` | 会期一致。**料金 一般 1,000円 → 大人 1,500円**（10/24〜12/20 は特別展料金）。出品物を「虎徹」「助広」の2行にし、根拠（紹介文）を note に | 年間スケジュール・入館料金 |
-| `2027-touken-museum-juyo-shinshitei-72` | 会期一致 → confirmed。裏付けのない料金と出品物「重要刀剣等新指定作品」を外した | 年間スケジュール |
-| `2026-tokugawa-art-museum-tokimeku-hako` | 会期一致。出典を公式サイトに差し替え、公式URLを展覧会ページに | 展覧会一覧・来館のご案内 |
-| `2026-sano-art-museum-meito-no-iroha` | 会期・料金一致 → confirmed。主な出品作品20件すべてに引用。旧データになかった「松井江」「五月雨郷」を追加。「指定なし」の表記を外した | 展覧会ページ |
-| `2027-fukuyama-museum-of-art-kotetsu-to-sukehiro` | 会期一致 → confirmed。前期・後期を追加。裏付けのない料金（一般 1,500円）を外した | 特別展の一覧 |
-| `2027-fukuoka-city-museum-kuroda-meiho-4-3` | 会期・展示室・料金一致 → confirmed。題名を「第3期」→「第Ⅲ期」に。出品物「刀剣 権藤鎮教」→「薙刀 名物 権藤鎮教」。通年展示の「日本号」を追加 | 黒田家名宝展示・第Ⅲ期の出品リスト |
-
-### 追加した展覧会
-
-| 展覧会 | 会期 | 根拠 |
-|---|---|---|
-| `2027-touken-museum-kanzo-meihin` 刀剣博物館 館蔵名品展(仮) | 2027-03-20〜05-23 | 年間スケジュール（2026年度の欄） |
-| `2026-tokugawa-art-museum-meihin-buke-no-symbol` 名品コレクション展示「武家のシンボル －武具･刀剣－」 | 2026-09-15〜12-13 | 名品コレクション展示の展示作品リスト（刀剣4口） |
-| `2027-tokugawa-art-museum-meito-no-iroha` とくび と さのび 名刀のいろは | 2027-04-17〜06-13 | お知らせ |
-| `2026-fukuoka-city-museum-kuroda-meiho-4-1` 企画展「黒田家の名宝 4」 第Ⅰ期 | 2026-08-18〜10-18 | 黒田家名宝展示・出品リスト（安宅切ほか） |
-| `2026-fukuoka-city-museum-kuroda-meiho-4-2` 同 第Ⅱ期 | 2026-10-20〜12-27 | 同（二字国俊ほか） |
-| `2027-fukuoka-city-museum-kuroda-meiho-4-4` 同 第Ⅳ期 | 2027-03-02〜04-25 | 同（碇切ほか） |
-
-## 巡回先と robots.txt
-
-| 館 | robots.txt | 巡回先（`crawl/targets.json`） |
-|---|---|---|
-| 刀剣博物館 | `/robots.txt` は `/404.aspx` へ転送され HTTP 404（robots.txt なし：すべて許可）。最初の手動確認では1回だけ接続が切られた | 開催中の展覧会、次回の展覧会（現在は空）、年間スケジュール、入館料金、アクセス |
-| 静嘉堂文庫美術館 | HTTP 200。`MJ12bot` だけを禁止（本クローラーには規則なし） | 年間スケジュール、開催中の展覧会、交通案内・アクセス（`/access` から `/guide/access/` へ転送） |
-| 徳川美術館 | HTTP 200。`User-agent: *` に `Disallow:`（空）のみ | 展覧会一覧、名品コレクション展示の作品リスト（PDF）、「名刀のいろは」のお知らせ、来館のご案内 |
-| 名古屋刀剣博物館 | **HTTP 429**（本文は「403 ERROR The request is blocked.」）。robots.txt もトップページも同じ | なし（要確認 1） |
-| 佐野美術館 | HTTP 200。`/snwp/wp-admin/` などを禁止（巡回先は対象外） | 開催中の展覧会、予告、年間スケジュール（`?y=2026`）、「名刀のいろは」の展覧会ページ |
-| 石川県立美術館 | HTTP 200。`/wp-admin/` を禁止 | 展覧会一覧（取得日の展覧会）、アクセス |
-| 京都国立博物館 | HTTP 404（robots.txt なし：すべて許可） | 展示一覧、交通アクセス |
-| 林原美術館 | `https` の robots.txt は `http` のトップページへ転送され、HTML が返る（規則0件：すべて許可として扱われる） | 展覧会一覧、利用案内 |
-| ふくやま美術館（福山市サイト） | HTTP 200。`/form/`、`/soshiki/kokuho/` を禁止（巡回先は対象外） | 特別展、所蔵品展、小松安弘コレクション展示情報、アクセス |
-| 福岡市博物館 | HTTP 200。`/pdf/` などを禁止。出品リストは `/topics/pdf/` にあり対象外 | 黒田家名宝展示、第Ⅰ〜Ⅳ期の出品リスト（PDF 4件）、展示・体験学習室 |
-| 九州国立博物館 | `/robots.txt` はエラーページ（`/error.html`、HTTP 200）へ転送される（規則0件：すべて許可として扱われる） | 展示室年間スケジュール、ご利用案内 |
-| 致道博物館 | HTTP 200。`/wp-admin/` などを禁止 | 企画展示（今月・来月・年間スケジュール） |
-
-### 巡回先にしなかったページ（JavaScript・画像・文字化けなど）
-
-- 本文がJavaScriptで描画されて取れないページは、今回の12館にはなかった。
-- PDF の文字が取り出せないもの: 刀剣博物館の展示作品リスト（縦書きで1字ずつに分かれる）、佐野美術館の出品目録（数字だけが取れる）、石川県立美術館の年間スケジュール（暦だけ）、京都国立博物館の年間スケジュール（文字なし）、福岡市博物館の年間スケジュール（画像、約18MB）、徳川美術館の年間展覧会情報（英語面が中心で、日本語の文字がうまく取れない）。
-- 内容が古いもの: ふくやま美術館の「刀剣展示について」（`56931.html`、2015年の内容）。
-- 一覧ページがないもの: 九州国立博物館の `/exhibition/`（HTTP 403）。
+1. **真田宝物館「松代城 花の丸」は刀剣が主題の展示ではない可能性が高い。** 公式ページの説明は「絵図や古文書などの歴史資料から…花の丸御殿をご紹介」で、刀剣の記載がない。手順書 §3.2 では刀剣が主題でない展示は登録しない決まり。会期は直したが、**展覧会データから外すかどうかはオーナーの判断**（外す場合は1件の削除で済む）。
+2. **東京国立博物館の 12/14 以降。** 作品リストの会期は 2027-01-24 までだが、12/14 から本館2〜3室が閉室する。作品リストに刀ごとの終了日は書かれていない（終了日が書かれているのは年間スケジュールの観世正宗だけ）。16口すべてを「12月13日まで」の展示期間に入れた。12/14 以降に別の展示室へ移るのか、会期が短縮されるのかは本文から分からない。
+3. **`2027-tnm-honkan-13-0101`（2027-01-01〜03-14、石田正宗）** は、本文に裏付けがなく（年間スケジュールにも記載なし）、3室の閉室期間（〜2027-04-25）と重なる。`unverified` のまま、値は変えていない。外すかどうかはオーナーの判断。
+4. **熱田神宮**: 11/2・11/9・11/16 の3回とも robots.txt が HTTP 503 で巡回を見送り。データは変えていない。**2026-10-07 以降は確認できていない**（開催中の「村正」「東海現代刀匠刀剣展」、11/25 開始の「北陸道と山陰道」を含む8件）。
+5. **静嘉堂文庫美術館**: 10/26 以降、robots.txt を取得できず巡回を見送り。データは変えていない（展覧会の登録なし）。**2026-10-07 以降は確認できていない**。
+6. **終了した展覧会の引用の扱い。** 会期の終了後にページから記載が消えたものは、(1) 個別ページは巡回先から外して会期中の本文を照合元に残す（佐野「名刀のいろは」、東博 8/4〜10/25 の作品リスト id=8466）、(2) 一覧ページは、残っている欄の表記に引用を直すか、引用を外して出典の題名に取得日を書く（刀剣博物館「鈴木嘉定」、徳川「ときめく箱」）、とした。この扱いを手順書に書き足すかどうか。
+7. **刀剣博物館の目録PDF**: 指定・種別・長さ・所蔵者の行と、銘の一覧は取り出せるが、行と銘の対応は本文から決まらない。出品物は「虎徹」「助広」の2行のままにした（個別の刀はタスク2の PR で、PDF を目で確かめられたものだけを扱う）。
+8. **巡回の対象外の館**（上杉神社 稽照殿、豊田市博物館、奥出雲たたらと刀剣館、星と森の詩美術館、福山城博物館、敦賀市立博物館）: D-006 の15館のドメインではないため、巡回先に追加していない。開催中・開催予定の展覧会の出品リストは、この PR では確認できていない。坂城町 鉄の展示館「清麿と山浦一門」は 11/15 に会期終了（データは変更なし）。
+9. **京都国立博物館** 名品ギャラリー「金工 銘に刻む」（2027-02-10〜03-22）: 題名だけでは刀剣の展示か分からないため、登録していない。
+10. `work/2026-11-16-prep` は、このブランチに含まれる形で push された（単独のブランチとしては push していない）。
 
 <!-- crawl:report:auto:start -->
 
 ## 自動生成の要約（npm run crawl:report）
 
-### 巡回の結果（2026-10-07）
+### 巡回の結果（2026-11-16）
 
-新規 35 / 変化あり 0 / 変化なし 0 / 失敗 0 / 見送り 0
+新規 2 / 変化あり 25 / 変化なし 12 / 失敗 0 / 見送り 6
 
 | 館 | URL | 結果 |
 |---|---|---|
-| touken-museum | https://www.touken.or.jp/museum/exhibition/exhibition.html | new（+146行 / −0行） |
-| touken-museum | https://www.touken.or.jp/museum/exhibition/tabid290.html | new（+123行 / −0行） |
-| touken-museum | https://www.touken.or.jp/museum/exhibition/schedule.html | new（+176行 / −0行） |
-| touken-museum | https://www.touken.or.jp/museum/information/admission.html | new（+169行 / −0行） |
-| touken-museum | https://www.touken.or.jp/access/ | new（+135行 / −0行） |
-| seikado-bunko-art-museum | https://www.seikado.or.jp/exhibition/schedule/ | new（+105行 / −0行） |
-| seikado-bunko-art-museum | https://www.seikado.or.jp/exhibition/current_exhibition/ | new（+165行 / −0行） |
-| seikado-bunko-art-museum | https://www.seikado.or.jp/guide/access/ | new（+93行 / −0行） |
-| tokugawa-art-museum | https://www.tokugawa-art-museum.jp/exhibitions/ | new（+192行 / −0行） |
-| tokugawa-art-museum | https://www.tokugawa-art-museum.jp/wp-content/uploads/2025/09/list_of_works_on_display.pdf | new（+236行 / −0行） |
-| tokugawa-art-museum | https://www.tokugawa-art-museum.jp/news/%E3%81%A8%E3%81%8F%E3%81%B3%E3%81%A8%E3%81%95%E3%81%AE%E3%81%B3%E3%80%80%E6%9D%A5%E6%98%A5%E9%96%8B%E5%82%AC/ | new（+100行 / −0行） |
-| tokugawa-art-museum | https://www.tokugawa-art-museum.jp/visitor-information/ | new（+222行 / −0行） |
-| sano-art-museum | https://sanobi.or.jp/exhibition/ | new（+226行 / −0行） |
-| sano-art-museum | https://sanobi.or.jp/exhibition/upcoming/ | new（+177行 / −0行） |
-| sano-art-museum | https://sanobi.or.jp/exhibition/?y=2026 | new（+134行 / −0行） |
-| sano-art-museum | https://sanobi.or.jp/exhibition/japaneseswords_2026/ | new（+227行 / −0行） |
-| ishikawa-prefectural-museum-of-art | https://www.ishibi.pref.ishikawa.jp/exhibition/ | new（+174行 / −0行） |
-| ishikawa-prefectural-museum-of-art | https://www.ishibi.pref.ishikawa.jp/access/ | new（+132行 / −0行） |
-| kyoto-national-museum | https://www.kyohaku.go.jp/jp/exhibitions/ | new（+321行 / −0行） |
-| kyoto-national-museum | https://www.kyohaku.go.jp/jp/visit/access/ | new（+239行 / −0行） |
-| hayashibara-museum-of-art | https://www.hayashibara-museumofart.jp/list/exhibition/ | new（+126行 / −0行） |
-| hayashibara-museum-of-art | https://www.hayashibara-museumofart.jp/data/guide/ | new（+113行 / −0行） |
-| fukuyama-museum-of-art | https://www.city.fukuyama.hiroshima.jp/site/fukuyama-museum/319657.html | new（+180行 / −0行） |
-| fukuyama-museum-of-art | https://www.city.fukuyama.hiroshima.jp/site/fukuyama-museum/373411.html | new（+199行 / −0行） |
-| fukuyama-museum-of-art | https://www.city.fukuyama.hiroshima.jp/site/fukuyama-museum/201121.html | new（+119行 / −0行） |
-| fukuyama-museum-of-art | https://www.city.fukuyama.hiroshima.jp/site/fukuyama-museum/253394.html | new（+47行 / −0行） |
-| fukuoka-city-museum | https://museum.city.fukuoka.jp/topics/kuroda.html | new（+93行 / −0行） |
-| fukuoka-city-museum | https://museum.city.fukuoka.jp/topics/pdf/kuroda_list01.pdf | new（+19行 / −0行） |
-| fukuoka-city-museum | https://museum.city.fukuoka.jp/topics/pdf/kuroda_list02.pdf | new（+19行 / −0行） |
-| fukuoka-city-museum | https://museum.city.fukuoka.jp/topics/pdf/kuroda_list03.pdf | new（+19行 / −0行） |
-| fukuoka-city-museum | https://museum.city.fukuoka.jp/topics/pdf/kuroda_list04.pdf | new（+21行 / −0行） |
-| fukuoka-city-museum | https://museum.city.fukuoka.jp/exhibition/ | new（+84行 / −0行） |
-| kyushu-national-museum | https://www.kyuhaku.jp/exhibition/exhibition_schedule.html | new（+75行 / −0行） |
-| kyushu-national-museum | https://www.kyuhaku.jp/visit/visit_top.html | new（+118行 / −0行） |
-| chido-museum | https://www.chido.jp/exhibition/ | new（+627行 / −0行） |
+| tnm | https://www.tnm.jp/modules/r_exhibition/index.php?controller=hall&hid=12&lang=ja | changed（+125行 / −118行） |
+| tnm | https://www.tnm.jp/modules/r_exhibition/index.php?controller=change&lang=ja | changed（+11行 / −20行） |
+| tnm | https://www.tnm.jp/data/schedule.json | changed（+23行 / −7行） |
+| tnm | https://www.tnm.jp/modules/r_free_page/index.php?id=113&lang=ja | changed（+12行 / −7行） |
+| bizen-osafune-token-museum | https://www.city.setouchi.lg.jp/site/token/111308.html | changed（+11行 / −6行） |
+| bizen-osafune-token-museum | https://www.city.setouchi.lg.jp/site/token/1315.html | changed（+44行 / −450行） |
+| atsuta-jingu | https://www.atsutajingu.or.jp/houmotukan_kusanagi/kusanagi/ | skipped（robots.txt で禁止されています） |
+| atsuta-jingu | https://www.atsutajingu.or.jp/houmotukan_kusanagi/schedule/index02.html | skipped（robots.txt で禁止されています） |
+| atsuta-jingu | https://www.atsutajingu.or.jp/houmotukan_kusanagi/schedule/ | skipped（robots.txt で禁止されています） |
+| touken-museum | https://www.touken.or.jp/museum/exhibition/exhibition.html | changed（+11行 / −9行） |
+| touken-museum | https://www.touken.or.jp/museum/exhibition/tabid290.html | unchanged |
+| touken-museum | https://www.touken.or.jp/museum/exhibition/schedule.html | unchanged |
+| touken-museum | https://www.touken.or.jp/museum/information/admission.html | changed（+3行 / −1行） |
+| touken-museum | https://www.touken.or.jp/access/ | unchanged |
+| seikado-bunko-art-museum | https://www.seikado.or.jp/exhibition/schedule/ | skipped（robots.txt で禁止されています） |
+| seikado-bunko-art-museum | https://www.seikado.or.jp/exhibition/current_exhibition/ | skipped（robots.txt で禁止されています） |
+| seikado-bunko-art-museum | https://www.seikado.or.jp/guide/access/ | skipped（robots.txt で禁止されています） |
+| tokugawa-art-museum | https://www.tokugawa-art-museum.jp/exhibitions/ | changed（+5行 / −12行） |
+| tokugawa-art-museum | https://www.tokugawa-art-museum.jp/wp-content/uploads/2025/09/list_of_works_on_display.pdf | unchanged |
+| tokugawa-art-museum | https://www.tokugawa-art-museum.jp/news/%E3%81%A8%E3%81%8F%E3%81%B3%E3%81%A8%E3%81%95%E3%81%AE%E3%81%B3%E3%80%80%E6%9D%A5%E6%98%A5%E9%96%8B%E5%82%AC/ | changed（+1行 / −1行） |
+| tokugawa-art-museum | https://www.tokugawa-art-museum.jp/visitor-information/ | unchanged |
+| sano-art-museum | https://sanobi.or.jp/exhibition/ | changed（+49行 / −93行） |
+| sano-art-museum | https://sanobi.or.jp/exhibition/upcoming/ | changed（+111行 / −42行） |
+| sano-art-museum | https://sanobi.or.jp/exhibition/?y=2026 | changed（+1行 / −1行） |
+| ishikawa-prefectural-museum-of-art | https://www.ishibi.pref.ishikawa.jp/exhibition/ | changed（+60行 / −47行） |
+| ishikawa-prefectural-museum-of-art | https://www.ishibi.pref.ishikawa.jp/access/ | changed（+1行 / −1行） |
+| kyoto-national-museum | https://www.kyohaku.go.jp/jp/exhibitions/ | changed（+2行 / −2行） |
+| kyoto-national-museum | https://www.kyohaku.go.jp/jp/visit/access/ | unchanged |
+| hayashibara-museum-of-art | https://www.hayashibara-museumofart.jp/list/exhibition/ | changed（+0行 / −6行） |
+| hayashibara-museum-of-art | https://www.hayashibara-museumofart.jp/data/guide/ | unchanged |
+| fukuyama-museum-of-art | https://www.city.fukuyama.hiroshima.jp/site/fukuyama-museum/319657.html | changed（+4行 / −2行） |
+| fukuyama-museum-of-art | https://www.city.fukuyama.hiroshima.jp/site/fukuyama-museum/373411.html | changed（+1行 / −0行） |
+| fukuyama-museum-of-art | https://www.city.fukuyama.hiroshima.jp/site/fukuyama-museum/201121.html | changed（+1行 / −0行） |
+| fukuyama-museum-of-art | https://www.city.fukuyama.hiroshima.jp/site/fukuyama-museum/253394.html | changed（+1行 / −0行） |
+| fukuoka-city-museum | https://museum.city.fukuoka.jp/topics/kuroda.html | changed（+0行 / −5行） |
+| fukuoka-city-museum | https://museum.city.fukuoka.jp/topics/pdf/kuroda_list01.pdf | unchanged |
+| fukuoka-city-museum | https://museum.city.fukuoka.jp/topics/pdf/kuroda_list02.pdf | unchanged |
+| fukuoka-city-museum | https://museum.city.fukuoka.jp/topics/pdf/kuroda_list03.pdf | unchanged |
+| fukuoka-city-museum | https://museum.city.fukuoka.jp/topics/pdf/kuroda_list04.pdf | unchanged |
+| fukuoka-city-museum | https://museum.city.fukuoka.jp/exhibition/ | changed（+0行 / −5行） |
+| kyushu-national-museum | https://www.kyuhaku.jp/exhibition/exhibition_schedule.html | changed（+10行 / −0行） |
+| kyushu-national-museum | https://www.kyuhaku.jp/visit/visit_top.html | unchanged |
+| chido-museum | https://www.chido.jp/exhibition/ | changed（+42行 / −15行） |
+| tnm | https://www.tnm.jp/modules/r_exhibition/index.php?controller=item&id=8467&lang=ja | new（+764行 / −0行） |
+| touken-museum | https://www.touken.or.jp/Portals/0/pdf/museum/%E8%99%8E%E5%BE%B9%E3%81%A8%E5%8A%A9%E5%BA%83_%E5%88%80%E5%89%A3%E5%8D%9A%E7%94%A8%E7%9B%AE%E9%8C%B2.pdf | new（+193行 / −0行） |
 
 ### data/exhibitions.json
 
-追加 6件 / 変更 7件 / 削除 0件
-
-#### 追加
-
-- **2027-touken-museum-kanzo-meihin** 刀剣博物館 館蔵名品展(仮)
-  - 「3月20日(土) ～ 5月23日(日) 刀剣博物館 館蔵名品展(仮) 刀剣博物館の館蔵品を中心に、刀剣・刀装・刀装具その他工芸分野の枠を越えた様々な作品を展示します。」 — https://www.touken.or.jp/museum/exhibition/schedule.html
-  - 「2027年1月9日(土) ～ 3月7日(日) 第72回重要刀剣等新指定展」 — https://www.touken.or.jp/museum/exhibition/schedule.html
-- **2026-fukuoka-city-museum-kuroda-meiho-4-1** 企画展「黒田家の名宝 4」 第Ⅰ期
-  - 「「黒田家名宝展示」展示予定（2026-2027）」 — https://museum.city.fukuoka.jp/topics/kuroda.html
-  - 「黒田家の名宝４ 第Ⅰ期 8月18日（火）～10月18日（日）」 — https://museum.city.fukuoka.jp/topics/kuroda.html
-  - 「■場所／福岡市博物館 企画展示室 ■観覧料（常設展・企画展共通）／一般200円・高大生150円・中学生以下無料」 — https://museum.city.fukuoka.jp/topics/kuroda.html
-  - 「企画展「黒田家の名宝 4」 ⦿国宝 ◎重要文化財 〇重要美術品 □県指定文化財」 — https://museum.city.fukuoka.jp/topics/pdf/kuroda_list01.pdf
-  - 「第Ⅰ期展示 8 月 18 日(火)～10 月 18 日(日)」 — https://museum.city.fukuoka.jp/topics/pdf/kuroda_list01.pdf
-  - 「◎刀 名物 安宅切」 — https://museum.city.fukuoka.jp/topics/pdf/kuroda_list01.pdf
-  - 「□刀 名物 岩切海部［稲員英一郎資料（追加分）］」 — https://museum.city.fukuoka.jp/topics/pdf/kuroda_list01.pdf
-  - 「※ 【通年展示】大身鎗 名物 日本号」 — https://museum.city.fukuoka.jp/topics/pdf/kuroda_list01.pdf
-- **2026-fukuoka-city-museum-kuroda-meiho-4-2** 企画展「黒田家の名宝 4」 第Ⅱ期
-  - 「「黒田家名宝展示」展示予定（2026-2027）」 — https://museum.city.fukuoka.jp/topics/kuroda.html
-  - 「黒田家の名宝４ 第Ⅱ期 10月20日（火）～12月27日（日）」 — https://museum.city.fukuoka.jp/topics/kuroda.html
-  - 「■場所／福岡市博物館 企画展示室 ■観覧料（常設展・企画展共通）／一般200円・高大生150円・中学生以下無料」 — https://museum.city.fukuoka.jp/topics/kuroda.html
-  - 「企画展「黒田家の名宝 4」 ⦿国宝 ◎重要文化財 〇重要美術品 □県指定文化財」 — https://museum.city.fukuoka.jp/topics/pdf/kuroda_list02.pdf
-  - 「第Ⅱ期展示 10 月 20 日(火)～12 月 27 日(日)」 — https://museum.city.fukuoka.jp/topics/pdf/kuroda_list02.pdf
-  - 「〇刀 二字国俊」 — https://museum.city.fukuoka.jp/topics/pdf/kuroda_list02.pdf
-  - 「刀 名物 城井兼光」 — https://museum.city.fukuoka.jp/topics/pdf/kuroda_list02.pdf
-  - 「刀 和泉守兼定」 — https://museum.city.fukuoka.jp/topics/pdf/kuroda_list02.pdf
-  - 「刀 和泉守兼定 刀 行光」 — https://museum.city.fukuoka.jp/topics/pdf/kuroda_list02.pdf
-  - 「※ 【通年展示】大身鎗 名物 日本号」 — https://museum.city.fukuoka.jp/topics/pdf/kuroda_list02.pdf
-- **2027-fukuoka-city-museum-kuroda-meiho-4-4** 企画展「黒田家の名宝 4」 第Ⅳ期
-  - 「「黒田家名宝展示」展示予定（2026-2027）」 — https://museum.city.fukuoka.jp/topics/kuroda.html
-  - 「黒田家の名宝４ 第Ⅳ期 3月2日（火）～4月25日（日）」 — https://museum.city.fukuoka.jp/topics/kuroda.html
-  - 「■場所／福岡市博物館 企画展示室 ■観覧料（常設展・企画展共通）／一般200円・高大生150円・中学生以下無料」 — https://museum.city.fukuoka.jp/topics/kuroda.html
-  - 「企画展「黒田家の名宝 4」 ⦿国宝 ◎重要文化財 〇重要美術品 □県指定文化財」 — https://museum.city.fukuoka.jp/topics/pdf/kuroda_list04.pdf
-  - 「第Ⅳ期展示 3 月 2 日(火)～4 月 25 日(日)」 — https://museum.city.fukuoka.jp/topics/pdf/kuroda_list04.pdf
-  - 「脇差 名物 碇切」 — https://museum.city.fukuoka.jp/topics/pdf/kuroda_list04.pdf
-  - 「太刀 銘 一 伝吉岡一文字」 — https://museum.city.fukuoka.jp/topics/pdf/kuroda_list04.pdf
-  - 「太刀 銘 一 伝吉岡一文字 刀 大仙兼元」 — https://museum.city.fukuoka.jp/topics/pdf/kuroda_list04.pdf
-  - 「脇差 銘 備州長船成光」 — https://museum.city.fukuoka.jp/topics/pdf/kuroda_list04.pdf
-  - 「※ 【通年展示】大身鎗 名物 日本号」 — https://museum.city.fukuoka.jp/topics/pdf/kuroda_list04.pdf
-- **2026-tokugawa-art-museum-meihin-buke-no-symbol** 名品コレクション展示「武家のシンボル －武具･刀剣－」
-  - 「【展示室１】 武家のシンボル － 武具･刀剣 －」 — https://www.tokugawa-art-museum.jp/wp-content/uploads/2025/09/list_of_works_on_display.pdf
-  - 「名品コレクション展示室 令和８年(2026) ９月１５日(火)～１２月１３日(日)」 — https://www.tokugawa-art-museum.jp/wp-content/uploads/2025/09/list_of_works_on_display.pdf
-  - 「凡例：⦿は国宝、◎は重要文化財、〇は重要美術品を示します。」 — https://www.tokugawa-art-museum.jp/wp-content/uploads/2025/09/list_of_works_on_display.pdf
-  - 「14 〇 太刀 銘 近村 徳川家正(徳川宗家17代)氏寄贈 平安 12」 — https://www.tokugawa-art-museum.jp/wp-content/uploads/2025/09/list_of_works_on_display.pdf
-  - 「15 ◎ 刀 無銘 助真 徳川慶勝(尾張家14代)･茂徳(同家15代)所持 鎌倉 13」 — https://www.tokugawa-art-museum.jp/wp-content/uploads/2025/09/list_of_works_on_display.pdf
-  - 「16 脇指 額銘 月山利安 室町 15」 — https://www.tokugawa-art-museum.jp/wp-content/uploads/2025/09/list_of_works_on_display.pdf
-  - 「17 短刀 無銘 保昌貞吉 鎌倉 13-14」 — https://www.tokugawa-art-museum.jp/wp-content/uploads/2025/09/list_of_works_on_display.pdf
-- **2027-tokugawa-art-museum-meito-no-iroha** とくび と さのび 名刀のいろは
-  - 「展覧会「とくび と さのび 名刀のいろは」について、徳川美術館の開催日程のご案内です。 会期：令和9年（2027） 4月17日（土）～6月13日（日）」 — https://www.tokugawa-art-museum.jp/news/%E3%81%A8%E3%81%8F%E3%81%B3%E3%81%A8%E3%81%95%E3%81%AE%E3%81%B3%E3%80%80%E6%9D%A5%E6%98%A5%E9%96%8B%E5%82%AC/
+追加 0件 / 変更 18件 / 削除 1件
 
 #### 変更
 
-- **2026-sano-art-museum-meito-no-iroha** さのび と とくび 名刀のいろは 佐野美術館創立60周年・三島市制85周年 記念
-  - `exhibits`: 18件 → 20件
-  - `confidence`: unverified → confirmed
-  - `list_url`: （なし） → https://sanobi.or.jp/snwp/wp-content/uploads/2026/09/2026.09_iroha2026-list.pdf
-  - 根拠の引用:
-    - 「さのび と とくび 名刀のいろは 佐野美術館創立60周年・三島市制85周年 記念 2026.09.05 Sat - 2026.10.18 Sun」 — https://sanobi.or.jp/exhibition/japaneseswords_2026/
-    - 「入館料 本展は美術館から退出されますと、再入場できません 一般・大学生1,600円」 — https://sanobi.or.jp/exhibition/japaneseswords_2026/
-    - 「国宝 太刀 銘 正恒 平安時代 徳川美術館蔵」 — https://sanobi.or.jp/exhibition/japaneseswords_2026/
-    - 「国宝 太刀 銘 一 鎌倉時代 個人蔵」 — https://sanobi.or.jp/exhibition/japaneseswords_2026/
-    - 「国宝 太刀 銘 長光 〈名物 津田遠江長光〉 鎌倉時代 徳川美術館蔵」 — https://sanobi.or.jp/exhibition/japaneseswords_2026/
-    - 「重要文化財 太刀 銘 来国光 鎌倉時代 徳川美術館蔵」 — https://sanobi.or.jp/exhibition/japaneseswords_2026/
-    - 「国宝 太刀 銘 来孫太郎作／（花押） 正応五年壬辰八月十三日 鎌倉時代 徳川美術館蔵」 — https://sanobi.or.jp/exhibition/japaneseswords_2026/
-    - 「重要文化財 刀 金象嵌銘 正宗磨上／本阿弥（花押） 〈名物 池田正宗〉 鎌倉時代 徳川美術館蔵」 — https://sanobi.or.jp/exhibition/japaneseswords_2026/
-    - 「重要文化財 刀 無銘 正宗 鎌倉時代 佐野美術館蔵」 — https://sanobi.or.jp/exhibition/japaneseswords_2026/
-    - 「重要文化財 短刀 銘 正宗 〈名物 不動正宗〉 鎌倉時代 徳川美術館蔵」 — https://sanobi.or.jp/exhibition/japaneseswords_2026/
-    - 「重要文化財 刀 朱銘 義弘／本阿（花押） 〈名物 松井江〉 鎌倉時代 佐野美術館蔵」 — https://sanobi.or.jp/exhibition/japaneseswords_2026/
-    - 「重要文化財 刀 無銘 郷義弘 〈名物 五月雨郷〉 鎌倉～南北朝時代 徳川美術館蔵」 — https://sanobi.or.jp/exhibition/japaneseswords_2026/
-    - 「重要文化財 脇指 無銘 貞宗 〈名物 物吉貞宗〉 南北朝時代 徳川美術館蔵」 — https://sanobi.or.jp/exhibition/japaneseswords_2026/
-    - 「重要文化財 太刀 銘 豊後国行平作 平安時代末期～鎌倉時代初期 佐野美術館蔵」 — https://sanobi.or.jp/exhibition/japaneseswords_2026/
-    - 「国宝 短刀 銘 吉光 〈名物 後藤藤四郎〉 鎌倉時代 徳川美術館蔵」 — https://sanobi.or.jp/exhibition/japaneseswords_2026/
-    - 「国宝 太刀 銘 光忠 鎌倉時代 徳川美術館蔵」 — https://sanobi.or.jp/exhibition/japaneseswords_2026/
-    - 「国宝 短刀 無銘 正宗 〈名物 庖丁正宗〉 鎌倉時代 徳川美術館蔵」 — https://sanobi.or.jp/exhibition/japaneseswords_2026/
-    - 「重要文化財 短刀 銘 国光 鎌倉時代 佐野美術館蔵」 — https://sanobi.or.jp/exhibition/japaneseswords_2026/
-    - 「短刀 銘 行光 〈名物 不動行光〉 鎌倉時代 個人蔵」 — https://sanobi.or.jp/exhibition/japaneseswords_2026/
-    - 「重要美術品 脇指 銘 相模国住人広光／康安二年十月日 〈号 火車切〉 南北朝時代 佐野美術館蔵」 — https://sanobi.or.jp/exhibition/japaneseswords_2026/
-    - 「重要文化財 刀 銘 本作長義 天正十八年庚刁五月三日ニ九州日向住国広銘打／長尾新五郎平朝臣顕長所持 天正十四年七月廿一日小田原参府之時従 屋形様被下置也 南北朝時代 徳川美術館蔵」 — https://sanobi.or.jp/exhibition/japaneseswords_2026/
-    - 「大笹穂槍 銘 藤原正真作 〈号 蜻蛉切〉 室町時代 個人蔵」 — https://sanobi.or.jp/exhibition/japaneseswords_2026/
 - **2026-touken-museum-kotetsu-to-sukehiro** 新刀・東西の巨匠 虎徹と助広
-  - `admission`: 一般 1,000円 → 大人 1,500円
+  - `official_url`: https://www.touken.or.jp/museum/exhibition/schedule.html → https://www.touken.or.jp/museum/exhibition/exhibition.html
+  - `periods`: 0件 → 2件
   - `exhibits`: 2件 → 2件（内容を変更）
+  - `verified_at`: 2026-10-07 → 2026-11-16
+  - `list_url`: （なし） → https://www.touken.or.jp/Portals/0/pdf/museum/%E8%99%8E%E5%BE%B9%E3%81%A8%E5%8A%…
   - 根拠の引用:
     - 「10月24日(土) ～ 12月20日(日) 新刀・東西の巨匠 虎徹と助広 ふくやま美術館との合同展として、新刀期の東西の名刀匠である虎徹と助広を中心とした特別展を開催します。」 — https://www.touken.or.jp/museum/exhibition/schedule.html
     - 「特別展 入館料 10/24～12/20の期間 大人 1,500円（1,200円※）」 — https://www.touken.or.jp/museum/information/admission.html
-- **2026-touken-museum-suzuki-collection** 鈴木嘉定コレクション寄贈品展
-  - `official_url`: https://www.touken.or.jp/museum/exhibition/schedule.html → https://www.touken.or.jp/museum/exhibition/exhibition.html
-  - `admission`: 一般 1,000円 → 大人 1,000円
-  - `confidence`: unverified → confirmed
-  - `list_url`: （なし） → https://www.touken.or.jp/Portals/0/pdf/museum/%E7%9B%AE%E9%8C%B2_%E9%88%B4%E6%9C…
+    - 「特別展 新刀・東西の巨匠 虎徹と助広 Master Swordsmiths of East and West : KOTETSU and SUKEHIRO 会期/period 2026年10月24日(土)～12月20日(日)」 — https://www.touken.or.jp/museum/exhibition/exhibition.html
+    - 「前期 10/24- 11/23 後期 11/25- 12/20」 — https://www.touken.or.jp/Portals/0/pdf/museum/%E8%99%8E%E5%BE%B9%E3%81%A8%E5%8A%A9%E5%BA%83_%E5%88%80%E5%89%A3%E5%8D%9A%E7%94%A8%E7%9B%AE%E9%8C%B2.pdf
+- **2026-tnm-honkan-13-0804** 東博コレクション展 刀剣
   - 根拠の引用:
-    - 「鈴木嘉定コレクション寄贈品展 The Collection of SUZUKI Kajō's Donated Items 会期/period 2026年9月5日(土)～10月12日(月・祝) September 5-October 12 開館時間/hours 9:30 ～ 17:00(最終入館/last entry 16:30) 休館日/closed days 毎週月曜日(祝日の場合開館、翌火曜日…」 — https://www.touken.or.jp/museum/exhibition/exhibition.html
+    - 「刀剣 作品リスト 刀剣 国宝 短刀（名物 厚藤四郎） 粟田口吉光 鎌倉時代・13世紀 本館 3室 2026年8月4日（火） ～ 2026年10月25日（日）」 — https://www.tnm.jp/modules/r_exhibition/index.php?controller=item&id=8466&lang=ja
+    - 「平安時代から江戸時代制作された16口を展示します。」 — https://www.tnm.jp/modules/r_exhibition/index.php?controller=item&id=8466&lang=ja
+    - 「東博コレクション展（平常展）観覧料 一般 1,000円」 — https://www.tnm.jp/modules/r_free_page/index.php?id=113&lang=ja
+    - 「国宝 太刀（名物 三日月宗近） 1口 三条宗近 平安時代・12世紀」 — https://www.tnm.jp/modules/r_exhibition/index.php?controller=item&id=8466&lang=ja
+    - 「国宝 太刀 1口 長船長光 鎌倉時代・13世紀 F-19989」 — https://www.tnm.jp/modules/r_exhibition/index.php?controller=item&id=8466&lang=ja
+    - 「重文 刀 1口 大隅掾正弘 江戸時代・慶長11年(1606)」 — https://www.tnm.jp/modules/r_exhibition/index.php?controller=item&id=8466&lang=ja
+    - 「重文 刀 1口 南紀重国 江戸時代・17世紀 文化庁蔵」 — https://www.tnm.jp/modules/r_exhibition/index.php?controller=item&id=8466&lang=ja
+    - 「重文 直刀 （号 水龍剣） 1口 奈良時代・8世紀」 — https://www.tnm.jp/modules/r_exhibition/index.php?controller=item&id=8466&lang=ja
+    - 「重文 太刀 1口 古青江貞次 鎌倉時代・13世紀」 — https://www.tnm.jp/modules/r_exhibition/index.php?controller=item&id=8466&lang=ja
+    - 「国宝 短刀（名物 厚藤四郎） 1口 粟田口吉光 鎌倉時代・13世紀 F-19547」 — https://www.tnm.jp/modules/r_exhibition/index.php?controller=item&id=8466&lang=ja
+    - 「重文 太刀 1口 手掻包永 鎌倉時代・13世紀 兵庫・姫路神社蔵」 — https://www.tnm.jp/modules/r_exhibition/index.php?controller=item&id=8466&lang=ja
+    - 「重文 太刀（号 今荒波） 1口 備前一文字 鎌倉時代・13世紀」 — https://www.tnm.jp/modules/r_exhibition/index.php?controller=item&id=8466&lang=ja
+    - 「重美 太刀 1口 長船景光 鎌倉時代・延慶2年(1309)」 — https://www.tnm.jp/modules/r_exhibition/index.php?controller=item&id=8466&lang=ja
+    - 「重文 太刀 1口 越中則重 鎌倉時代・14世紀 文化庁蔵」 — https://www.tnm.jp/modules/r_exhibition/index.php?controller=item&id=8466&lang=ja
+    - 「重美 短刀 1口 伝相州正宗 鎌倉時代・14世紀」 — https://www.tnm.jp/modules/r_exhibition/index.php?controller=item&id=8466&lang=ja
+    - 「太刀 1口 奥州宝寿 鎌倉時代・13世紀」 — https://www.tnm.jp/modules/r_exhibition/index.php?controller=item&id=8466&lang=ja
+    - 「脇指 1口 金房政次 安土桃山時代・天正18年(1590)」 — https://www.tnm.jp/modules/r_exhibition/index.php?controller=item&id=8466&lang=ja
+    - 「重美 短刀 1口 小野繁慶 江戸時代・17世紀」 — https://www.tnm.jp/modules/r_exhibition/index.php?controller=item&id=8466&lang=ja
+    - 「刀 1口 大和守元平 江戸時代・寛政8年(1796)」 — https://www.tnm.jp/modules/r_exhibition/index.php?controller=item&id=8466&lang=ja
+- **2026-tnm-honkan-13-1027** 東博コレクション展 刀剣
+  - `title`: 総合文化展 本館13室 刀剣 → 東博コレクション展 刀剣
+  - `official_url`: https://www.tnm.jp/ → https://www.tnm.jp/modules/r_exhibition/index.php?controller=item&id=8467
+  - `periods`: 0件 → 1件
+  - `exhibits`: 3件 → 16件
+  - `verified_at`: 2026-10-07 → 2026-11-16
+  - `confidence`: unverified → confirmed
+  - `list_url`: （なし） → https://www.tnm.jp/modules/r_exhibition/index.php?controller=item&id=8467
+  - 根拠の引用:
+    - 「刀剣 作品リスト 刀剣 国宝 刀（名物 観世正宗）（部分） 相州正宗 鎌倉時代・14世紀 本館 3室 2026年10月27日（火） ～ 2027年1月24日（日）」 — https://www.tnm.jp/modules/r_exhibition/index.php?controller=item&id=8467&lang=ja
+    - 「平安時代から江戸時代制作された16口を展示します。」 — https://www.tnm.jp/modules/r_exhibition/index.php?controller=item&id=8467&lang=ja
+    - 「name: 刀（名物 観世正宗） info: 相州正宗 鎌倉時代・14世紀 season_spring: 0 season_summer: 0 season_autumn: 1 season_winter: 1 date_start: 2026/10/27 date_end: 2026/12/13 room: 本館3室」 — https://www.tnm.jp/data/schedule.json
+    - 「2026年12月14日(月)～2027年4月25日(日)まで、本館2～3室は展示環境整備のため閉室します。」 — https://www.tnm.jp/modules/r_free_page/index.php?id=113&lang=ja
+    - 「東博コレクション展（平常展）観覧料 一般 1,000円」 — https://www.tnm.jp/modules/r_free_page/index.php?id=113&lang=ja
+    - 「重文 短刀 1口 相州国光 鎌倉時代・13世紀 渡邊誠一郎氏寄贈 F-20113」 — https://www.tnm.jp/modules/r_exhibition/index.php?controller=item&id=8467&lang=ja
+    - 「国宝 刀（名物 観世正宗） 1口 相州正宗 鎌倉時代・14世紀 F-19916」 — https://www.tnm.jp/modules/r_exhibition/index.php?controller=item&id=8467&lang=ja
+    - 「重文 短刀 1口 青江次直 南北朝時代・延文3年(1358) 渡邊誠一郎氏寄贈 F-20114-1」 — https://www.tnm.jp/modules/r_exhibition/index.php?controller=item&id=8467&lang=ja
+    - 「重美 太刀 1口 豊後友行 西条松平家伝来 南北朝時代・正平年間(1346～70) 藤澤昌三氏寄贈 F-20276」 — https://www.tnm.jp/modules/r_exhibition/index.php?controller=item&id=8467&lang=ja
+    - 「重美 太刀 1口 伯耆安綱 平安時代・12世紀 F-19994」 — https://www.tnm.jp/modules/r_exhibition/index.php?controller=item&id=8467&lang=ja
+    - 「重文 太刀 1口 豊後行平 平安～鎌倉時代・12～13世紀 F-19974-1」 — https://www.tnm.jp/modules/r_exhibition/index.php?controller=item&id=8467&lang=ja
+    - 「太刀 1口 山城了戒 鎌倉時代・13～14世紀 F-15」 — https://www.tnm.jp/modules/r_exhibition/index.php?controller=item&id=8467&lang=ja
+    - 「重文 太刀 1口 手掻包永 鎌倉時代・13世紀 個人蔵」 — https://www.tnm.jp/modules/r_exhibition/index.php?controller=item&id=8467&lang=ja
+    - 「重文 太刀 1口 長船光忠 鎌倉時代・13世紀 F-19968」 — https://www.tnm.jp/modules/r_exhibition/index.php?controller=item&id=8467&lang=ja
+    - 「太刀 1口 長船元重 南北朝時代・観応4年(1355) F-169」 — https://www.tnm.jp/modules/r_exhibition/index.php?controller=item&id=8467&lang=ja
+    - 「刀 1口 伝筑州左 南北朝時代・14世紀 F-320-1」 — https://www.tnm.jp/modules/r_exhibition/index.php?controller=item&id=8467&lang=ja
+    - 「重文 太刀 1口 長船則光 室町時代・長禄3年(1459) F-20269」 — https://www.tnm.jp/modules/r_exhibition/index.php?controller=item&id=8467&lang=ja
+    - 「刀 1口 関兼元 室町時代・16世紀 川田龍吉氏寄贈 F-17073」 — https://www.tnm.jp/modules/r_exhibition/index.php?controller=item&id=8467&lang=ja
+    - 「脇指 1口 相州綱広 安土桃山時代・元亀4年(1573) F-15824」 — https://www.tnm.jp/modules/r_exhibition/index.php?controller=item&id=8467&lang=ja
+    - 「刀 1口 堀川国広 安土桃山時代・17世紀 F-17299」 — https://www.tnm.jp/modules/r_exhibition/index.php?controller=item&id=8467&lang=ja
+    - 「刀 1口 運寿是一 江戸時代・嘉永6年(1853) F-283」 — https://www.tnm.jp/modules/r_exhibition/index.php?controller=item&id=8467&lang=ja
+- **2027-tnm-honkan-13-0101** 総合文化展 本館13室 刀剣
+- **2026-bizen-osafune-omamori-gatana** 秋季特別展「第19回お守り刀展覧会」
+  - `list_url`: https://www.city.setouchi.lg.jp/site/token/1315.html → （なし）
+  - `verified_at`: 2026-10-07 → 2026-11-16
+  - 根拠の引用:
+    - 「令和8年10月3日（土曜日）～11月23日（月曜日・祝日） 秋季特別展「第19回お守り刀展覧会」」 — https://www.city.setouchi.lg.jp/site/token/111308.html
+    - 「本展では現代刀職が制作したお守り刀を、総合・刀身・外装・研磨の4部門から審査し、優れた作品を展示します。」 — https://www.city.setouchi.lg.jp/site/token/111308.html
+    - 「料金 一般：1000円（800円）、高大生：600円、中学生以下：無料 ※（ ）内は20名以上の団体料金 ※65歳以上の方：800円（必須：年齢の分かる証明書提示） ※高大生は学生証提示必須 ※障がい者手帳提示の方と付添者1名：無料 開催場所 備前長船刀剣博物館 1・2階展示室 冬季特別展」 — https://www.city.setouchi.lg.jp/site/token/111308.html
+- **2026-bizen-osafune-ko-bizen** 冬季特別展「古備前―刀剣王国の黎明―」
+  - `title`: 冬季特別展「古備前―刀剣王国の黎明（仮題）」 → 冬季特別展「古備前―刀剣王国の黎明―」
+  - `exhibits`: 0件 → 1件
+  - `verified_at`: 2026-10-07 → 2026-11-16
+  - 根拠の引用:
+    - 「令和8年12月5日（土曜日）～令和9年2月14日（日曜日） 冬季特別展「古備前―刀剣王国の黎明―」」 — https://www.city.setouchi.lg.jp/site/token/111308.html
+    - 「料金 一般：1200円（1000円）、高大生：800円、中学生以下：無料 ※（ ）内は20名以上の団体料金 ※65歳以上の方：1000円（必須：年齢の分かる証明書提示） ※高大生は学生証提示必須 ※障がい者手帳提示の方と付添者1名：無料 開催場所 備前長船刀剣博物館 1・2階展示室 テーマ展「華やぐ刀剣」 — https://www.city.setouchi.lg.jp/site/token/111308.html
+    - 「本展は貴重な作品の受贈を記念し、ご寄贈いただいた「重要文化財 太刀 銘 信房作」をはじめ、古備前に連なる刀剣の数々を展示いたします。」 — https://www.city.setouchi.lg.jp/site/token/1315.html
+    - 「国宝「太刀 銘 信房作」（致道博物館蔵）の展示はございません。」 — https://www.city.setouchi.lg.jp/site/token/1315.html
+    - 「期間 令和8年12月5日（土曜日）～ 令和9年2月14日（日曜日）」 — https://www.city.setouchi.lg.jp/site/token/1315.html
+- **2027-bizen-osafune-tosogu** テーマ展「華やぐ刀剣―刃文と装いの美―」
+  - `title`: テーマ展「華やぐ刀剣―刃文と装いの美―（仮題）」 → テーマ展「華やぐ刀剣―刃文と装いの美―」
+  - `verified_at`: 2026-10-07 → 2026-11-16
+  - 根拠の引用:
+    - 「令和9年2月20日（土曜日）～4月18日（日曜日） テーマ展「華やぐ刀剣―刃文と装いの美―」」 — https://www.city.setouchi.lg.jp/site/token/111308.html
+    - 「料金 一般：500円（400円）、高大生：300円（250円）、中学生以下：無料 ※（ ）内は20名以上の団体料金 ※65歳以上の方：400円（必須：年齢の分かる証明書提示） ※高大生は学生証提示必須 ※障がい者手帳提示の方と付添者1名：無料 開催場所 備前長船刀剣博物館 2階展示室 「刀剣の見方」」 — https://www.city.setouchi.lg.jp/site/token/111308.html
+- **2026-touken-museum-suzuki-collection** 鈴木嘉定コレクション寄贈品展
+  - 根拠の引用:
     - 「9月5日(土) ～ 10月12日(月・祝) 鈴木嘉定コレクション寄贈品展」 — https://www.touken.or.jp/museum/exhibition/schedule.html
 - **2027-touken-museum-juyo-shinshitei-72** 第72回重要刀剣等新指定展
-  - `admission`: 一般 1,000円 → （なし）
-  - `exhibits`: 1件 → 0件
-  - `confidence`: unverified → confirmed
+  - `verified_at`: 2026-10-07 → 2026-11-16
   - 根拠の引用:
     - 「2027年1月9日(土) ～ 3月7日(日) 第72回重要刀剣等新指定展」 — https://www.touken.or.jp/museum/exhibition/schedule.html
+    - 「第72回重要刀剣等新指定展 2027年1月9日(土) ～ 3月7日(日) 次回展示」 — https://www.touken.or.jp/Portals/0/pdf/museum/%E8%99%8E%E5%BE%B9%E3%81%A8%E5%8A%A9%E5%BA%83_%E5%88%80%E5%89%A3%E5%8D%9A%E7%94%A8%E7%9B%AE%E9%8C%B2.pdf
+- **2027-touken-museum-kanzo-meihin** 刀剣博物館 館蔵名品展(仮)
+  - `verified_at`: 2026-10-07 → 2026-11-16
+  - 根拠の引用:
+    - 「3月20日(土) ～ 5月23日(日) 刀剣博物館 館蔵名品展(仮) 刀剣博物館の館蔵品を中心に、刀剣・刀装・刀装具その他工芸分野の枠を越えた様々な作品を展示します。」 — https://www.touken.or.jp/museum/exhibition/schedule.html
+- **2026-fukuoka-city-museum-kuroda-meiho-4-2** 企画展「黒田家の名宝 4」 第Ⅱ期
+  - `verified_at`: 2026-10-07 → 2026-11-16
+  - 根拠の引用:
+    - 「「黒田家名宝展示」展示予定（2026-2027）」 — https://museum.city.fukuoka.jp/topics/kuroda.html
+    - 「黒田家の名宝４ 第Ⅱ期 10月20日（火）～12月27日（日）」 — https://museum.city.fukuoka.jp/topics/kuroda.html
+    - 「■場所／福岡市博物館 企画展示室 ■観覧料（常設展・企画展共通）／一般200円・高大生150円・中学生以下無料」 — https://museum.city.fukuoka.jp/topics/kuroda.html
+    - 「企画展「黒田家の名宝 4」 ⦿国宝 ◎重要文化財 〇重要美術品 □県指定文化財」 — https://museum.city.fukuoka.jp/topics/pdf/kuroda_list02.pdf
+    - 「第Ⅱ期展示 10 月 20 日(火)～12 月 27 日(日)」 — https://museum.city.fukuoka.jp/topics/pdf/kuroda_list02.pdf
+    - 「〇刀 二字国俊」 — https://museum.city.fukuoka.jp/topics/pdf/kuroda_list02.pdf
+    - 「刀 名物 城井兼光」 — https://museum.city.fukuoka.jp/topics/pdf/kuroda_list02.pdf
+    - 「刀 和泉守兼定」 — https://museum.city.fukuoka.jp/topics/pdf/kuroda_list02.pdf
+    - 「刀 和泉守兼定 刀 行光」 — https://museum.city.fukuoka.jp/topics/pdf/kuroda_list02.pdf
+    - 「※ 【通年展示】大身鎗 名物 日本号」 — https://museum.city.fukuoka.jp/topics/pdf/kuroda_list02.pdf
 - **2027-fukuoka-city-museum-kuroda-meiho-4-3** 企画展「黒田家の名宝 4」 第Ⅲ期
-  - `title`: 企画展「黒田家の名宝 4」 第3期 → 企画展「黒田家の名宝 4」 第Ⅲ期
-  - `exhibits`: 3件 → 4件
-  - `confidence`: unverified → confirmed
-  - `list_url`: （なし） → https://museum.city.fukuoka.jp/topics/pdf/kuroda_list03.pdf
+  - `verified_at`: 2026-10-07 → 2026-11-16
   - 根拠の引用:
     - 「「黒田家名宝展示」展示予定（2026-2027）」 — https://museum.city.fukuoka.jp/topics/kuroda.html
     - 「黒田家の名宝４ 第Ⅲ期 1月5日（火）～2月28日（日）」 — https://museum.city.fukuoka.jp/topics/kuroda.html
@@ -236,90 +225,59 @@
     - 「⦿太刀 名物 日光一文字」 — https://museum.city.fukuoka.jp/topics/pdf/kuroda_list03.pdf
     - 「薙刀 名物 権藤鎮教」 — https://museum.city.fukuoka.jp/topics/pdf/kuroda_list03.pdf
     - 「※ 【通年展示】大身鎗 名物 日本号」 — https://museum.city.fukuoka.jp/topics/pdf/kuroda_list03.pdf
-- **2026-tokugawa-art-museum-tokimeku-hako** 特別展 ときめく箱
-  - `official_url`: https://www.tokugawa-art-museum.jp/ → https://www.tokugawa-art-museum.jp/exhibitions/tokimekuhako/
+- **2027-fukuoka-city-museum-kuroda-meiho-4-4** 企画展「黒田家の名宝 4」 第Ⅳ期
+  - `verified_at`: 2026-10-07 → 2026-11-16
   - 根拠の引用:
-    - 「これからの展覧会 特別展 ときめく箱 2026.10.08 (木)2026.11.15 (日)」 — https://www.tokugawa-art-museum.jp/exhibitions/
+    - 「「黒田家名宝展示」展示予定（2026-2027）」 — https://museum.city.fukuoka.jp/topics/kuroda.html
+    - 「黒田家の名宝４ 第Ⅳ期 3月2日（火）～4月25日（日）」 — https://museum.city.fukuoka.jp/topics/kuroda.html
+    - 「■場所／福岡市博物館 企画展示室 ■観覧料（常設展・企画展共通）／一般200円・高大生150円・中学生以下無料」 — https://museum.city.fukuoka.jp/topics/kuroda.html
+    - 「企画展「黒田家の名宝 4」 ⦿国宝 ◎重要文化財 〇重要美術品 □県指定文化財」 — https://museum.city.fukuoka.jp/topics/pdf/kuroda_list04.pdf
+    - 「第Ⅳ期展示 3 月 2 日(火)～4 月 25 日(日)」 — https://museum.city.fukuoka.jp/topics/pdf/kuroda_list04.pdf
+    - 「脇差 名物 碇切」 — https://museum.city.fukuoka.jp/topics/pdf/kuroda_list04.pdf
+    - 「太刀 銘 一 伝吉岡一文字」 — https://museum.city.fukuoka.jp/topics/pdf/kuroda_list04.pdf
+    - 「太刀 銘 一 伝吉岡一文字 刀 大仙兼元」 — https://museum.city.fukuoka.jp/topics/pdf/kuroda_list04.pdf
+    - 「脇差 銘 備州長船成光」 — https://museum.city.fukuoka.jp/topics/pdf/kuroda_list04.pdf
+    - 「※ 【通年展示】大身鎗 名物 日本号」 — https://museum.city.fukuoka.jp/topics/pdf/kuroda_list04.pdf
+- **2026-tokugawa-art-museum-tokimeku-hako** 特別展 ときめく箱
+  - `verified_at`: 2026-10-07 → 2026-11-16
+  - 根拠の引用:
+    - 「特別展 ときめく箱 2026.10.08 (木) 2026.11.15 (日)」 — https://www.tokugawa-art-museum.jp/exhibitions/
     - 「徳川美術館・ 蓬左文庫入館料 Admission Fees 個人 一般 2,000 円」 — https://www.tokugawa-art-museum.jp/visitor-information/
+- **2026-tokugawa-art-museum-meihin-buke-no-symbol** 名品コレクション展示「武家のシンボル －武具･刀剣－」
+  - `verified_at`: 2026-10-07 → 2026-11-16
+  - 根拠の引用:
+    - 「【展示室１】 武家のシンボル － 武具･刀剣 －」 — https://www.tokugawa-art-museum.jp/wp-content/uploads/2025/09/list_of_works_on_display.pdf
+    - 「名品コレクション展示室 令和８年(2026) ９月１５日(火)～１２月１３日(日)」 — https://www.tokugawa-art-museum.jp/wp-content/uploads/2025/09/list_of_works_on_display.pdf
+    - 「凡例：⦿は国宝、◎は重要文化財、〇は重要美術品を示します。」 — https://www.tokugawa-art-museum.jp/wp-content/uploads/2025/09/list_of_works_on_display.pdf
+    - 「14 〇 太刀 銘 近村 徳川家正(徳川宗家17代)氏寄贈 平安 12」 — https://www.tokugawa-art-museum.jp/wp-content/uploads/2025/09/list_of_works_on_display.pdf
+    - 「15 ◎ 刀 無銘 助真 徳川慶勝(尾張家14代)･茂徳(同家15代)所持 鎌倉 13」 — https://www.tokugawa-art-museum.jp/wp-content/uploads/2025/09/list_of_works_on_display.pdf
+    - 「16 脇指 額銘 月山利安 室町 15」 — https://www.tokugawa-art-museum.jp/wp-content/uploads/2025/09/list_of_works_on_display.pdf
+    - 「17 短刀 無銘 保昌貞吉 鎌倉 13-14」 — https://www.tokugawa-art-museum.jp/wp-content/uploads/2025/09/list_of_works_on_display.pdf
+- **2027-tokugawa-art-museum-meito-no-iroha** とくび と さのび 名刀のいろは
+  - `verified_at`: 2026-10-07 → 2026-11-16
+  - 根拠の引用:
+    - 「展覧会「とくび と さのび 名刀のいろは」について、徳川美術館の開催日程のご案内です。 会期：令和9年（2027） 4月17日（土）～6月13日（日）」 — https://www.tokugawa-art-museum.jp/news/%E3%81%A8%E3%81%8F%E3%81%B3%E3%81%A8%E3%81%95%E3%81%AE%E3%81%B3%E3%80%80%E6%9D%A5%E6%98%A5%E9%96%8B%E5%82%AC/
 - **2027-fukuyama-museum-of-art-kotetsu-to-sukehiro** 新刀・東西の巨匠 虎徹と助広
-  - `official_url`: https://www.city.fukuyama.hiroshima.jp/site/fukuyama-museum/ → https://www.city.fukuyama.hiroshima.jp/site/fukuyama-museum/319657.html
-  - `admission`: 一般 1,500円 → （なし）
-  - `periods`: 0件 → 2件
   - `exhibits`: 2件 → 2件（内容を変更）
-  - `confidence`: unverified → confirmed
+  - `verified_at`: 2026-10-07 → 2026-11-16
   - 根拠の引用:
     - 「【新刀・東西の巨匠 虎徹と助広】 2027年1月24日（日）～3月22日（月・休） 前期：2月21日（日）まで、後期：2月23日（火・祝）から」 — https://www.city.fukuyama.hiroshima.jp/site/fukuyama-museum/319657.html
+- **2026-sanada-treasure-museum-hana-no-maru** 特別展「松代城 花の丸ー真田家の御殿ー」
+  - `title`: 企画展「松代城 花の丸―真田家の御殿―」 → 特別展「松代城 花の丸ー真田家の御殿ー」
+  - `start_date`: 2026-07-02 → 2026-06-27
+  - `end_date`: null → 2026-12-14
+  - `official_url`: https://www.sanadahoumotsukan.com/ → https://www.sanadahoumotsukan.com/event-info.php?n=189
+  - `admission`: 一般 600円 → （なし）
+  - `periods`: 0件 → 2件
+  - `verified_at`: 2026-10-07 → 2026-11-16
+
+#### 削除
+
+- **2026-edo-tokyo-museum-bizen-den** 秋季企画展「館蔵 備前伝とゆかりの刀剣(仮称)」
 
 ### data/venues.json
 
-追加 5件 / 変更 9件 / 削除 0件
-
-#### 追加
-
-- **seikado-bunko-art-museum** 
-  - 「年間スケジュール - 静嘉堂文庫美術館」 — https://www.seikado.or.jp/exhibition/schedule/
-  - 「交通案内・アクセス 〒100-0005 東京都千代田区丸の内2-1-1 明治生命館1F」 — https://www.seikado.or.jp/guide/access/
-- **ishikawa-prefectural-museum-of-art** 
-  - 「アクセス | 石川県立美術館」 — https://www.ishibi.pref.ishikawa.jp/access/
-  - 「〒920-0963 石川県金沢市出羽町2-1」 — https://www.ishibi.pref.ishikawa.jp/access/
-- **kyoto-national-museum** 
-  - 「交通アクセス - 京都国立博物館」 — https://www.kyohaku.go.jp/jp/visit/access/
-  - 「〒605-0931 京都市東山区茶屋町527」 — https://www.kyohaku.go.jp/jp/visit/access/
-- **hayashibara-museum-of-art** 
-  - 「利用案内 | 林原美術館 HAYASHIBARA MUSEUM OF ART」 — https://www.hayashibara-museumofart.jp/data/guide/
-  - 「〒700-0823 岡山市北区丸の内2-7-15」 — https://www.hayashibara-museumofart.jp/data/guide/
-- **kyushu-national-museum** 
-  - 「九州国立博物館 - これからの展示情報」 — https://www.kyuhaku.jp/exhibition/exhibition_schedule.html
-
-#### 変更
-
-- **tnm** 
-  - `exhibitions_page_url`: （なし） → https://www.tnm.jp/modules/r_exhibition/index.php?controller=hall&hid=12&lang=ja
-  - `crawl`: （なし） → {"enabled":true,"notes":"巡回先: 本館の展示室一覧、刀剣の展示作品リスト、今週の東博コレクション展、年間スケジュールのJSON、料金ペ…
-  - 根拠の引用:
-    - 「住所：〒110-8712 東京都台東区上野公園13-9 東京国立博物館」 — https://www.tnm.jp/modules/r_free_page/index.php?id=113&lang=ja
-- **touken-museum** 
-  - `crawl`: （なし） → {"enabled":true,"notes":"巡回先: 開催中の展覧会、次回の展覧会、年間スケジュール、入館料金、アクセス。展示作品リスト（目録PDF）は縦…
-  - 根拠の引用:
-    - 「住所：〒130-0015 東京都墨田区横網1-12-9」 — https://www.touken.or.jp/access/
-- **sano-art-museum** 
-  - `lat`: 35.115 → 35.1149488
-  - `lng`: 138.918 → 138.913314
-  - `confidence`: unverified → confirmed
-  - `exhibitions_page_url`: （なし） → https://sanobi.or.jp/exhibition/
-  - `crawl`: （なし） → {"enabled":true,"notes":"巡回先: 開催中の展覧会、予告、年間スケジュール（?y=年度）、刀剣展の展覧会ページ。出品目録PDFは文字を取…
-  - 根拠の引用:
-    - 「佐野美術館 〒411-0838 静岡県三島市中田町1-43」 — https://sanobi.or.jp/exhibition/?y=2026
-- **bizen-osafune-token-museum** 
-  - `crawl`: （なし） → {"enabled":true,"notes":"瀬戸内市の公式サイト内。巡回先: 年間展示予定（2026年度）、現在の展示。緯度経度は出典がない（要確認）"}
-  - 根拠の引用:
-    - 「備前おさふね刀剣の里 備前長船刀剣博物館 〒701-4271 瀬戸内市長船町長船966番地」 — https://www.city.setouchi.lg.jp/site/token/111308.html
-- **fukuoka-city-museum** 
-  - `exhibitions_page_url`: （なし） → https://museum.city.fukuoka.jp/exhibition/
-  - `crawl`: （なし） → {"enabled":true,"notes":"巡回先: 黒田家名宝展示のページ、各期の出品リスト（PDF 4件）、展示・体験学習室の案内。/pdf/ は r…
-  - 根拠の引用:
-    - 「福岡市博物館 〒814-0001 福岡市早良区百道浜3丁目1-1」 — https://museum.city.fukuoka.jp/exhibition/
-- **tokugawa-art-museum** 
-  - `exhibitions_page_url`: （なし） → https://www.tokugawa-art-museum.jp/exhibitions/
-  - `crawl`: （なし） → {"enabled":true,"notes":"巡回先: 展覧会一覧、名品コレクション展示の展示作品リスト（PDF。展示室1「武家のシンボル －武具・刀剣－」…
-  - 根拠の引用:
-    - 「交通アクセス 徳川美術館 〒 461-0023 名古屋市東区徳川町 1017」 — https://www.tokugawa-art-museum.jp/visitor-information/
-- **atsuta-jingu** 
-  - `exhibitions_page_url`: （なし） → https://www.atsutajingu.or.jp/houmotukan_kusanagi/schedule/index02.html
-  - `crawl`: （なし） → {"enabled":true,"notes":"巡回先: 草薙館、草薙館の年間スケジュール、宝物館の年間スケジュール。住所は巡回先の本文になく、公式サイトでは…
-- **fukuyama-museum-of-art** 
-  - `lat`: 34.49 → 34.49095769443698
-  - `lng`: 133.358 → 133.35648992627918
-  - `confidence`: unverified → confirmed
-  - `exhibitions_page_url`: （なし） → https://www.city.fukuyama.hiroshima.jp/site/fukuyama-museum/319657.html
-  - `crawl`: （なし） → {"enabled":true,"notes":"福山市の公式サイト内。巡回先: 特別展、所蔵品展、小松安弘コレクション展示情報、アクセス。刀剣（小松安弘コレク…
-  - 根拠の引用:
-    - 「〒720-0067 広島県福山市西町二丁目４番３号 ＪＲ福山駅北口から西へ約400m」 — https://www.city.fukuyama.hiroshima.jp/site/fukuyama-museum/253394.html
-- **chido-museum** 
-  - `exhibitions_page_url`: （なし） → https://www.chido.jp/exhibition/
-  - `crawl`: （なし） → {"enabled":true,"notes":"巡回先: 企画展示（今月・来月・年間スケジュール）"}
-  - 根拠の引用:
-    - 「問合せ先：〒997-0036 山形県鶴岡市家中新町10-18」 — https://www.chido.jp/exhibition/
+追加 0件 / 変更 0件 / 削除 0件
 
 ### data/smiths.json
 
@@ -331,29 +289,6 @@
 
 <!-- crawl:report:auto:end -->
 
-## 要確認
+## 作業時間の目安
 
-1. **名古屋刀剣博物館（`www.meihaku.jp`）は巡回できなかった。** 巡回用の User-Agent からのアクセスに、robots.txt・トップページとも HTTP 429（本文は「403 ERROR The request is blocked.」）が返る。アクセス制限を回避する取得はしていない。館データ・巡回先・展覧会のいずれも登録していない。館に巡回の許可を求めるか、手動での登録にするか、対象館から外すかを判断してほしい。
-2. **緯度経度の出典がない館**: 石川県立美術館（公式サイトの地図は館名での検索表示で、座標がない。住所から入れた概略の値 36.5604, 136.6605 で `unverified`）、備前長船刀剣博物館（既存の値 34.689, 134.106 に出典がない。今回、旧データ由来の出典を住所の引用に差し替えたため、緯度経度の出典はない。`unverified` のまま）。この環境では地図サービスを使えないため、確認してほしい。
-3. **九州国立博物館の住所**が公式サイトの本文（展示スケジュール・ご利用案内・アクセス）に見つからず、`address` を省いて `unverified` にした。ご利用案内の「〒818-0117 福岡県太宰府市宰府4丁目7-8」は、だざいふ遊園地の住所。
-4. **熱田神宮の住所**は、巡回先と公式のアクセスページ（`/jingu/access/`）の本文に住所がなく、確認できなかった（既存の値と Wikipedia の出典のまま）。
-5. **緯度経度を公式サイトの地図から取った館**: 静嘉堂文庫美術館、京都国立博物館、林原美術館、九州国立博物館（新規）、佐野美術館、ふくやま美術館（既存の値を更新）。アクセスページに埋め込まれた Google マップの中心座標で、本文の文字ではないため引用の照合はできない（出典の `title` に座標を書いた）。既存の館（東博・刀剣博物館・徳川美術館・福岡市博物館・致道博物館）の緯度経度は、第三者サイトの出典のまま変えていない。
-6. **刀剣が主題か迷ったもの**（掲載を続けるか判断してほしい）:
-   - `2026-tokugawa-art-museum-tokimeku-hako`（特別展 ときめく箱）は箱がテーマの展覧会で、刀剣が主題ではない。旧データからの既存の件のため削除せず、会期を照合した。
-   - `2026-tokugawa-art-museum-meihin-buke-no-symbol`（名品コレクション展示 展示室１「武家のシンボル －武具･刀剣－」）は常設の展示室で、刀剣4口のほか甲冑・拵・弓矢などを含む。展示室名に刀剣があり、刀剣の展示替えがあるため追加した。
-   - 福岡市博物館の「黒田家の名宝 4」第Ⅰ〜Ⅳ期は、黒田家の文書・甲冑・刀剣を含む展示。既存の第Ⅲ期に合わせて各期を追加し、出品物は刀剣（槍・薙刀を含む）だけを登録した（拵・刀箱は登録していない）。
-   - 九州国立博物館の特集展示「兵（つわもの）とアジアの大交易時代」（2027-02-09〜04-04）は、紹介文に刀剣の記載がないため追加していない。
-   - 林原美術館の企画展「SUMI －美と知の結晶－」（2027-01-30〜03-28）は「刀剣の押形」を含むが、墨が主題のため追加していない。
-7. **刀匠へのリンクの判断**:
-   - 新たに付けたもの: 「二字国俊」→ `niji-kunitoshi`（別名「二字国俊」と一致、山城国）。
-   - 付けなかったもの: 「刀 和泉守兼定」（同名で代の異なる刀工がいる）、「刀 行光」（国・流派の記載がない）、「刀 名物 城井兼光」「太刀 銘 一 伝吉岡一文字」「刀 大仙兼元」「脇差 銘 備州長船成光」「太刀 銘 近村」「刀 無銘 助真」「脇指 額銘 月山利安」「短刀 無銘 保昌貞吉」「刀 無銘 郷義弘」「刀 朱銘 義弘」（該当する刀匠データがない）。
-   - 既存のリンクを残したもの（本文の表記だけでは刀匠名と一致しない）: 黒田家の名宝 第Ⅲ期の「圧切長谷部」→ `hasebe-kunishige`、「日光一文字」→ `fukuoka-ichimonji`。佐野美術館の各出品物のリンク（旧データのまま）。外すかどうか判断してほしい。
-8. **刀剣博物館・ふくやま美術館の「虎徹と助広」の出品物**は、出品目録が未公開のため、紹介文・展覧会名にもとづく「虎徹」「助広」の2行にした（虎徹は `nagasone-kotetsu` にリンク）。目録が公開されたら差し替える。
-9. **外した旧データの値**: 刀剣博物館 `2027-touken-museum-juyo-shinshitei-72` の料金（一般 1,000円）と出品物「重要刀剣等新指定作品」、ふくやま美術館 `2027-fukuyama-museum-of-art-kotetsu-to-sukehiro` の料金（一般 1,500円）。いずれも公式サイトに展覧会ごとの料金がなかった。
-10. **年の書かれていない日付**: 刀剣博物館の年間スケジュールは、年度の見出しの下に「月日」だけが書かれる。`2027-touken-museum-kanzo-meihin`（3月20日〜5月23日）は「2026年度」の欄で「2027年1月9日」の後にあるため2027年とした。福岡市博物館の第Ⅲ・Ⅳ期（1月・3月）も「展示予定（2026-2027）」の見出しから2027年とした。
-11. **会期が終わった、または終わりそうな刀剣展**: 致道博物館の「武装美伝 ―刀剣と甲冑―」（2026-07-02〜08-31）は会期が終わっていたため追加していない。刀剣博物館の鈴木嘉定コレクション寄贈品展は 10-12、佐野美術館の名刀のいろはは 10-18 に終わる。
-12. **刀剣博物館の目録PDF**（`list_url`）と**佐野美術館の出品目録PDF**は、文字を取り出せず引用の照合に使えない。佐野美術館は展覧会ページの「主な出品作品」（20件）だけを出品物にしている。
-13. **コラボ企画**: 佐野美術館・徳川美術館の「名刀のいろは」は、ゲームとのコラボが同時に行われると本文にあるが、コラボの部分は題名・出品リストに入れていない（D-009、D-012-4）。
-14. **IDと表記**: 新規の館IDは `seikado-bunko-art-museum`、`ishikawa-prefectural-museum-of-art`、`kyoto-national-museum`、`hayashibara-museum-of-art`、`kyushu-national-museum` とした（URLになるため、公開前に確認してほしい）。静嘉堂文庫美術館の `short_name` は「静嘉堂」、京博・九博は「京博」「九博」とした。
-15. **robots.txt が転送される館**（林原美術館・九州国立博物館）は、転送先の HTML が robots.txt として読まれ「規則0件（すべて許可）」になる。刀剣博物館は転送先が 404 で「robots.txt なし」。いずれも実際には robots.txt がないと考えられるが、扱いを確認してほしい（`scripts/crawl/` は今回変更していない）。
-16. **型の変更は不要だった。** 館の `crawl.enabled` を、巡回している14館で `true` にした。
+（PR の本文に記載）
