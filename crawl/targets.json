@@ -51,7 +51,7 @@
       "url": "https://www.city.setouchi.lg.jp/site/token/1315.html",
       "type": "html",
       "expect_text": "現在の展示",
-      "note": "現在の展示。開催中の展覧会の展示品一覧（表）がある"
+      "note": "現在の展示（会期の合間は【次回展示】の内容になる）。開催中・次回の展覧会の概要と、展示品一覧の表（公開されている場合）がある。他社作品とのコラボ企画の記述は拾わない（D-009、D-012-4）"
     },
     {
       "venue_id": "atsuta-jingu",

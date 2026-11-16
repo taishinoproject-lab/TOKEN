@@ -878,7 +878,6 @@
     "start_date": "2026-10-03",
     "end_date": "2026-11-23",
     "official_url": "https://www.city.setouchi.lg.jp/site/token/111308.html",
-    "list_url": "https://www.city.setouchi.lg.jp/site/token/1315.html",
     "admission": "一般 1,000円",
     "periods": [],
     "exhibits": [
@@ -895,34 +894,28 @@
       {
         "url": "https://www.city.setouchi.lg.jp/site/token/111308.html",
         "title": "備前長船刀剣博物館 年間展示予定(2026年度)",
-        "retrieved_at": "2026-10-07",
+        "retrieved_at": "2026-11-16",
         "quote": "令和8年10月3日（土曜日）～11月23日（月曜日・祝日） 秋季特別展「第19回お守り刀展覧会」"
       },
       {
         "url": "https://www.city.setouchi.lg.jp/site/token/111308.html",
         "title": "備前長船刀剣博物館 年間展示予定(2026年度)",
-        "retrieved_at": "2026-10-07",
+        "retrieved_at": "2026-11-16",
         "quote": "本展では現代刀職が制作したお守り刀を、総合・刀身・外装・研磨の4部門から審査し、優れた作品を展示します。"
       },
       {
         "url": "https://www.city.setouchi.lg.jp/site/token/111308.html",
         "title": "備前長船刀剣博物館 年間展示予定(2026年度)",
-        "retrieved_at": "2026-10-07",
+        "retrieved_at": "2026-11-16",
         "quote": "料金 一般：1000円（800円）、高大生：600円、中学生以下：無料 ※（ ）内は20名以上の団体料金 ※65歳以上の方：800円（必須：年齢の分かる証明書提示） ※高大生は学生証提示必須 ※障がい者手帳提示の方と付添者1名：無料 開催場所 備前長船刀剣博物館 1・2階展示室 冬季特別展"
-      },
-      {
-        "url": "https://www.city.setouchi.lg.jp/site/token/1315.html",
-        "title": "備前長船刀剣博物館 現在の展示",
-        "retrieved_at": "2026-10-07",
-        "quote": "【現在の展示】特別展「第十九回お守り刀展覧会」"
       }
     ],
-    "verified_at": "2026-10-07",
+    "verified_at": "2026-11-16",
     "confidence": "confirmed"
   },
   {
     "id": "2026-bizen-osafune-ko-bizen",
-    "title": "冬季特別展「古備前―刀剣王国の黎明（仮題）」",
+    "title": "冬季特別展「古備前―刀剣王国の黎明―」",
     "venue_id": "bizen-osafune-token-museum",
     "room": "1・2階展示室",
     "start_date": "2026-12-05",
@@ -930,27 +923,51 @@
     "official_url": "https://www.city.setouchi.lg.jp/site/token/111308.html",
     "admission": "一般 1,200円",
     "periods": [],
-    "exhibits": [],
+    "exhibits": [
+      {
+        "label": "重要文化財 太刀 銘 信房作",
+        "smith_id": "nobufusa",
+        "note": "個人から備前長船刀剣博物館への寄贈品。致道博物館蔵の国宝「太刀 銘 信房作」とは別の刀（公式ページに、国宝の信房は展示しないと記載）"
+      }
+    ],
     "sources": [
       {
         "url": "https://www.city.setouchi.lg.jp/site/token/111308.html",
         "title": "備前長船刀剣博物館 年間展示予定(2026年度)",
-        "retrieved_at": "2026-10-07",
-        "quote": "令和8年12月5日（土曜日）～令和9年2月14日（日曜日） 冬季特別展「古備前―刀剣王国の黎明（仮題）」"
+        "retrieved_at": "2026-11-16",
+        "quote": "令和8年12月5日（土曜日）～令和9年2月14日（日曜日） 冬季特別展「古備前―刀剣王国の黎明―」"
       },
       {
         "url": "https://www.city.setouchi.lg.jp/site/token/111308.html",
         "title": "備前長船刀剣博物館 年間展示予定(2026年度)",
-        "retrieved_at": "2026-10-07",
+        "retrieved_at": "2026-11-16",
         "quote": "料金 一般：1200円（1000円）、高大生：800円、中学生以下：無料 ※（ ）内は20名以上の団体料金 ※65歳以上の方：1000円（必須：年齢の分かる証明書提示） ※高大生は学生証提示必須 ※障がい者手帳提示の方と付添者1名：無料 開催場所 備前長船刀剣博物館 1・2階展示室 テーマ展「華やぐ刀剣"
+      },
+      {
+        "url": "https://www.city.setouchi.lg.jp/site/token/1315.html",
+        "title": "備前長船刀剣博物館 【次回展示】冬季特別展「古備前―刀剣王国の黎明―」",
+        "retrieved_at": "2026-11-16",
+        "quote": "本展は貴重な作品の受贈を記念し、ご寄贈いただいた「重要文化財 太刀 銘 信房作」をはじめ、古備前に連なる刀剣の数々を展示いたします。"
+      },
+      {
+        "url": "https://www.city.setouchi.lg.jp/site/token/1315.html",
+        "title": "備前長船刀剣博物館 【次回展示】冬季特別展「古備前―刀剣王国の黎明―」",
+        "retrieved_at": "2026-11-16",
+        "quote": "国宝「太刀 銘 信房作」（致道博物館蔵）の展示はございません。"
+      },
+      {
+        "url": "https://www.city.setouchi.lg.jp/site/token/1315.html",
+        "title": "備前長船刀剣博物館 【次回展示】冬季特別展「古備前―刀剣王国の黎明―」",
+        "retrieved_at": "2026-11-16",
+        "quote": "期間 令和8年12月5日（土曜日）～ 令和9年2月14日（日曜日）"
       }
     ],
-    "verified_at": "2026-10-07",
+    "verified_at": "2026-11-16",
     "confidence": "confirmed"
   },
   {
     "id": "2027-bizen-osafune-tosogu",
-    "title": "テーマ展「華やぐ刀剣―刃文と装いの美―（仮題）」",
+    "title": "テーマ展「華やぐ刀剣―刃文と装いの美―」",
     "venue_id": "bizen-osafune-token-museum",
     "room": "2階展示室",
     "start_date": "2027-02-20",
@@ -963,17 +980,17 @@
       {
         "url": "https://www.city.setouchi.lg.jp/site/token/111308.html",
         "title": "備前長船刀剣博物館 年間展示予定(2026年度)",
-        "retrieved_at": "2026-10-07",
-        "quote": "令和9年2月20日（土曜日）～4月18日（日曜日） テーマ展「華やぐ刀剣―刃文と装いの美―（仮題）」"
+        "retrieved_at": "2026-11-16",
+        "quote": "令和9年2月20日（土曜日）～4月18日（日曜日） テーマ展「華やぐ刀剣―刃文と装いの美―」"
       },
       {
         "url": "https://www.city.setouchi.lg.jp/site/token/111308.html",
         "title": "備前長船刀剣博物館 年間展示予定(2026年度)",
-        "retrieved_at": "2026-10-07",
+        "retrieved_at": "2026-11-16",
         "quote": "料金 一般：500円（400円）、高大生：300円（250円）、中学生以下：無料 ※（ ）内は20名以上の団体料金 ※65歳以上の方：400円（必須：年齢の分かる証明書提示） ※高大生は学生証提示必須 ※障がい者手帳提示の方と付添者1名：無料 開催場所 備前長船刀剣博物館 2階展示室 「刀剣の見方」"
       }
     ],
-    "verified_at": "2026-10-07",
+    "verified_at": "2026-11-16",
     "confidence": "confirmed"
   },
   {
