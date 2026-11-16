@@ -413,6 +413,15 @@
       "changed_at": "2026-11-16",
       "fetched_at": "2026-11-16",
       "sha256": "5545eaba2758f17aa3c4b844cc44a57ffe7dfdc8d1ece4464af7f12b2b9cc0f0"
+    },
+    {
+      "venue_id": "touken-museum",
+      "url": "https://www.touken.or.jp/Portals/0/pdf/museum/%E8%99%8E%E5%BE%B9%E3%81%A8%E5%8A%A9%E5%BA%83_%E5%88%80%E5%89%A3%E5%8D%9A%E7%94%A8%E7%9B%AE%E9%8C%B2.pdf",
+      "type": "pdf",
+      "file": "touken-museum/www.touken.or.jp_Portals_0_pdf_museum_E8_99_8E_E5_BE_B9_E3_81_A8_E5_8A_A9_E5_BA_-498c15a3.txt",
+      "changed_at": "2026-11-16",
+      "fetched_at": "2026-11-16",
+      "sha256": "8caa42ad752fac21a2c83d439cf4fcdd0e98eaad538beaea9ca28fd3fd767bcf"
     }
   ]
 }
