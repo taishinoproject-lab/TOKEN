@@ -37,6 +37,8 @@ D-006 にもとづき、展示情報を週1回自動で巡回して収集する�
 
 ## 2. 推奨する対象館（15館）
 
+> 2026-11-16 追記: 選定時の推奨は15館。名古屋刀剣博物館は巡回用のアクセスが拒否されるため対象から外し（D-021）、**現在の自動巡回の対象は14館**。
+
 | # | 館名 | 所在地 | 地域 | 選定理由 | 展覧会情報ページ（巡回先の候補） | 出典URL |
 |---|---|---|---|---|---|---|
 | 1 | 東京国立博物館 | 東京都台東区 | 関東 | 本館13室で平安〜江戸時代の刀剣・刀装具を常設展示し、定期的に入れ替える。国宝「三日月宗近」「小龍景光」「厚藤四郎」などの展示実績がある。2026年4〜6月には特別展「百万石！加賀前田家」で刀剣を展示。 | 本館の展示室一覧: https://www.tnm.jp/modules/r_exhibition/index.php?controller=hall&hid=12 （日付指定 `&date=YYYY-MM-DD` が可能）／特別展: https://www.tnm.jp/modules/r_exhibition/index.php?cid=1&controller=ctg | https://www.tnm.jp/modules/r_exhibition/index.php?controller=item&id=6944 、https://www.tnm.jp/modules/r_collection/index.php?controller=dtl&colid=F130 、https://www.museum.or.jp/tag/33/news |

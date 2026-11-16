@@ -16,11 +16,18 @@ export function smithDisplayName(smith: Pick<Smith, "name" | "kind">): string {
   return smith.kind === "school" ? `${smith.name}（流派）` : smith.name;
 }
 
-/** 「太刀 銘 三条」「刀 無銘」のような、種別＋銘の文字列。 */
+/** 銘が分からないことを表すデータ上の値。画面には出さない。 */
+export const MEI_UNKNOWN = "不明";
+
+/** 「太刀 銘 三条」「刀 無銘」のような、種別＋銘の文字列。銘が不明なら種別だけ。 */
 export function bladeAndMei(sword: Pick<Sword, "blade_type" | "mei" | "mei_kind">): string {
   const mei = sword.mei.trim();
   if (mei === "無銘" || sword.mei_kind === "無銘") {
     return `${sword.blade_type} 無銘`;
+  }
+  // 銘が分からない刀（データでは mei: "不明"）は、種別だけを出す。「槍 不明」のようには表示しない。
+  if (mei === MEI_UNKNOWN) {
+    return sword.blade_type;
   }
   const parts = [sword.blade_type, sword.mei_kind, mei].filter((p): p is string => Boolean(p && p.trim()));
   return parts.join(" ");

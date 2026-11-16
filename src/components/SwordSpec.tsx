@@ -1,6 +1,6 @@
 // 刀剣詳細の「作品データ」欄（案Bの .spec の形式。docs/design/system.md §4.3）。
 // 号・別名・種別・銘・刀匠〔帰属〕・指定・認定（日本美術刀剣保存協会、D-012）・時代・刃長・反り・所蔵。
-import { smithDisplayName } from "../lib/display-name";
+import { smithDisplayName, MEI_UNKNOWN } from "../lib/display-name";
 import type { Smith, Sword } from "../lib/schema";
 import { meiText } from "../lib/ui-format";
 import AttributionMark, { ATTRIBUTION_LEGEND } from "./ui/AttributionMark";
@@ -38,9 +38,10 @@ export default function SwordSpec({ sword, smiths, holderHref }: Props) {
   const rows: InfoRow[] = [];
   if (go) rows.push({ label: "号", value: sword.go_reading ? `${go}（${sword.go_reading}）` : go });
   if (sword.aliases.length > 0) rows.push({ label: "別名", value: sword.aliases.join("、") });
+  rows.push({ label: "種別", value: sword.blade_type });
+  // 銘が分からない刀（mei: "不明"）は、銘の行を出さない
+  if (sword.mei.trim() !== MEI_UNKNOWN) rows.push({ label: "銘", value: meiText(sword) });
   rows.push(
-    { label: "種別", value: sword.blade_type },
-    { label: "銘", value: meiText(sword) },
     {
       label: "刀匠",
       value:

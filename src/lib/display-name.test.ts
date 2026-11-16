@@ -72,6 +72,10 @@ describe("bladeAndMei", () => {
   it("mei_kind がなければ、種別と銘だけを並べる", () => {
     expect(bladeAndMei({ blade_type: "短刀", mei: "吉光" })).toBe("短刀 吉光");
   });
+
+  it("銘が不明の刀は、種別だけにする（「槍 不明」と表示しない）", () => {
+    expect(bladeAndMei({ blade_type: "槍", mei: "不明" })).toBe("槍");
+  });
 });
 
 describe("smithDisplayName（D-012）", () => {
