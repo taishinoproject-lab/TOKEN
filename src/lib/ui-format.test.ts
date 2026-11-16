@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { catalogNumber, hasDesignationMark, latestRetrievedAt, meiText, uniqueSources } from "./ui-format";
+import { catalogNumber, hasDesignationMark, isLegacyPlaceholderSource, latestRetrievedAt, meiText, uniqueSources } from "./ui-format";
 
 describe("ui-format", () => {
   it("目録の番号を2桁にそろえる", () => {
@@ -41,5 +41,14 @@ describe("ui-format", () => {
       { url: "https://b.example/", retrieved_at: "2026-10-01" },
       { url: "https://a.example/", title: "別名", retrieved_at: "2026-10-01" },
     ]);
+  });
+});
+
+describe("isLegacyPlaceholderSource", () => {
+  it("旧データ由来の仮の題名の出典だけを対象にする", () => {
+    expect(isLegacyPlaceholderSource({ title: "旧データ（src/data）に記載のURL。内容は今回未確認" })).toBe(true);
+    expect(isLegacyPlaceholderSource({ title: "旧データ（legacy/src/data/swords.ts の sword_19）で designation が「特別重要刀剣」。" })).toBe(true);
+    expect(isLegacyPlaceholderSource({ title: "東京国立博物館 展示情報" })).toBe(false);
+    expect(isLegacyPlaceholderSource({})).toBe(false);
   });
 });

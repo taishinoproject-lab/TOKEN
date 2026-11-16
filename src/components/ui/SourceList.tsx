@@ -1,7 +1,7 @@
 // 出典と最終確認日の欄（案A）。情報ごとに、出典へのリンクと最終確認日を表示する。
 import { formatFullDate } from "../../lib/date";
 import type { Confidence, Source } from "../../lib/schema";
-import { uniqueSources } from "../../lib/ui-format";
+import { isLegacyPlaceholderSource, uniqueSources } from "../../lib/ui-format";
 import UnverifiedBadge from "./UnverifiedBadge";
 
 export interface SourceGroup {
@@ -20,7 +20,7 @@ interface Props {
 
 export default function SourceList({ groups, verifiedAt, heading = "出典" }: Props) {
   const items = groups.flatMap((g, gi) =>
-    uniqueSources(g.sources).map((s, si) => ({ key: `${gi}-${si}`, source: s, label: g.label, unverified: g.confidence === "unverified" })),
+    uniqueSources(g.sources.filter((s) => !isLegacyPlaceholderSource(s))).map((s, si) => ({ key: `${gi}-${si}`, source: s, label: g.label, unverified: g.confidence === "unverified" })),
   );
   return (
     <section className="sources" aria-label={heading}>
