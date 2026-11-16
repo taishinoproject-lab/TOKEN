@@ -623,5 +623,26 @@
     "province": "備中国",
     "sources": [],
     "confidence": "unverified"
+  },
+  {
+    "id": "osafune-kanemitsu",
+    "name": "兼光",
+    "reading": "かねみつ",
+    "aliases": [
+      "長船兼光",
+      "備前長船兼光"
+    ],
+    "school": "長船派",
+    "province": "備前国",
+    "description": "福岡市博物館の解説で「備前長船派の兼光」とされる刀工。同名で代の異なる刀工がいるとされるが、出典に代の記載がないため、代は区別していない。",
+    "sources": [
+      {
+        "url": "https://museum.city.fukuoka.jp/archives/leaflet/081/index.html",
+        "title": "福岡市博物館 アーカイブズ No.081「名刀展－黒田家旧蔵を中心に－」",
+        "retrieved_at": "2026-11-16",
+        "quote": "無銘だが備前長船派の兼光の作という。"
+      }
+    ],
+    "confidence": "confirmed"
   }
 ]

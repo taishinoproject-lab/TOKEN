@@ -1216,5 +1216,310 @@
       }
     ],
     "confidence": "confirmed"
+  },
+  {
+    "id": "kanze-masamune",
+    "go": "観世正宗",
+    "go_reading": "かんぜまさむね",
+    "aliases": [],
+    "blade_type": "刀",
+    "mei": "無銘",
+    "mei_kind": "無銘",
+    "attributions": [
+      {
+        "smith_id": "masamune",
+        "basis": "極め"
+      }
+    ],
+    "designation": "国宝",
+    "era": "鎌倉時代・14世紀",
+    "holder_venue_id": "tnm",
+    "holder_text": "東京国立博物館",
+    "sources": [
+      {
+        "url": "https://www.tnm.jp/modules/r_exhibition/index.php?controller=item&id=8467&lang=ja",
+        "title": "東京国立博物館 本館3室「刀剣」展示作品リスト（2026年10月27日〜2027年1月24日）",
+        "retrieved_at": "2026-11-16",
+        "quote": "国宝 刀（名物 観世正宗） 1口 相州正宗 鎌倉時代・14世紀 F-19916"
+      },
+      {
+        "url": "https://www.gov-online.go.jp/hlj/ja/august_2024/august_2024-12.html",
+        "title": "政府広報オンライン Highlighting Japan 2024年8月号「[日本刀の美] 刀 無銘正宗（名物観世正宗）」（銘・読み・所蔵の記載）",
+        "retrieved_at": "2026-11-16"
+      }
+    ],
+    "confidence": "confirmed"
+  },
+  {
+    "id": "kii-kanemitsu",
+    "go": "城井兼光",
+    "go_reading": "きいかねみつ",
+    "aliases": [],
+    "blade_type": "刀",
+    "mei": "無銘",
+    "mei_kind": "無銘",
+    "attributions": [
+      {
+        "smith_id": "osafune-kanemitsu",
+        "basis": "伝"
+      }
+    ],
+    "designation": "未指定",
+    "era": "鎌倉時代",
+    "blade_length_cm": 67.7,
+    "sori_cm": 1.5,
+    "holder_venue_id": "fukuoka-city-museum",
+    "holder_text": "福岡市博物館",
+    "story": "黒田長政が豊前の城井城の宇都宮鎮房を攻めたときに使用したと伝わる（福岡市博物館の解説による）。",
+    "sources": [
+      {
+        "url": "https://museum.city.fukuoka.jp/archives/leaflet/081/index.html",
+        "title": "福岡市博物館 アーカイブズ No.081「名刀展－黒田家旧蔵を中心に－」",
+        "retrieved_at": "2026-11-16",
+        "quote": "７ 刀 名物「城井兼光（きいかねみつ）」 拵付 1口／長さ67.7cm 反り1.5cm／黒田長政愛用／鎌倉時代 無銘だが備前長船派の兼光の作という。"
+      },
+      {
+        "url": "https://museum.city.fukuoka.jp/exhibition/630/",
+        "title": "福岡市博物館 企画展示「黒田家の名宝4」解説",
+        "retrieved_at": "2026-11-16",
+        "quote": "図13 刀 名物 城井兼光（史料31）"
+      },
+      {
+        "url": "https://museum.city.fukuoka.jp/topics/pdf/kuroda_list02.pdf",
+        "title": "福岡市博物館 企画展「黒田家の名宝 4」第Ⅱ期 出品リスト",
+        "retrieved_at": "2026-11-16",
+        "quote": "刀 名物 城井兼光"
+      }
+    ],
+    "confidence": "confirmed"
+  },
+  {
+    "id": "nihongo",
+    "go": "日本号",
+    "go_reading": null,
+    "aliases": [
+      "呑み取りの鎗"
+    ],
+    "blade_type": "槍",
+    "mei": "不明",
+    "attributions": [],
+    "designation": "未指定",
+    "era": "室町時代",
+    "blade_length_cm": 79.2,
+    "holder_venue_id": "fukuoka-city-museum",
+    "holder_text": "福岡市博物館",
+    "story": "母里太兵衛が福島正則から手に入れたと伝わる大身鎗。別名「呑み取りの鎗」（福岡市博物館の解説による）。",
+    "sources": [
+      {
+        "url": "https://museum.city.fukuoka.jp/exhibition/630/",
+        "title": "福岡市博物館 企画展示「黒田家の名宝4」解説",
+        "retrieved_at": "2026-11-16",
+        "quote": "■ 大身鎗 名物「日本号」 柄を含めた総長が321.5㎝、刃の長さ79.2㎝ 室町時代（14～16世紀）"
+      },
+      {
+        "url": "https://museum.city.fukuoka.jp/exhibition/630/",
+        "title": "福岡市博物館 企画展示「黒田家の名宝4」解説",
+        "retrieved_at": "2026-11-16",
+        "quote": "別名「呑み取りの鎗」といわれる。"
+      },
+      {
+        "url": "https://museum.city.fukuoka.jp/archives/leaflet/081/index02.html",
+        "title": "福岡市博物館 アーカイブズ No.081「名刀展－黒田家旧蔵を中心に－」（2ページ目）",
+        "retrieved_at": "2026-11-16",
+        "quote": "２０ 大身鎗 名物「日本号」 拵付 1口／長さ79.2cm／室町時代"
+      },
+      {
+        "url": "https://museum.city.fukuoka.jp/topics/pdf/kuroda_list02.pdf",
+        "title": "福岡市博物館 企画展「黒田家の名宝 4」第Ⅱ期 出品リスト",
+        "retrieved_at": "2026-11-16",
+        "quote": "※ 【通年展示】大身鎗 名物 日本号"
+      }
+    ],
+    "confidence": "confirmed"
+  },
+  {
+    "id": "heshikiri-hasebe",
+    "go": "圧切長谷部",
+    "go_reading": "へしきりはせべ",
+    "aliases": [
+      "へし切長谷部"
+    ],
+    "blade_type": "刀",
+    "mei": "長谷部国重本阿（花押）／黒田筑前守",
+    "mei_kind": "金象嵌銘",
+    "attributions": [
+      {
+        "smith_id": "hasebe-kunishige",
+        "basis": "極め"
+      }
+    ],
+    "designation": "国宝",
+    "era": "南北朝時代",
+    "blade_length_cm": 64.8,
+    "sori_cm": 0.9,
+    "holder_venue_id": "fukuoka-city-museum",
+    "holder_text": "福岡市博物館",
+    "story": "織田信長が膳棚の下に隠れた茶坊主を圧し切ったことに由来。黒田孝高（如水）が信長から拝領した（福岡市博物館の解説による）。",
+    "sources": [
+      {
+        "url": "https://museum.city.fukuoka.jp/archives/leaflet/081/index.html",
+        "title": "福岡市博物館 アーカイブズ No.081「名刀展－黒田家旧蔵を中心に－」",
+        "retrieved_at": "2026-11-16",
+        "quote": "９ 国宝 刀 名物「へし切長谷部（きりはせべ）」 金霰鮫打刀拵付 1口／長さ64.8cm 反り0.9cm／南北朝時代"
+      },
+      {
+        "url": "https://museum.city.fukuoka.jp/archives/leaflet/081/index.html",
+        "title": "福岡市博物館 アーカイブズ No.081「名刀展－黒田家旧蔵を中心に－」",
+        "retrieved_at": "2026-11-16",
+        "quote": "中心（なかご）に「長谷部国重本阿（花押）」と「黒田筑前守」の金象嵌銘（きんぞうがんめい）があり、本阿弥光徳が作者を山城の長谷部国重と鑑定した。"
+      },
+      {
+        "url": "https://museum.city.fukuoka.jp/topics/pdf/kuroda_list03.pdf",
+        "title": "福岡市博物館 企画展「黒田家の名宝 4」第Ⅲ期 出品リスト",
+        "retrieved_at": "2026-11-16",
+        "quote": "⦿刀 名物 圧切長谷部"
+      }
+    ],
+    "confidence": "confirmed"
+  },
+  {
+    "id": "kasen-kanesada",
+    "go": "歌仙兼定",
+    "go_reading": null,
+    "aliases": [],
+    "blade_type": "刀",
+    "mei": "濃州関住兼定作",
+    "mei_kind": "銘",
+    "attributions": [
+      {
+        "smith_id": "kanesada-nosada",
+        "basis": "在銘"
+      }
+    ],
+    "designation": "未指定",
+    "era": "室町時代（16世紀）",
+    "blade_length_cm": 61.0,
+    "sori_cm": 1.4,
+    "holder_text": "永青文庫",
+    "sources": [
+      {
+        "url": "https://www.eiseibunko.com/end_exhibition/2016.html",
+        "title": "永青文庫 過去の展覧会（2016年度）夏季展「歌仙兼定登場」（「刀 銘 濃州関住兼定作（歌仙兼定） 室町時代（16世紀）」、二代兼定（之定）作・細川忠興の愛刀との記載）",
+        "retrieved_at": "2026-11-16"
+      },
+      {
+        "url": "https://www.eiseibunko.com/collection_list.pdf",
+        "title": "永青文庫 蔵品の一覧（「刀 銘濃州関住兼定作 … 刃長61.0 反り1.4 室町時代（16世紀） 東京 永青文庫」）",
+        "retrieved_at": "2026-11-16"
+      },
+      {
+        "url": "https://hakubutsukan.city.toyota.aichi.jp/exhibitions/special/18",
+        "title": "豊田市博物館 企画展「戦国を生きる 細川家と永青文庫の名宝」（「名刀「歌仙兼定」（前・後期展示）」）",
+        "retrieved_at": "2026-11-16"
+      }
+    ],
+    "confidence": "confirmed"
+  },
+  {
+    "id": "nagasone-kotetsu-katana-1",
+    "go": null,
+    "go_reading": null,
+    "aliases": [],
+    "blade_type": "刀",
+    "mei": "住東叡山忍岡辺長曽祢虎入道／寛文拾一年二月吉祥日",
+    "mei_kind": "銘",
+    "attributions": [
+      {
+        "smith_id": "nagasone-kotetsu",
+        "basis": "在銘"
+      }
+    ],
+    "designation": "重要文化財",
+    "blade_length_cm": 71.2,
+    "holder_text": "秋水美術館",
+    "sources": [
+      {
+        "url": "https://www.touken.or.jp/Portals/0/pdf/museum/%E8%99%8E%E5%BE%B9%E3%81%A8%E5%8A%A9%E5%BA%83_%E5%88%80%E5%89%A3%E5%8D%9A%E7%94%A8%E7%9B%AE%E9%8C%B2.pdf",
+        "title": "刀剣博物館 特別展「新刀・東西の巨匠 虎徹と助広」目録",
+        "retrieved_at": "2026-11-16",
+        "quote": "1 重要文化財 刀 銘 71.2 秋水美術館 ○"
+      },
+      {
+        "url": "https://www.touken.or.jp/Portals/0/pdf/museum/%E8%99%8E%E5%BE%B9%E3%81%A8%E5%8A%A9%E5%BA%83_%E5%88%80%E5%89%A3%E5%8D%9A%E7%94%A8%E7%9B%AE%E9%8C%B2.pdf",
+        "title": "刀剣博物館 特別展「新刀・東西の巨匠 虎徹と助広」目録",
+        "retrieved_at": "2026-11-16",
+        "quote": "住東叡山忍岡辺長曽祢虎入道 寛文拾一年二月吉祥日"
+      }
+    ],
+    "confidence": "confirmed"
+  },
+  {
+    "id": "nabeshima-kotetsu",
+    "go": "鍋島乕徹",
+    "go_reading": null,
+    "aliases": [
+      "鍋島虎徹"
+    ],
+    "blade_type": "刀",
+    "mei": "長曽祢興里入道乕徹",
+    "mei_kind": "銘",
+    "attributions": [
+      {
+        "smith_id": "nagasone-kotetsu",
+        "basis": "在銘"
+      }
+    ],
+    "designation": "未指定",
+    "nbthk_rank": "特別重要刀剣",
+    "blade_length_cm": 73.8,
+    "holder_text": "個人蔵",
+    "sources": [
+      {
+        "url": "https://www.touken.or.jp/Portals/0/pdf/museum/%E8%99%8E%E5%BE%B9%E3%81%A8%E5%8A%A9%E5%BA%83_%E5%88%80%E5%89%A3%E5%8D%9A%E7%94%A8%E7%9B%AE%E9%8C%B2.pdf",
+        "title": "刀剣博物館 特別展「新刀・東西の巨匠 虎徹と助広」目録",
+        "retrieved_at": "2026-11-16",
+        "quote": "13 特別重要刀剣 刀 銘 73.8 個人蔵 ○ ○"
+      },
+      {
+        "url": "https://www.touken.or.jp/Portals/0/pdf/museum/%E8%99%8E%E5%BE%B9%E3%81%A8%E5%8A%A9%E5%BA%83_%E5%88%80%E5%89%A3%E5%8D%9A%E7%94%A8%E7%9B%AE%E9%8C%B2.pdf",
+        "title": "刀剣博物館 特別展「新刀・東西の巨匠 虎徹と助広」目録",
+        "retrieved_at": "2026-11-16",
+        "quote": "長曽祢興里入道乕徹(号 鍋島乕徹)"
+      }
+    ],
+    "confidence": "confirmed"
+  },
+  {
+    "id": "nobufusa-tachi-2",
+    "go": null,
+    "go_reading": null,
+    "aliases": [],
+    "blade_type": "太刀",
+    "mei": "信房作",
+    "mei_kind": "銘",
+    "attributions": [
+      {
+        "smith_id": "nobufusa",
+        "basis": "在銘"
+      }
+    ],
+    "designation": "重要文化財",
+    "holder_venue_id": "bizen-osafune-token-museum",
+    "holder_text": "備前長船刀剣博物館",
+    "sources": [
+      {
+        "url": "https://www.city.setouchi.lg.jp/site/token/1315.html",
+        "title": "備前長船刀剣博物館 【次回展示】冬季特別展「古備前―刀剣王国の黎明―」",
+        "retrieved_at": "2026-11-16",
+        "quote": "このたび、備前長船刀剣博物館では、個人の方より「重要文化財 太刀 銘 信房作」をご寄贈いただきました。"
+      },
+      {
+        "url": "https://www.city.setouchi.lg.jp/site/token/1315.html",
+        "title": "備前長船刀剣博物館 【次回展示】冬季特別展「古備前―刀剣王国の黎明―」",
+        "retrieved_at": "2026-11-16",
+        "quote": "国宝「太刀 銘 信房作」（致道博物館蔵）の展示はございません。"
+      }
+    ],
+    "confidence": "confirmed"
   }
 ]

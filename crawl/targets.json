@@ -265,17 +265,10 @@
     },
     {
       "venue_id": "fukuoka-city-museum",
-      "url": "https://museum.city.fukuoka.jp/topics/pdf/kuroda_list01.pdf",
-      "type": "pdf",
-      "expect_text": "黒田家の名宝",
-      "note": "企画展「黒田家の名宝 4」第Ⅰ期の出品リスト。ページ上のリンクには ?日付 が付くが、付けずに取得している。年度が変わるとファイルの中身が差し替わる可能性がある"
-    },
-    {
-      "venue_id": "fukuoka-city-museum",
       "url": "https://museum.city.fukuoka.jp/topics/pdf/kuroda_list02.pdf",
       "type": "pdf",
       "expect_text": "黒田家の名宝",
-      "note": "同 第Ⅱ期の出品リスト"
+      "note": "企画展「黒田家の名宝 4」第Ⅱ期の出品リスト。第Ⅰ期（2026-10-18 終了）の出品リスト（kuroda_list01.pdf）は巡回先から外し、取得済みの本文を引用の照合元として crawl/snapshots/ に残している（1館8ページの上限のため）"
     },
     {
       "venue_id": "fukuoka-city-museum",
@@ -297,6 +290,27 @@
       "type": "html",
       "expect_text": "展示・体験学習室",
       "note": "展示・体験学習室の案内（企画展示室2の黒田家名宝展示の説明、住所）。年間スケジュールのPDFは画像のため巡回先に入れていない"
+    },
+    {
+      "venue_id": "fukuoka-city-museum",
+      "url": "https://museum.city.fukuoka.jp/exhibition/630/",
+      "type": "html",
+      "expect_text": "黒田家の名宝",
+      "note": "企画展示「黒田家の名宝4」（2026-08-18〜2027-04-25）の解説ページ。通期展示の大身鎗 名物「日本号」の法量・時代と、黒田家伝来の刀剣の解説がある"
+    },
+    {
+      "venue_id": "fukuoka-city-museum",
+      "url": "https://museum.city.fukuoka.jp/archives/leaflet/081/index.html",
+      "type": "html",
+      "expect_text": "名刀展",
+      "note": "アーカイブズ No.081「名刀展－黒田家旧蔵を中心に－」（平成7年の展示解説）の1ページ目。館蔵の黒田家伝来の刀剣（日光一文字・圧切長谷部・城井兼光・碇切など）の法量・時代・銘の解説。刀剣データ（data/swords.json）の出典。内容は変わらない見込み"
+    },
+    {
+      "venue_id": "fukuoka-city-museum",
+      "url": "https://museum.city.fukuoka.jp/archives/leaflet/081/index02.html",
+      "type": "html",
+      "expect_text": "名刀展",
+      "note": "同 2ページ目（和泉守兼定・成光・日本号など）"
     },
     {
       "venue_id": "kyushu-national-museum",

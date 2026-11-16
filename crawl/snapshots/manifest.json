@@ -56,12 +56,39 @@
     },
     {
       "venue_id": "fukuoka-city-museum",
+      "url": "https://museum.city.fukuoka.jp/archives/leaflet/081/index.html",
+      "type": "html",
+      "file": "fukuoka-city-museum/museum.city.fukuoka.jp_archives_leaflet_081_index.html-650973de.txt",
+      "changed_at": "2026-11-16",
+      "fetched_at": "2026-11-16",
+      "sha256": "06f786ae6b5c833c7ed8588b71617d8f90f72418afbf153401397c8492d38201"
+    },
+    {
+      "venue_id": "fukuoka-city-museum",
+      "url": "https://museum.city.fukuoka.jp/archives/leaflet/081/index02.html",
+      "type": "html",
+      "file": "fukuoka-city-museum/museum.city.fukuoka.jp_archives_leaflet_081_index02.html-cfc61d12.txt",
+      "changed_at": "2026-11-16",
+      "fetched_at": "2026-11-16",
+      "sha256": "dac0d40605e53bbe3ce6196b31976290640aed7813bfab5e1fdaff0b10a4ad8e"
+    },
+    {
+      "venue_id": "fukuoka-city-museum",
       "url": "https://museum.city.fukuoka.jp/exhibition/",
       "type": "html",
       "file": "fukuoka-city-museum/museum.city.fukuoka.jp_exhibition-dd49559a.txt",
       "changed_at": "2026-11-16",
       "fetched_at": "2026-11-16",
       "sha256": "c15285f03bdfe98220715438dfe378d1a8a3a5d1d070a8492de3291e9cb2586c"
+    },
+    {
+      "venue_id": "fukuoka-city-museum",
+      "url": "https://museum.city.fukuoka.jp/exhibition/630/",
+      "type": "html",
+      "file": "fukuoka-city-museum/museum.city.fukuoka.jp_exhibition_630-5d085b2e.txt",
+      "changed_at": "2026-11-16",
+      "fetched_at": "2026-11-16",
+      "sha256": "b340f7e959cef013e3fa71ff51bbfff64f46c5a2e20a44ef351a9dcf79fb5f42"
     },
     {
       "venue_id": "fukuoka-city-museum",
