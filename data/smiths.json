@@ -644,5 +644,39 @@
       }
     ],
     "confidence": "confirmed"
+  },
+  {
+    "id": "sukezane",
+    "name": "助真",
+    "reading": "すけざね",
+    "aliases": [],
+    "era": "鎌倉時代",
+    "description": "徳川美術館の展示作品リストに「刀 無銘 助真」とある刀工。国・流派は出典に記載がないため入れていない。読みは出典になく、一般的な読みを入れた。",
+    "sources": [
+      {
+        "url": "https://www.tokugawa-art-museum.jp/wp-content/uploads/2025/09/list_of_works_on_display.pdf",
+        "title": "徳川美術館 名品コレクション展示 展示作品リスト（2026年9月15日〜12月13日）",
+        "retrieved_at": "2026-11-16",
+        "quote": "15 ◎ 刀 無銘 助真 徳川慶勝(尾張家14代)･茂徳(同家15代)所持 鎌倉 13"
+      }
+    ],
+    "confidence": "unverified"
+  },
+  {
+    "id": "chikamura",
+    "name": "近村",
+    "reading": "ちかむら",
+    "aliases": [],
+    "era": "平安時代",
+    "description": "徳川美術館の展示作品リストに「太刀 銘 近村」とある刀工。国・流派は出典に記載がないため入れていない。読みは出典になく、一般的な読みを入れた。",
+    "sources": [
+      {
+        "url": "https://www.tokugawa-art-museum.jp/wp-content/uploads/2025/09/list_of_works_on_display.pdf",
+        "title": "徳川美術館 名品コレクション展示 展示作品リスト（2026年9月15日〜12月13日）",
+        "retrieved_at": "2026-11-16",
+        "quote": "14 〇 太刀 銘 近村 徳川家正(徳川宗家17代)氏寄贈 平安 12"
+      }
+    ],
+    "confidence": "unverified"
   }
 ]

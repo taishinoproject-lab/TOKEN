@@ -1288,10 +1288,12 @@
       },
       {
         "label": "国宝 太刀 名物 日光一文字",
+        "sword_id": "nikko-ichimonji",
         "smith_id": "fukuoka-ichimonji"
       },
       {
-        "label": "薙刀 名物 権藤鎮教"
+        "label": "薙刀 名物 権藤鎮教",
+        "sword_id": "gondo-shizunori"
       },
       {
         "label": "大身鎗 名物 日本号",
@@ -1377,7 +1379,8 @@
     "periods": [],
     "exhibits": [
       {
-        "label": "脇差 名物 碇切"
+        "label": "脇差 名物 碇切",
+        "sword_id": "ikarikiri"
       },
       {
         "label": "太刀 銘 一 伝吉岡一文字"
@@ -1505,11 +1508,15 @@
     "exhibits": [
       {
         "label": "重要美術品 太刀 銘 近村",
-        "note": "目録の記号「〇」（重要美術品）による"
+        "sword_id": "chikamura-tachi-1",
+        "smith_id": "chikamura",
+        "note": "目録の記号「〇」（重要美術品）による。目録の期間の欄（Ａ〜Ｄ）に記号がなく、会期を通して展示"
       },
       {
         "label": "重要文化財 刀 無銘 助真",
-        "note": "目録の記号「◎」（重要文化財）による"
+        "sword_id": "sukezane-katana-1",
+        "smith_id": "sukezane",
+        "note": "目録の記号「◎」（重要文化財）による。目録の期間の欄（Ａ〜Ｄ）に記号がなく、会期を通して展示"
       },
       {
         "label": "脇指 額銘 月山利安"
@@ -1560,6 +1567,12 @@
         "title": "徳川美術館 名品コレクション展示 展示作品リスト（2026年9月15日〜12月13日）",
         "retrieved_at": "2026-11-16",
         "quote": "17 短刀 無銘 保昌貞吉 鎌倉 13-14"
+      },
+      {
+        "url": "https://www.tokugawa-art-museum.jp/wp-content/uploads/2025/09/list_of_works_on_display.pdf",
+        "title": "徳川美術館 名品コレクション展示 展示作品リスト（2026年9月15日〜12月13日）",
+        "retrieved_at": "2026-11-16",
+        "quote": "展示期間 Ａ:9/15(火)～10/14(水) Ｂ:10/15(木)～11/13(金) Ｃ:11/14(土)～12/13(日) Ｄ:12/1(火)～12/13(日)"
       }
     ],
     "verified_at": "2026-11-16",
