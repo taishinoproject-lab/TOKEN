@@ -1,7 +1,7 @@
 // 検索（data-model.md §10）。
 // ビルド時に buildSearchIndex で検索用のインデックス（JSON）を作り、ブラウザ側で searchIndex を呼んで検索する。
 // インデックスには、正規化済みの照合用の文字列（keys）と、結果の表示に必要な項目だけを入れる。
-import { bladeAndMei, smithDisplayName, swordDisplayName } from "./display-name";
+import { MEI_UNKNOWN, bladeAndMei, smithDisplayName, swordDisplayName } from "./display-name";
 import { normalizeForSearch } from "./normalize";
 import type { AttributionBasis, Smith, Sword } from "./schema";
 
@@ -102,7 +102,7 @@ export function buildSearchIndex(swords: readonly SwordForIndex[], smiths: reado
           basis: a.basis,
         })),
         goKeys: uniqueNonEmpty([sw.go, sw.go_reading, ...sw.aliases]),
-        keys: uniqueNonEmpty([...sw.aliases, sw.mei, name.heading, bladeAndMei(sw)]),
+        keys: uniqueNonEmpty([...sw.aliases, sw.mei === MEI_UNKNOWN ? "" : sw.mei, name.heading, bladeAndMei(sw)]),
         sortKey: normalizeForSearch(sw.go_reading ?? name.heading),
       };
     }),
