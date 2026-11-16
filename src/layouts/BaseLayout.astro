@@ -4,6 +4,7 @@ import "../styles/global.css";
 import { allOgCards } from "../lib/og/collection";
 import { defaultDescription } from "../lib/og/card";
 import { ogPage, ogUrls } from "../lib/og/meta";
+import Analytics from "@vercel/analytics/astro";
 
 interface Props {
   title?: string;
@@ -45,6 +46,8 @@ const navItems = [
     <meta name="description" content={pageDescription} />
     <link rel="icon" type="image/jpeg" href="/logo.jpg" />
     <title>{pageTitle}</title>
+    <!-- アクセス解析（Vercel Web Analytics）。Cookie は使わない。扱う情報は /privacy に書いている -->
+    <Analytics />
     <meta property="og:site_name" content={siteName} />
     <meta property="og:type" content={Astro.url.pathname === "/" ? "website" : "article"} />
     <meta property="og:title" content={pageTitle} />
