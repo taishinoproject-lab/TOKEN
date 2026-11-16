@@ -22,8 +22,8 @@ export function meiText(sword: Pick<Sword, "mei" | "mei_kind">): string {
   return kind && kind !== "銘" && kind !== sword.mei ? `${kind} ${sword.mei}` : sword.mei;
 }
 
-/** 旧データから機械的に移した出典に付けた、仮の題名の先頭（docs/migration-notes.md）。 */
-export const LEGACY_SOURCE_TITLE_PREFIX = "旧データ（src/data）";
+/** 旧データから機械的に移した出典に付けた、仮の題名の先頭（docs/migration-notes.md）。「旧データ（src/data）に記載のURL…」と「旧データ（legacy/src/data/swords.ts の …）で…」の両方に当てはまる。 */
+export const LEGACY_SOURCE_TITLE_PREFIX = "旧データ（";
 
 /**
  * 旧データ由来で、内容を確認していない出典かどうか。

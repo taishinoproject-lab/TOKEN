@@ -47,6 +47,7 @@ describe("ui-format", () => {
 describe("isLegacyPlaceholderSource", () => {
   it("旧データ由来の仮の題名の出典だけを対象にする", () => {
     expect(isLegacyPlaceholderSource({ title: "旧データ（src/data）に記載のURL。内容は今回未確認" })).toBe(true);
+    expect(isLegacyPlaceholderSource({ title: "旧データ（legacy/src/data/swords.ts の sword_19）で designation が「特別重要刀剣」。" })).toBe(true);
     expect(isLegacyPlaceholderSource({ title: "東京国立博物館 展示情報" })).toBe(false);
     expect(isLegacyPlaceholderSource({})).toBe(false);
   });
