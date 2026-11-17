@@ -1,0 +1,80 @@
+---
+// 地域ごとのカレンダー（D-023）。地方と都道府県ごとに、その地域の館の刀剣の展覧会を購読できる。
+// 購読のURLは、公開先（astro.config.mjs の site）が設定されていればビルド時に絶対URLにし、
+// 未設定のときは、ブラウザで開いているページのURLから組み立てる（CalendarLinks.astro と同じ）。
+import { getCollection } from "astro:content";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import CoverageNote from "../../components/CoverageNote.astro";
+import { buildAreaCalendars, type AreaCalendar } from "../../lib/area-calendars";
+import "../../styles/doc.css";
+
+const venues = (await getCollection("venues")).map((e) => e.data);
+const venueById = new Map(venues.map((v) => [v.id, v]));
+const areas = buildAreaCalendars(venues);
+
+const httpsUrl = (area: AreaCalendar) => (Astro.site ? new URL(area.path, Astro.site).href : area.path);
+const webcalUrl = (area: AreaCalendar) =>
+  Astro.site ? new URL(area.path, Astro.site).href.replace(/^https?:/, "webcal:") : area.path;
+const venueNames = (area: AreaCalendar) => area.venueIds.map((id) => venueById.get(id)?.short_name ?? id).join("、");
+---
+
+<BaseLayout
+  title="地域ごとのカレンダー"
+  description="地方・都道府県ごとに、刀剣の展覧会の会期をカレンダーアプリで受け取れます。"
+>
+  <article class="doc">
+    <h1>地域ごとのカレンダー</h1>
+    <p class="lead">
+      地方や都道府県ごとに、その地域の館で開かれる刀剣の展覧会の会期を、カレンダーアプリで受け取れます。展示情報が更新されると、カレンダーにも反映されます。
+    </p>
+    <ul>
+      <li>「購読する」を押すと、カレンダーアプリが開きます（iPhone・Mac など）。</li>
+      <li>Google カレンダーなどでは、「URL」のリンクのアドレスを、「URLで追加」に貼り付けてください。</li>
+      <li>1つの展覧会が、会期の1件の予定になります。会期の終了日が未定の展覧会は、開始日だけの予定になります。</li>
+    </ul>
+    <CoverageNote />
+
+    {
+      areas.map(({ region, prefectures }) => (
+        <section aria-labelledby={`h-${region.slug}`}>
+          <h2 id={`h-${region.slug}`}>{region.name}</h2>
+          <table>
+            <tbody>
+              {[region, ...prefectures].map((area) => (
+                <tr data-area-calendar data-ics-path={area.path}>
+                  <th scope="row">
+                    {area.kind === "region" ? `${area.name}全体` : area.name}
+                    <br />
+                    <span class="small">{venueNames(area)}</span>
+                  </th>
+                  <td>
+                    <a href={webcalUrl(area)} data-calendar-webcal>
+                      購読する
+                    </a>
+                    {"　"}
+                    <a class="small" href={httpsUrl(area)} data-calendar-https>
+                      URL
+                    </a>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </section>
+      ))
+    }
+  </article>
+</BaseLayout>
+
+<script>
+  // site が未設定でも、開いているページのURLから絶対URLを組み立てる（ビルド時に相対パスのままのリンクだけを書き換える）
+  for (const row of document.querySelectorAll<HTMLElement>("[data-area-calendar]")) {
+    const path = row.dataset.icsPath;
+    if (!path) continue;
+    const https = new URL(path, window.location.href).href;
+    const webcal = row.querySelector<HTMLAnchorElement>("[data-calendar-webcal]");
+    const httpsLink = row.querySelector<HTMLAnchorElement>("[data-calendar-https]");
+    if (httpsLink?.getAttribute("href")?.startsWith("/")) httpsLink.href = https;
+    if (webcal?.getAttribute("href")?.startsWith("/")) webcal.href = https.replace(/^https?:/, "webcal:");
+  }
+</script>

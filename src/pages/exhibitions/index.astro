@@ -41,6 +41,9 @@ const exhibitions: IndexExhibition[] = (await getCollection("exhibitions"))
       <p class="note-line">
         開催中は会期の終わりが近い順、開催予定は始まりが近い順です。日付の朱は、会期の終わりが近いことを示します。
       </p>
+      <p class="note-line">
+        地方・都道府県ごとの展覧会の会期を、カレンダーアプリで受け取れます。<a href="/calendars">地域ごとのカレンダー</a>
+      </p>
       <ExhibitionIndex client:load exhibitions={exhibitions} buildToday={todayJst()} endedLimit={ENDED_LIMIT} idPrefix="all-ex" />
       <CoverageNote />
     </section>

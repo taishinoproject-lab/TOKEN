@@ -208,3 +208,67 @@ export function buildSwordIcs(input: SwordCalendarInput): string {
     dtstamp: input.dtstamp,
   });
 }
+
+export interface AreaCalendarInput {
+  /** カレンダーの名前に使う地域名（例：「関東地方」「愛知県」） */
+  areaName: string;
+  /** UID の先頭に付ける、地域を区別する文字列（例：region-kanto、pref-aichi） */
+  uidPrefix: string;
+  exhibitions: readonly ExhibitionForIcs[];
+  venues: readonly VenueForIcs[];
+  dtstamp: Date;
+  /** 展覧会ページの絶対URLを返す。公開先が未定のあいだは省略できる */
+  exhibitionPageUrl?: (id: string) => string;
+}
+
+/**
+ * 地域ごとのカレンダーの予定を作る（D-023）。1つの展覧会を、会期の1件の終日の予定にする。
+ * - 終了日が未定の展覧会は、刀ごとのカレンダーと同じく、開始日だけの終日の予定にする。
+ * - 中止・延期の展覧会は含めない。
+ * - UID は「地域・展覧会ID」から決まる。
+ */
+export function areaCalendarEvents(input: AreaCalendarInput): IcsEvent[] {
+  const venueById = new Map(input.venues.map((v) => [v.id, v]));
+  const exhibitions = [...input.exhibitions].sort((a, b) =>
+    a.start_date < b.start_date ? -1 : a.start_date > b.start_date ? 1 : a.id < b.id ? -1 : a.id > b.id ? 1 : 0,
+  );
+  const events: IcsEvent[] = [];
+  for (const ex of exhibitions) {
+    if (ex.status === "cancelled" || ex.status === "postponed") continue;
+    const venue = venueById.get(ex.venue_id);
+    const openEnded = ex.end_date === null;
+    const description = [
+      `展覧会：${ex.title}`,
+      venue ? `会場：${venue.name}${ex.room ? `（${ex.room}）` : ""}` : null,
+      `会期：${formatDateRange(ex.start_date, ex.end_date)}`,
+      openEnded ? "終了日が未定のため、この予定は会期の開始日だけを示しています。" : null,
+      `公式サイト：${ex.official_url}`,
+      input.exhibitionPageUrl ? `展覧会のページ：${input.exhibitionPageUrl(ex.id)}` : null,
+      ex.confidence === "unverified" ? "この展示情報は要確認です。" : null,
+      "最新情報は公式サイトで確認してください。",
+    ]
+      .filter((line): line is string => line !== null)
+      .join("\n");
+    events.push({
+      uid: `${uidPart(input.uidPrefix)}.${uidPart(ex.id)}@${UID_DOMAIN}`,
+      start: ex.start_date,
+      end: ex.end_date ?? ex.start_date,
+      summary: `${ex.title}${openEnded ? " 開始・会期未定" : ""}（${venue?.short_name ?? ex.venue_id}）`,
+      description,
+      location: venue ? [venue.name, venue.address].filter(Boolean).join(" ") : undefined,
+      url: ex.official_url,
+      geo: venue ? { lat: venue.lat, lng: venue.lng } : undefined,
+    });
+  }
+  return events;
+}
+
+/** 地域ごとの .ics を作る。展覧会がなくても、予定のない有効なカレンダーを返す。 */
+export function buildAreaIcs(input: AreaCalendarInput): string {
+  return buildIcs({
+    name: `${input.areaName}の刀剣の展覧会｜訪剣`,
+    description: `${input.areaName}の館で開かれる刀剣の展覧会（訪剣 −TOKEN− に載っている館だけ）。最新情報は各展覧会の公式サイトで確認してください。`,
+    events: areaCalendarEvents(input),
+    dtstamp: input.dtstamp,
+  });
+}
