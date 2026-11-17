@@ -9,6 +9,7 @@ import EndingSoon, { type EndingExhibition } from "../components/EndingSoon.tsx"
 import { catalogSwordName, smithDisplayName } from "../lib/display-name";
 import { todayJst } from "../lib/date";
 import { exhibitionStatus } from "../lib/status";
+import CoverageNote from "../components/CoverageNote.astro";
 
 const swords = (await getCollection("swords")).map((e) => e.data);
 const smiths = (await getCollection("smiths")).map((e) => e.data);
@@ -93,6 +94,11 @@ const endingExhibitions: EndingExhibition[] = exhibitions
   <section class="sec" id="exhibitions" aria-labelledby="h-ending">
     <div class="wrap">
       <EndingSoon client:load exhibitions={endingExhibitions} buildToday={buildToday} />
+    </div>
+  </section>
+  <section class="sec" aria-label="載っている館について">
+    <div class="wrap">
+      <CoverageNote />
     </div>
   </section>
 </BaseLayout>

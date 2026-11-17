@@ -2,6 +2,11 @@
 // このサイトについて（T-402）。目的、情報の集め方、免責、出典、使用している書体とライセンス。
 import BaseLayout from "../layouts/BaseLayout.astro";
 import "../styles/doc.css";
+import { loadCoverage } from "../lib/coverage-data";
+import { formatFullDate } from "../lib/date";
+
+// 載っている館（D-024）は、巡回の結果からビルド時に組み立てる
+const coverage = await loadCoverage();
 
 const fonts = [
   {
@@ -45,6 +50,48 @@ const fonts = [
         刀の写真は掲載していません。写真を見たい場合は、各ページの「公式の画像ページを見る」から、所蔵館などの公式ページをご覧ください。SNS
         などで共有したときに表示される画像は、刀の名前を文字で組んで自動で作っています。
       </li>
+    </ul>
+
+    <h2 id="coverage">載っている館</h2>
+    <p>
+      このサイトに載っているのは、次の{coverage.crawled.length + coverage.manual.length}館の展示だけです。<strong
+        >ここにない館の展示は載っていません。載っていないことは、展示がないことを意味しません。</strong
+      >
+    </p>
+
+    <h3>公式サイトを毎週自動で確認している館（{coverage.crawled.length}館）</h3>
+    <p class="small">
+      日付は、自動の確認で公式サイトの展覧会のページを最後に読み取れた日です。直近の確認で読み取れなかった館は「確認できていません」と表示しています。
+    </p>
+    <table>
+      <tbody>
+        {
+          coverage.crawled.map((v) => (
+            <tr>
+              <th scope="row">
+                <a href={`/venues/${v.id}`}>{v.name}</a>
+                <span class="small">（{v.prefecture}）</span>
+              </th>
+              <td>{v.lastChecked ? formatFullDate(v.lastChecked) : "確認できていません"}</td>
+            </tr>
+          ))
+        }
+      </tbody>
+    </table>
+
+    <h3>自動の確認の対象外の館（{coverage.manual.length}館）</h3>
+    <p class="small">
+      公式サイトを自動では確認していません。展覧会ごとの最終確認日は、各展覧会のページに表示しています。
+    </p>
+    <ul>
+      {
+        coverage.manual.map((v) => (
+          <li>
+            <a href={`/venues/${v.id}`}>{v.name}</a>
+            <span class="small">（{v.prefecture}）</span>
+          </li>
+        ))
+      }
     </ul>
 
     <h2>ご利用にあたって（免責事項）</h2>
