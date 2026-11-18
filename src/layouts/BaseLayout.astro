@@ -1,6 +1,7 @@
 ---
 // 共通レイアウト（案A）。ヘッダー（ロゴ・ナビ・スマホ用メニュー）とフッター（免責文）。
 import "../styles/global.css";
+import { footerLinks, footerLinkText } from "../lib/site-links";
 import { allOgCards } from "../lib/og/collection";
 import { defaultDescription } from "../lib/og/card";
 import { ogPage, ogUrls } from "../lib/og/meta";
@@ -107,6 +108,22 @@ const navItems = [
         <ul class="mt-2 flex list-none flex-wrap gap-x-5 p-0">
           <li><a class="inline-block py-1" href="/about">このサイトについて（免責・出典）</a></li>
           <li><a class="inline-block py-1" href="/privacy">プライバシー</a></li>
+        </ul>
+        <!-- 外部の受付先（src/lib/site-links.ts）。URL が未設定のものは、リンクにせず「（準備中）」と表示する -->
+        <ul class="mt-1 flex list-none flex-wrap gap-x-5 p-0">
+          {
+            footerLinks.map((link) => (
+              <li>
+                {link.url ? (
+                  <a class="inline-block py-1" href={link.url} rel="noopener noreferrer" target="_blank">
+                    {footerLinkText(link)}
+                  </a>
+                ) : (
+                  <span class="inline-block py-1 opacity-70">{footerLinkText(link)}</span>
+                )}
+              </li>
+            ))
+          }
         </ul>
       </div>
     </footer>
