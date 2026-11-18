@@ -21,6 +21,10 @@ Cloudflare Pages の **Git 連携**（GitHub のリポジトリを Cloudflare �
 3. **Settings** → **Environment Variables** で、`SITE_URL` に本番の URL（例：`https://token-xxxx.vercel.app`、独自ドメインを使う場合はそのドメイン）を、Production の環境に登録する。登録後、**Deployments** から最新の本番を選んで再デプロイする。
 4. 本番の URL を、スマホとPCで開いて確かめる（§4 と同じ確認）。
 5. PR ごとのプレビューは、Vercel のログインが必要な設定（Deployment Protection）になっている。本番の URL は誰でも見られることを、ログアウトした状態で確かめる。
+6. **計測（Vercel Web Analytics）**: ダッシュボードの **Analytics** でプロジェクト `token` を選び、**Enable** を選ぶ。次のデプロイから集計が始まる（`/_vercel/insights/*` などの経路が追加される）。サイト側には `@vercel/analytics` の `<Analytics />` を `src/layouts/BaseLayout.astro` に入れてある。
+   - 本番のページを開き、ブラウザの開発者ツールの Network に `/view` で終わる通信が出ることで、動いていることを確かめられる。
+   - Hobby プランでは、1か月あたり 50,000 件まで集計され、見られる期間は直近1か月。独自のイベント（`track()`）は Pro 以上でないと集計されない。そのため、カレンダー購読のリンクが押された回数は、`/_events/calendar-webcal/<刀のID>` と `/_events/calendar-https/<刀のID>` というページの閲覧としても記録している（**Pages** の欄で見られる。合計の閲覧数には、この分が含まれる）。
+   - 出典: <https://vercel.com/docs/analytics/quickstart>、<https://vercel.com/docs/analytics/custom-events>、<https://vercel.com/docs/analytics/limits-and-pricing>、<https://vercel.com/docs/analytics/privacy-policy>（2026-11-17 確認）
 
 ### 毎日の再ビルド（Deploy Hook）
 
