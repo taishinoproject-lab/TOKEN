@@ -13,6 +13,10 @@
     {
       "source": "/swords/(.*)\\.ics",
       "headers": [{ "key": "Content-Type", "value": "text/calendar; charset=utf-8" }]
+    },
+    {
+      "source": "/calendars/(.*)\\.ics",
+      "headers": [{ "key": "Content-Type", "value": "text/calendar; charset=utf-8" }]
     }
   ]
 }

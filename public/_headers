@@ -10,6 +10,10 @@
 /swords/*.ics
   Content-Type: text/calendar; charset=utf-8
 
+# 地域ごとのカレンダー（src/pages/calendars/、D-023）
+/calendars/*.ics
+  Content-Type: text/calendar; charset=utf-8
+
 # プレビュー（本番以外のブランチ）の URL は、検索結果に出さない
 https://:version.:project.pages.dev/*
   X-Robots-Tag: noindex
