@@ -22,6 +22,26 @@ Cloudflare Pages の **Git 連携**（GitHub のリポジトリを Cloudflare �
 4. 本番の URL を、スマホとPCで開いて確かめる（§4 と同じ確認）。
 5. PR ごとのプレビューは、Vercel のログインが必要な設定（Deployment Protection）になっている。本番の URL は誰でも見られることを、ログアウトした状態で確かめる。
 
+### 毎日の再ビルド（Deploy Hook）
+
+「開催中・開催予定・終了」の区分や「あと○日」は、ビルドした日の日付（日本時間）で HTML に書き込まれる部分がある。データに変更がない日が続くと、終わった展示が「開催中」のまま残るため、GitHub Actions（`.github/workflows/daily-deploy.yml`）から、毎日 00:13（日本時間）に Vercel の Deploy Hook を呼んで、本番を作り直す。
+
+**オーナーの作業**（2026-11-23 に終わる展示を、11-26 までに確実に消すため、11-23 より前に済ませる）:
+
+1. Vercel のダッシュボードで、プロジェクト `token` → **Settings** → **Git** を開く。
+2. **Deploy Hooks** の欄で、名前（例：`daily-rebuild`）と、ブランチ `main` を入力して、作成する。
+3. 表示された URL（`https://api.vercel.com/v1/integrations/deploy/...`）をコピーする。**この URL を知っていれば誰でも本番を作り直せるため、パスワードと同じように扱う**（PR の本文やチャットに貼らない）。
+4. GitHub のリポジトリで **Settings** → **Secrets and variables** → **Actions** → **New repository secret** を選ぶ。
+5. **Name** に `VERCEL_DEPLOY_HOOK_URL`、**Secret** に 3. の URL を入れて、**Add secret** を選ぶ。
+6. この変更（`daily-deploy.yml`）を `main` に取り込む。定期実行は `main` にあるワークフローだけが動く。
+7. **Actions** タブ → **毎日の再ビルド** → **Run workflow**（ブランチは `main`）で1回手動で実行し、成功すること、Vercel の **Deployments** に Deploy Hook による本番のビルドが現れることを確かめる。
+
+- URL が漏れた場合は、Vercel の同じ画面で Deploy Hook を削除して作り直し、GitHub の Secret を更新する。
+- Deploy Hook は、1プロジェクトあたり1時間に60回まで呼べる。1日1回なら問題ない。
+- `vercel.json` に `github.enabled = false` を書くと Deploy Hook が動かなくなる（現在は書いていない）。
+- GitHub の定期実行は、混雑時に遅れることがある。また、公開リポジトリで60日間活動がないと、定期実行が自動で止まる（毎週の巡回 PR があるので、通常は止まらない）。
+- 出典: <https://vercel.com/docs/deploy-hooks>（2026-11-17 確認）、<https://docs.github.com/en/actions/writing-workflows/choosing-when-your-workflow-runs/events-that-trigger-workflows#schedule>
+
 ---
 
 ## 0. リポジトリ側で用意済みのもの
