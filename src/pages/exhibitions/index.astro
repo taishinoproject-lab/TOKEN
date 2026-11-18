@@ -3,6 +3,7 @@
 // ブラウザで今日の日付（日本時間）を使って分け直す。
 import { getCollection } from "astro:content";
 import BaseLayout from "../../layouts/BaseLayout.astro";
+import CoverageNote from "../../components/CoverageNote.astro";
 import ExhibitionIndex, { type IndexExhibition } from "../../components/ExhibitionIndex.tsx";
 import { todayJst } from "../../lib/date";
 
@@ -41,6 +42,7 @@ const exhibitions: IndexExhibition[] = (await getCollection("exhibitions"))
         開催中は会期の終わりが近い順、開催予定は始まりが近い順です。日付の朱は、会期の終わりが近いことを示します。
       </p>
       <ExhibitionIndex client:load exhibitions={exhibitions} buildToday={todayJst()} endedLimit={ENDED_LIMIT} idPrefix="all-ex" />
+      <CoverageNote />
     </section>
   </div>
 </BaseLayout>

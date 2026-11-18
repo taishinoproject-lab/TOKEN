@@ -1,6 +1,7 @@
 ---
 import { getCollection } from "astro:content";
 import BaseLayout from "../layouts/BaseLayout.astro";
+import CoverageNote from "../components/CoverageNote.astro";
 import ExhibitionMap from "../components/map/ExhibitionMap.tsx";
 import VisitNotebook from "../components/visits/VisitNotebook.tsx";
 import type { VisitExhibitionOption } from "../lib/visits";
@@ -35,6 +36,7 @@ const visitOptions: VisitExhibitionOption[] = exhibitions.flatMap((ex) => {
       <ExhibitionMap client:only="react" data={mapData} buildToday={buildToday}>
         <p slot="fallback" class="gothic text-sm">地図を読み込んでいます…</p>
       </ExhibitionMap>
+      <CoverageNote />
     </section>
     <section class="sec">
       <VisitNotebook client:only="react" exhibitions={visitOptions} buildToday={buildToday}>

@@ -1,0 +1,14 @@
+---
+// 収録範囲の短い注記（D-024）。トップ・展覧会の一覧・地図の下部に置き、館の一覧は「このサイトについて」に集約する。
+import { loadCoverage } from "../lib/coverage-data";
+import { formatFullDate } from "../lib/date";
+
+const coverage = await loadCoverage();
+const total = coverage.crawled.length + coverage.manual.length;
+---
+
+<p class="note-line" data-coverage-note>
+  このサイトに載っているのは、{total}館の展示だけです（うち{coverage.crawled.length}館は、公式サイトを毎週自動で確認しています{
+    coverage.lastCrawlDate && <>。最後の確認は{formatFullDate(coverage.lastCrawlDate)}</>
+  }）。載っていない館の展示もあります。<a href="/about#coverage">載っている館の一覧</a>
+</p>
